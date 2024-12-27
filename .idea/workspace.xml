@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99af82aa-5236-4d29-b3a1-906daeb2bfc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/UserObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/interfaces/IObservable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/interfaces/IObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/interfaces/ICommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/interfaces/ICommandParameterized.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/AddDish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/DeleteDish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/UpdateDish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/CreateRestaurant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/DeleteRestaurant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/ListRestaurant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/UpdateRestaurant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateDishReview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateRestaurantReview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/ListReview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/Validator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Restaurant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,20 +55,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "development",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.services.restaurant" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -76,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1735269885861</updated>
       <workItem from="1735269887604" duration="2598000" />
-      <workItem from="1735314794280" duration="11600000" />
+      <workItem from="1735314794280" duration="18857000" />
     </task>
     <servers />
   </component>

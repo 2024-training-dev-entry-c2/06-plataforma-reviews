@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant implements IObservable {
+	private static int idCounter = 0;
 	private Integer restaurantId;
 	private String name;
 	private String description;
@@ -19,13 +20,17 @@ public class Restaurant implements IObservable {
 	public Restaurant() {
 	}
 
-	public Restaurant(Integer restaurantId, String name, String description, String location, Menu menu, List<Review> reviews) {
-		this.restaurantId = restaurantId;
+	public Restaurant(String name, String description, String location, Menu menu, List<Review> reviews) {
+		this.restaurantId = generateId();
 		this.name = name;
 		this.description = description;
 		this.location = location;
 		this.menu = menu;
 		this.reviews = reviews;
+	}
+
+	private static int generateId() {
+		return idCounter++;
 	}
 
 	public Integer getRestaurantId() {

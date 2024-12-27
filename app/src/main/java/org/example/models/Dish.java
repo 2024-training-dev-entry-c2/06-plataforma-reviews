@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dish implements IObservable {
+  private static int idCounter = 0;
   private Integer dishId;
   private String name;
   private String description;
@@ -18,12 +19,16 @@ public class Dish implements IObservable {
   public Dish() {
   }
 
-  public Dish(Integer dishId, String name, String description, Float price, List<Review> reviews) {
-    this.dishId = dishId;
+  public Dish(String name, String description, Float price, List<Review> reviews) {
+    this.dishId = generateId();
     this.name = name;
     this.description = description;
     this.price = price;
     this.reviews = reviews;
+  }
+
+  private static int generateId() {
+    return idCounter++;
   }
 
   public Integer getDishId() {

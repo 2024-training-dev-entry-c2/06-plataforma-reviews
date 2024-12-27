@@ -1,21 +1,26 @@
 package org.example.models;
 
-import java.util.List;
+import java.util.Set;
 
 public class Menu {
+	private static int idCounter = 0;
 	private Integer menuId;
 	private String name;
 	private String description;
-	private List<Dish> dishes;
+	private Set<Dish> dishes;
 
 	public Menu() {
 	}
 
-	public Menu(Integer menuId, String name, String description, List<Dish> dishes) {
-		this.menuId = menuId;
+	public Menu(String name, String description, Set<Dish> dishes) {
+		this.menuId = generateId();
 		this.name = name;
 		this.description = description;
 		this.dishes = dishes;
+	}
+
+	private static int generateId() {
+		return idCounter++;
 	}
 
 	public Integer getMenuId() {
@@ -42,11 +47,11 @@ public class Menu {
 		this.description = description;
 	}
 
-	public List<Dish> getDishes() {
+	public Set<Dish> getDishes() {
 		return dishes;
 	}
 
-	public void setDishes(List<Dish> dishes) {
+	public void setDishes(Set<Dish> dishes) {
 		this.dishes = dishes;
 	}
 
@@ -54,11 +59,9 @@ public class Menu {
 		dishes.add(dish);
 	}
 
-	public void updateDish(Dish dish) {
-		dishes.stream()
-			.filter(d -> d.getDishId().equals(dish.getDishId()))
-			.findFirst()
-			.ifPresent(d -> dishes.set(dishes.indexOf(d), dish));
+	public void updateDish(Set<Dish> dishes, Dish updatedDish) {
+		dishes.removeIf(dish -> dish.getDishId().equals(updatedDish.getDishId()));
+		dishes.add(updatedDish);
 	}
 
 	public void deleteDish(Integer dishId) {

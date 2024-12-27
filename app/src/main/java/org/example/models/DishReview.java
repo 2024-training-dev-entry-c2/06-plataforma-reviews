@@ -1,6 +1,6 @@
 package org.example.models;
 
-class DishReview extends Review {
+public class DishReview extends Review {
   private Float tasteRating;
   private Float presentationRating;
 

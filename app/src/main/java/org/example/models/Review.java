@@ -1,6 +1,6 @@
 package org.example.models;
 
-abstract class Review {
+public abstract class Review {
   private Integer reviewId;
   private Float ratingAverage;
   private String comment;

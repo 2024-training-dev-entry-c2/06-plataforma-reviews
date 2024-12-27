@@ -2,7 +2,7 @@ package org.example.models;
 
 import java.util.List;
 
-class Dish {
+public class Dish {
   private Integer dishId;
   private String name;
   private String description;

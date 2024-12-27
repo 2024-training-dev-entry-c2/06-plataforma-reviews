@@ -1,13 +1,19 @@
 package org.example.models;
 
+import org.example.models.interfaces.IObservable;
+import org.example.models.interfaces.IObserver;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Dish {
+public class Dish implements IObservable {
   private Integer dishId;
   private String name;
   private String description;
   private Float price;
   private List<Review> reviews;
+
+  private List<IObserver> observers = new ArrayList<>();
 
   public Dish() {
   }
@@ -60,10 +66,34 @@ public class Dish {
     this.reviews = reviews;
   }
 
+  public void addReview(Review review) {
+    this.reviews.add(review);
+
+    notifyObservers("Se ha agregado una nueva review al plato: " + this.name);
+
+    Float newAverage = calculateAverageRating();
+    notifyObservers("La calificación promedio del plato " + this.name + " ha cambiado a: " + newAverage);
+  }
+
   public Float calculateAverageRating() {
     return (float) reviews.stream()
       .mapToDouble(Review::getRatingAverage)
       .average()
       .orElse(0.0);
+  }
+
+  @Override
+  public void addObserver(IObserver observer) {
+    observers.add(observer);
+  }
+
+  @Override
+  public void removeObserver(IObserver observer) {
+    observers.remove(observer);
+  }
+
+  @Override
+  public void notifyObservers(String message) {
+    observers.forEach(observer -> observer.update(message));
   }
 }

@@ -13,8 +13,9 @@ public class Menu {
   }
 
   public void displayMenu(){
-    System.out.println("\n------- Menu -------");
+    System.out.println("\n------- Menú -------");
     for(Dish dish : dishes.values()){
+      System.out.print("- ");
       dish.displayDish();
     }
     System.out.println("--------------------");
@@ -22,5 +23,13 @@ public class Menu {
 
   public void addDish(Dish dish){
     dishes.put(dish.getName(), dish);
+  }
+
+  public Dish searchDish(String name){
+    return dishes.get(name);
+  }
+
+  public Map<String, Dish> getDishes() {
+    return dishes;
   }
 }

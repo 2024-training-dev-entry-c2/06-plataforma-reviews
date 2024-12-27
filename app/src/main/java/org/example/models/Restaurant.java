@@ -11,10 +11,9 @@ public class Restaurant {
   private Menu menu;
   private List<Review> reviews;
 
-  public Restaurant(String name, String address, Menu menu) {
+  public Restaurant(String name, String address) {
     this.name = name;
     this.address = address;
-    this.menu = menu;
     this.reviews = new LinkedList<>();
   }
 
@@ -34,6 +33,10 @@ public class Restaurant {
 
   public void addReview(Review review){
     reviews.add(review);
+  }
+
+  public void displayRestaurant(){
+    System.out.println(name + ", " + address);
   }
 
   public String getName() {

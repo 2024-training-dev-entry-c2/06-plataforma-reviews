@@ -8,8 +8,8 @@ public class RestaurantReview extends Review {
 	public RestaurantReview() {
 	}
 
-	public RestaurantReview(Integer reviewId, Float ratingAverage, String comment, Float serviceRating, Float locationRating, Float menuRating) {
-		super(reviewId, ratingAverage, comment);
+	public RestaurantReview(String comment, Float serviceRating, Float locationRating, Float menuRating) {
+		super(comment);
 		this.serviceRating = serviceRating;
 		this.locationRating = locationRating;
 		this.menuRating = menuRating;

@@ -1,6 +1,7 @@
 package org.example.models;
 
 public abstract class Review {
+  private static int idCounter = 0;
   private Integer reviewId;
   private Float ratingAverage;
   private String comment;
@@ -8,10 +9,14 @@ public abstract class Review {
   protected Review() {
   }
 
-  protected Review(Integer reviewId, Float ratingAverage, String comment) {
-    this.reviewId = reviewId;
-    this.ratingAverage = ratingAverage;
+  protected Review(String comment) {
+    this.reviewId = generateId();
+    this.ratingAverage = 0f;
     this.comment = comment;
+  }
+
+  private static int generateId() {
+    return idCounter++;
   }
 
   public Integer getReviewId() {

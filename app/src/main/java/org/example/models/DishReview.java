@@ -7,8 +7,8 @@ public class DishReview extends Review {
   public DishReview() {
   }
 
-  public DishReview(Integer reviewId, Float ratingAverage, String comment, Float tasteRating, Float presentationRating) {
-    super(reviewId, ratingAverage, comment);
+  public DishReview(String comment, Float tasteRating, Float presentationRating) {
+    super(comment);
     this.tasteRating = tasteRating;
     this.presentationRating = presentationRating;
   }

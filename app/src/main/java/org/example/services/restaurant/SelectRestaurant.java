@@ -20,6 +20,10 @@ public class SelectRestaurant implements ICommand<Restaurant> {
 	public Restaurant execute() {
 		Map<Integer, Restaurant> restaurants = restaurantRepository.getAllRestaurants();
 
+		if (restaurants.isEmpty()) {
+			return null;
+		}
+
 		displayRestaurantList(restaurants);
 
 		int selectedIndex = getSelectedIndex(restaurants.size());

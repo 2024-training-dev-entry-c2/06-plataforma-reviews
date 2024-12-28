@@ -16,6 +16,11 @@ public class DeleteRestaurant implements ICommand<Boolean> {
 	@Override
 	public Boolean execute() {
 		Restaurant selectedRestaurant = selectRestaurant.execute();
+
+		if (selectedRestaurant == null) {
+			return false;
+		}
+
 		return restaurantRepository.deleteRestaurant(selectedRestaurant.getRestaurantId());
 	}
 }

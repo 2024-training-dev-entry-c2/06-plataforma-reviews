@@ -1,7 +1,7 @@
 package org.example.models;
 
 public abstract class Review {
-  private static int idCounter = 0;
+  private static int idCounter = 1;
   private Integer reviewId;
   private Float ratingAverage;
   private String comment;

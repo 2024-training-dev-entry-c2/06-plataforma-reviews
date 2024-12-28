@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Menu {
-	private static int idCounter = 0;
+	private static int idCounter = 1;
 	private Integer menuId;
 	private String name;
 	private String description;
@@ -71,13 +71,15 @@ public class Menu {
 
 	@Override
 	public String toString() {
+		String dishesInfo = dishes.stream().map(dish -> "    " + dish.toString()).collect(Collectors.joining("\n\n"));
+
 		return """
         Menu {
-          ID: %d
-          Name: '%s'
-          Description: '%s'
-          Platos: '%s'
+          Nombre: '%s'
+          Descripción: '%s'
+          Platos:
+          %s
         }
-        """.formatted(menuId, name, description, dishes.stream().map(dish -> dish.getDishId() + ". " + dish.getName()).collect(Collectors.joining("\n")));
+        """.formatted(name, description, dishesInfo.isEmpty() ? "No hay platos en el menú" : dishesInfo);
 	}
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant implements IObservable {
-	private static int idCounter = 0;
+	private static int idCounter = 1;
 	private Integer restaurantId;
 	private String name;
 	private String description;
@@ -20,13 +20,13 @@ public class Restaurant implements IObservable {
 	public Restaurant() {
 	}
 
-	public Restaurant(String name, String description, String location, Menu menu, List<Review> reviews) {
+	public Restaurant(String name, String description, String location, Menu menu) {
 		this.restaurantId = generateId();
 		this.name = name;
 		this.description = description;
 		this.location = location;
 		this.menu = menu;
-		this.reviews = reviews;
+		this.reviews = new ArrayList<>();
 	}
 
 	private static int generateId() {
@@ -87,7 +87,6 @@ public class Restaurant implements IObservable {
 
 	public void addReview(Review review) {
 		this.reviews.add(review);
-
 		notifyObservers("Se ha agregado una nueva review al restaurante: " + this.name);
 
 		Float newAverage = calculateAverageRating();
@@ -103,14 +102,18 @@ public class Restaurant implements IObservable {
 
 	@Override
 	public String toString() {
+		String menuInfo = (menu == null) ? "Aún no hay menú" : menu.toString();
+		String reviewsInfo = (reviews == null || reviews.isEmpty()) ? "Aún no hay reseñas" : reviews.toString();
+
 		return """
-        Restaurant {
-          ID: %d
-          Name: '%s'
-          Description: '%s'
-          Location: '%s'
+        Restaurante {
+          Nombre: '%s'
+          Descripción: '%s'
+          Ubicación: '%s'
+          Menu: %s
+          Reseñas del restaurante: %s
         }
-        """.formatted(restaurantId, name, description, location);
+        """.formatted(name, description, location, menuInfo, reviewsInfo);
 	}
 
 	@Override

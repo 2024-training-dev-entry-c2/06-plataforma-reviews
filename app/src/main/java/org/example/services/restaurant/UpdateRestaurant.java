@@ -20,6 +20,10 @@ public class UpdateRestaurant implements ICommand<Boolean> {
 	public Boolean execute() {
 		Restaurant selectedRestaurant = selectRestaurant.execute();
 
+		if (selectedRestaurant == null) {
+			return false;
+		}
+
 		Restaurant existingRestaurant = restaurantRepository.getRestaurant(selectedRestaurant.getRestaurantId());
 
 		if (existingRestaurant == null) {

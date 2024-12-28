@@ -37,10 +37,12 @@ public class DishReview extends Review {
   @Override
   public String toString() {
     return """
-        DishReview {
-          Taste Rating: %f
-          Presentation Rating: %f
+        Reseña del plato {
+          Comentario: '%s'
+          Calificación de la sabor: %f
+          Calificación de la presentación: %f
+          Calificación promedio: %f
         }
-        """.formatted(tasteRating, presentationRating);
+        """.formatted(getComment(), tasteRating, presentationRating, getRatingAverage());
   }
 }

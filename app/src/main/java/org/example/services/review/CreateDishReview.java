@@ -38,8 +38,8 @@ public class CreateDishReview implements ICommand<Boolean> {
 
 	private Review createDishReview() {
 		String comment = validator.readString("Ingrese un comentario para el plato: ");
-		Float tasteRating = validator.readFloat("Ingrese una calificación para el sabor (0-5): ");
-		Float presentationRating = validator.readFloat("Ingrese una calificación para la presentación (0-5): ");
+		Float tasteRating = validator.readRating("Ingrese una calificación para el sabor (0-5): ");
+		Float presentationRating = validator.readRating("Ingrese una calificación para la presentación (0-5): ");
 
 		return ReviewFactory.createReview(comment, tasteRating, presentationRating);
 	}

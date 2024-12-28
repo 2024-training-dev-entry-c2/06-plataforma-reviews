@@ -22,6 +22,11 @@ public class SelectDish implements ICommand<Dish> {
 	@Override
 	public Dish execute() {
 		Restaurant restaurant = selectRestaurant.execute();
+
+		if (restaurant == null) {
+			return null;
+		}
+
 		Set<Dish> dishes = restaurant.getMenu().getDishes();
 
 		if (dishes.isEmpty()) {

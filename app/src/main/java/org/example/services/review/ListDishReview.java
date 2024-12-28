@@ -8,6 +8,8 @@ import org.example.services.menu.SelectDish;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import java.util.Collections;
+
 public class ListDishReview implements ICommand<List<DishReview>> {
 	private final SelectDish selectDish;
 
@@ -18,6 +20,10 @@ public class ListDishReview implements ICommand<List<DishReview>> {
 	@Override
 	public List<DishReview> execute() {
 		Dish dish = selectDish.execute();
+
+		if (dish == null) {
+			return Collections.emptyList();
+		}
 
 		return dish.getReviews().stream()
 			.map(DishReview.class::cast)

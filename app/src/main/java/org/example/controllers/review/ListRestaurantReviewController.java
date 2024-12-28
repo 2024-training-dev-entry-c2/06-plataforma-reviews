@@ -16,9 +16,19 @@ public class ListRestaurantReviewController implements ICommandController {
 	@Override
 	public void execute() {
 		List<RestaurantReview> restaurants = listRestaurantReview.execute();
+		if (restaurants.isEmpty()) {
+			System.out.println("""
+				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+				    \033[1;31m☆      NO HAY RESEÑAS DISPONIBLES     ☆
+				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+				    \033[0m
+				""");
+			return;
+		}
+
 		System.out.println("""
 			    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-			    \033[1;32m☆      LISTADO DE REVIEWS DEL RESTAURANTE     ☆
+			    \033[1;32m☆      LISTADO DE RESEÑAS DEL RESTAURANTE     ☆
 			    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 			    \033[0m
 			""");

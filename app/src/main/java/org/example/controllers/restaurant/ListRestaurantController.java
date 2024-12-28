@@ -16,6 +16,16 @@ public class ListRestaurantController implements ICommandController {
 	@Override
 	public void execute() {
 		List<Restaurant> restaurants = listRestaurant.execute();
+		if (restaurants.isEmpty()) {
+			System.out.println("""
+				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+				    \033[1;31m☆NO HAY RESTAURANTES EN EL REPOSITORIO☆
+				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+				    \033[0m
+				""");
+			return;
+		}
+
 		System.out.println("""
 			    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 			    \033[1;32m☆       LISTADO DE RESTAURANTES       ☆

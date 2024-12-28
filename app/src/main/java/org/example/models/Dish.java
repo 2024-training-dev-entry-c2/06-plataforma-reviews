@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dish implements IObservable {
-  private static int idCounter = 0;
+  private static int idCounter = 1;
   private Integer dishId;
   private String name;
   private String description;
@@ -19,12 +19,12 @@ public class Dish implements IObservable {
   public Dish() {
   }
 
-  public Dish(String name, String description, Float price, List<Review> reviews) {
+  public Dish(String name, String description, Float price) {
     this.dishId = generateId();
     this.name = name;
     this.description = description;
     this.price = price;
-    this.reviews = reviews;
+    this.reviews = new ArrayList<>();
   }
 
   private static int generateId() {
@@ -85,6 +85,19 @@ public class Dish implements IObservable {
       .mapToDouble(Review::getRatingAverage)
       .average()
       .orElse(0.0);
+  }
+
+  @Override
+  public String toString() {
+    return """
+        Plato {
+          ID: %d
+          Nombre: '%s'
+          Descripción: '%s'
+          Precio: %.2f
+          Calificación promedio: %.2f
+        }
+        """.formatted(dishId, name, description, price, calculateAverageRating());
   }
 
   @Override

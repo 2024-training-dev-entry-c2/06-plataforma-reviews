@@ -6,6 +6,8 @@ import org.example.models.Restaurant;
 import org.example.services.interfaces.ICommand;
 import org.example.services.restaurant.SelectRestaurant;
 import org.example.utils.Validator;
+
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -20,19 +22,14 @@ public class UpdateDish implements ICommand<Boolean> {
 
 	@Override
 	public Boolean execute() {
-		Restaurant restaurant = selectRestaurant.execute();
-		Menu menu = restaurant.getMenu();
-		if (menu == null) {
-			return false;
-		}
-
-		Dish dish = findDish(menu);
-		if (dish == null) {
-			return false;
-		}
-
-		updateDishDetails(dish);
-		return true;
+		return Optional.ofNullable(selectRestaurant.execute())
+			.map(Restaurant::getMenu)
+			.map(this::findDish)
+			.map(dish -> {
+				updateDishDetails(dish);
+				return true;
+			})
+			.orElse(false);
 	}
 
 	private Dish findDish(Menu menu) {
@@ -42,11 +39,11 @@ public class UpdateDish implements ICommand<Boolean> {
 			.map(dish -> dish.getDishId() + ". " + dish.getName())
 			.collect(Collectors.joining("\n"));
 
-		String dishName = validator.readString("\nListado de nombres de platos:\n" + dishesNames +
-			"\nIngrese el nombre del plato que desea actualizar: ");
+		Integer dishId= validator.readInteger("\nListado de nombres de platos:\n" + dishesNames +
+			"\nIngrese el numero del plato que desea actualizar: ");
 
 		return dishes.stream()
-			.filter(dish -> dish.getName().equalsIgnoreCase(dishName))
+			.filter(dish -> dish.getDishId().equals(dishId))
 			.findFirst()
 			.orElse(null);
 	}
@@ -62,8 +59,8 @@ public class UpdateDish implements ICommand<Boolean> {
 			dish.setDescription(newDescription);
 		}
 
-		Float newPrice = validator.readFloat("Ingrese el nuevo precio del plato (deje vacío para no cambiar): ");
-		if (newPrice != null) {
+		Float newPrice = validator.readFloat("Ingrese el nuevo precio del plato (Escriba 0 para no cambiar): ");
+		if (newPrice != null && newPrice != 0f) {
 			dish.setPrice(newPrice);
 		}
 	}

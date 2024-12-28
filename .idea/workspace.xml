@@ -5,9 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99af82aa-5236-4d29-b3a1-906daeb2bfc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/interfaces/IMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/CreateMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/CreateRestaurantTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/menu/DeleteDishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/menu/DeleteDishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/restaurant/DeleteRestaurantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/restaurant/DeleteRestaurantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/restaurant/ListRestaurantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/restaurant/ListRestaurantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/review/CreateRestaurantReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/review/CreateRestaurantReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/review/ListDishReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/review/ListDishReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/review/ListRestaurantReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/review/ListRestaurantReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/DishReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/DishReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Restaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/RestaurantReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/RestaurantReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/UserObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/UserObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/AddDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/AddDish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/SelectDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/SelectDish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/UpdateDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/UpdateDish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/CreateRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/CreateRestaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/DeleteRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/DeleteRestaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/SelectRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/SelectRestaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/UpdateRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/UpdateRestaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateDishReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateDishReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateRestaurantReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateRestaurantReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/ListDishReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/ListDishReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/ListRestaurantReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/ListRestaurantReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/utils/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/utils/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/Validator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +52,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -43,9 +73,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.06-plataforma-reviews [dependencies].executor": "Run",
     "Gradle.06-plataforma-reviews:app [:app:App.main()].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "git-widget-placeholder": "development",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -60,6 +98,76 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.services.restaurant" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.services.restaurant" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.CreateRestaurantTest.testExecute">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.example.App" />
+      <module name="06-plataforma-reviews.app.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="06-plataforma-reviews [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CreateRestaurantTest.testExecute" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.services.restaurant.CreateRestaurantTest.testExecute&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.CreateRestaurantTest.testExecute" />
+        <item itemvalue="Gradle.06-plataforma-reviews [dependencies]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -78,7 +186,8 @@
       <option name="presentableId" value="Default" />
       <updated>1735269885861</updated>
       <workItem from="1735269887604" duration="2598000" />
-      <workItem from="1735314794280" duration="39385000" />
+      <workItem from="1735314794280" duration="41688000" />
+      <workItem from="1735406479522" duration="12124000" />
     </task>
     <servers />
   </component>

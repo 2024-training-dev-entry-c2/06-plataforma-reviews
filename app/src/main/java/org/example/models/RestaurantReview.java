@@ -47,11 +47,13 @@ public class RestaurantReview extends Review {
 	@Override
 	public String toString() {
 		return """
-        RestaurantReview {
-          Service Rating: %f
-          Location Rating: %f
-          Menu Rating: %f
+        Reseña del restaurante {
+          Comentario: '%s'
+          Calificación del servicio: %f
+          Calificación del lugar: %f
+          Calificación del menú: %f
+          Calificación promedio: %f
         }
-        """.formatted(serviceRating, locationRating, menuRating);
+        """.formatted(getComment(), serviceRating, locationRating, menuRating, getRatingAverage());
 	}
 }

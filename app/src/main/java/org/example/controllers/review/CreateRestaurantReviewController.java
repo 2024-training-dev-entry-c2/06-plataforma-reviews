@@ -24,9 +24,9 @@ public class CreateRestaurantReviewController implements ICommandController {
 		}
 
 		System.out.println("""
-				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-				    \033[1;31m☆  ¡REVIEW DEL RESTAURANTE CREADA CON ÉXITO!  ☆
-				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+				    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+				    \033[1;32m☆  ¡REVIEW DEL RESTAURANTE CREADA CON ÉXITO!  ☆
+				    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 				    \033[0m
 				""");
 	}

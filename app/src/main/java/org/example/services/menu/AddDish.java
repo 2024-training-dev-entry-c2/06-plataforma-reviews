@@ -26,6 +26,7 @@ public class AddDish implements ICommand<Menu> {
 			menu = createMenu();
 		}
 
+		validator.printMessage("\n☆ ☆ ☆ AÑADIENDO PLATOS AL MENU ☆ ☆ ☆");
 		addDishesToMenu(menu);
 
 		return menu;
@@ -39,7 +40,7 @@ public class AddDish implements ICommand<Menu> {
 			String dishDescription = validator.readString("Ingrese la descripción del plato: ");
 			Float dishPrice = validator.readFloat("Ingrese el precio del plato: ");
 
-			Dish dish = new Dish(dishName, dishDescription, dishPrice, null);
+			Dish dish = new Dish(dishName, dishDescription, dishPrice);
 
 			menu.addDish(dish);
 

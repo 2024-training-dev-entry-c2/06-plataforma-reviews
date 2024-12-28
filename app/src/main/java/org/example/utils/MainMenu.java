@@ -17,6 +17,7 @@ import org.example.services.menu.AddDish;
 import org.example.services.menu.DeleteDish;
 import org.example.services.menu.SelectDish;
 import org.example.services.menu.UpdateDish;
+import org.example.services.restaurant.AddRestaurantObserver;
 import org.example.services.restaurant.CreateRestaurant;
 import org.example.services.restaurant.DeleteRestaurant;
 import org.example.services.restaurant.ListRestaurant;
@@ -49,7 +50,8 @@ public class MainMenu implements IMenu<Integer> {
 	DeleteDish deleteDish = new DeleteDish(validator, selectDish, restaurantRepository);
 
 	CreateDishReview createDishReview = new CreateDishReview(validator, selectDish);
-	CreateRestaurantReview createRestaurantReview = new CreateRestaurantReview(validator, selectRestaurant);
+	AddRestaurantObserver addRestaurantObserver = new AddRestaurantObserver(validator);
+	CreateRestaurantReview createRestaurantReview = new CreateRestaurantReview(validator, selectRestaurant, addRestaurantObserver);
 
 	ListDishReview listDishReview = new ListDishReview(selectDish);
 	ListRestaurantReview listRestaurantReview = new ListRestaurantReview(selectRestaurant);
@@ -69,42 +71,53 @@ public class MainMenu implements IMenu<Integer> {
 		controllers.put(10, new CreateRestaurantReviewController(createRestaurantReview));
 		controllers.put(11, new ListRestaurantReviewController(listRestaurantReview));
 
-		Integer option = showMenu();
+		Integer option;
 
-		do {
+		while (true) {
+			option = showMenu();
+
+			if (option == 12) {
+				System.out.println("""
+					    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+					    \033[1;32m☆   ¡GRACIAS POR USAR NUESTRA APLICACIÓN!     ☆
+					    \033[1;32m☆     Esperamos verte nuevamente pronto.      ☆
+					    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+					    \033[0m
+					""");
+				break;
+			}
+
 			if (controllers.containsKey(option)) {
 				controllers.get(option).execute();
 			} else {
 				validator.printMessage("Opción no válida. Por favor, elige una opción entre 1 y 11.");
 			}
-
-			option = showMenu();
-		} while (option != 12);
+		}
 
 		return option;
 	}
 
 	private Integer showMenu() {
 		return validator.readInteger("""
-        ====================================================================
-        ☆ ☆ ☆ BIENVENIDO A LA APLICACIÓN DE GESTIÓN DE RESTAURANTES ☆ ☆ ☆
-        ====================================================================
-                                 ¿QUÉ DESEAS HACER?                       \s
-        ────────────────────────────────────────────────────────────────────
-            1. Crear un restaurante
-            2. Actualizar un restaurante
-            3. Eliminar un restaurante
-            4. Listar restaurantes
-            5. Añadir un plato
-            6. Actualizar un plato
-            7. Eliminar un plato
-            8. Crear una reseña de un plato
-            9. Listar reseñas de platos
-            10. Crear una reseña de un restaurante
-            11. Listar reseñas de restaurantes
-            12. Salir
-        ────────────────────────────────────────────────────────────────────
-        Introduce el número de la opción que deseas realizar:\s"""
+			====================================================================
+			☆ ☆ ☆ BIENVENIDO A LA APLICACIÓN DE GESTIÓN DE RESTAURANTES ☆ ☆ ☆
+			====================================================================
+			                         ¿QUÉ DESEAS HACER?                       \s
+			────────────────────────────────────────────────────────────────────
+			    1. Crear un restaurante
+			    2. Actualizar un restaurante
+			    3. Eliminar un restaurante
+			    4. Listar restaurantes
+			    5. Añadir un plato
+			    6. Actualizar un plato
+			    7. Eliminar un plato
+			    8. Crear una reseña de un plato
+			    9. Listar reseñas de platos
+			    10. Crear una reseña de un restaurante
+			    11. Listar reseñas de restaurantes
+			    12. Salir
+			────────────────────────────────────────────────────────────────────
+			Introduce el número de la opción que deseas realizar:\s"""
 		);
 	}
 }

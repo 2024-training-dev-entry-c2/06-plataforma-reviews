@@ -24,12 +24,15 @@ public class CreateRestaurant implements ICommand<Restaurant> {
 		String description = validator.readString("Ingrese la descripción del restaurante: ");
 		String location = validator.readString("Ingrese la ubicación del restaurante: ");
 
-		Restaurant restaurant = new Restaurant(name, description, location, null, null);
+		Restaurant restaurant = new Restaurant(name, description, location, null);
+
+		restaurantRepository.addRestaurant(restaurant);
+
+		validator.printMessage("\n☆ ☆ ☆ CREACIÓN DE MENU ☆ ☆ ☆");
 
 		Menu menu = addDish.execute();
 		restaurant.setMenu(menu);
 
-		restaurantRepository.addRestaurant(restaurant);
 		return restaurant;
 	}
 }

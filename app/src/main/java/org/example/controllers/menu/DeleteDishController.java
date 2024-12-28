@@ -16,7 +16,7 @@ public class DeleteDishController implements ICommandController {
 		if (!dish) {
 			System.out.println("""
 				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-				    \033[1;31m☆ ¡ERROR AL ELIMINAR EL PLATO!  ☆
+				    \033[1;31m☆    ¡ERROR AL ELIMINAR EL PLATO!     ☆
 				    \033[1;31m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 				    \033[0m
 				""");
@@ -25,7 +25,7 @@ public class DeleteDishController implements ICommandController {
 
 		System.out.println("""
 			    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-			    \033[1;32m☆  ¡PLATO ELIMINADO CON ÉXITO!  ☆
+			    \033[1;32m☆     ¡PLATO ELIMINADO CON ÉXITO!     ☆
 			    \033[1;32m☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 			    \033[0m
 			""");

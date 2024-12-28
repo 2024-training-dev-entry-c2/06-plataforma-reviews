@@ -25,12 +25,12 @@ public class AddMenuRestaurant implements ICommand {
     }
 
     @Override
-    public Object execute() {
-        repository.displayRestaurants();
-        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
-        String menu = validatorScanner.stringScanner("Escribe el menu que quieres en el restaurante");
-        addMenu(restaurant,menu);
-        return null;
+    public void execute() {
+//        repository.displayRestaurants();
+//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
+//        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
+//        String menu = validatorScanner.stringScanner("Escribe el menu que quieres en el restaurante");
+//        addMenu(restaurant,menu);
+//        return null;
     }
 }

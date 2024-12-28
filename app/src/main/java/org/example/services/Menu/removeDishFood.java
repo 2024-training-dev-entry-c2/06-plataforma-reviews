@@ -26,14 +26,14 @@ public class removeDishFood implements ICommand {
     }
 
     @Override
-    public Object execute() {//String name, String description, Double price, List<Review> reviewList)
-        repository.displayRestaurants();
-        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
-        menuRepository.showDishes(restaurant.getMenu());
-        int optionDishes = validatorScanner.integerScanner("Selecciona el plato para borrar :");
-        DishFood dishFood= restaurant.getMenu().getDishFoodList().get(optionDishes);
-        removeDish( restaurant.getMenu(),dishFood);
-        return null;
+    public void execute() {//String name, String description, Double price, List<Review> reviewList)
+//        repository.displayRestaurants();
+//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
+//        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
+//        menuRepository.showDishes(restaurant.getMenu());
+//        int optionDishes = validatorScanner.integerScanner("Selecciona el plato para borrar :");
+//        DishFood dishFood= restaurant.getMenu().getDishFoodList().get(optionDishes);
+//        removeDish( restaurant.getMenu(),dishFood);
+//        return null;
     }
 }

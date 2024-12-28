@@ -25,14 +25,14 @@ public class addDishFood implements ICommand {
     }
 
     @Override
-    public Object execute() {
-        repository.displayRestaurants();
-        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
-        String name = validatorScanner.stringScanner("Escribe el nombre del plato ");
-        String description = validatorScanner.stringScanner("Escribe una descripcion ");
-        double price = validatorScanner.integerScanner("Escribe el precio: ");
-        addDish(restaurant.getMenu().getName(), new DishFood(name, description, price, Collections.emptyList()));
-        return null;
+    public void execute() {
+//        repository.displayRestaurants();
+//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
+//        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
+//        String name = validatorScanner.stringScanner("Escribe el nombre del plato ");
+//        String description = validatorScanner.stringScanner("Escribe una descripcion ");
+//        double price = validatorScanner.integerScanner("Escribe el precio: ");
+//        addDish(restaurant.getMenu().getName(), new DishFood(name, description, price, Collections.emptyList()));
+//        return null;
     }
 }

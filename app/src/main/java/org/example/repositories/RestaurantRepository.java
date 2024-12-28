@@ -37,7 +37,7 @@ public class RestaurantRepository {
     public Restaurant getRestaurant(String name) {
         return restaurants.get(name);
     }
-    
+
     public Map<String, Restaurant> getAllRestaurants() {
         return restaurants;
     }

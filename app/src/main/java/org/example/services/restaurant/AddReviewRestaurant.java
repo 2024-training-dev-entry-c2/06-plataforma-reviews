@@ -18,16 +18,15 @@ public class AddReviewRestaurant implements ICommand {
     }
 
     @Override
-    public Object execute() {
-        repository.displayRestaurants();
-        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-        String nameRestaurant = repository.getRestaurantNameByIndex(optionRestaurant);
-        User user = new User(validatorScanner.stringScanner("Ingrese su nombre"));
-        String comment =validatorScanner.stringScanner("Ingrese su comentario");
-        Float placeRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del lugar");
-        Float menuRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del menu");
-        addReview(nameRestaurant,user,comment,placeRating,menuRating);
+    public void execute() {
+//        repository.displayRestaurants();
+//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
+//        String nameRestaurant = repository.getRestaurantNameByIndex(optionRestaurant);
+//        User user = new User(validatorScanner.stringScanner("Ingrese su nombre"));
+//        String comment =validatorScanner.stringScanner("Ingrese su comentario");
+//        Float placeRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del lugar");
+//        Float menuRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del menu");
+//        addReview(nameRestaurant,user,comment,placeRating,menuRating);
 
-        return null;
     }
 }

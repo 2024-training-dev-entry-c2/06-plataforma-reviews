@@ -6,17 +6,15 @@ import org.example.services.utils.IValidatorScanner;
 
 public class UpdateRestaurat implements ICommand {
     private final RestaurantRepository repository = RestaurantRepository.getInstance();
-    private final IValidatorScanner validatorScanner;
 
-    public UpdateRestaurat(IValidatorScanner validatorScanner) {
-        this.validatorScanner = validatorScanner;
-    }
+
+//    public UpdateRestaurat(IValidatorScanner validatorScanner) {
+//        this.validatorScanner = validatorScanner;
+//    }
 
     @Override
-    public Object execute() {
-        AddRestaurant newRestaurant = new AddRestaurant(validatorScanner);
-//        newRestaurant.execute();
-//        repository.updateRestaurant(newRestaurant.execute())
-        return null;
+    public void execute() {
+        System.out.println("hlaaaaaaaa");
+
     }
 }

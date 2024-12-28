@@ -16,10 +16,10 @@ public class AddReviewDish implements ICommand {
     private String restaurantName;
     private User user;
     private String comment;
-    private Float rating;
+    private Float[] rating;
     private Integer indexDishFood;
 
-    public AddReviewDish(String restaurantName, User user, String comment, Float rating, Integer indexDishFood) {
+    public AddReviewDish(String restaurantName,Integer indexDishFood, User user, String comment,  Float... rating) {
         this.restaurantName = restaurantName;
         this.user = user;
         this.comment = comment;
@@ -29,7 +29,8 @@ public class AddReviewDish implements ICommand {
 
     @Override
     public void execute() {
-        DishFood dishFood= restaurantRepository.getRestaurant(restaurantName).getMenu().getDishFoodList().get(indexDishFood);
+        Restaurant restaurant = restaurantRepository.getRestaurant(restaurantName);
+        DishFood dishFood= restaurant.getMenu().getDishFoodList().get(indexDishFood);
         repository.addReview(dishFood, comment, rating);
     }
 }

@@ -24,6 +24,7 @@ public class RestaurantRepository {
             System.out.println("Restaurante :" + newRestaurant.getName() + " Ya existe!!");
             return existing;
         });
+
     }
 
     public boolean removeRestaurant(String name){
@@ -34,6 +35,19 @@ public class RestaurantRepository {
         }
         return false;
     }
+
+    public Restaurant updateRestaurant(Restaurant updatedRestaurant) {
+        return this.restaurants.merge(
+                updatedRestaurant.getName(),
+                updatedRestaurant,
+                (existing, newRestaurant) -> {
+                    existing.setAddress(newRestaurant.getAddress());
+                    existing.setMenu(newRestaurant.getMenu());
+                    existing.notifyObservers("Restaurante actualizado: " + newRestaurant.getName());
+                    return existing;
+                });
+    }
+
     public Restaurant getRestaurant(String name) {
         return restaurants.get(name);
     }
@@ -44,9 +58,13 @@ public class RestaurantRepository {
 
     public void addReview(String restaurantName,User user, String comentario, Float... calificaciones){
         Restaurant restaurant = restaurants.get(restaurantName);
-        Review review = ReviewFactory.createReview("restaurante", comentario, calificaciones);
+        IReview review = ReviewFactory.createReview("restaurante", comentario, calificaciones);
+        restaurant.addObserver(user);
         restaurant.addReview(user, review);
     }
+
+
+
 
 
 }

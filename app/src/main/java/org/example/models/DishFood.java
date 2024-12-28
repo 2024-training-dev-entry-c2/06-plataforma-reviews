@@ -7,7 +7,7 @@ public class DishFood {
     private String name;
     private String description;
     private Double price;
-    private List<Review> reviewList;
+    private List<ReviewDish> reviewList;
 
     public DishFood(String name, String description, Double price) {
         this.name = name;
@@ -16,10 +16,18 @@ public class DishFood {
         this.reviewList = new ArrayList<>();
     }
 
+    public void getAverageRating(){
+        double suma = 0;
+        for (ReviewDish review : reviewList) {
+            suma += (review.getTasteRating()+review.getPresentationRating())/2;
+        }
+        System.out.println("Review Promedio: " + suma +" :3");
+    }
+
     public DishFood() {
     }
-    public void addReview(Review review){
-        reviewList.add(review);
+    public void addReview(IReview review){
+        reviewList.add((ReviewDish) review);
     }
 
     public String getName() {
@@ -46,11 +54,11 @@ public class DishFood {
         this.price = price;
     }
 
-    public List<Review> getReviewList() {
+    public List<ReviewDish> getReviewList() {
         return reviewList;
     }
 
-    public void setReviewList(List<Review> reviewList) {
+    public void setReviewList(List<ReviewDish> reviewList) {
         this.reviewList = reviewList;
     }
 

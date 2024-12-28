@@ -1,37 +1,36 @@
 package org.example.models;
 
-public class ReviewDish extends Review {
-    private Float tasteRating;
-    private Float presentationRating;
+public class ReviewDish implements IReview {
+    private Double tasteRating;
+    private Double presentationRating;
+    private String comment;
 
-    public ReviewDish(String comment) {
-        super(comment);
-    }
 
-    public ReviewDish(String comment, Float tasteRating, Float presentationRating) {
-        super(comment);
+    public ReviewDish(String comment, Double tasteRating, Double presentationRating) {
+        this.comment=comment;
         this.tasteRating = tasteRating;
         this.presentationRating = presentationRating;
     }
-
     @Override
-    void showDetails() {
+    public void showDetails() {
 
     }
 
-    public Float getTasteRating() {
+    public Double getTasteRating() {
         return tasteRating;
     }
 
-    public void setTasteRating(Float tasteRating) {
+    public void setTasteRating(Double tasteRating) {
         this.tasteRating = tasteRating;
     }
 
-    public Float getPresentationRating() {
+    public Double getPresentationRating() {
         return presentationRating;
     }
 
-    public void setPresentationRating(Float presentationRating) {
+    public void setPresentationRating(Double presentationRating) {
         this.presentationRating = presentationRating;
     }
+
+
 }

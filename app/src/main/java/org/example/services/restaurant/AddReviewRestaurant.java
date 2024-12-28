@@ -12,9 +12,9 @@ public class AddReviewRestaurant implements ICommand {
     private String restaurantName;
     private User user;
     private String comment;
-    private Float rating;
+    private Float [] rating ;
 
-    public AddReviewRestaurant(String restaurantName, User user, String comment, Float rating) {
+    public AddReviewRestaurant(String restaurantName, User user, String comment, Float... rating) {
         this.restaurantName = restaurantName;
         this.user = user;
         this.comment = comment;

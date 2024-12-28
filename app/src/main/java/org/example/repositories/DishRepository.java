@@ -1,9 +1,7 @@
 package org.example.repositories;
 
 import org.example.factory.ReviewFactory;
-import org.example.models.DishFood;
-
-import org.example.models.Review;
+import org.example.models.*;
 
 public class DishRepository {
     private static DishRepository instance;
@@ -19,8 +17,10 @@ public class DishRepository {
     }
 
     public void addReview(DishFood dishFood,String comentario, Float... calificaciones){
-        Review review = ReviewFactory.createReview("plato", comentario, calificaciones);
+        IReview review = ReviewFactory.createReview("plato", comentario, calificaciones);
         dishFood.addReview(review);
     }
+
+
 
 }

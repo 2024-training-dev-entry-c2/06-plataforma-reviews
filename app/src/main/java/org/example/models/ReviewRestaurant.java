@@ -1,24 +1,21 @@
 package org.example.models;
 
-public class ReviewRestaurant extends Review {
+public class ReviewRestaurant implements IReview {
 
     private Float serviceRating;
     private Float placeRating;
     private Float menuRating;
-
-    public ReviewRestaurant(String comment) {
-        super(comment);
-    }
+    private String comment;
 
     public ReviewRestaurant(String comment, Float serviceRating, Float placeRating, Float menuRating) {
-        super(comment);
+        this.comment=comment;
         this.serviceRating = serviceRating;
         this.placeRating = placeRating;
         this.menuRating = menuRating;
     }
 
     @Override
-    void showDetails() {
+    public void showDetails() {
 
     }
 
@@ -45,4 +42,6 @@ public class ReviewRestaurant extends Review {
     public void setMenuRating(Float menuRating) {
         this.menuRating = menuRating;
     }
+
+
 }

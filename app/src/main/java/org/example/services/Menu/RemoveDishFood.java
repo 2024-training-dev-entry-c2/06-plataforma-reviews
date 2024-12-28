@@ -1,23 +1,18 @@
 package org.example.services.Menu;
 
-import org.example.models.DishFood;
-import org.example.models.Menu;
 import org.example.models.Restaurant;
 import org.example.repositories.MenuRepository;
 import org.example.repositories.RestaurantRepository;
 import org.example.services.interfaces.ICommand;
-import org.example.services.utils.IValidatorScanner;
-
-import java.util.Collections;
 
 
-public class removeDishFood implements ICommand {
+public class RemoveDishFood implements ICommand {
     private final RestaurantRepository repository = RestaurantRepository.getInstance();
     private final MenuRepository menuRepository = MenuRepository.getInstance();
     private String restaurantName;
     private Integer indexDishFood;
 
-    public removeDishFood(String restaurantName, int dishFood) {
+    public RemoveDishFood(String restaurantName, int dishFood) {
         this.restaurantName = restaurantName;
         this.indexDishFood = dishFood;
     }

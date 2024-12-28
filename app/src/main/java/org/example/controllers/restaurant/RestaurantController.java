@@ -8,6 +8,7 @@ import org.example.services.interfaces.ICommand;
 import org.example.services.restaurant.AddRestaurant;
 import org.example.services.restaurant.AddReviewRestaurant;
 import org.example.services.restaurant.RemoveRestaurant;
+import org.example.services.restaurant.UpdateRestaurat;
 
 public class RestaurantController {
     public void addRestaurant(String name, String location) {
@@ -23,11 +24,16 @@ public class RestaurantController {
     public void listRestaurants() {
         RestaurantRepository.getInstance().getAllRestaurants().values().forEach(System.out::println);
     }
-    public void addReview(String restaurantName, User user, String comment, Float rating){
+    public void addReview(String restaurantName, User user, String comment, Float... rating){
         ICommand command = new AddReviewRestaurant(restaurantName,user,comment,rating);
+        command.execute();
+    }
+    public void updateRestaurant(String restaurantName, String address,String newMenuName){
+        ICommand command = new UpdateRestaurat(restaurantName,address,newMenuName);
         command.execute();
     }
     public void addDishFood(String restaurantName, String nameDish, String description, Double price){
         ICommand command = new AddDishFood(restaurantName,nameDish,description,price);
     }
+
 }

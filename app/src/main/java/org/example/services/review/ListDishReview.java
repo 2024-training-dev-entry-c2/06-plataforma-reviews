@@ -1,19 +1,14 @@
 package org.example.services.review;
 
 import org.example.models.Dish;
-import org.example.models.Restaurant;
-import org.example.models.Review;
-import org.example.repositories.RestaurantRepository;
+import org.example.models.DishReview;
 import org.example.services.interfaces.ICommand;
 import org.example.services.menu.SelectDish;
-import org.example.utils.Validator;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.stream.Collectors;
 
-public class ListDishReview implements ICommand<List<Review>> {
+public class ListDishReview implements ICommand<List<DishReview>> {
 	private final SelectDish selectDish;
 
 	public ListDishReview(SelectDish selectDish) {
@@ -21,9 +16,11 @@ public class ListDishReview implements ICommand<List<Review>> {
 	}
 
 	@Override
-	public List<Review> execute() {
+	public List<DishReview> execute() {
 		Dish dish = selectDish.execute();
 
-		return dish.getReviews();
+		return dish.getReviews().stream()
+			.map(DishReview.class::cast)
+			.collect(Collectors.toList());
 	}
 }

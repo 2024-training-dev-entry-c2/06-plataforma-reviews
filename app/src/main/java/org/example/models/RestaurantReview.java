@@ -43,4 +43,15 @@ public class RestaurantReview extends Review {
 	public void calculateRating() {
 		setRatingAverage((serviceRating + locationRating + menuRating) / 3);
 	}
+
+	@Override
+	public String toString() {
+		return """
+        RestaurantReview {
+          Service Rating: %f
+          Location Rating: %f
+          Menu Rating: %f
+        }
+        """.formatted(serviceRating, locationRating, menuRating);
+	}
 }

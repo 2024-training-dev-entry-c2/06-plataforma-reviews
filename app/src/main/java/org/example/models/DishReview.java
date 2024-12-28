@@ -33,4 +33,14 @@ public class DishReview extends Review {
   public void calculateRating() {
     setRatingAverage((tasteRating + presentationRating) / 2);
   }
+
+  @Override
+  public String toString() {
+    return """
+        DishReview {
+          Taste Rating: %f
+          Presentation Rating: %f
+        }
+        """.formatted(tasteRating, presentationRating);
+  }
 }

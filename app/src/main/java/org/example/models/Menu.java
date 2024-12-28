@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
-    private String id;
+    private String menuId;
     private List<Dish> dishes;
 
     public Menu(String id, List<Dish> dishes) {
-        this.id = id;
+        this.menuId = id;
         this.dishes = new ArrayList<>();
     }
 
@@ -18,7 +18,7 @@ public class Menu {
 
     public void updateDish(Dish dish) {
         for (int i = 0; i < dishes.size(); i++) {
-            if (dishes.get(i).getId().equals(dish.getId())) {
+            if (dishes.get(i).getDishId().equals(dish.getDishId())) {
                 dishes.set(i, dish);
                 break;
             }
@@ -26,7 +26,7 @@ public class Menu {
     }
 
     public void deleteDish(String dishId) {
-        dishes.removeIf(dish -> dish.getId().equals(dishId));
+        dishes.removeIf(dish -> dish.getDishId().equals(dishId));
     }
 
     public List<Dish> getDishes() {
@@ -37,11 +37,11 @@ public class Menu {
         this.dishes = dishes;
     }
 
-    public String getId() {
-        return id;
+    public String getMenuId() {
+        return menuId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMenuId(String menuId) {
+        this.menuId = menuId;
     }
 }

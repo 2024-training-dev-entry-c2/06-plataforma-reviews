@@ -1,16 +1,18 @@
 package org.example.models;
 
+import org.example.observers.Observable;
+
 import java.util.List;
 
-public class Restaurant {
-    private String id;
+public class Restaurant extends Observable {
+    private String restaurantId;
     private String name;
     private String location;
     private Menu menu;
     private List<Review> reviews;
 
-    public Restaurant(String id,  String name, String location, Menu menu, List<Review> reviews) {
-        this.id = id;
+    public Restaurant(String restaurantId, String name, String location, Menu menu, List<Review> reviews) {
+        this.restaurantId = restaurantId;
         this.name = name;
         this.location = location;
         this.menu = menu;
@@ -26,18 +28,21 @@ public class Restaurant {
 
     public void addReview(Review review) {
         reviews.add(review);
+        notifyObservers("Nueva reseña añadida al restaurante: " + name);
     }
 
     public float calculateAverageRating() {
-        return (float) reviews.stream().mapToDouble(Review::getAverageRating).average().orElse(0.0);
+        float average = (float) reviews.stream().mapToDouble(Review::getAverageRating).average().orElse(0.0);
+        notifyObservers("Calificación promedio actualizada para el restaurante: " + name + " - Promedio: " + average);
+        return average;
     }
 
-    public String getId() {
-        return id;
+    public String getRestaurantId() {
+        return restaurantId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public String getLocation() {

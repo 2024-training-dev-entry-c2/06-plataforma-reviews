@@ -1,12 +1,12 @@
 package org.example.models;
 
 public abstract class Review {
-    private String idReview;
+    private String reviewId;
     private Float averageRating;
     private String comment;
 
-    public Review(String idReview, String comment) {
-        this.idReview = idReview;
+    public Review(String reviewId, String comment) {
+        this.reviewId = reviewId;
         this.comment = comment;
     }
 
@@ -28,11 +28,11 @@ public abstract class Review {
         this.comment = comment;
     }
 
-    public String getIdReview() {
-        return idReview;
+    public String getReviewId() {
+        return reviewId;
     }
 
-    public void setIdReview(String idReview) {
-        this.idReview = idReview;
+    public void setReviewId(String reviewId) {
+        this.reviewId = reviewId;
     }
 }

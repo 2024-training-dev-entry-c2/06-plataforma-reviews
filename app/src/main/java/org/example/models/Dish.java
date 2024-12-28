@@ -1,17 +1,19 @@
 package org.example.models;
 
+import org.example.observers.Observable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dish {
-    private String id;
+public class Dish extends Observable {
+    private String dishId;
     private String name;
     private String description;
     private Float price;
     private List<Review> reviews;
 
-    public Dish(String id, String name, String description, Float price, List<Review> reviews) {
-        this.id = id;
+    public Dish(String dishId, String name, String description, Float price, List<Review> reviews) {
+        this.dishId = dishId;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -20,10 +22,13 @@ public class Dish {
 
     public void addReview(Review review) {
         reviews.add(review);
+        notifyObservers("Nueva reseña añadida al plato: " + name);
     }
 
     public float calculateAverageRating() {
-        return (float) reviews.stream().mapToDouble(Review::getAverageRating).average().orElse(0.0);
+        float average = (float) reviews.stream().mapToDouble(Review::getAverageRating).average().orElse(0.0);
+        notifyObservers("Calificación promedio actualizada para el plato: " + name + " - Promedio: " + average);
+        return average;
     }
 
     public String getDescription() {
@@ -34,12 +39,12 @@ public class Dish {
         this.description = description;
     }
 
-    public String getId() {
-        return id;
+    public String getDishId() {
+        return dishId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setDishId(String dishId) {
+        this.dishId = dishId;
     }
 
     public String getName() {

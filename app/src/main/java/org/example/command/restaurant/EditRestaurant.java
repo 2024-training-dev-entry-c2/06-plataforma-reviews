@@ -21,6 +21,11 @@ public class EditRestaurant implements ICommand {
     String newName = console.readLine();
     console.writeLine("Nueva dirección del restaurante: ");
     String newAddress = console.readLine();
-    service.editRestaurant(service.getRestaurantByName(name), newName, newAddress);
+    if(service.editRestaurant(service.getRestaurantByName(name), newName, newAddress)){
+      System.out.println("El restaurante ha sido editado: ");
+      service.getRestaurantByName(name).displayRestaurant();
+    }else{
+      System.out.println("No se ha podido modificar el restaurante.");
+    }
   }
 }

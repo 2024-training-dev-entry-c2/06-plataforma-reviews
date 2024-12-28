@@ -17,6 +17,10 @@ public class DeleteRestaurant implements ICommand {
   public void execute() {
     console.writeLine("Indica el nombre del restaurante: ");
     String name = console.readLine();
-    service.deleteRestaurant(service.getRestaurantByName(name));
+    if(service.deleteRestaurant(service.getRestaurantByName(name))){
+      System.out.println("Se ha eliminado el restaurante " + name + ".");
+    }else{
+      System.out.println("No se ha podido eliminar el restaurante.");
+    }
   }
 }

@@ -21,6 +21,10 @@ public class CreateRestaurant implements ICommand {
     String name = console.readLine();
     console.writeLine("Indica la dirección del restaurante: ");
     String address = console.readLine();
-    service.createRestaurant(new Restaurant(name, address));
+    if(service.createRestaurant(new Restaurant(name, address))){
+      System.out.println("¡El restaurante ha sido creado con éxito!");
+    }else{
+      System.out.println("No se ha podido crear el restaurante.");
+    }
   }
 }

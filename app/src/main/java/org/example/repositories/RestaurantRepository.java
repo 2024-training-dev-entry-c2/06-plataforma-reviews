@@ -31,8 +31,8 @@ public class RestaurantRepository {
 
   public Boolean editRestaurant(Restaurant restaurant, String restaurantName, String restaurantAddress){
     if( restaurants.get(restaurant.getName()) != null){
-      restaurants.get(restaurant.getName()).setName(restaurantName);
       restaurants.get(restaurant.getName()).setAddress(restaurantAddress);
+      restaurants.get(restaurant.getName()).setName(restaurantName);
       return true;
     }
     return false;

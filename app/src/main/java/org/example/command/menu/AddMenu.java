@@ -8,7 +8,7 @@ public class AddMenu implements ICommand {
   private MenuService service;
   private final ConsoleHandler console;
 
-  public AddMenu(ConsoleHandler console, MenuService service) {
+  public AddMenu(MenuService service, ConsoleHandler console) {
     this.console = console;
     this.service = service;
   }
@@ -19,6 +19,10 @@ public class AddMenu implements ICommand {
     String restaurantName = console.readLine();
     console.writeLine("Ingresa el nombre del menú: ");
     String menuName = console.readLine();
-    service.addMenu(restaurantName, menuName);
+    if(service.addMenu(restaurantName, menuName)){
+      System.out.println("¡Se agregado el menú al restaurante!");
+    }else{
+      System.out.println("No se ha podido agregar el menú.");
+    }
   }
 }

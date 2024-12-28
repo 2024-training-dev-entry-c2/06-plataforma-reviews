@@ -23,6 +23,10 @@ public class AddDish implements ICommand {
     String dishDescription = console.readLine();
     console.writeLine("Indica el precio del plato: ");
     Float dishPrice = Float.parseFloat(console.readLine());
-    service.addDish(restaurantName, dishName, dishDescription, dishPrice);
+    if(service.addDish(restaurantName, dishName, dishDescription, dishPrice)){
+      System.out.println("¡Se añadió el plato al menú del restaurante!");
+    }else{
+      System.out.println("No se ha podido añadir el plato.");
+    }
   }
 }

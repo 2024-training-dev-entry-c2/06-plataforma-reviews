@@ -1,6 +1,6 @@
 package org.example.factory;
 
-import constants.TypeReview;
+import org.example.constants.TypeReview;
 import org.example.models.Dish;
 import org.example.models.Restaurant;
 import org.example.models.review.DishReview;

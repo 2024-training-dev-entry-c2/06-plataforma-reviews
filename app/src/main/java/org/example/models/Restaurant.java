@@ -63,4 +63,14 @@ public class Restaurant extends Observable {
     public void setReviewMap(Map<User, ReviewRestaurant> reviewMap) {
         this.reviewMap = reviewMap;
     }
+
+    @Override
+    public String toString() {
+        return "____________________________" +
+                "\n Nombre= " + name +
+                "\n Direccion = " + address +
+                "\n Menu = " + menu.getName() +
+                "\n Cantidad de Reviews : " + reviewMap.size() +
+                '}';
+    }
 }

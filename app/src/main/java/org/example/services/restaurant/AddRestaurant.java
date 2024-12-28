@@ -23,7 +23,8 @@ public class AddRestaurant implements ICommand {
         String name = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
         String address = validatorScanner.stringScanner("Escribe el direccion del Restaurante");
         Restaurant restaurant = new Restaurant(name, address);
-        restaurant.getMenu().setName(restaurant.getName()+" Menu");
+        Menu menu = new Menu((name+" Menu"),Collections.emptyList());
+        restaurant.setMenu(menu);
         repository.getInstance().addRestaurant(restaurant);
         System.out.println("Restaurant added: " + name);
     }

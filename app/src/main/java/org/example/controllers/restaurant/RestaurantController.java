@@ -19,8 +19,6 @@ public class RestaurantController {
     }
 
     public void addRestaurant() {
-        int opc = validatorScanner.integerScanner("asds");
-        System.out.println(opc);
         ICommand command = new AddRestaurant(validatorScanner);
         command.execute();
     }
@@ -31,7 +29,10 @@ public class RestaurantController {
     }
 
     public void listRestaurants() {
-        RestaurantRepository.getInstance().getAllRestaurants().values().forEach(Restaurant::getAverageRating);
+        RestaurantRepository.getInstance().getAllRestaurants().values().forEach(restaurant -> {
+            System.out.println(restaurant.toString());
+            restaurant.getAverageRating();
+        });
     }
 
     public void addReview() {

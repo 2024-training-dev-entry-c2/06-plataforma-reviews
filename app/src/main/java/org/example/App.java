@@ -6,7 +6,7 @@ package org.example;
 
 import org.example.services.utils.IValidatorScanner;
 import org.example.services.utils.MenuMain;
-import org.example.services.utils.MenuRestaurant;
+
 import org.example.services.utils.ValidatorScanner;
 
 public class App {

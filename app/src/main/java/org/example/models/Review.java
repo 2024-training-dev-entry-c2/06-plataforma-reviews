@@ -1,15 +1,16 @@
 package org.example.models;
 
-public class Review {
-    private String id;
+public abstract class Review {
+    private String idReview;
     private Float averageRating;
     private String comment;
 
-    public Review(String id, Float averageRating, String comment) {
-        this.id = id;
-        this.averageRating = averageRating;
+    public Review(String idReview, String comment) {
+        this.idReview = idReview;
         this.comment = comment;
     }
+
+    public abstract void calculateRating();
 
     public Float getAverageRating() {
         return averageRating;
@@ -27,11 +28,11 @@ public class Review {
         this.comment = comment;
     }
 
-    public String getId() {
-        return id;
+    public String getIdReview() {
+        return idReview;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdReview(String idReview) {
+        this.idReview = idReview;
     }
 }

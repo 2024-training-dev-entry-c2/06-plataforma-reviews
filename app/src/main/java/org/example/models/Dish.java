@@ -10,7 +10,7 @@ public class Dish {
     private Float price;
     private List<Review> reviews;
 
-    public Dish(String id, String name, String description, Float price) {
+    public Dish(String id, String name, String description, Float price, List<Review> reviews) {
         this.id = id;
         this.name = name;
         this.description = description;

@@ -1,6 +1,5 @@
 package org.example.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
@@ -10,11 +9,15 @@ public class Restaurant {
     private Menu menu;
     private List<Review> reviews;
 
-    public Restaurant(String id, String name, String location) {
+    public Restaurant(String id,  String name, String location, Menu menu, List<Review> reviews) {
         this.id = id;
         this.name = name;
         this.location = location;
-        this.reviews = new ArrayList<>();
+        this.menu = menu;
+        this.reviews = reviews;
+    }
+
+    public Restaurant() {
     }
 
     public void addMenu(Menu menu) {
@@ -68,4 +71,5 @@ public class Restaurant {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
+
 }

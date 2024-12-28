@@ -7,7 +7,7 @@ public class Menu {
     private String id;
     private List<Dish> dishes;
 
-    public Menu(String id) {
+    public Menu(String id, List<Dish> dishes) {
         this.id = id;
         this.dishes = new ArrayList<>();
     }

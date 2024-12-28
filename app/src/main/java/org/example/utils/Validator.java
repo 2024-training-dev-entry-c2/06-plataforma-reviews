@@ -16,6 +16,10 @@ public class Validator {
     return scanner.nextLine();
   }
 
+  public void printMessage(String message) {
+    System.out.println(message);
+  }
+
   public Integer readInteger(String message) {
     int input;
     try {

@@ -31,15 +31,13 @@ public class RestaurantRepository {
 			existingRestaurant.setName(updatedRestaurant.getName());
 			existingRestaurant.setDescription(updatedRestaurant.getDescription());
 			existingRestaurant.setLocation(updatedRestaurant.getLocation());
-			existingRestaurant.setMenu(updatedRestaurant.getMenu());
-			existingRestaurant.setReviews(updatedRestaurant.getReviews());
 			return true;
 		}
 		return false;
 	}
 
-	public void deleteRestaurant(Integer restaurantId) {
-		restaurants.remove(restaurantId);
+	public boolean deleteRestaurant(Integer restaurantId) {
+		return restaurants.remove(restaurantId) != null;
 	}
 
 	public Map<Integer, Restaurant> getAllRestaurants() {

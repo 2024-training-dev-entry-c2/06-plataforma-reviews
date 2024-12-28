@@ -12,22 +12,19 @@ import java.util.List;
 
 public class AddRestaurant implements ICommand {
     private final RestaurantRepository repository = RestaurantRepository.getInstance();
+    private final IValidatorScanner validatorScanner;
 
-
-    private String name;
-    private String location;
-
-    public AddRestaurant(String name, String location) {
-        this.name = name;
-        this.location = location;
+    public AddRestaurant(IValidatorScanner validatorScanner) {
+        this.validatorScanner = validatorScanner;
     }
 
     @Override
     public void execute() {
-        Restaurant restaurant = new Restaurant(name, location);
+        String name = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
+        String address = validatorScanner.stringScanner("Escribe el direccion del Restaurante");
+        Restaurant restaurant = new Restaurant(name, address);
         restaurant.getMenu().setName(restaurant.getName()+" Menu");
         repository.getInstance().addRestaurant(restaurant);
         System.out.println("Restaurant added: " + name);
-
     }
 }

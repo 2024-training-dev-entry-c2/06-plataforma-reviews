@@ -4,7 +4,6 @@ import org.example.factory.ReviewFactory;
 import org.example.models.*;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class RestaurantRepository {
     private static RestaurantRepository instance;

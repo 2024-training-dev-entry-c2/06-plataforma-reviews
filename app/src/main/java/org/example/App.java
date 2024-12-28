@@ -4,14 +4,19 @@
 package org.example;
 
 
+import org.example.services.utils.IValidatorScanner;
+import org.example.services.utils.MenuMain;
+import org.example.services.utils.MenuRestaurant;
+import org.example.services.utils.ValidatorScanner;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-//        ValidatorScanner scanner = new ValidatorScanner();
-//        ICommand command = new RestaurantService(scanner);
-//        command.execute();
+        IValidatorScanner scanner = new ValidatorScanner();
+        MenuMain main= new MenuMain(scanner);
+        main.showMenu();
     }
 }

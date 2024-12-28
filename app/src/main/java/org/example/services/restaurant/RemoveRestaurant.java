@@ -7,19 +7,15 @@ import org.example.services.utils.IValidatorScanner;
 
 public class RemoveRestaurant implements ICommand {
     private final RestaurantRepository repository = RestaurantRepository.getInstance();
+    private final IValidatorScanner validatorScanner;
 
-    private String name;
-
-    public RemoveRestaurant(String name) {
-        this.name = name;
-    }
-
-    public void addRestaurant(String nameRestaurant) {
-        repository.removeRestaurant(nameRestaurant);
+    public RemoveRestaurant(IValidatorScanner validatorScanner) {
+        this.validatorScanner = validatorScanner;
     }
 
     @Override
     public void execute() {
+        String name = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
         repository.removeRestaurant(name);
         System.out.println("Restaurant removed: " + name);
     }

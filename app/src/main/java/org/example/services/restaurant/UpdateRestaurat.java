@@ -7,22 +7,23 @@ import org.example.services.utils.IValidatorScanner;
 
 public class UpdateRestaurat implements ICommand {
     private final RestaurantRepository repository = RestaurantRepository.getInstance();
+    private final IValidatorScanner validatorScanner;
 
-    private final String name;
-    private final String newLocation;
-    private final String newMenuName;
-
-    public UpdateRestaurat(String name, String newLocation, String newMenuName) {
-        this.name = name;
-        this.newLocation = newLocation;
-        this.newMenuName = newMenuName;
+    public UpdateRestaurat(IValidatorScanner validatorScanner) {
+        this.validatorScanner = validatorScanner;
     }
+
     @Override
     public void execute() {
+        String name = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
+        String newName = validatorScanner.stringScanner("Escribe la nuevo nombre del Restaurante");
+        String address = validatorScanner.stringScanner("Escribe la nueva direccion del Restaurante");
+
         Restaurant restaurant=repository.getRestaurant(name);
         if (restaurant!=null) {
-            restaurant.setAddress(newLocation);
-            restaurant.getMenu().setName(newMenuName);
+            restaurant.setName(newName);
+            restaurant.setAddress(address);
+            restaurant.getMenu().setName(newName+" Menu");
             repository.updateRestaurant(restaurant);
         }
     }

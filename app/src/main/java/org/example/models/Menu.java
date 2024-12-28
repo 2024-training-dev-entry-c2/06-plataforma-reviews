@@ -1,6 +1,7 @@
 package org.example.models;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Menu {
 	private static int idCounter = 0;
@@ -66,5 +67,17 @@ public class Menu {
 
 	public void deleteDish(Integer dishId) {
 		dishes.removeIf(dish -> dish.getDishId().equals(dishId));
+	}
+
+	@Override
+	public String toString() {
+		return """
+        Menu {
+          ID: %d
+          Name: '%s'
+          Description: '%s'
+          Platos: '%s'
+        }
+        """.formatted(menuId, name, description, dishes.stream().map(dish -> dish.getDishId() + ". " + dish.getName()).collect(Collectors.joining("\n")));
 	}
 }

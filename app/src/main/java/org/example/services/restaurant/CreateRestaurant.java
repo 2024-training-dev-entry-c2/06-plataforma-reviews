@@ -26,7 +26,7 @@ public class CreateRestaurant implements ICommand<Restaurant> {
 
 		Restaurant restaurant = new Restaurant(name, description, location, null, null);
 
-		Menu menu = addDish.execute(restaurant);
+		Menu menu = addDish.execute();
 		restaurant.setMenu(menu);
 
 		restaurantRepository.addRestaurant(restaurant);

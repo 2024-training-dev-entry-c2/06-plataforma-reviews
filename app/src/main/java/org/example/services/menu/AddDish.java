@@ -3,19 +3,23 @@ package org.example.services.menu;
 import org.example.models.Dish;
 import org.example.models.Menu;
 import org.example.models.Restaurant;
-import org.example.services.interfaces.ICommandParameterized;
+import org.example.services.interfaces.ICommand;
+import org.example.services.restaurant.SelectRestaurant;
 import org.example.utils.Validator;
 import java.util.HashSet;
 
-public class AddDish implements ICommandParameterized<Menu, Restaurant> {
+public class AddDish implements ICommand<Menu> {
 	private final Validator validator;
+	private final SelectRestaurant selectRestaurant;
 
-	public AddDish(Validator validator) {
+	public AddDish(Validator validator, SelectRestaurant selectRestaurant) {
 		this.validator = validator;
+		this.selectRestaurant = selectRestaurant;
 	}
 
 	@Override
-	public Menu execute(Restaurant restaurant) {
+	public Menu execute() {
+		Restaurant restaurant = selectRestaurant.execute();
 		Menu menu = restaurant.getMenu();
 
 		if (menu == null) {

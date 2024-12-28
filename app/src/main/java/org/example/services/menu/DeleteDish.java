@@ -3,45 +3,36 @@ package org.example.services.menu;
 import org.example.models.Dish;
 import org.example.models.Menu;
 import org.example.models.Restaurant;
-import org.example.services.interfaces.ICommandParameterized;
+import org.example.repositories.RestaurantRepository;
+import org.example.services.interfaces.ICommand;
+import org.example.services.restaurant.SelectRestaurant;
 import org.example.utils.Validator;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class DeleteDish implements ICommandParameterized<Boolean, Restaurant> {
+public class DeleteDish implements ICommand<Boolean> {
 	private final Validator validator;
+	private final SelectDish selectDish;
+	private final RestaurantRepository restaurantRepository;
 
-	public DeleteDish(Validator validator) {
+	public DeleteDish(Validator validator, SelectDish selectDish, RestaurantRepository restaurantRepository) {
 		this.validator = validator;
+		this.selectDish = selectDish;
+		this.restaurantRepository = restaurantRepository;
 	}
 
 	@Override
-	public Boolean execute(Restaurant restaurant) {
-		Menu menu = restaurant.getMenu();
-		if (menu == null) {
-			return false;
-		}
+	public Boolean execute() {
+		Dish dishToDelete = selectDish.execute();
 
-		Dish dishToDelete = findDish(menu);
 		if (dishToDelete == null) {
 			return false;
 		}
 
-		menu.getDishes().remove(dishToDelete);
-		return true;
-	}
-
-	private Dish findDish(Menu menu) {
-		String dishesNames = menu.getDishes().stream()
-			.map(dish -> dish.getDishId() + ". " + dish.getName())
-			.collect(Collectors.joining("\n"));
-
-		String dishId = validator.readString("\nListado de platos:\n" + dishesNames +
-			"\nIngrese el ID del plato que desea eliminar: ");
-
-		return menu.getDishes().stream()
-			.filter(dish -> dish.getDishId() == Integer.parseInt(dishId))
-			.findFirst()
-			.orElse(null);
+		return restaurantRepository.getAllRestaurants().values().stream()
+			.map(Restaurant::getMenu)
+			.filter(Objects::nonNull)
+			.anyMatch(menu -> menu.getDishes().remove(dishToDelete));
 	}
 }

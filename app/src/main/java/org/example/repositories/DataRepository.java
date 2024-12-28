@@ -2,7 +2,6 @@ package org.example.repositories;
 
 import org.example.factories.ReviewFactory;
 import org.example.models.Dish;
-import org.example.models.DishReview;
 import org.example.models.Menu;
 import org.example.models.Restaurant;
 import org.example.models.Review;
@@ -67,7 +66,7 @@ public class DataRepository {
         parrillaReviews.add(ReviewFactory.createReview("Restaurant", "2", "La atención fue excelente, muy recomendado.", 4.5f, 4.0f, 4.5f));
         parrillaReviews.add(ReviewFactory.createReview("Restaurant", "3", "La parrilla es un clásico de Buenos Aires, muy buena.", 4.0f, 4.0f, 4.0f));
 
-        Restaurant parrilla = new Restaurant("1", "La Parrilla Porteña", "San Telmo, Buenos Aires", parrillaMenu, parrillaReviews);
+        Restaurant parrilla = new Restaurant(1, "La Parrilla Porteña", "San Telmo, Buenos Aires", parrillaMenu, parrillaReviews);
 
         // Crear platos para "Casa de Pastas Don Pepe"
         List<Review> pastasDish1Reviews = new ArrayList<>();
@@ -89,7 +88,7 @@ public class DataRepository {
         pastasReviews.add(ReviewFactory.createReview("Restaurant", "5", "La atención fue excelente, volvería a ir.", 4.0f, 4.0f, 4.0f));
         pastasReviews.add(ReviewFactory.createReview("Restaurant", "6", "La pasta estaba muy rica, el lugar es muy acogedor.", 4.0f, 4.0f, 4.0f));
 
-        Restaurant pastas = new Restaurant("2", "Casa de Pastas Don Pepe", "Recoleta, Buenos Aires", pastasMenu, pastasReviews);
+        Restaurant pastas = new Restaurant(2, "Casa de Pastas Don Pepe", "Recoleta, Buenos Aires", pastasMenu, pastasReviews);
 
         // Crear platos para "Cocina Urbana"
         List<Review> urbanaDish1Reviews = new ArrayList<>();
@@ -111,7 +110,7 @@ public class DataRepository {
         urbanaReviews.add(ReviewFactory.createReview("Restaurant", "8", "La ensalada estaba muy rica, el lugar es muy acogedor.", 4.5f, 4.5f, 4.5f));
         urbanaReviews.add(ReviewFactory.createReview("Restaurant", "9", "El brownie estaba delicioso, volvería a ir.", 4.5f, 4.5f, 4.5f));
 
-        Restaurant urbana = new Restaurant("3", "Cocina Urbana", "Palermo, Buenos Aires", urbanaMenu, urbanaReviews);
+        Restaurant urbana = new Restaurant(3, "Cocina Urbana", "Palermo, Buenos Aires", urbanaMenu, urbanaReviews);
 
         // Agregar restaurantes al repositorio
         this.addRestaurant(1, parrilla);

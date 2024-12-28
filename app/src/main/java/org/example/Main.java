@@ -4,7 +4,7 @@ import org.example.models.Dish;
 import org.example.models.DishReview;
 import org.example.models.Restaurant;
 import org.example.models.RestaurantReview;
-import org.example.observers.NotificationService;
+import org.example.models.UserObserver;
 
 import java.util.ArrayList;
 
@@ -12,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
 
         Dish empanadas = new Dish("1", "Empanadas de carne", "Empanadas rellenas de carne cortada a cuchillo.", 3.5f, new ArrayList<>());
-        Restaurant parrilla = new Restaurant("1", "La Parrilla Porteña", "San Telmo, Buenos Aires", null, new ArrayList<>());
+        Restaurant parrilla = new Restaurant("1", "Parrilla Don Asado", "Av. Siempre Viva 742", new ArrayList<>(), new ArrayList<>());
 
-        NotificationService notificationService = new NotificationService();
+        UserObserver notificationService = new UserObserver("Notificaciones");
 
         empanadas.addObserver(notificationService);
         parrilla.addObserver(notificationService);

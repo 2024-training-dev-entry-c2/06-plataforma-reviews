@@ -1,16 +1,19 @@
 package org.example.models;
 
-import org.example.observers.Observable;
+import org.example.models.interfaces.IObservable;
+import org.example.models.interfaces.IObserver;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dish extends Observable {
+public class Dish implements IObservable {
     private String dishId;
     private String name;
     private String description;
     private Float price;
     private List<Review> reviews;
+    private static List<IObserver> observers;
+
 
     public Dish(String dishId, String name, String description, Float price, List<Review> reviews) {
         this.dishId = dishId;
@@ -69,5 +72,20 @@ public class Dish extends Observable {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    @Override
+    public void addObserver(IObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(IObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(String message) {
+        observers.forEach(observer -> observer.update(message));
     }
 }

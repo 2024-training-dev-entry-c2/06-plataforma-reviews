@@ -102,6 +102,18 @@ public class Restaurant implements IObservable {
 	}
 
 	@Override
+	public String toString() {
+		return """
+        Restaurant {
+          ID: %d
+          Name: '%s'
+          Description: '%s'
+          Location: '%s'
+        }
+        """.formatted(restaurantId, name, description, location);
+	}
+
+	@Override
 	public void addObserver(IObserver observer) {
 		observers.add(observer);
 	}

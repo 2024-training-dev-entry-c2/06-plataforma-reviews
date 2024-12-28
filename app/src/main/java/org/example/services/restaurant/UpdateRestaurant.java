@@ -2,21 +2,25 @@ package org.example.services.restaurant;
 
 import org.example.models.Restaurant;
 import org.example.repositories.RestaurantRepository;
-import org.example.services.interfaces.ICommandParameterized;
+import org.example.services.interfaces.ICommand;
 import org.example.utils.Validator;
 
-public class UpdateRestaurant implements ICommandParameterized<Boolean, Restaurant> {
+public class UpdateRestaurant implements ICommand<Boolean> {
 	private final Validator validator;
 	private final RestaurantRepository restaurantRepository;
+	private final SelectRestaurant selectRestaurant;
 
-	public UpdateRestaurant(Validator validator, RestaurantRepository restaurantRepository) {
+	public UpdateRestaurant(Validator validator, RestaurantRepository restaurantRepository, SelectRestaurant selectRestaurant) {
 		this.validator = validator;
 		this.restaurantRepository = restaurantRepository;
+		this.selectRestaurant = selectRestaurant;
 	}
 
 	@Override
-	public Boolean execute(Restaurant updatedRestaurant) {
-		Restaurant existingRestaurant = restaurantRepository.getRestaurant(updatedRestaurant.getRestaurantId());
+	public Boolean execute() {
+		Restaurant selectedRestaurant = selectRestaurant.execute();
+
+		Restaurant existingRestaurant = restaurantRepository.getRestaurant(selectedRestaurant.getRestaurantId());
 
 		if (existingRestaurant == null) {
 			return false;

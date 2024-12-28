@@ -1,5 +1,6 @@
 package org.example.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DishFood {
@@ -8,11 +9,11 @@ public class DishFood {
     private Double price;
     private List<Review> reviewList;
 
-    public DishFood(String name, String description, Double price, List<Review> reviewList) {
+    public DishFood(String name, String description, Double price) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.reviewList = reviewList;
+        this.reviewList = new ArrayList<>();
     }
 
     public DishFood() {

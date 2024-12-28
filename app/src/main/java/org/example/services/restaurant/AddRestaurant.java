@@ -25,6 +25,7 @@ public class AddRestaurant implements ICommand {
     @Override
     public void execute() {
         Restaurant restaurant = new Restaurant(name, location);
+        restaurant.getMenu().setName(restaurant.getName()+" Menu");
         repository.getInstance().addRestaurant(restaurant);
         System.out.println("Restaurant added: " + name);
 

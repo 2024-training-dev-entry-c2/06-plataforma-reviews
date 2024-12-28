@@ -14,19 +14,28 @@ import java.util.Collections;
 public class removeDishFood implements ICommand {
     private final RestaurantRepository repository = RestaurantRepository.getInstance();
     private final MenuRepository menuRepository = MenuRepository.getInstance();
-    private final IValidatorScanner validatorScanner;
+    private String restaurantName;
+    private Integer indexDishFood;
 
-    public removeDishFood(IValidatorScanner validatorScanner) {
-        this.validatorScanner = validatorScanner;
-    }
-
-    public void removeDish(Menu menu, DishFood dishFood) {
-
-        menuRepository.removeDishFood(menu,dishFood);
+    public removeDishFood(String restaurantName, int dishFood) {
+        this.restaurantName = restaurantName;
+        this.indexDishFood = dishFood;
     }
 
     @Override
-    public void execute() {//String name, String description, Double price, List<Review> reviewList)
+    public void execute() {
+        try {
+            Restaurant restaurant = repository.getRestaurant(restaurantName);
+            menuRepository.removeDishFood(restaurant,indexDishFood);
+            System.out.println("Review added successfully to: " + restaurantName);
+        } catch (NullPointerException e) {
+            System.err.println("Error: Restaurant not found - " + restaurantName);
+        }
+    }
+
+}
+
+
 //        repository.displayRestaurants();
 //        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
 //        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
@@ -35,5 +44,3 @@ public class removeDishFood implements ICommand {
 //        DishFood dishFood= restaurant.getMenu().getDishFoodList().get(optionDishes);
 //        removeDish( restaurant.getMenu(),dishFood);
 //        return null;
-    }
-}

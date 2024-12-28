@@ -1,7 +1,9 @@
 package org.example.controllers.restaurant;
 
+import org.example.models.DishFood;
 import org.example.models.User;
 import org.example.repositories.RestaurantRepository;
+import org.example.services.Menu.AddDishFood;
 import org.example.services.interfaces.ICommand;
 import org.example.services.restaurant.AddRestaurant;
 import org.example.services.restaurant.AddReviewRestaurant;
@@ -24,5 +26,8 @@ public class RestaurantController {
     public void addReview(String restaurantName, User user, String comment, Float rating){
         ICommand command = new AddReviewRestaurant(restaurantName,user,comment,rating);
         command.execute();
+    }
+    public void addDishFood(String restaurantName, String nameDish, String description, Double price){
+        ICommand command = new AddDishFood(restaurantName,nameDish,description,price);
     }
 }

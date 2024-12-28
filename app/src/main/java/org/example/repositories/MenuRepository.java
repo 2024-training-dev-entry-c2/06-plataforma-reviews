@@ -37,18 +37,22 @@ public class MenuRepository {
                 );
     }
 
-    public void addDishFood(String menuCreated, DishFood dishFood) {
-        menus.stream()
-                .filter(menu -> menu.getName().equals(menuCreated))
+    public void addDishFood(Restaurant restaurant, DishFood newDishFood) {
+        restaurant.getMenu().getDishFoodList().stream()
+                .filter(dishFood -> dishFood.equals(dishFood))
                 .findFirst()
                 .ifPresentOrElse(
-                        menu -> menu.addDishfood(dishFood),
-                        () -> System.out.println("Menú no encontrado: " + menuCreated)
+                        existingDish -> System.out.println("El plato " + newDishFood.getName() + " ya existe en el menú!"),
+                        () -> {
+                            restaurant.getMenu().getDishFoodList().add(newDishFood);
+                            System.out.println("Plato " + newDishFood.getName() + " agregado al menú!");
+                        }
                 );
     }
 
-    public boolean removeDishFood(Menu menu, DishFood dishFood) {
-        return menu.removeDishFood(dishFood);
+    public boolean removeDishFood(Restaurant restaurant, Integer IndexDishFood) {
+        DishFood dishFood = restaurant.getMenu().getDishFoodList().get(IndexDishFood);
+        return restaurant.getMenu().getDishFoodList().removeIf(dishFoods -> dishFood.equals(dishFood));
     }
 
     public void updateDishFood(Menu menuUpdated, DishFood newDishFood) {

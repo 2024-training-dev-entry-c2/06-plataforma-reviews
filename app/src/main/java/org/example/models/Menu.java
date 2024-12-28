@@ -11,12 +11,6 @@ public class Menu {
         this.dishFoodList = dishFoodList;
     }
 
-    public void addDishfood(DishFood dishFood){
-        dishFoodList.add(dishFood);
-    }
-    public void removeDishFood(DishFood dishFood){
-        dishFoodList.remove(dishFood);
-    }
     public Menu() {
     }
 

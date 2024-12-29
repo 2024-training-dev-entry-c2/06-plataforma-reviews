@@ -24,8 +24,8 @@ public class DishRepository {
     public void showReview(DishFood dishFood){
         dishFood.getReviewList().forEach(reviewDish -> {
             System.out.println(
-            " - Calificación presentacion : " + reviewDish.getPresentationRating() +"\n " +
-                    "Califacion sabor :" + reviewDish.getTasteRating() +"\n");
+            "Calificación presentacion : " + reviewDish.getPresentationRating() +"\n " +
+                    "Califacion sabor :" + reviewDish.getTasteRating() );
             System.out.println("Comentario: " + reviewDish.getComment());
             System.out.println("----------------------------");
 

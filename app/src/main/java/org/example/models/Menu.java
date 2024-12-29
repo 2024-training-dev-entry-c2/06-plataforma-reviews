@@ -9,7 +9,7 @@ public class Menu {
 
     public Menu(String name) {
         this.name = name;
-        this.dishFoodList = new ArrayList<>();;
+        this.dishFoodList = new ArrayList<>();
     }
 
     public Menu() {

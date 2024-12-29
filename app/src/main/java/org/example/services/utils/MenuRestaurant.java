@@ -1,17 +1,22 @@
 package org.example.services.utils;
 
 import org.example.controllers.restaurant.RestaurantController;
+import org.example.repositories.RestaurantRepository;
 
 import java.util.Map;
 
 public class MenuRestaurant {
-    public static IValidatorScanner validatorScanner;
-    public MenuRestaurant(IValidatorScanner validatorScanner) {
+    public final IValidatorScanner validatorScanner;
+    private final RestaurantRepository restaurantRepository;
+
+    public MenuRestaurant(IValidatorScanner validatorScanner, RestaurantRepository restaurantRepository) {
         this.validatorScanner = validatorScanner;
+        this.restaurantRepository = restaurantRepository;
     }
 
     public void showMenu() {
-        RestaurantController restaurantController = new RestaurantController(validatorScanner);
+
+        RestaurantController restaurantController = new RestaurantController(validatorScanner,restaurantRepository);
         Map<Integer, Runnable> menuActions = Map.of(
                 1, restaurantController::addRestaurant,
                 2, restaurantController::removeRestaurant,

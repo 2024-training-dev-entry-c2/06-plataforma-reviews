@@ -9,11 +9,13 @@ import org.example.services.utils.IValidatorScanner;
 
 
 public class AddDishFood implements ICommand {
-    private final RestaurantRepository repository = RestaurantRepository.getInstance();
-    private final MenuRepository menuRepository = MenuRepository.getInstance();
+    private final RestaurantRepository repository;
+    private final MenuRepository menuRepository;
     private final IValidatorScanner validatorScanner;
 
-    public AddDishFood(IValidatorScanner validatorScanner) {
+    public AddDishFood(RestaurantRepository repository, MenuRepository menuRepository, IValidatorScanner validatorScanner) {
+        this.repository = repository;
+        this.menuRepository = menuRepository;
         this.validatorScanner = validatorScanner;
     }
 
@@ -23,9 +25,9 @@ public class AddDishFood implements ICommand {
         try {
             restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = repository.getRestaurant(restaurantName);
-            String dishName = validatorScanner.stringScanner("Escribe el nombre del plato ");
-            String description = validatorScanner.stringScanner("Escribe una descripcion ");
-            Double price = validatorScanner.doubleScanner("Escribe el precio: ");
+            String dishName = validatorScanner.stringScanner("Escribe el nombre del plato:");
+            String description = validatorScanner.stringScanner("Escribe una descripcion:");
+            Double price = validatorScanner.doubleScanner("Escribe el precio:");
             DishFood dishFood = new DishFood(dishName,description,price);
             System.out.println(dishFood.toString());
             menuRepository.addDishFood(restaurant,dishFood);
@@ -37,11 +39,3 @@ public class AddDishFood implements ICommand {
 }
 
 
-//        repository.displayRestaurants();
-//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-//        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
-//        String name = validatorScanner.stringScanner("Escribe el nombre del plato ");
-//        String description = validatorScanner.stringScanner("Escribe una descripcion ");
-//        double price = validatorScanner.integerScanner("Escribe el precio: ");
-//        addDish(restaurant.getMenu().getName(), new DishFood(name, description, price, Collections.emptyList()));
-//        return null;

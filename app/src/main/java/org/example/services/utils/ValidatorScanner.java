@@ -17,6 +17,7 @@ public class ValidatorScanner implements IValidatorScanner {
         try {
             System.out.println(prompt);
             int value = scanner.nextInt();
+            scanner.nextLine();
             return value < 0 ? this.integerScanner(prompt) : value ;
         } catch (InputMismatchException e) {
             System.out.println("Entrada no válida. Por favor, ingrese un número.");
@@ -41,12 +42,11 @@ public class ValidatorScanner implements IValidatorScanner {
     public String stringScanner(String prompt) {
         while (true) {
             System.out.println(prompt);
-            try {
-                return scanner.next();
-            } catch (InputMismatchException e) {
-                System.out.println("Entrada no válida. Por favor, ingrese un número.");
-                return stringScanner(prompt);
+            String input = scanner.nextLine().trim();
+            if (!input.isEmpty()) {
+                return input;
             }
+            System.out.println("Entrada no válida. Por favor, ingrese un texto válido.");
         }
     }
 
@@ -55,17 +55,17 @@ public class ValidatorScanner implements IValidatorScanner {
         while (true) {
             System.out.println(prompt);
             try {
-                String input = scanner.nextLine().trim(); // Lee y elimina espacios en blanco
+                String input = scanner.nextLine().trim();
                 if (input.isEmpty()) {
                     System.out.println("Entrada no válida. Por favor, ingrese un número.");
                     continue;
                 }
-                float value = Float.parseFloat(input); // Intenta convertir a float
-                if (value < 0 || value > 5) { // Validación de rango
+                float value = Float.parseFloat(input);
+                if (value < 0 || value > 5) {
                     System.out.println("Por favor, ingrese un número entre 0 y 5.");
                     continue;
                 }
-                return value; // Retorna el valor válido
+                return value;
             } catch (NumberFormatException e) {
                 System.out.println("Entrada no válida. Por favor, ingrese un número.");
             }

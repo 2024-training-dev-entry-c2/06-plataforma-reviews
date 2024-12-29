@@ -7,10 +7,11 @@ import org.example.services.interfaces.ICommand;
 import org.example.services.utils.IValidatorScanner;
 
 public class ShowReviewRestaurant implements ICommand {
-    private final RestaurantRepository repository = RestaurantRepository.getInstance();
+    private final RestaurantRepository repository;
     private final IValidatorScanner validatorScanner;
 
-    public ShowReviewRestaurant(IValidatorScanner validatorScanner) {
+    public ShowReviewRestaurant(RestaurantRepository repository, IValidatorScanner validatorScanner) {
+        this.repository = repository;
         this.validatorScanner = validatorScanner;
     }
 
@@ -24,19 +25,8 @@ public class ShowReviewRestaurant implements ICommand {
             repository.showReview(restaurant);
         } catch (NullPointerException e) {
             System.err.println("Error: restaurante no encontrado - " + restaurantName);
-        } catch (Exception e) {
-            System.err.println("Error while adding review: " + e.getMessage());
         }
     }
 
 }
 
-
-//        repository.displayRestaurants();
-//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-//        String nameRestaurant = repository.getRestaurantNameByIndex(optionRestaurant);
-//        User user = new User(validatorScanner.stringScanner("Ingrese su nombre"));
-//        String comment =validatorScanner.stringScanner("Ingrese su comentario");
-//        Float placeRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del lugar");
-//        Float menuRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del menu");
-//        addReview(nameRestaurant,user,comment,placeRating,menuRating);

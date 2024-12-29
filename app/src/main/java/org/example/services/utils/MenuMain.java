@@ -1,5 +1,9 @@
 package org.example.services.utils;
 
+import org.example.repositories.DishRepository;
+import org.example.repositories.MenuRepository;
+import org.example.repositories.RestaurantRepository;
+
 import java.util.Scanner;
 
 public class MenuMain {
@@ -9,10 +13,13 @@ public class MenuMain {
     private final MenuReview menuReview;
 
     public MenuMain(IValidatorScanner validatorScanner) {
+        RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();
+        MenuRepository menuRepository = MenuRepository.getInstance();
+        DishRepository dishRepository = DishRepository.getInstance();
         this.validatorScanner = validatorScanner;
-        this.menuRestaurant = new MenuRestaurant(validatorScanner);
-        this.menuDishFood = new MenuDishFood(validatorScanner);
-        this.menuReview =new MenuReview(validatorScanner);
+        this.menuRestaurant = new MenuRestaurant(validatorScanner, restaurantRepository);
+        this.menuDishFood = new MenuDishFood(validatorScanner,restaurantRepository,menuRepository);
+        this.menuReview = new MenuReview(validatorScanner,restaurantRepository,menuRepository,dishRepository);
     }
 
     public void showMenu() {

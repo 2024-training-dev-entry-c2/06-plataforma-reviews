@@ -6,10 +6,11 @@ import org.example.services.utils.IValidatorScanner;
 
 
 public class RemoveRestaurant implements ICommand {
-    private final RestaurantRepository repository = RestaurantRepository.getInstance();
+    private final RestaurantRepository repository;
     private final IValidatorScanner validatorScanner;
 
-    public RemoveRestaurant(IValidatorScanner validatorScanner) {
+    public RemoveRestaurant(RestaurantRepository repository, IValidatorScanner validatorScanner) {
+        this.repository = repository;
         this.validatorScanner = validatorScanner;
     }
 

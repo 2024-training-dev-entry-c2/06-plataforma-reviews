@@ -9,19 +9,21 @@ import org.example.services.restaurant.*;
 import org.example.services.utils.IValidatorScanner;
 
 public class RestaurantController {
-    public static IValidatorScanner validatorScanner;
+    private final IValidatorScanner validatorScanner;
+    private final RestaurantRepository restaurantRepository;
 
-    public RestaurantController(IValidatorScanner validatorScanner) {
-        RestaurantController.validatorScanner = validatorScanner;
+    public RestaurantController(IValidatorScanner validatorScanner, RestaurantRepository restaurantRepository) {
+        this.validatorScanner = validatorScanner;
+        this.restaurantRepository = restaurantRepository;
     }
 
     public void addRestaurant() {
-        ICommand command = new AddRestaurant(validatorScanner);
+        ICommand command = new AddRestaurant(restaurantRepository,validatorScanner);
         command.execute();
     }
 
     public void removeRestaurant() {
-        ICommand command = new RemoveRestaurant(validatorScanner);
+        ICommand command = new RemoveRestaurant(restaurantRepository,validatorScanner);
         command.execute();
     }
 
@@ -33,11 +35,11 @@ public class RestaurantController {
     }
 
     public void addReview() {
-        ICommand command = new AddReviewRestaurant(validatorScanner);
+        ICommand command = new AddReviewRestaurant(restaurantRepository,validatorScanner);
         command.execute();
     }
     public void showReview() {
-        ICommand command = new ShowReviewRestaurant(validatorScanner);
+        ICommand command = new ShowReviewRestaurant(restaurantRepository,validatorScanner);
         command.execute();
     }
 

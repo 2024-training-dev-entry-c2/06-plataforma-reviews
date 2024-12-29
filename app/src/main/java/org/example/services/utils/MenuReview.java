@@ -3,18 +3,35 @@ package org.example.services.utils;
 import org.example.controllers.dishFood.DishFoodController;
 import org.example.controllers.menu.MenuController;
 import org.example.controllers.restaurant.RestaurantController;
+import org.example.repositories.DishRepository;
+import org.example.repositories.MenuRepository;
+import org.example.repositories.RestaurantRepository;
 
 import java.util.Map;
 
 public class MenuReview {
-    public static IValidatorScanner validatorScanner;
+    public final  IValidatorScanner validatorScanner;
+    private final  RestaurantRepository restaurantRepository;
+    private final MenuRepository menuRepository;
+    private final DishRepository dishRepository;
 
-    public MenuReview(IValidatorScanner validatorScanner) {
+    public MenuReview(IValidatorScanner validatorScanner, RestaurantRepository restaurantRepository, MenuRepository menuRepository, DishRepository dishRepository) {
         this.validatorScanner = validatorScanner;
+        this.restaurantRepository = restaurantRepository;
+        this.menuRepository = menuRepository;
+        this.dishRepository = dishRepository;
     }
 
     public void showMenu() {
-        Map<Integer, Runnable> menuActions = getIntegerRunnableMap();
+        RestaurantController restaurantController = new RestaurantController(validatorScanner,restaurantRepository);
+        DishFoodController dishFoodController = new DishFoodController(restaurantRepository,menuRepository,dishRepository,validatorScanner);
+        Map<Integer, Runnable> menuActions = Map.of(
+                1, restaurantController::addReview,
+                2, dishFoodController::addReview,
+                3, restaurantController::showReview,
+                4, dishFoodController::showReviews,
+                5, () -> System.out.println("Volviendo al menú principal...")
+        );
         int option;
         do {
             System.out.println("\n===== Gestión de Menús =====");
@@ -36,16 +53,5 @@ public class MenuReview {
 
     }
 
-    private static Map<Integer, Runnable> getIntegerRunnableMap() {
-        RestaurantController restaurantController = new RestaurantController(validatorScanner);
-        DishFoodController dishFoodController = new DishFoodController(validatorScanner);
-        Map<Integer, Runnable> menuActions = Map.of(
-                1, restaurantController::addReview,
-                2, dishFoodController::addReview,
-                3, restaurantController::showReview,
-                4, dishFoodController::showReviews,
-                5, () -> System.out.println("Volviendo al menú principal...")
-        );
-        return menuActions;
-    }
+
 }

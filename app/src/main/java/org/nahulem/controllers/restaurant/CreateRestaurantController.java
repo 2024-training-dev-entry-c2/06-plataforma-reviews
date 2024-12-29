@@ -11,9 +11,8 @@ public class CreateRestaurantController implements ICommandController {
     private final CreateRestaurantService createRestaurantService;
     private Validator validator = new Validator(new Scanner(System.in));
 
-    public CreateRestaurantController(CreateRestaurantService createRestaurantService, Validator validator) {
+    public CreateRestaurantController(CreateRestaurantService createRestaurantService) {
         this.createRestaurantService = createRestaurantService;
-        this.validator = validator;
     }
 
     @Override

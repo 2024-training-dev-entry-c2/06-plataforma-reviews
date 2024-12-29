@@ -4,13 +4,14 @@ import org.nahulem.controllers.interfaces.ICommandController;
 import org.nahulem.services.restaurant.UpdateRestaurantService;
 import org.nahulem.utils.Validator;
 
+import java.util.Scanner;
+
 public class UpdateRestaurantController implements ICommandController {
     private final UpdateRestaurantService updateRestaurantService;
-    private final Validator validator;
+    private final Validator validator = new Validator(new Scanner(System.in));
 
-    public UpdateRestaurantController(UpdateRestaurantService updateRestaurantService, Validator validator) {
+    public UpdateRestaurantController(UpdateRestaurantService updateRestaurantService) {
         this.updateRestaurantService = updateRestaurantService;
-        this.validator = validator;
     }
 
 

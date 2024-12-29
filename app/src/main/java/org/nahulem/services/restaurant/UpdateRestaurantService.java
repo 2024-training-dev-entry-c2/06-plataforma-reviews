@@ -18,39 +18,38 @@ public class UpdateRestaurantService implements ICommand<Boolean> {
 
     @Override
     public Boolean execute() {
-        Restaurant existingRestaurant = validateExistingRestaurant();
-        if (existingRestaurant == null) return false;
-
-        updateRestaurant(existingRestaurant);
-        repository.updateRestaurant(existingRestaurant);
-
-        return true;
-    }
-
-    private Restaurant validateExistingRestaurant() {
         Restaurant restaurant = selectRestaurantService.execute();
+
+        if (restaurant == null) {
+            return null;
+        }
+
         Restaurant existingRestaurant = repository.getRestaurant(restaurant.getRestaurantId());
 
         if (existingRestaurant == null) {
             validator.printMessage("El restaurante no existe.");
             return null;
         }
-        return existingRestaurant;
+
+        updateRestaurant(existingRestaurant);
+
+        return repository.updateRestaurant(existingRestaurant);
     }
 
     private void updateRestaurant(Restaurant existingRestaurant) {
         validator.printMessage("Actualización de Restaurante (deje vacío para no modificar): ");
         String name = validator.readString("Ingresa el nuevo nombre del restaurante: ");
-        isEmptyValidator(name, existingRestaurant.getName());
+        existingRestaurant.setName(validateOrKeep(name, existingRestaurant.getName()));
+
         String description = validator.readString("Ingresa la nueva descripción del restaurante: ");
-        isEmptyValidator(description, existingRestaurant.getDescription());
+        existingRestaurant.setDescription(validateOrKeep(description, existingRestaurant.getDescription()));
+
         String location = validator.readString("Ingresa la nueva ubicación del restaurante: ");
-        isEmptyValidator(location, existingRestaurant.getLocation());
+        existingRestaurant.setLocation(validateOrKeep(location, existingRestaurant.getLocation()));
     }
 
-    private void isEmptyValidator(String value, String existingValue) {
-        if (value.isEmpty()) {
-            value = existingValue;
-        }
+
+    private String validateOrKeep(String newValue, String existingValue) {
+        return newValue.isEmpty() ? existingValue : newValue;
     }
 }

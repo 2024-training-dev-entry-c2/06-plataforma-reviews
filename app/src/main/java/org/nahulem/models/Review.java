@@ -12,6 +12,12 @@ public abstract class Review {
 
     public abstract void calculateRating();
 
+    @Override
+    public String toString() {
+        return "Calificación: " + averageRating +
+                "\nComentario: " + comment;
+    }
+
     public Float getAverageRating() {
         return averageRating;
     }

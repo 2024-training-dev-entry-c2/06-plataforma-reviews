@@ -40,6 +40,16 @@ public class Menu {
         dishes.removeIf(dish -> dish.getDishId().equals(dishId));
     }
 
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(name).append("\n");
+        result.append("Platos:\n");
+        dishes.forEach(dish -> result.append("  - ").append(dish.toString()).append("\n"));
+        return result.toString();
+    }
+
+
     public List<Dish> getDishes() {
         return dishes;
     }

@@ -42,6 +42,23 @@ public class Dish implements IObservable {
         return average;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("Nombre: ").append(name).append("\n")
+                .append("Descripción: ").append(description).append("\n")
+                .append("Precio: $").append(price).append("\n");
+
+        if (!reviews.isEmpty()) {
+            result.append("Reseñas:\n");
+            reviews.forEach(review -> result.append("  - ").append(review.toString()).append("\n"));
+        } else {
+            result.append("Sin reseñas.\n");
+        }
+        return result.toString();
+    }
+
+
     public String getDescription() {
         return description;
     }

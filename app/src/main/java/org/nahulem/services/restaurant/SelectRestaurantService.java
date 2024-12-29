@@ -24,7 +24,7 @@ public class SelectRestaurantService implements ICommand<Restaurant> {
 
         int index = selectRestaurant(restaurants.size());
 
-        return restaurants.get(index - 1);
+        return restaurants.get(index);
     }
 
     private int selectRestaurant(int size) {
@@ -39,7 +39,13 @@ public class SelectRestaurantService implements ICommand<Restaurant> {
     }
 
     private void showRestaurants(Map<Integer, Restaurant> restaurants) {
-        validator.printMessage("Lista de Restaurantes: ");
-        restaurants.forEach((key, value) -> System.out.println((key + 1) + ". " + value.getName()));
+        validator.printMessage("Lista de Restaurantes: \n-------------------");
+        restaurants.forEach((key, value) ->
+                validator.printMessage(key + ". " +
+                        value.getName() + "\n" +
+                        value.getLocation() + "\n" +
+                        value.getDescription() + "\n" +
+                        "-------------------")
+        );
     }
 }

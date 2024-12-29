@@ -64,13 +64,11 @@ public class Restaurant implements IObservable {
 
     @Override
     public String toString() {
-        return "Restaurant: " +
-                "\nID: " + restaurantId +
-                "\nNombre: " + name + '\'' +
-                "\nDescripción: " + description + '\'' +
-                "\nLocación : " + location + '\'' +
-                "\nMenú: " + menu +
-                "\nReviews: " + reviews;
+        return "\nNombre: " + name +
+                "\nDescripción: " + description +
+                "\nLocación : " + location +
+                "\nMenú: " + menu.toString() +
+                "\nReviews: " + reviews.toString();
     }
 
     public String getDescription() {

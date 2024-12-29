@@ -41,15 +41,20 @@ public class DataRepository {
     }
 
     public Map<Integer, Restaurant> getAllRestaurants() {
-        return new HashMap<>(restaurants);
+        return restaurants;
     }
 
     public Boolean deleteRestaurant(Integer restaurantId) {
         return restaurants.remove(restaurantId) != null;
     }
 
-    public void updateRestaurant(Restaurant updatedRestaurant) {
-        restaurants.put(updatedRestaurant.getRestaurantId(), updatedRestaurant);
+    public Boolean updateRestaurant(Restaurant updatedRestaurant) {
+        Integer restaurantId = updatedRestaurant.getRestaurantId();
+        if (restaurants.containsKey(restaurantId)) {
+            restaurants.put(restaurantId, updatedRestaurant);
+            return true;
+        }
+        return false;
     }
 
     public void addMenu(Menu menu) {
@@ -82,6 +87,35 @@ public class DataRepository {
 
     public void deleteDish(Integer id) {
         dishes.remove(id);
+    }
+
+
+    public Map<Integer, Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(Map<Integer, Dish> dishes) {
+        this.dishes = dishes;
+    }
+
+    public static void setInstance(DataRepository instance) {
+        DataRepository.instance = instance;
+    }
+
+    public Map<Integer, Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Map<Integer, Menu> menus) {
+        this.menus = menus;
+    }
+
+    public Map<Integer, Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(Map<Integer, Restaurant> restaurants) {
+        this.restaurants = restaurants;
     }
 
     private void initialize() {
@@ -156,35 +190,7 @@ public class DataRepository {
         this.addRestaurant(pastas);
         this.addRestaurant(urbana);
 
-        System.out.println("Repositorio inicializado con todos los datos completos.");
     }
 
-    public Map<Integer, Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(Map<Integer, Dish> dishes) {
-        this.dishes = dishes;
-    }
-
-    public static void setInstance(DataRepository instance) {
-        DataRepository.instance = instance;
-    }
-
-    public Map<Integer, Menu> getMenus() {
-        return menus;
-    }
-
-    public void setMenus(Map<Integer, Menu> menus) {
-        this.menus = menus;
-    }
-
-    public Map<Integer, Restaurant> getRestaurants() {
-        return restaurants;
-    }
-
-    public void setRestaurants(Map<Integer, Restaurant> restaurants) {
-        this.restaurants = restaurants;
-    }
 }
 

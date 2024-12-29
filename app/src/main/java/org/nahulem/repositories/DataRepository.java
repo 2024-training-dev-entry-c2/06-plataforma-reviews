@@ -44,8 +44,8 @@ public class DataRepository {
         return new HashMap<>(restaurants);
     }
 
-    public void deleteRestaurant(Integer id) {
-        restaurants.remove(id);
+    public Boolean deleteRestaurant(Integer restaurantId) {
+        return restaurants.remove(restaurantId) != null;
     }
 
     public void updateRestaurant(Restaurant updatedRestaurant) {

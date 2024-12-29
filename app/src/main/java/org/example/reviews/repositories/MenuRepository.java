@@ -2,15 +2,15 @@ package org.example.reviews.repositories;
 
 import org.example.reviews.models.Menu;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MenuRepository {
     private static MenuRepository INSTANCE;
-    List<Menu> menus;
+    Map<Integer, Menu> menus;
 
     private MenuRepository(){
-        this.menus = new LinkedList<>();
+        this.menus = new HashMap<>();
     }
 
     public static synchronized MenuRepository getInstance(){
@@ -21,15 +21,15 @@ public class MenuRepository {
 
     }
 
-    public void addMenu(Menu menu){
-        menus.add(menu);
+    public void addMenu(Integer restaurantId,Menu menu){
+        menus.put(restaurantId, menu);
     }
 
-    public List<Menu> getMenus() {
+    public Map<Integer, Menu> getMenus() {
         return menus;
     }
 
-    public void setMenus(List<Menu> menus) {
+    public void setMenus(Map<Integer, Menu> menus) {
         this.menus = menus;
     }
 }

@@ -5,11 +5,11 @@ import org.example.reviews.repositories.RestaurantRepository;
 import org.example.reviews.services.interfaces.ICommand;
 import org.example.reviews.utils.ConsoleUtil;
 
-public class UpdateRestaurant implements ICommand<Restaurant> {
+public class UpdateRestaurantImpl implements ICommand<Restaurant> {
     private RestaurantRepository restaurantRepository;
     private ConsoleUtil console;
 
-    public UpdateRestaurant(ConsoleUtil console) {
+    public UpdateRestaurantImpl(ConsoleUtil console) {
         this.restaurantRepository = RestaurantRepository.getInstance();
         this.console = console;
     }

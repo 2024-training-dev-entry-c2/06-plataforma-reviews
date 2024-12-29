@@ -58,6 +58,10 @@ public class RestaurantRepository {
         return restaurant;
     }
 
+    public Boolean removeRestaurant(Integer id) {
+        return restaurants.remove(id) != null;
+    }
+
     public void setRestaurants(Map<Integer, Restaurant> restaurants) {
         this.restaurants = restaurants;
     }

@@ -8,18 +8,28 @@ import java.util.Map;
 public class RestaurantController implements IController {
     private CreateRestaurantController createRestaurantController;
     private FindRestaurantsController findRestaurantsController;
+    private UpdateRestaurantController updateRestaurantController;
+    private RemoveRestaurantController removeRestaurantController;
     private ConsoleUtil console;
 
-    public RestaurantController(CreateRestaurantController createRestaurantController, FindRestaurantsController findRestaurantsController, ConsoleUtil console) {
+    public RestaurantController(CreateRestaurantController createRestaurantController,
+                                FindRestaurantsController findRestaurantsController,
+                                UpdateRestaurantController updateRestaurantController,
+                                RemoveRestaurantController removeRestaurantController,
+                                ConsoleUtil console) {
         this.createRestaurantController = createRestaurantController;
         this.findRestaurantsController = findRestaurantsController;
+        this.updateRestaurantController = updateRestaurantController;
+        this.removeRestaurantController = removeRestaurantController;
         this.console = console;
     }
     @Override
     public void execute() {
         Map<Integer, IController> controllers = Map.of(
                 1, createRestaurantController,
-                2, findRestaurantsController
+                2, findRestaurantsController,
+                3, updateRestaurantController,
+                4, removeRestaurantController
         );
         int option = 0;
         do {

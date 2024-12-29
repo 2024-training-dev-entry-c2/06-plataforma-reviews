@@ -7,10 +7,10 @@ import org.example.reviews.services.interfaces.ICommand;
 import java.util.Map;
 
 
-public class FindRestaurants implements ICommand<Map<Integer, Restaurant>> {
+public class FindRestaurantsImpl implements ICommand<Map<Integer, Restaurant>> {
     private RestaurantRepository restaurantRepository;
 
-    public FindRestaurants() {
+    public FindRestaurantsImpl() {
         this.restaurantRepository = RestaurantRepository.getInstance();
     }
 

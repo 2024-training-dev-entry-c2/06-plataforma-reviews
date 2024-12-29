@@ -2,7 +2,6 @@ package org.example.reviews.services.restaurants;
 
 import org.example.reviews.models.Restaurant;
 import org.example.reviews.services.interfaces.IRestaurant;
-import org.example.reviews.utils.ConsoleUtil;
 
 import java.util.Map;
 
@@ -10,31 +9,39 @@ import java.util.Map;
  * @author Manuel Aguilera / @aguileradev
  */
 public class RestaurantService implements IRestaurant {
-    private final CreateRestaurant createRestaurant;
-    private final FindRestaurants findRestaurants;
+    private final CreateRestaurantImpl createRestaurantImpl;
+    private final FindRestaurantsImpl findRestaurantsImpl;
+    private final UpdateRestaurantImpl updateRestaurantImpl;
+    private final RemoveRestaurantImpl removeRestaurantImpl;
 
-    public RestaurantService(CreateRestaurant createRestaurant, FindRestaurants findRestaurants) {
-        this.createRestaurant = createRestaurant;
-        this.findRestaurants = findRestaurants;
+    public RestaurantService(CreateRestaurantImpl createRestaurantImpl,
+                             FindRestaurantsImpl findRestaurantsImpl,
+                             UpdateRestaurantImpl updateRestaurantImpl,
+                             RemoveRestaurantImpl removeRestaurantImpl) {
+        this.createRestaurantImpl = createRestaurantImpl;
+        this.findRestaurantsImpl = findRestaurantsImpl;
+        this.updateRestaurantImpl = updateRestaurantImpl;
+        this.removeRestaurantImpl = removeRestaurantImpl;
     }
 
     @Override
     public Restaurant createRestaurant() {
-        return createRestaurant.execute();
+        return createRestaurantImpl.execute();
     }
 
     @Override
     public Map<Integer, Restaurant> findAllRestaurants() {
-        return findRestaurants.execute();
+        return findRestaurantsImpl.execute();
     }
 
     @Override
-    public void updateRestaurant(Restaurant restaurant) {
+    public Restaurant updateRestaurant() {
+        return updateRestaurantImpl.execute();
 
     }
 
     @Override
-    public void removeRestaurant(Integer id) {
-
+    public Boolean removeRestaurant() {
+        return removeRestaurantImpl.execute() ;
     }
 }

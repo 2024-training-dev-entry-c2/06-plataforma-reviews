@@ -14,7 +14,12 @@ public class FindRestaurantsController implements IController {
     }
     @Override
     public void execute() {
+        System.out.println("---Restaurantes disponibles---");
         Map<Integer, Restaurant> restaurants = restaurantService.findAllRestaurants();
+        if (restaurants.isEmpty()) {
+            System.out.println("No hay restaurantes disponibles");
+            return;
+        }
         restaurants.forEach((id, restaurant) -> System.out.println(restaurant));
     }
 }

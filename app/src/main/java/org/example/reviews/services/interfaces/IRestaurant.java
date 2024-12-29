@@ -10,6 +10,6 @@ import java.util.Map;
 public interface IRestaurant {
     Restaurant createRestaurant();
     Map<Integer, Restaurant> findAllRestaurants();
-    void updateRestaurant(Restaurant restaurant);
-    void removeRestaurant(Integer id);
+    Restaurant updateRestaurant();
+    Boolean removeRestaurant();
 }

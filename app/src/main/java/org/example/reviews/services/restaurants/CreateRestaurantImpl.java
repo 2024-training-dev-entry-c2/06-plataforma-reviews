@@ -8,11 +8,11 @@ import org.example.reviews.utils.ConsoleUtil;
 /**
  * @author Manuel Aguilera / @aguileradev
  */
-public class CreateRestaurant implements ICommand<Restaurant> {
+public class CreateRestaurantImpl implements ICommand<Restaurant> {
     private RestaurantRepository restaurantRepository;
     private ConsoleUtil console;
 
-    public CreateRestaurant(ConsoleUtil console) {
+    public CreateRestaurantImpl(ConsoleUtil console) {
         this.restaurantRepository = RestaurantRepository.getInstance();
         this.console = console;
     }

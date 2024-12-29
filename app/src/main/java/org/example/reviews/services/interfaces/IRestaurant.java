@@ -6,7 +6,7 @@ import org.example.reviews.models.Restaurant;
  * @author Manuel Aguilera / @aguileradev
  */
 public interface IRestaurant {
-    Restaurant createRestaurant(Restaurant restaurant);
+    Restaurant createRestaurant();
     void findAllRestaurants();
     void updateRestaurant(Restaurant restaurant);
     void removeRestaurant(Integer id);

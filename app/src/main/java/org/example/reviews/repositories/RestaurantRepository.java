@@ -22,13 +22,40 @@ public class RestaurantRepository {
         return RestaurantRepositoryHolder.INSTANCE;
     }
 
-    public void addRestaurant(Restaurant restaurant) {
-        restaurants.put(restaurant.getId(), restaurant);
+    public void save(Restaurant restaurant) {
+        restaurants.merge(restaurant.getId(), restaurant, (existing, newRestaurant) ->{
+            existing.setName(compareNames(existing, newRestaurant));
+            existing.setAddress(compareAddress(existing, newRestaurant));
+            existing.setSchedule(compareSchedule(existing, newRestaurant));
+            return existing;
+        });
+    }
+
+    private String compareSchedule(Restaurant existing, Restaurant newRestaurant) {
+        return existing.getSchedule() != null && !newRestaurant.getSchedule().isEmpty() ? existing.getSchedule() : newRestaurant.getSchedule();
+    }
+
+    private String compareAddress(Restaurant existing, Restaurant newRestaurant) {
+        return existing.getAddress() != null && !newRestaurant.getAddress().isEmpty() ? existing.getAddress() : newRestaurant.getAddress();
+    }
+
+    private String compareNames(Restaurant existing, Restaurant newRestaurant) {
+        return existing.getName() != null && !newRestaurant.getName().isEmpty() ? existing.getName() : newRestaurant.getName();
     }
 
 
     public Map<Integer, Restaurant> getRestaurants() {
         return restaurants;
+    }
+    public Restaurant findRestaurantById(Integer id) {
+        Restaurant restaurant;
+        try{
+            restaurant = restaurants.get(id);
+        }catch (NullPointerException e){
+            System.out.println("Restaurante con el id "+id+" no encontrado");
+            restaurant = null;
+        }
+        return restaurant;
     }
 
     public void setRestaurants(Map<Integer, Restaurant> restaurants) {

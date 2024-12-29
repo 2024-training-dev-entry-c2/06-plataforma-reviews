@@ -24,7 +24,7 @@ public class CreateRestaurant implements ICommand<Restaurant> {
         String address = console.readLine("Introduzca la direccion del restaurante: ");
         String schedule = console.readLine("Introduzca el horario del restaurante: ");
         Restaurant restaurant = new Restaurant(id, name, address, schedule);
-        restaurantRepository.addRestaurant(restaurant);
+        restaurantRepository.save(restaurant);
 
         return restaurant;
     }

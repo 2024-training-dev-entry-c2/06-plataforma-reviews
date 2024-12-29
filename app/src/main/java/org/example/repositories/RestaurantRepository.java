@@ -57,9 +57,8 @@ public class RestaurantRepository {
 
     public void addReview(String restaurantName,User user, String comentario, Float... calificaciones){
         Restaurant restaurant = restaurants.get(restaurantName);
-        IReview review = ReviewFactory.createReview("restaurante", comentario, calificaciones);
         restaurant.addObserver(user);
-        restaurant.addReview(user, review);
+        restaurant.addReview(user, ReviewFactory.createReview("restaurante", comentario, calificaciones));
     }
 
     public void showReview(Restaurant restaurant){

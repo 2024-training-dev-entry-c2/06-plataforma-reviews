@@ -24,7 +24,6 @@ public class ShowDishFood implements ICommand {
             restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = repository.getRestaurant(restaurantName);
             menuRepository.showDishes(restaurant.getMenu());
-            System.out.println("Review added successfully to: " + restaurantName);
         } catch (NullPointerException e) {
             System.err.println("Error: Restaurant not found - " + restaurantName);
         }

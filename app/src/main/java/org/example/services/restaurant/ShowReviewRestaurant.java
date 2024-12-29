@@ -20,9 +20,10 @@ public class ShowReviewRestaurant implements ICommand {
         try {
             restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = repository.getRestaurant(restaurantName);
+            System.out.println("reviews:");
             repository.showReview(restaurant);
         } catch (NullPointerException e) {
-            System.err.println("Error: Restaurant not found - " + restaurantName);
+            System.err.println("Error: restaurante no encontrado - " + restaurantName);
         } catch (Exception e) {
             System.err.println("Error while adding review: " + e.getMessage());
         }

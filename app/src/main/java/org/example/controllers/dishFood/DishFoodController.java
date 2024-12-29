@@ -4,6 +4,7 @@ import org.example.controllers.menu.MenuController;
 import org.example.models.User;
 
 import org.example.services.dishFood.AddReviewDish;
+import org.example.services.dishFood.ShowReviews;
 import org.example.services.interfaces.ICommand;
 import org.example.services.utils.IValidatorScanner;
 
@@ -14,7 +15,7 @@ public class DishFoodController {
     public static IValidatorScanner validatorScanner;
 
     public DishFoodController(IValidatorScanner validatorScanner) {
-        MenuController.validatorScanner = validatorScanner;
+        DishFoodController.validatorScanner = validatorScanner;
     }
 
     public void addReview(){
@@ -22,7 +23,7 @@ public class DishFoodController {
         command.execute();
     }
     public void showReviews(){
-        ICommand command = new AddReviewDish(validatorScanner);
+        ICommand command = new ShowReviews(validatorScanner);
         command.execute();
     }
 

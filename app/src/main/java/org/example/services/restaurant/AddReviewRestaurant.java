@@ -24,8 +24,9 @@ public class AddReviewRestaurant implements ICommand {
             String comment = validatorScanner.stringScanner("Ingrese su comentario");
             Float placeRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del lugar");
             Float menuRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del menu");
-            repository.addReview(restaurantName, user, comment, placeRating, menuRating);
-            System.out.println("Review added successfully to: " + restaurantName);
+            Float serviceRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del serviceRating");
+            repository.addReview(restaurantName, user, comment, serviceRating, placeRating, menuRating);
+            System.out.println("Review agregado: " + restaurantName);
         } catch (NullPointerException e) {
             System.err.println("Error: Restaurant not found - " + restaurantName);
         } catch (Exception e) {
@@ -35,12 +36,3 @@ public class AddReviewRestaurant implements ICommand {
 
 }
 
-
-//        repository.displayRestaurants();
-//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-//        String nameRestaurant = repository.getRestaurantNameByIndex(optionRestaurant);
-//        User user = new User(validatorScanner.stringScanner("Ingrese su nombre"));
-//        String comment =validatorScanner.stringScanner("Ingrese su comentario");
-//        Float placeRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del lugar");
-//        Float menuRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del menu");
-//        addReview(nameRestaurant,user,comment,placeRating,menuRating);

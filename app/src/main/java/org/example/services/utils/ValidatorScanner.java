@@ -55,8 +55,18 @@ public class ValidatorScanner implements IValidatorScanner {
         while (true) {
             System.out.println(prompt);
             try {
-                return Float.parseFloat(scanner.nextLine());
-            } catch (InputMismatchException e) {
+                String input = scanner.nextLine().trim(); // Lee y elimina espacios en blanco
+                if (input.isEmpty()) {
+                    System.out.println("Entrada no válida. Por favor, ingrese un número.");
+                    continue;
+                }
+                float value = Float.parseFloat(input); // Intenta convertir a float
+                if (value < 0 || value > 5) { // Validación de rango
+                    System.out.println("Por favor, ingrese un número entre 0 y 5.");
+                    continue;
+                }
+                return value; // Retorna el valor válido
+            } catch (NumberFormatException e) {
                 System.out.println("Entrada no válida. Por favor, ingrese un número.");
             }
         }

@@ -21,7 +21,9 @@ public class AddReviewDish implements ICommand {
 
     @Override
     public void execute() {
-        String restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
+        String restaurantName=null;
+        try{
+        restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
         Restaurant restaurant = restaurantRepository.getRestaurant(restaurantName);
         menuRepository.showDishes(restaurant.getMenu());
         Integer optionDish = validatorScanner.integerScanner("seleccione un plato");
@@ -30,5 +32,10 @@ public class AddReviewDish implements ICommand {
         Float tasteRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del sabor");
         Float presentationRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del presentacion");
         repository.addReview(dishFood, comment, tasteRating,presentationRating);
+        } catch (NullPointerException e) {
+            System.err.println("Error: Restaurant not found - " + restaurantName);
+        } catch (Exception e) {
+            System.err.println("Error while adding review: " + e.getMessage());
+        }
     }
 }

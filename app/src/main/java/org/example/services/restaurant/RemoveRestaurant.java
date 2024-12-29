@@ -17,6 +17,6 @@ public class RemoveRestaurant implements ICommand {
     public void execute() {
         String name = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
         repository.removeRestaurant(name);
-        System.out.println("Restaurant removed: " + name);
+        System.out.println("Restaurant eliminado: " + name);
     }
 }

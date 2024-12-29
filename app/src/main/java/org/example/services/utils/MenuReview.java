@@ -14,15 +14,7 @@ public class MenuReview {
     }
 
     public void showMenu() {
-        RestaurantController restaurantController = new RestaurantController(validatorScanner);
-        DishFoodController dishFoodController = new DishFoodController(validatorScanner);
-        Map<Integer, Runnable> menuActions = Map.of(
-                1, restaurantController::addReview,
-                2, dishFoodController::addReview,
-                3, restaurantController::showReview,
-                4, restaurantController::showReview,
-                5, () -> System.out.println("Volviendo al menú principal...")
-        );
+        Map<Integer, Runnable> menuActions = getIntegerRunnableMap();
         int option;
         do {
             System.out.println("\n===== Gestión de Menús =====");
@@ -40,7 +32,20 @@ public class MenuReview {
                 System.out.println("Opción no válida. Intenta de nuevo.");
             }
 
-        } while (option != 4);
+        } while (option != 5);
 
+    }
+
+    private static Map<Integer, Runnable> getIntegerRunnableMap() {
+        RestaurantController restaurantController = new RestaurantController(validatorScanner);
+        DishFoodController dishFoodController = new DishFoodController(validatorScanner);
+        Map<Integer, Runnable> menuActions = Map.of(
+                1, restaurantController::addReview,
+                2, dishFoodController::addReview,
+                3, restaurantController::showReview,
+                4, dishFoodController::showReviews,
+                5, () -> System.out.println("Volviendo al menú principal...")
+        );
+        return menuActions;
     }
 }

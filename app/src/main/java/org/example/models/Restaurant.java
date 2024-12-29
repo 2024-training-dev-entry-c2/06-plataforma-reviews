@@ -21,6 +21,7 @@ public class Restaurant extends Observable {
 
     public void addReview(User user ,IReview review) {
         reviewMap.put(user, (ReviewRestaurant) review);
+        System.out.println(((ReviewRestaurant) review).getMenuRating()+"dsasasdasdasd");
         notifyObservers("mensaje pronto");//mensaje del review
     }
 

@@ -3,18 +3,22 @@ package org.nahulem.controllers.restaurant;
 import org.nahulem.controllers.interfaces.ICommandController;
 import org.nahulem.models.Restaurant;
 import org.nahulem.services.restaurant.CreateRestaurantService;
+import org.nahulem.utils.Validator;
+
+import java.util.Scanner;
 
 public class CreateRestaurantController implements ICommandController {
     private final CreateRestaurantService createRestaurantService;
+    private Validator validator = new Validator(new Scanner(System.in));
 
-    public CreateRestaurantController(CreateRestaurantService createRestaurantService) {
+    public CreateRestaurantController(CreateRestaurantService createRestaurantService, Validator validator) {
         this.createRestaurantService = createRestaurantService;
+        this.validator = validator;
     }
-
 
     @Override
     public void execute() {
         Restaurant restaurant = createRestaurantService.execute();
-        System.out.println("Restaurante creado exitosamente: " + restaurant.toString());
+        validator.printMessage("Restaurante creado exitosamente: " + restaurant.toString());
     }
 }

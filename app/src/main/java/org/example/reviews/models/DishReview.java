@@ -6,13 +6,24 @@ import java.time.LocalDateTime;
  * @author Manuel Aguilera / @aguileradev
  */
 public class DishReview extends Review {
-    public DishReview(Integer id, String author, String comment, Float rating, LocalDateTime date) {
+    private Integer dishId;
+
+    public DishReview(Integer dishId,Integer id, String author, String comment, Float rating, LocalDateTime date) {
         super(id, author, comment, rating, date);
+        this.dishId = dishId;
     }
 
     @Override
     public Float calculateRating() {
         return 0f;
+    }
+
+    public Integer getDishId() {
+        return dishId;
+    }
+
+    public void setDishId(Integer dishId) {
+        this.dishId = dishId;
     }
 
     @Override

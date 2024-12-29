@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class MenuMain {
         public  final IValidatorScanner validatorScanner;
         private  final MenuRestaurant menuRestaurant ;
+        private final MenuDishFood menuDishFood;
 
     public MenuMain(IValidatorScanner validatorScanner) {
         this.validatorScanner = validatorScanner;
         this.menuRestaurant = new MenuRestaurant(validatorScanner);
+        this.menuDishFood = new MenuDishFood(validatorScanner);
     }
 
     public void showMenu() {
@@ -23,6 +25,7 @@ public class MenuMain {
 
                 switch (option) {
                     case 1 -> menuRestaurant.showMenu();
+                        case 2 -> menuDishFood.showMenu();
 
                     case 0 -> {
                         System.out.println("¡Gracias por usar la aplicación!");

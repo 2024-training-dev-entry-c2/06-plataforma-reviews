@@ -24,6 +24,18 @@ public class ValidatorScanner implements IValidatorScanner {
         }
 
     }
+    @Override
+    public Double doubleScanner(String prompt) {
+        try {
+            System.out.println(prompt);
+            Double value = scanner.nextDouble();
+            return value < 0 ? this.doubleScanner(prompt) : value ;
+        } catch (InputMismatchException e) {
+            System.out.println("Entrada no válida. Por favor, ingrese un número.");
+            return doubleScanner(prompt);
+        }
+
+    }
 
     @Override
     public String stringScanner(String prompt) {

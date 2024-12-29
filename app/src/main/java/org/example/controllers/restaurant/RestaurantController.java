@@ -12,7 +12,7 @@ import org.example.services.restaurant.UpdateRestaurat;
 import org.example.services.utils.IValidatorScanner;
 
 public class RestaurantController {
-    private static IValidatorScanner validatorScanner;
+    public static IValidatorScanner validatorScanner;
 
     public RestaurantController(IValidatorScanner validatorScanner) {
         RestaurantController.validatorScanner = validatorScanner;

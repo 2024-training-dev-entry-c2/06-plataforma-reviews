@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public interface IValidatorScanner {
     Integer integerScanner(String prompt);
+    Double doubleScanner(String prompt);
 
     String stringScanner(String prompt);
 

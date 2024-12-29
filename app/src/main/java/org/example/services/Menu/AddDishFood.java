@@ -5,29 +5,29 @@ import org.example.models.Restaurant;
 import org.example.repositories.MenuRepository;
 import org.example.repositories.RestaurantRepository;
 import org.example.services.interfaces.ICommand;
+import org.example.services.utils.IValidatorScanner;
 
 
 public class AddDishFood implements ICommand {
     private final RestaurantRepository repository = RestaurantRepository.getInstance();
     private final MenuRepository menuRepository = MenuRepository.getInstance();
-    private String restaurantName;
-    private String nameDish;
-    private String description;
-    private Double price;
+    private final IValidatorScanner validatorScanner;
 
-    public AddDishFood(String restaurantName, String nameDish, String description, Double price) {
-        this.restaurantName = restaurantName;
-        this.nameDish = nameDish;
-        this.description = description;
-        this.price = price;
+    public AddDishFood(IValidatorScanner validatorScanner) {
+        this.validatorScanner = validatorScanner;
     }
 
     @Override
     public void execute() {
+        String restaurantName = null;
         try {
-            
+            restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = repository.getRestaurant(restaurantName);
-            DishFood dishFood = new DishFood(nameDish,description,price);
+            String dishName = validatorScanner.stringScanner("Escribe el nombre del plato ");
+            String description = validatorScanner.stringScanner("Escribe una descripcion ");
+            Double price = validatorScanner.doubleScanner("Escribe el precio: ");
+            DishFood dishFood = new DishFood(dishName,description,price);
+            System.out.println(dishFood.toString());
             menuRepository.addDishFood(restaurant,dishFood);
             System.out.println("Review added successfully to: " + restaurantName);
         } catch (NullPointerException e) {

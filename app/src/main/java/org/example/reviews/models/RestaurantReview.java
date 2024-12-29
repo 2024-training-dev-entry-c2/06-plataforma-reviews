@@ -1,5 +1,6 @@
 package org.example.reviews.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
 public class RestaurantReview extends Review{
     private Integer restaurantId;
 
-    public RestaurantReview(Integer restaurantId,Integer id, String author, String comment, Float rating, LocalDateTime date) {
+    public RestaurantReview(Integer restaurantId, Integer id, String author, String comment, Float rating, LocalDate date) {
         super(id, author, comment, rating, date);
         this.restaurantId = restaurantId;
     }

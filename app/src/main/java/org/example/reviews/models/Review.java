@@ -1,5 +1,6 @@
 package org.example.reviews.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -10,11 +11,11 @@ public abstract class Review {
     private String author;
     private String comment;
     private Float rating;
-    private LocalDateTime date;
+    private LocalDate date;
 
     public Review() {};
 
-    public Review(Integer id, String author, String comment, Float rating, LocalDateTime date) {
+    public Review(Integer id, String author, String comment, Float rating, LocalDate date) {
         this.id = id;
         this.author = author;
         this.comment = comment;
@@ -57,11 +58,11 @@ public abstract class Review {
         this.rating = rating;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

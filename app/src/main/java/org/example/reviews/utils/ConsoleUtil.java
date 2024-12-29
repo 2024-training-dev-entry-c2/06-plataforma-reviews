@@ -38,10 +38,10 @@ public class ConsoleUtil implements IConsole {
 
     @Override
     public LocalDate readDate(String message){
-        writeLine(message);
+        String possibleDate = readLine(message);
         LocalDate date = null;
         try{
-            date = LocalDate.parse(message);
+            date = LocalDate.parse(possibleDate);
         } catch (Exception e) {
             writeLine("-- Introduzca una fecha con formato valido (yyyy-MM-dd)");
             readDate(message);

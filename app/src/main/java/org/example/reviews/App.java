@@ -4,8 +4,10 @@
 package org.example.reviews;
 
 import org.example.reviews.controllers.restaurant.CreateRestaurantController;
+import org.example.reviews.controllers.restaurant.FindRestaurantsController;
 import org.example.reviews.controllers.restaurant.RestaurantController;
 import org.example.reviews.services.restaurants.CreateRestaurant;
+import org.example.reviews.services.restaurants.FindRestaurants;
 import org.example.reviews.services.restaurants.RestaurantService;
 import org.example.reviews.utils.AppMenu;
 import org.example.reviews.utils.ConsoleUtil;
@@ -14,8 +16,8 @@ public class App {
 
     public static void main(String[] args) {
         ConsoleUtil console  = new ConsoleUtil();
-        RestaurantService restaurantService = new RestaurantService(new CreateRestaurant(console));
-        AppMenu appMenu = new AppMenu(new RestaurantController(new CreateRestaurantController(restaurantService),console), console);
+        RestaurantService restaurantService = new RestaurantService(new CreateRestaurant(console), new FindRestaurants());
+        AppMenu appMenu = new AppMenu(new RestaurantController(new CreateRestaurantController(restaurantService),new FindRestaurantsController(restaurantService),console), console);
 
         appMenu.execute();
     }

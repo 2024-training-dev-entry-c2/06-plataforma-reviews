@@ -26,6 +26,7 @@ public class RestaurantRepository {
         restaurants.put(restaurant.getId(), restaurant);
     }
 
+
     public Map<Integer, Restaurant> getRestaurants() {
         return restaurants;
     }

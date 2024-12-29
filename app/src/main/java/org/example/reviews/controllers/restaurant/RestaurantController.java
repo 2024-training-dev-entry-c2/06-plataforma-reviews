@@ -1,23 +1,25 @@
 package org.example.reviews.controllers.restaurant;
 
 import org.example.reviews.controllers.interfaces.IController;
-import org.example.reviews.models.Restaurant;
 import org.example.reviews.utils.ConsoleUtil;
 
 import java.util.Map;
 
 public class RestaurantController implements IController {
     private CreateRestaurantController createRestaurantController;
+    private FindRestaurantsController findRestaurantsController;
     private ConsoleUtil console;
 
-    public RestaurantController(CreateRestaurantController createRestaurantController, ConsoleUtil console) {
+    public RestaurantController(CreateRestaurantController createRestaurantController, FindRestaurantsController findRestaurantsController, ConsoleUtil console) {
         this.createRestaurantController = createRestaurantController;
+        this.findRestaurantsController = findRestaurantsController;
         this.console = console;
     }
     @Override
     public void execute() {
         Map<Integer, IController> controllers = Map.of(
-                1, createRestaurantController
+                1, createRestaurantController,
+                2, findRestaurantsController
         );
         int option = 0;
         do {

@@ -31,45 +31,50 @@ import org.example.utils.interfaces.IMenu;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MainMenu implements IMenu<Integer> {
-	RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();
-	Validator validator = new Validator(new Scanner(System.in));
+	private final Validator validator;
+	private final CreateRestaurantController createRestaurantController;
+	private final UpdateRestaurantController updateRestaurantController;
+	private final DeleteRestaurantController deleteRestaurantController;
+	private final ListRestaurantController listRestaurantController;
+	private final AddDishController addDishController;
+	private final UpdateDishController updateDishController;
+	private final DeleteDishController deleteDishController;
+	private final CreateDishReviewController createDishReviewController;
+	private final ListDishReviewController listDishReviewController;
+	private final CreateRestaurantReviewController createRestaurantReviewController;
+	private final ListRestaurantReviewController listRestaurantReviewController;
 
-	SelectRestaurant selectRestaurant = new SelectRestaurant(validator, restaurantRepository);
-	AddDish addDish = new AddDish(validator, selectRestaurant);
-	CreateRestaurant createRestaurant = new CreateRestaurant(validator, addDish, restaurantRepository);
-
-	UpdateRestaurant updateRestaurant = new UpdateRestaurant(validator, restaurantRepository, selectRestaurant);
-	DeleteRestaurant deleteRestaurant = new DeleteRestaurant(restaurantRepository, selectRestaurant);
-	ListRestaurant listRestaurant = new ListRestaurant(restaurantRepository);
-
-	SelectDish selectDish = new SelectDish(validator, selectRestaurant);
-	UpdateDish updateDish = new UpdateDish(validator, selectDish);
-	DeleteDish deleteDish = new DeleteDish(selectDish, restaurantRepository);
-
-	CreateDishReview createDishReview = new CreateDishReview(validator, selectDish);
-	AddRestaurantObserver addRestaurantObserver = new AddRestaurantObserver(validator);
-	CreateRestaurantReview createRestaurantReview = new CreateRestaurantReview(validator, selectRestaurant, addRestaurantObserver);
-
-	ListDishReview listDishReview = new ListDishReview(selectDish);
-	ListRestaurantReview listRestaurantReview = new ListRestaurantReview(selectRestaurant);
+	public MainMenu(Validator validator,  CreateRestaurantController createRestaurantController, UpdateRestaurantController updateRestaurantController, DeleteRestaurantController deleteRestaurantController, ListRestaurantController listRestaurantController, AddDishController addDishController, UpdateDishController updateDishController, DeleteDishController deleteDishController, CreateDishReviewController createDishReviewController, ListDishReviewController listDishReviewController, CreateRestaurantReviewController createRestaurantReviewController, ListRestaurantReviewController listRestaurantReviewController) {
+		this.validator = validator;
+		this.createRestaurantController = createRestaurantController;
+		this.updateRestaurantController = updateRestaurantController;
+		this.deleteRestaurantController = deleteRestaurantController;
+		this.listRestaurantController = listRestaurantController;
+		this.addDishController = addDishController;
+		this.updateDishController = updateDishController;
+		this.deleteDishController = deleteDishController;
+		this.createDishReviewController = createDishReviewController;
+		this.listDishReviewController = listDishReviewController;
+		this.createRestaurantReviewController = createRestaurantReviewController;
+		this.listRestaurantReviewController = listRestaurantReviewController;
+	}
 
 	@Override
 	public Integer execute() {
 		Map<Integer, ICommandController> controllers = new HashMap<>();
-		controllers.put(1, new CreateRestaurantController(createRestaurant));
-		controllers.put(2, new UpdateRestaurantController(updateRestaurant));
-		controllers.put(3, new DeleteRestaurantController(deleteRestaurant));
-		controllers.put(4, new ListRestaurantController(listRestaurant));
-		controllers.put(5, new AddDishController(addDish));
-		controllers.put(6, new UpdateDishController(updateDish));
-		controllers.put(7, new DeleteDishController(deleteDish));
-		controllers.put(8, new CreateDishReviewController(createDishReview));
-		controllers.put(9, new ListDishReviewController(listDishReview));
-		controllers.put(10, new CreateRestaurantReviewController(createRestaurantReview));
-		controllers.put(11, new ListRestaurantReviewController(listRestaurantReview));
+		controllers.put(1, createRestaurantController);
+		controllers.put(2, updateRestaurantController);
+		controllers.put(3, deleteRestaurantController);
+		controllers.put(4, listRestaurantController);
+		controllers.put(5, addDishController);
+		controllers.put(6, updateDishController);
+		controllers.put(7, deleteDishController);
+		controllers.put(8, createDishReviewController);
+		controllers.put(9, listDishReviewController);
+		controllers.put(10, createRestaurantReviewController);
+		controllers.put(11, listRestaurantReviewController);
 
 		Integer option;
 

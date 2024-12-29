@@ -5,12 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99af82aa-5236-4d29-b3a1-906daeb2bfc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/CreateDishReviewTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/CreateRestaurantReviewTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/ListDishReviewTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/ListRestaurantReviewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/menu/AddDishControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/menu/DeleteDishControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/menu/UpdateDishControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/restaurant/CreateRestaurantControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/restaurant/DeleteRestaurantControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/restaurant/ListRestaurantControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/restaurant/UpdateRestaurantControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/review/CreateDishReviewControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/review/CreateRestaurantReviewControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/review/ListDishReviewControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/controllers/review/ListRestaurantReviewControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/utils/MainMenuTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/utils/ValidatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateRestaurantReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateRestaurantReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/repositories/RestaurantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/repositories/RestaurantRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/utils/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +73,7 @@
     "Downloaded.Files.Path.Enabled": "false",
     "Gradle.06-plataforma-reviews [dependencies].executor": "Run",
     "Gradle.06-plataforma-reviews:app [:app:App.main()].executor": "Run",
+    "Gradle.AddDishControllerTest.executor": "Coverage",
     "Gradle.AddDishTest.execute.executor": "Run",
     "Gradle.AddDishTest.executeWithMenu.executor": "Run",
     "Gradle.AddDishTest.executeWithNullMenu.executor": "Run",
@@ -73,23 +85,34 @@
     "Gradle.AddRestaurantObserverTest.execute.executor": "Run",
     "Gradle.AddRestaurantObserverTest.executeWithNullMenu.executor": "Run",
     "Gradle.AddRestaurantObserverTest.executor": "Coverage",
+    "Gradle.CreateDishReviewControllerTest.executor": "Coverage",
     "Gradle.CreateDishReviewTest.executeWithNullDish.executor": "Run",
     "Gradle.CreateDishReviewTest.executor": "Coverage",
+    "Gradle.CreateRestaurantControllerTest.executor": "Coverage",
+    "Gradle.CreateRestaurantReviewControllerTest.executor": "Coverage",
     "Gradle.CreateRestaurantReviewTest.executor": "Coverage",
     "Gradle.CreateRestaurantTest.executor": "Coverage",
     "Gradle.CreateRestaurantTest.testExecute.executor": "Run",
+    "Gradle.DeleteDishControllerTest.executor": "Coverage",
     "Gradle.DeleteDishTest.executeWithDish.executor": "Run",
     "Gradle.DeleteDishTest.executeWithNullDish.executor": "Run",
     "Gradle.DeleteDishTest.executor": "Coverage",
+    "Gradle.DeleteRestaurantControllerTest.executor": "Coverage",
     "Gradle.DeleteRestaurantTest.executor": "Run",
     "Gradle.DeleteRestaurantTest.testExecute.executor": "Run",
     "Gradle.DeleteRestaurantTest.testExecuteFalse.executor": "Run",
     "Gradle.DeleteRestaurantTest.testExecuteTrue.executor": "Run",
     "Gradle.DeleteRestaurantTest.testReturnsFalseOnFailure.executor": "Run",
+    "Gradle.ListDishReviewControllerTest.executor": "Coverage",
     "Gradle.ListDishReviewTest.executeWithNullDish.executor": "Run",
     "Gradle.ListDishReviewTest.executor": "Coverage",
+    "Gradle.ListRestaurantControllerTest.executor": "Coverage",
+    "Gradle.ListRestaurantReviewControllerTest.executor": "Coverage",
     "Gradle.ListRestaurantReviewTest.executor": "Coverage",
     "Gradle.ListRestaurantTest.testExecute.executor": "Run",
+    "Gradle.MainMenuTest.execute.executor": "Run",
+    "Gradle.MainMenuTest.executeWithInvalidOption.executor": "Run",
+    "Gradle.MainMenuTest.executor": "Coverage",
     "Gradle.SelectDishTest.executeInvalidOption.executor": "Run",
     "Gradle.SelectDishTest.executeWithDishesIsEmpty.executor": "Run",
     "Gradle.SelectDishTest.executeWithNullRestaurant.executor": "Run",
@@ -99,15 +122,25 @@
     "Gradle.SelectRestaurantTest.testExecuteValidSelection.executor": "Run",
     "Gradle.Tests in '06-plataforma-reviews.app.test'.executor": "Coverage",
     "Gradle.Tests in 'org.example.services.restaurant'.executor": "Coverage",
+    "Gradle.UpdateDishControllerTest.executor": "Coverage",
     "Gradle.UpdateDishTest.executeDishDetailsWithEmptyFields.executor": "Run",
     "Gradle.UpdateDishTest.executeWithDish.executor": "Run",
     "Gradle.UpdateDishTest.executeWithNullDish.executor": "Run",
     "Gradle.UpdateDishTest.executor": "Coverage",
+    "Gradle.UpdateRestaurantControllerTest.executor": "Coverage",
     "Gradle.UpdateRestaurantTest.executor": "Run",
     "Gradle.UpdateRestaurantTest.testExecute.executor": "Run",
     "Gradle.UpdateRestaurantTest.testExistingRestaurantIsNull.executor": "Run",
     "Gradle.UpdateRestaurantTest.testUpdateLocation.executor": "Run",
     "Gradle.UpdateRestaurantTest.testUpdateRestaurantDetailsWithEmptyFields.executor": "Run",
+    "Gradle.ValidatorTest.printMessage.executor": "Run",
+    "Gradle.ValidatorTest.readFloat.executor": "Run",
+    "Gradle.ValidatorTest.readInteger.executor": "Run",
+    "Gradle.ValidatorTest.readRating.executor": "Run",
+    "Gradle.ValidatorTest.readString.executor": "Run",
+    "Gradle.ValidatorTest.readWrongFloat.executor": "Run",
+    "Gradle.ValidatorTest.readWrongInteger.executor": "Run",
+    "Gradle.ValidatorTest.readWrongRating.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -136,9 +169,11 @@
       <recent name="junit.framework.TestCase" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.controllers.review" />
+      <recent name="org.example.controllers.restaurant" />
+      <recent name="org.example.controllers.menu" />
+      <recent name="org.example.utils" />
       <recent name="org.example.services.review" />
-      <recent name="org.example.services.menu" />
-      <recent name="org.example.services.restaurant" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Tests in '06-plataforma-reviews.app.test'">
@@ -151,7 +186,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateRestaurantReviewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CreateDishReviewControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -164,7 +199,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.services.review.CreateRestaurantReviewTest&quot;" />
+            <option value="&quot;org.example.controllers.review.CreateDishReviewControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -175,7 +210,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ListDishReviewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CreateRestaurantReviewControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -188,7 +223,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.services.review.ListDishReviewTest&quot;" />
+            <option value="&quot;org.example.controllers.review.CreateRestaurantReviewControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -199,7 +234,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ListDishReviewTest.executeWithNullDish" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ListDishReviewControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -212,7 +247,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.services.review.ListDishReviewTest.executeWithNullDish&quot;" />
+            <option value="&quot;org.example.controllers.review.ListDishReviewControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -223,7 +258,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ListRestaurantReviewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ListRestaurantReviewControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -236,7 +271,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.services.review.ListRestaurantReviewTest&quot;" />
+            <option value="&quot;org.example.controllers.review.ListRestaurantReviewControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -272,10 +307,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in '06-plataforma-reviews.app.test'" />
-        <item itemvalue="Gradle.ListRestaurantReviewTest" />
-        <item itemvalue="Gradle.ListDishReviewTest" />
-        <item itemvalue="Gradle.ListDishReviewTest.executeWithNullDish" />
-        <item itemvalue="Gradle.CreateRestaurantReviewTest" />
+        <item itemvalue="Gradle.ListRestaurantReviewControllerTest" />
+        <item itemvalue="Gradle.ListDishReviewControllerTest" />
+        <item itemvalue="Gradle.CreateRestaurantReviewControllerTest" />
+        <item itemvalue="Gradle.CreateDishReviewControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -300,7 +335,8 @@
       <workItem from="1735406479522" duration="14126000" />
       <workItem from="1735451733960" duration="8510000" />
       <workItem from="1735483883912" duration="6391000" />
-      <workItem from="1735491369926" duration="8936000" />
+      <workItem from="1735491369926" duration="9179000" />
+      <workItem from="1735500707369" duration="4111000" />
     </task>
     <servers />
   </component>
@@ -308,18 +344,32 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$SelectDishTest.ic" NAME="SelectDishTest Coverage Results" MODIFIED="1735495583028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListRestaurantReviewTest.ic" NAME="ListRestaurantReviewTest Coverage Results" MODIFIED="1735500360520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$DeleteDishControllerTest.ic" NAME="DeleteDishControllerTest Coverage Results" MODIFIED="1735503858470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListRestaurantControllerTest.ic" NAME="ListRestaurantControllerTest Coverage Results" MODIFIED="1735504273212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$AddDishTest.ic" NAME="AddDishTest Coverage Results" MODIFIED="1735491312690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$Tests_in__06_plataforma_reviews_app_test_.ic" NAME="Tests in '06-plataforma-reviews.app.test' Coverage Results" MODIFIED="1735500397077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$Tests_in__06_plataforma_reviews_app_test_.ic" NAME="Tests in '06-plataforma-reviews.app.test' Coverage Results" MODIFIED="1735504740350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListDishReviewControllerTest.ic" NAME="ListDishReviewControllerTest Coverage Results" MODIFIED="1735504610173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateDishReviewTest.ic" NAME="CreateDishReviewTest Coverage Results" MODIFIED="1735460221997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListRestaurantReviewControllerTest.ic" NAME="ListRestaurantReviewControllerTest Coverage Results" MODIFIED="1735504715834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateRestaurantTest.ic" NAME="CreateRestaurantTest Coverage Results" MODIFIED="1735419426197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$MainMenuTest.ic" NAME="MainMenuTest Coverage Results" MODIFIED="1735502402908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$DeleteDishTest.ic" NAME="DeleteDishTest Coverage Results" MODIFIED="1735492896124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$SelectDishTest.ic" NAME="SelectDishTest Coverage Results" MODIFIED="1735495583028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$DeleteRestaurantControllerTest.ic" NAME="DeleteRestaurantControllerTest Coverage Results" MODIFIED="1735504134493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListRestaurantReviewTest.ic" NAME="ListRestaurantReviewTest Coverage Results" MODIFIED="1735500360520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateRestaurantControllerTest.ic" NAME="CreateRestaurantControllerTest Coverage Results" MODIFIED="1735504069125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$Tests_in__org_example_services_restaurant_.ic" NAME="Tests in 'org.example.services.restaurant' Coverage Results" MODIFIED="1735488450270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateDishReviewControllerTest.ic" NAME="CreateDishReviewControllerTest Coverage Results" MODIFIED="1735504444998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateRestaurantReviewTest.ic" NAME="CreateRestaurantReviewTest Coverage Results" MODIFIED="1735499609729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$UpdateRestaurantControllerTest.ic" NAME="UpdateRestaurantControllerTest Coverage Results" MODIFIED="1735504379950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListDishReviewTest.ic" NAME="ListDishReviewTest Coverage Results" MODIFIED="1735500219056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$AddRestaurantObserverTest.ic" NAME="AddRestaurantObserverTest Coverage Results" MODIFIED="1735456603119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$UpdateRestaurantTest.ic" NAME="UpdateRestaurantTest Coverage Results" MODIFIED="1735455827300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateDishReviewTest.ic" NAME="CreateDishReviewTest Coverage Results" MODIFIED="1735460221997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateRestaurantTest.ic" NAME="CreateRestaurantTest Coverage Results" MODIFIED="1735419426197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$AddDishControllerTest.ic" NAME="AddDishControllerTest Coverage Results" MODIFIED="1735503707985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$UpdateDishControllerTest.ic" NAME="UpdateDishControllerTest Coverage Results" MODIFIED="1735503940546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$MainMenuTest_executeWithInvalidOption.ic" NAME="MainMenuTest.executeWithInvalidOption Coverage Results" MODIFIED="1735502348879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$UpdateDishTest.ic" NAME="UpdateDishTest Coverage Results" MODIFIED="1735497489937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$DeleteDishTest.ic" NAME="DeleteDishTest Coverage Results" MODIFIED="1735492896124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$MainMenuTest_execute.ic" NAME="MainMenuTest.execute Coverage Results" MODIFIED="1735502119774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateRestaurantReviewControllerTest.ic" NAME="CreateRestaurantReviewControllerTest Coverage Results" MODIFIED="1735504504675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

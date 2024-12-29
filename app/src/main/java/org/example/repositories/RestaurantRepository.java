@@ -43,8 +43,4 @@ public class RestaurantRepository {
 	public Map<Integer, Restaurant> getAllRestaurants() {
 		return new HashMap<>(restaurants);
 	}
-
-	public Restaurant getRestaurant(Integer restaurantId) {
-		return restaurants.get(restaurantId);
-	}
 }

@@ -71,6 +71,14 @@ public class Dish implements IObservable {
     this.reviews = reviews;
   }
 
+  public List<IObserver> getObservers() {
+    return observers;
+  }
+
+  public void setObservers(List<IObserver> observers) {
+    this.observers = observers;
+  }
+
   public void addReview(Review review) {
     this.reviews.add(review);
 
@@ -103,11 +111,6 @@ public class Dish implements IObservable {
   @Override
   public void addObserver(IObserver observer) {
     observers.add(observer);
-  }
-
-  @Override
-  public void removeObserver(IObserver observer) {
-    observers.remove(observer);
   }
 
   @Override

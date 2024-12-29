@@ -20,6 +20,10 @@ public class AddDish implements ICommand<Menu> {
 	@Override
 	public Menu execute() {
 		Restaurant restaurant = selectRestaurant.execute();
+		if (restaurant == null) {
+			return null;
+		}
+
 		Menu menu = restaurant.getMenu();
 
 		if (menu == null) {

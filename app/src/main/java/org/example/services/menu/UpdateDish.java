@@ -13,39 +13,24 @@ import java.util.stream.Collectors;
 
 public class UpdateDish implements ICommand<Boolean> {
 	private final Validator validator;
-	private final SelectRestaurant selectRestaurant;
+	private final SelectDish selectDish;
 
-	public UpdateDish(Validator validator, SelectRestaurant selectRestaurant) {
+	public UpdateDish(Validator validator, SelectDish selectDish) {
 		this.validator = validator;
-		this.selectRestaurant = selectRestaurant;
+		this.selectDish = selectDish;
 	}
 
 	@Override
 	public Boolean execute() {
-		return Optional.ofNullable(selectRestaurant.execute())
-			.map(Restaurant::getMenu)
-			.map(this::findDish)
-			.map(dish -> {
-				updateDishDetails(dish);
-				return true;
-			})
-			.orElse(false);
-	}
+		Dish selectedDish = selectDish.execute();
 
-	private Dish findDish(Menu menu) {
-		Set<Dish> dishes = menu.getDishes();
+		if (selectedDish == null) {
+			return false;
+		}
 
-		String dishesNames = dishes.stream()
-			.map(dish -> dish.getDishId() + ". " + dish.getName())
-			.collect(Collectors.joining("\n"));
+		updateDishDetails(selectedDish);
 
-		Integer dishId= validator.readInteger("\nListado de nombres de platos:\n" + dishesNames +
-			"\nIngrese el numero del plato que desea actualizar: ");
-
-		return dishes.stream()
-			.filter(dish -> dish.getDishId().equals(dishId))
-			.findFirst()
-			.orElse(null);
+		return true;
 	}
 
 	private void updateDishDetails(Dish dish) {
@@ -60,7 +45,7 @@ public class UpdateDish implements ICommand<Boolean> {
 		}
 
 		Float newPrice = validator.readFloat("Ingrese el nuevo precio del plato (Escriba 0 para no cambiar): ");
-		if (newPrice != null && newPrice != 0f) {
+		if (newPrice != 0f) {
 			dish.setPrice(newPrice);
 		}
 	}

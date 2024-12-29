@@ -24,15 +24,9 @@ public class UpdateRestaurant implements ICommand<Boolean> {
 			return false;
 		}
 
-		Restaurant existingRestaurant = restaurantRepository.getRestaurant(selectedRestaurant.getRestaurantId());
+		updateRestaurantDetails(selectedRestaurant);
 
-		if (existingRestaurant == null) {
-			return false;
-		}
-
-		updateRestaurantDetails(existingRestaurant);
-
-		return restaurantRepository.updateRestaurant(existingRestaurant);
+		return restaurantRepository.updateRestaurant(selectedRestaurant);
 	}
 
 	private void updateRestaurantDetails(Restaurant existingRestaurant) {

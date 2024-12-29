@@ -1,15 +1,12 @@
 package org.example.services.review;
 
 import org.example.models.Dish;
-import org.example.models.Menu;
-import org.example.models.Restaurant;
 import org.example.models.Review;
 import org.example.models.ReviewFactory;
 import org.example.services.interfaces.ICommand;
 import org.example.services.menu.SelectDish;
 import org.example.utils.Validator;
 
-import java.util.stream.Collectors;
 
 public class CreateDishReview implements ICommand<Boolean> {
 	private final Validator validator;
@@ -28,9 +25,6 @@ public class CreateDishReview implements ICommand<Boolean> {
 		}
 
 		Review review = createDishReview();
-		if (review == null) {
-			return false;
-		}
 
 		dish.addReview(review);
 		return true;

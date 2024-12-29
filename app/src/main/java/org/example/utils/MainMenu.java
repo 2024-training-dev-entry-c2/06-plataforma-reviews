@@ -45,9 +45,9 @@ public class MainMenu implements IMenu<Integer> {
 	DeleteRestaurant deleteRestaurant = new DeleteRestaurant(restaurantRepository, selectRestaurant);
 	ListRestaurant listRestaurant = new ListRestaurant(restaurantRepository);
 
-	UpdateDish updateDish = new UpdateDish(validator, selectRestaurant);
 	SelectDish selectDish = new SelectDish(validator, selectRestaurant);
-	DeleteDish deleteDish = new DeleteDish(validator, selectDish, restaurantRepository);
+	UpdateDish updateDish = new UpdateDish(validator, selectDish);
+	DeleteDish deleteDish = new DeleteDish(selectDish, restaurantRepository);
 
 	CreateDishReview createDishReview = new CreateDishReview(validator, selectDish);
 	AddRestaurantObserver addRestaurantObserver = new AddRestaurantObserver(validator);

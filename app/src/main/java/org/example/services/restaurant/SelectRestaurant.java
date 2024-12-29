@@ -28,12 +28,12 @@ public class SelectRestaurant implements ICommand<Restaurant> {
 
 		int selectedIndex = getSelectedIndex(restaurants.size());
 
-		return restaurants.get(selectedIndex - 1);
+		return restaurants.get(selectedIndex);
 	}
 
 	private void displayRestaurantList(Map<Integer, Restaurant> restaurants) {
 		validator.printMessage("Listado de restaurantes:");
-		restaurants.forEach((key, value) -> validator.printMessage((key + 1) + ". " + value.getName()));
+		restaurants.forEach((key, value) -> validator.printMessage(key + ". " + value.getName()));
 	}
 
 	private int getSelectedIndex(int size) {

@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -28,14 +29,15 @@ class AddRestaurantObserverTest {
 
 	@Test
 	void execute() {
-		Restaurant restaurant = mock(Restaurant.class);
+		Restaurant restaurant = new Restaurant();
 		when(mockValidator.readString(anyString())).thenReturn("S", "Usuario Test");
 
 		Boolean result = addRestaurantObserver.execute(restaurant);
 
 		assertTrue(result);
+		assertEquals( 1, restaurant.getObservers().size());
 
-		verify(restaurant).addObserver(any(UserObserver.class));
+		verify(mockValidator, times(2)).readString(anyString());
 	}
 
 	@Test
@@ -47,7 +49,7 @@ class AddRestaurantObserverTest {
 
 	@Test
 	void executeWithNoUserObserver() {
-		Restaurant restaurant = mock(Restaurant.class);
+		Restaurant restaurant = new Restaurant("Restaurante Test", "Descripcion Test", "Ubicacion Test", null);
 		when(mockValidator.readString(anyString())).thenReturn("N");
 
 		Boolean result = addRestaurantObserver.execute(restaurant);
@@ -57,14 +59,15 @@ class AddRestaurantObserverTest {
 
 	@Test
 	void executeWithNullMenu() {
-		Restaurant restaurant = mock(Restaurant.class);
+		Restaurant restaurant = new Restaurant("Restaurante Test", "Descripcion Test", "Ubicacion Test", null);
 		when(mockValidator.readString(anyString())).thenReturn("S", "Usuario Test");
-		when(restaurant.getMenu()).thenReturn(null);
 
 		Boolean result = addRestaurantObserver.execute(restaurant);
 
 		assertTrue(result);
-		verify(restaurant).addObserver(any(UserObserver.class));
+		assertEquals( 1, restaurant.getObservers().size());
+		assertNull(restaurant.getMenu());
+		verify(mockValidator, times(2)).readString(anyString());
 	}
 
 	@Test

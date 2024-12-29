@@ -37,7 +37,7 @@ class SelectRestaurantTest {
 		Restaurant restaurant2 = new Restaurant("Restaurante2", "Descripción2", "Ubicación2", menu);
 		Restaurant restaurant3 = new Restaurant("Restaurante3", "Descripción3", "Ubicación3", menu);
 
-		when(mockRestaurantRepository.getAllRestaurants()).thenReturn(Map.of(0, restaurant1, 1, restaurant2, 2, restaurant3));
+		when(mockRestaurantRepository.getAllRestaurants()).thenReturn(Map.of(1, restaurant1, 2, restaurant2, 3, restaurant3));
 		when(mockValidator.readInteger(anyString())).thenReturn(1);
 
 		Restaurant result = selectRestaurant.execute();
@@ -50,7 +50,6 @@ class SelectRestaurantTest {
 		verify(mockValidator).readInteger(anyString());
 		verify(mockRestaurantRepository).getAllRestaurants();
 	}
-
 
 	@Test
 	void testExecuteNoRestaurants() {
@@ -71,10 +70,8 @@ class SelectRestaurantTest {
 		Restaurant restaurant1 = new Restaurant("Restaurante1", "Descripción1", "Ubicación1", menu);
 		Restaurant restaurant2 = new Restaurant("Restaurante2", "Descripción2", "Ubicación2", menu);
 
-		when(mockRestaurantRepository.getAllRestaurants()).thenReturn(Map.of(0, restaurant1, 1, restaurant2));
-		when(mockValidator.readInteger(anyString()))
-			.thenReturn(0)
-			.thenReturn(1);
+		when(mockRestaurantRepository.getAllRestaurants()).thenReturn(Map.of(1, restaurant1, 2, restaurant2));
+		when(mockValidator.readInteger(anyString())).thenReturn(0, 1);
 
 		Restaurant result = selectRestaurant.execute();
 
@@ -92,10 +89,8 @@ class SelectRestaurantTest {
 		Restaurant restaurant1 = new Restaurant("Restaurante1", "Descripción1", "Ubicación1", menu);
 		Restaurant restaurant2 = new Restaurant("Restaurante2", "Descripción2", "Ubicación2", menu);
 
-		when(mockRestaurantRepository.getAllRestaurants()).thenReturn(Map.of(0, restaurant1, 1, restaurant2));
-		when(mockValidator.readInteger(anyString()))
-			.thenReturn(3)
-			.thenReturn(2);
+		when(mockRestaurantRepository.getAllRestaurants()).thenReturn(Map.of(1, restaurant1, 2, restaurant2));
+		when(mockValidator.readInteger(anyString())).thenReturn(3, 2);
 
 		Restaurant result = selectRestaurant.execute();
 

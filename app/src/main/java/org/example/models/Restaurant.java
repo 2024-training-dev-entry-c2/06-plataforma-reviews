@@ -81,8 +81,8 @@ public class Restaurant implements IObservable {
 		this.reviews = reviews;
 	}
 
-	public void addMenu(Menu menu) {
-		this.menu = menu;
+	public List<IObserver> getObservers() {
+		return observers;
 	}
 
 	public void addReview(Review review) {
@@ -119,11 +119,6 @@ public class Restaurant implements IObservable {
 	@Override
 	public void addObserver(IObserver observer) {
 		observers.add(observer);
-	}
-
-	@Override
-	public void removeObserver(IObserver observer) {
-		observers.remove(observer);
 	}
 
 	@Override

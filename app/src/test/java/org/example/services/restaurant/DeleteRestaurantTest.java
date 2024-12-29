@@ -56,6 +56,7 @@ class DeleteRestaurantTest {
 		Restaurant restaurant = new Restaurant("Restaurante Test", "Descripción Test", "Ubicación Test", menu);
 
 		when(mockSelectRestaurant.execute()).thenReturn(restaurant);
+		when(mockRestaurantRepository.deleteRestaurant(restaurant.getRestaurantId())).thenReturn(false);
 
 		Boolean result = deleteRestaurant.execute();
 

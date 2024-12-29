@@ -123,7 +123,6 @@ public class DataRepository {
         parrillaDish1Reviews.add(ReviewFactory.createReview("Dish", "1", "Deliciosas empanadas rellenas de carne cortada a cuchillo.", 3.5f, 5.0f));
         Dish parrillaDish1 = new Dish("Empanadas de carne", "Deliciosas empanadas rellenas de carne cortada a cuchillo.", 3.5f, parrillaDish1Reviews);
 
-
         List<Review> parrillaDish2Reviews = new ArrayList<>();
         parrillaDish2Reviews.add(ReviewFactory.createReview("Dish", "2", "Corte clásico argentino cocido a la parrilla.", 4.0f, 4.5f));
         Dish parrillaDish2 = new Dish("Asado de tira", "Corte clásico argentino cocido a la parrilla.", 15.0f, parrillaDish2Reviews);
@@ -132,7 +131,8 @@ public class DataRepository {
         parrillaDish3Reviews.add(ReviewFactory.createReview("Dish", "3", "Flan casero acompañado de dulce de leche artesanal.", 5.0f, 4.5f));
         Dish parrillaDish3 = new Dish("Flan con dulce de leche", "Flan casero acompañado de dulce de leche artesanal.", 5.0f, parrillaDish3Reviews);
 
-        Menu parrillaMenu = new Menu("Parrilla", List.of(parrillaDish1, parrillaDish2, parrillaDish3));
+        List<Dish> parrillaDishes = new ArrayList<>(List.of(parrillaDish1, parrillaDish2, parrillaDish3));
+        Menu parrillaMenu = new Menu("Parrilla", parrillaDishes);
 
         List<Review> parrillaReviews = new ArrayList<>();
         parrillaReviews.add(ReviewFactory.createReview("Restaurant", "1", "El mejor asado que he probado en mi vida.", 5.0f, 4.3f, 5.0f));
@@ -154,7 +154,8 @@ public class DataRepository {
         pastasDish3Reviews.add(ReviewFactory.createReview("Dish", "6", "Tiramisú casero con café y licor.", 4.5f, 4.5f));
         Dish pastasDish3 = new Dish("Tiramisú", "Tiramisú casero con café y licor.", 6.0f, pastasDish3Reviews);
 
-        Menu pastasMenu = new Menu("Pastas", List.of(pastasDish1, pastasDish2, pastasDish3));
+        List<Dish> pastasDishes = new ArrayList<>(List.of(pastasDish1, pastasDish2, pastasDish3));
+        Menu pastasMenu = new Menu("Pastas", pastasDishes);
 
         List<Review> pastasReviews = new ArrayList<>();
         pastasReviews.add(ReviewFactory.createReview("Restaurant", "4", "La pasta estaba deliciosa, muy recomendado.", 4.5f, 4.0f, 4.5f));
@@ -176,7 +177,8 @@ public class DataRepository {
         urbanaDish3Reviews.add(ReviewFactory.createReview("Dish", "9", "Brownie de chocolate con helado de vainilla.", 4.5f, 4.5f));
         Dish urbanaDish3 = new Dish("Brownie con helado", "Brownie de chocolate con helado de vainilla.", 7.0f, urbanaDish3Reviews);
 
-        Menu urbanaMenu = new Menu("Comida Urbana", List.of(urbanaDish1, urbanaDish2, urbanaDish3));
+        List<Dish> urbanaDishes = new ArrayList<>(List.of(urbanaDish1, urbanaDish2, urbanaDish3));
+        Menu urbanaMenu = new Menu("Comida Urbana", urbanaDishes);
 
         List<Review> urbanaReviews = new ArrayList<>();
         urbanaReviews.add(ReviewFactory.createReview("Restaurant", "7", "La hamburguesa estaba deliciosa, muy recomendado.", 4.0f, 4.0f, 4.0f));
@@ -189,7 +191,6 @@ public class DataRepository {
         this.addRestaurant(parrilla);
         this.addRestaurant(pastas);
         this.addRestaurant(urbana);
-
     }
 
 }

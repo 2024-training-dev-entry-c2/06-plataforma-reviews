@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
-    private Integer idCounter = 0;
+    private static Integer idCounter = 0;
     private Integer menuId;
     private String name;
     private List<Dish> dishes;
@@ -12,10 +12,11 @@ public class Menu {
     public Menu(String name, List<Dish> dishes) {
         this.menuId = generateId();
         this.name = name;
-        this.dishes = new ArrayList<>();
+        this.dishes = dishes != null ? dishes : new ArrayList<>();
     }
 
     public Menu() {
+        this.dishes = new ArrayList<>();
     }
 
     private Integer generateId() {
@@ -49,21 +50,12 @@ public class Menu {
         return result.toString();
     }
 
-
     public List<Dish> getDishes() {
         return dishes;
     }
 
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
-    }
-
-    public Integer getIdCounter() {
-        return idCounter;
-    }
-
-    public void setIdCounter(Integer idCounter) {
-        this.idCounter = idCounter;
     }
 
     public Integer getMenuId() {

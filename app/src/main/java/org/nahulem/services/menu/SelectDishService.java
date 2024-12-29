@@ -2,7 +2,6 @@ package org.nahulem.services.menu;
 
 import org.nahulem.models.Dish;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
 import org.nahulem.services.interfaces.ICommand;
 import org.nahulem.services.restaurant.SelectRestaurantService;
 import org.nahulem.utils.Validator;
@@ -11,11 +10,9 @@ import java.util.List;
 
 public class SelectDishService implements ICommand<Dish> {
     private final Validator validator;
-    private final DataRepository repository;
     private final SelectRestaurantService selectRestaurantService;
 
-    public SelectDishService(DataRepository repository, Validator validator, SelectRestaurantService selectRestaurantService) {
-        this.repository = repository;
+    public SelectDishService(Validator validator, SelectRestaurantService selectRestaurantService) {
         this.validator = validator;
         this.selectRestaurantService = selectRestaurantService;
     }
@@ -38,7 +35,7 @@ public class SelectDishService implements ICommand<Dish> {
         showDishes(dishes);
         Integer index = getSelectedDish(dishes.size());
 
-        return dishes.get(index);
+        return dishes.get(index - 1);
     }
 
     private void showDishes(List<Dish> dishes) {

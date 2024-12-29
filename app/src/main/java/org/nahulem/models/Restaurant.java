@@ -14,7 +14,7 @@ public class Restaurant implements IObservable {
     private String location;
     private Menu menu;
     private List<Review> reviews;
-    private static List<IObserver> observers;
+    private static List<IObserver> observers = new ArrayList<>();
 
     public Restaurant(String name, String description, String location, Menu menu) {
         this.restaurantId = generateId();
@@ -26,6 +26,7 @@ public class Restaurant implements IObservable {
     }
 
     public Restaurant() {
+        this.reviews = new ArrayList<>();
     }
 
     @Override

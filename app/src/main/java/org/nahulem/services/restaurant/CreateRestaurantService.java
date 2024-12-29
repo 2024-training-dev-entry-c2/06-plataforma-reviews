@@ -4,16 +4,16 @@ import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
 import org.nahulem.repositories.DataRepository;
 import org.nahulem.services.interfaces.ICommand;
-import org.nahulem.services.menu.CreateMenuService;
+import org.nahulem.services.menu.AddDishService;
 import org.nahulem.utils.Validator;
 
 public class CreateRestaurantService implements ICommand<Restaurant> {
     private DataRepository repository;
     private Validator validator;
-    private CreateMenuService createMenuService;
+    private AddDishService addDishService;
 
-    public CreateRestaurantService(CreateMenuService createMenuService, DataRepository repository, Validator validator) {
-        this.createMenuService = createMenuService;
+    public CreateRestaurantService(AddDishService addDishService, DataRepository repository, Validator validator) {
+        this.addDishService = addDishService;
         this.repository = repository;
         this.validator = validator;
     }
@@ -32,7 +32,7 @@ public class CreateRestaurantService implements ICommand<Restaurant> {
                 "\nCreando menú para el restaurante..."
         );
 
-        Menu menu = createMenuService.execute();
+        Menu menu = addDishService.execute();
         restaurant.setMenu(menu);
 
         System.out.println("Menú creado exitosamente para el restaurante: " + restaurant.getName() + "\n");

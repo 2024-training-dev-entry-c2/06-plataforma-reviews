@@ -4,25 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
-    private String menuId;
+    private Integer idCounter = 0;
+    private Integer menuId;
+    private String name;
     private List<Dish> dishes;
 
-    public Menu(String id, List<Dish> dishes) {
-        this.menuId = id;
+    public Menu(String name, List<Dish> dishes) {
+        this.menuId = generateId();
+        this.name = name;
         this.dishes = new ArrayList<>();
+    }
+
+    public Menu() {
+    }
+
+    private Integer generateId() {
+        return ++idCounter;
     }
 
     public void addDish(Dish dish) {
         dishes.add(dish);
     }
 
-    public void updateDish(Dish dish) {
-        for (int i = 0; i < dishes.size(); i++) {
-            if (dishes.get(i).getDishId().equals(dish.getDishId())) {
-                dishes.set(i, dish);
-                break;
-            }
-        }
+    public void updateDish(Dish updatedDish) {
+        dishes.stream()
+                .filter(dish -> dish.getDishId().equals(updatedDish.getDishId()))
+                .forEach(dish -> {
+                    dish.setName(updatedDish.getName());
+                    dish.setDescription(updatedDish.getDescription());
+                    dish.setPrice(updatedDish.getPrice());
+                });
     }
 
     public void deleteDish(String dishId) {
@@ -37,11 +48,27 @@ public class Menu {
         this.dishes = dishes;
     }
 
-    public String getMenuId() {
+    public Integer getIdCounter() {
+        return idCounter;
+    }
+
+    public void setIdCounter(Integer idCounter) {
+        this.idCounter = idCounter;
+    }
+
+    public Integer getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(String menuId) {
+    public void setMenuId(Integer menuId) {
         this.menuId = menuId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

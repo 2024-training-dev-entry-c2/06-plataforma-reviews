@@ -3,30 +3,48 @@ package org.example.models;
 import org.example.models.interfaces.IObservable;
 import org.example.models.interfaces.IObserver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant implements IObservable {
-    private static Integer restaurantCounter = 0;
+    private static Integer idCounter = 0;
     private Integer restaurantId;
     private String name;
+    private String description;
     private String location;
     private Menu menu;
     private List<Review> reviews;
     private static List<IObserver> observers;
 
-    public Restaurant(Integer restaurantId, String name, String location, Menu menu, List<Review> reviews) {
+    public Restaurant(String name, String description, String location, Menu menu) {
         this.restaurantId = generateId();
         this.name = name;
+        this.description = description;
         this.location = location;
         this.menu = menu;
-        this.reviews = reviews;
+        this.reviews = new ArrayList<>();
     }
 
     public Restaurant() {
     }
 
+    @Override
+    public void addObserver(IObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(IObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(String message) {
+        observers.forEach(observer -> observer.update(message));
+    }
+
     private Integer generateId() {
-        return ++restaurantCounter;
+        return ++idCounter;
     }
 
     public void addMenu(Menu menu) {
@@ -45,22 +63,30 @@ public class Restaurant implements IObservable {
     }
 
     @Override
-    public void addObserver(IObserver observer) {
-        observers.add(observer);
+    public String toString() {
+        return "Restaurant: " +
+                "\nID: " + restaurantId +
+                "\nNombre: " + name + '\'' +
+                "\nDescripción: " + description + '\'' +
+                "\nLocación : " + location + '\'' +
+                "\nMenú: " + menu +
+                "\nReviews: " + reviews;
     }
 
-    @Override
-    public void removeObserver(IObserver observer) {
-        observers.remove(observer);
+    public String getDescription() {
+        return description;
     }
 
-    @Override
-    public void notifyObservers(String message) {
-       observers.forEach(observer -> observer.update(message));
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Integer getRestaurantId() {
-        return restaurantId;
+    public static Integer getIdCounter() {
+        return idCounter;
+    }
+
+    public static void setIdCounter(Integer idCounter) {
+        Restaurant.idCounter = idCounter;
     }
 
     public String getLocation() {
@@ -85,6 +111,22 @@ public class Restaurant implements IObservable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static List<IObserver> getObservers() {
+        return observers;
+    }
+
+    public static void setObservers(List<IObserver> observers) {
+        Restaurant.observers = observers;
+    }
+
+    public Integer getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(Integer restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public List<Review> getReviews() {

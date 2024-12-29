@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dish implements IObservable {
-    private String dishId;
+    private static Integer idCounter = 0;
+    private Integer dishId;
     private String name;
     private String description;
     private Float price;
@@ -15,12 +16,19 @@ public class Dish implements IObservable {
     private static List<IObserver> observers;
 
 
-    public Dish(String dishId, String name, String description, Float price, List<Review> reviews) {
-        this.dishId = dishId;
+    public Dish(String name, String description, Float price, List<Review> reviews) {
+        this.dishId = generateId();
         this.name = name;
         this.description = description;
         this.price = price;
         this.reviews = new ArrayList<>();
+    }
+
+    public Dish() {
+    }
+
+    private Integer generateId() {
+        return ++idCounter;
     }
 
     public void addReview(Review review) {
@@ -42,11 +50,11 @@ public class Dish implements IObservable {
         this.description = description;
     }
 
-    public String getDishId() {
+    public Integer getDishId() {
         return dishId;
     }
 
-    public void setDishId(String dishId) {
+    public void setDishId(Integer dishId) {
         this.dishId = dishId;
     }
 

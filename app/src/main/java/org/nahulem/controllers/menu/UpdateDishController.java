@@ -1,6 +1,7 @@
 package org.nahulem.controllers.menu;
 
 import org.nahulem.controllers.interfaces.ICommandController;
+import org.nahulem.models.Restaurant;
 import org.nahulem.services.menu.UpdateDishService;
 import org.nahulem.utils.Validator;
 
@@ -16,11 +17,13 @@ public class UpdateDishController implements ICommandController {
 
     @Override
     public void execute() {
-        boolean updated = updateDishService.execute();
-        if (updated) {
+        Restaurant restaurant = updateDishService.execute();
+        if (restaurant != null) {
             validator.printMessage("Plato actualizado exitosamente.");
+            validator.printMessage(restaurant.toString());
             return;
         }
         validator.printMessage("No se pudo actualizar el plato.");
     }
 }
+

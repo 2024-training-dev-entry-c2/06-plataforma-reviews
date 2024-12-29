@@ -1,11 +1,14 @@
 package org.nahulem.services.menu;
 
 import org.nahulem.models.Dish;
+import org.nahulem.models.Restaurant;
 import org.nahulem.repositories.DataRepository;
 import org.nahulem.services.interfaces.ICommand;
 import org.nahulem.utils.Validator;
 
-public class UpdateDishService implements ICommand<Boolean> {
+import java.util.Optional;
+
+public class UpdateDishService implements ICommand<Restaurant> {
     private final Validator validator;
     private final DataRepository repository;
     private final SelectDishService selectDishService;
@@ -17,7 +20,7 @@ public class UpdateDishService implements ICommand<Boolean> {
     }
 
     @Override
-    public Boolean execute() {
+    public Restaurant execute() {
         Dish selectedDish = selectDishService.execute();
 
         if (selectedDish == null) {
@@ -26,14 +29,11 @@ public class UpdateDishService implements ICommand<Boolean> {
 
         updateDish(selectedDish);
 
-        if (selectedDish == null) {
-            validator.printMessage("El restaurante no existe.");
-            return null;
-        }
+        Optional<Restaurant> restaurantOptional = repository.getAllRestaurants().values().stream()
+                .filter(restaurant -> restaurant.getMenu().getDishes().contains(selectedDish))
+                .findFirst();
 
-        updateDish(selectedDish);
-
-        return true;
+        return restaurantOptional.orElse(null);
     }
 
     private void updateDish(Dish existingDish) {
@@ -49,7 +49,6 @@ public class UpdateDishService implements ICommand<Boolean> {
             existingDish.setPrice(Float.parseFloat(price));
         }
     }
-
 
     private String validateOrKeep(String newValue, String existingValue) {
         return newValue.isEmpty() ? existingValue : newValue;

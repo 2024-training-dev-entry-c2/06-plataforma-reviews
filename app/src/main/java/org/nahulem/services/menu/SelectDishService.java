@@ -40,7 +40,7 @@ public class SelectDishService implements ICommand<Dish> {
 
     private void showDishes(List<Dish> dishes) {
         validator.printMessage("Lista de Platos: \n-------------------");
-        dishes.forEach(dish -> validator.printMessage((dishes.indexOf(dish)) + ". " + dish.getName() + "\n" + "-------------------")
+        dishes.forEach(dish -> validator.printMessage((dishes.indexOf(dish) + 1) + ". " + dish.getName() + "\n" + "-------------------")
         );
     }
 

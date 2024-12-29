@@ -2,10 +2,8 @@ package org.example.services.review;
 
 import org.example.models.Restaurant;
 import org.example.models.RestaurantReview;
-import org.example.models.Review;
 import org.example.services.interfaces.ICommand;
 import org.example.services.restaurant.SelectRestaurant;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;

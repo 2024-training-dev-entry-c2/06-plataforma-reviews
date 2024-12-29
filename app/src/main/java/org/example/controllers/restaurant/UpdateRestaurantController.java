@@ -1,7 +1,6 @@
 package org.example.controllers.restaurant;
 
 import org.example.controllers.interfaces.ICommandController;
-import org.example.models.Restaurant;
 import org.example.services.restaurant.UpdateRestaurant;
 
 public class UpdateRestaurantController implements ICommandController {

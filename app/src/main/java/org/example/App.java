@@ -32,46 +32,46 @@ import org.example.utils.Validator;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        Validator validator = new Validator(new Scanner(System.in));
+	public static void main(String[] args) {
+		Validator validator = new Validator(new Scanner(System.in));
 
-        // region Command Controllers
-        RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();
+		// region Command Controllers
+		RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();
 
-        SelectRestaurant selectRestaurant = new SelectRestaurant(validator, restaurantRepository);
-        AddDish addDish = new AddDish(validator, selectRestaurant);
-        CreateRestaurant createRestaurant = new CreateRestaurant(validator, addDish, restaurantRepository);
+		SelectRestaurant selectRestaurant = new SelectRestaurant(validator, restaurantRepository);
+		AddDish addDish = new AddDish(validator, selectRestaurant);
+		CreateRestaurant createRestaurant = new CreateRestaurant(validator, addDish, restaurantRepository);
 
-        UpdateRestaurant updateRestaurant = new UpdateRestaurant(validator, restaurantRepository, selectRestaurant);
-        DeleteRestaurant deleteRestaurant = new DeleteRestaurant(restaurantRepository, selectRestaurant);
-        ListRestaurant listRestaurant = new ListRestaurant(restaurantRepository);
+		UpdateRestaurant updateRestaurant = new UpdateRestaurant(validator, restaurantRepository, selectRestaurant);
+		DeleteRestaurant deleteRestaurant = new DeleteRestaurant(restaurantRepository, selectRestaurant);
+		ListRestaurant listRestaurant = new ListRestaurant(restaurantRepository);
 
-        SelectDish selectDish = new SelectDish(validator, selectRestaurant);
-        UpdateDish updateDish = new UpdateDish(validator, selectDish);
-        DeleteDish deleteDish = new DeleteDish(selectDish, restaurantRepository);
+		SelectDish selectDish = new SelectDish(validator, selectRestaurant);
+		UpdateDish updateDish = new UpdateDish(validator, selectDish);
+		DeleteDish deleteDish = new DeleteDish(selectDish, restaurantRepository);
 
-        CreateDishReview createDishReview = new CreateDishReview(validator, selectDish);
-        AddRestaurantObserver addRestaurantObserver = new AddRestaurantObserver(validator);
-        CreateRestaurantReview createRestaurantReview = new CreateRestaurantReview(validator, selectRestaurant, addRestaurantObserver);
+		CreateDishReview createDishReview = new CreateDishReview(validator, selectDish);
+		AddRestaurantObserver addRestaurantObserver = new AddRestaurantObserver(validator);
+		CreateRestaurantReview createRestaurantReview = new CreateRestaurantReview(validator, selectRestaurant, addRestaurantObserver);
 
-        ListDishReview listDishReview = new ListDishReview(selectDish);
-        ListRestaurantReview listRestaurantReview = new ListRestaurantReview(selectRestaurant);
+		ListDishReview listDishReview = new ListDishReview(selectDish);
+		ListRestaurantReview listRestaurantReview = new ListRestaurantReview(selectRestaurant);
 
-        CreateRestaurantController createRestaurantController = new CreateRestaurantController(createRestaurant);
-        UpdateRestaurantController updateRestaurantController = new UpdateRestaurantController(updateRestaurant);
-        DeleteRestaurantController deleteRestaurantController = new DeleteRestaurantController(deleteRestaurant);
-        ListRestaurantController listRestaurantController = new ListRestaurantController(listRestaurant);
-        AddDishController addDishController = new AddDishController(addDish);
-        UpdateDishController updateDishController = new UpdateDishController(updateDish);
-        DeleteDishController deleteDishController = new DeleteDishController(deleteDish);
-        CreateDishReviewController createDishReviewController = new CreateDishReviewController(createDishReview);
-        ListDishReviewController listDishReviewController = new ListDishReviewController(listDishReview);
-        CreateRestaurantReviewController createRestaurantReviewController = new CreateRestaurantReviewController(createRestaurantReview);
-        ListRestaurantReviewController listRestaurantReviewController = new ListRestaurantReviewController(listRestaurantReview);
+		CreateRestaurantController createRestaurantController = new CreateRestaurantController(createRestaurant);
+		UpdateRestaurantController updateRestaurantController = new UpdateRestaurantController(updateRestaurant);
+		DeleteRestaurantController deleteRestaurantController = new DeleteRestaurantController(deleteRestaurant);
+		ListRestaurantController listRestaurantController = new ListRestaurantController(listRestaurant);
+		AddDishController addDishController = new AddDishController(addDish);
+		UpdateDishController updateDishController = new UpdateDishController(updateDish);
+		DeleteDishController deleteDishController = new DeleteDishController(deleteDish);
+		CreateDishReviewController createDishReviewController = new CreateDishReviewController(createDishReview);
+		ListDishReviewController listDishReviewController = new ListDishReviewController(listDishReview);
+		CreateRestaurantReviewController createRestaurantReviewController = new CreateRestaurantReviewController(createRestaurantReview);
+		ListRestaurantReviewController listRestaurantReviewController = new ListRestaurantReviewController(listRestaurantReview);
 
-        // endregion
+		// endregion
 
-        MainMenu menu = new MainMenu(validator, createRestaurantController, updateRestaurantController, deleteRestaurantController, listRestaurantController, addDishController, updateDishController, deleteDishController, createDishReviewController, listDishReviewController, createRestaurantReviewController, listRestaurantReviewController);
-        menu.execute();
-    }
+		MainMenu menu = new MainMenu(validator, createRestaurantController, updateRestaurantController, deleteRestaurantController, listRestaurantController, addDishController, updateDishController, deleteDishController, createDishReviewController, listDishReviewController, createRestaurantReviewController, listRestaurantReviewController);
+		menu.execute();
+	}
 }

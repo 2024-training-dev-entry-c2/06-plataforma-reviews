@@ -2,13 +2,10 @@ package org.example.models;
 
 import org.example.models.interfaces.IObservable;
 import org.example.models.interfaces.IObserver;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Dish implements IObservable {
-  private static int idCounter = 1;
-  private Integer dishId;
   private String name;
   private String description;
   private Float price;
@@ -20,23 +17,10 @@ public class Dish implements IObservable {
   }
 
   public Dish(String name, String description, Float price) {
-    this.dishId = generateId();
     this.name = name;
     this.description = description;
     this.price = price;
     this.reviews = new ArrayList<>();
-  }
-
-  private static int generateId() {
-    return idCounter++;
-  }
-
-  public Integer getDishId() {
-    return dishId;
-  }
-
-  public void setDishId(Integer dishId) {
-    this.dishId = dishId;
   }
 
   public String getName() {
@@ -67,18 +51,6 @@ public class Dish implements IObservable {
     return reviews;
   }
 
-  public void setReviews(List<Review> reviews) {
-    this.reviews = reviews;
-  }
-
-  public List<IObserver> getObservers() {
-    return observers;
-  }
-
-  public void setObservers(List<IObserver> observers) {
-    this.observers = observers;
-  }
-
   public void addReview(Review review) {
     this.reviews.add(review);
 
@@ -98,14 +70,10 @@ public class Dish implements IObservable {
   @Override
   public String toString() {
     return """
-        Plato {
-          ID: %d
-          Nombre: '%s'
-          Descripción: '%s'
-          Precio: %.2f
-          Calificación promedio: %.2f
-        }
-        """.formatted(dishId, name, description, price, calculateAverageRating());
+        Plato: '%s'
+        Descripción: '%s'
+        Precio: %.2f
+        Calificación promedio: %.2f""".formatted(name, description, price, calculateAverageRating());
   }
 
   @Override

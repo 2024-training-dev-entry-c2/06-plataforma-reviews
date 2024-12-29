@@ -2,8 +2,8 @@ package org.example.models;
 
 import org.example.models.interfaces.IObservable;
 import org.example.models.interfaces.IObserver;
-
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Restaurant implements IObservable {
@@ -26,7 +26,7 @@ public class Restaurant implements IObservable {
 		this.description = description;
 		this.location = location;
 		this.menu = menu;
-		this.reviews = new ArrayList<>();
+		this.reviews = new LinkedList<>();
 	}
 
 	private static int generateId() {
@@ -35,10 +35,6 @@ public class Restaurant implements IObservable {
 
 	public Integer getRestaurantId() {
 		return restaurantId;
-	}
-
-	public void setRestaurantId(Integer restaurantId) {
-		this.restaurantId = restaurantId;
 	}
 
 	public String getName() {
@@ -77,10 +73,6 @@ public class Restaurant implements IObservable {
 		return reviews;
 	}
 
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
-
 	public List<IObserver> getObservers() {
 		return observers;
 	}
@@ -106,14 +98,14 @@ public class Restaurant implements IObservable {
 		String reviewsInfo = (reviews == null || reviews.isEmpty()) ? "Aún no hay reseñas" : reviews.toString();
 
 		return """
-        Restaurante {
-          Nombre: '%s'
-          Descripción: '%s'
-          Ubicación: '%s'
-          Menu: %s
-          Reseñas del restaurante: %s
-        }
-        """.formatted(name, description, location, menuInfo, reviewsInfo);
+				────────────────────────────────────────────────────────────────────
+				Restaurante: '%s'
+				Descripción: '%s'
+				Ubicación: '%s'
+				
+				%s
+				
+				Reseñas del restaurante: %s""".formatted(name, description, location, menuInfo, reviewsInfo);
 	}
 
 	@Override

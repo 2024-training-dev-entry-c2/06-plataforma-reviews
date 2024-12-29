@@ -6,7 +6,7 @@ import org.example.models.Restaurant;
 import org.example.services.interfaces.ICommand;
 import org.example.services.restaurant.SelectRestaurant;
 import org.example.utils.Validator;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class AddDish implements ICommand<Menu> {
 	private final Validator validator;
@@ -58,6 +58,6 @@ public class AddDish implements ICommand<Menu> {
 	private Menu createMenu() {
 		String menuName = validator.readString("Ingrese el nombre del menú: ");
 		String menuDescription = validator.readString("Ingrese la descripción del menú: ");
-		return new Menu(menuName, menuDescription, new HashSet<>());
+		return new Menu(menuName, menuDescription, new LinkedHashSet<>());
 	}
 }

@@ -7,7 +7,6 @@ import org.example.services.interfaces.ICommand;
 import org.example.services.menu.SelectDish;
 import org.example.utils.Validator;
 
-
 public class CreateDishReview implements ICommand<Boolean> {
 	private final Validator validator;
 	private final SelectDish selectDish;

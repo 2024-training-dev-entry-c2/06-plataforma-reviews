@@ -4,9 +4,6 @@ public class DishReview extends Review {
   private Float tasteRating;
   private Float presentationRating;
 
-  public DishReview() {
-  }
-
   public DishReview(String comment, Float tasteRating, Float presentationRating) {
     super(comment);
     this.tasteRating = tasteRating;
@@ -17,16 +14,8 @@ public class DishReview extends Review {
     return tasteRating;
   }
 
-  public void setTasteRating(Float tasteRating) {
-    this.tasteRating = tasteRating;
-  }
-
   public Float getPresentationRating() {
     return presentationRating;
-  }
-
-  public void setPresentationRating(Float presentationRating) {
-    this.presentationRating = presentationRating;
   }
 
   @Override
@@ -37,12 +26,11 @@ public class DishReview extends Review {
   @Override
   public String toString() {
     return """
-        Reseña del plato {
+          ────────────────────────────────────────────────────────────────────
           Comentario: '%s'
-          Calificación de la sabor: %f
-          Calificación de la presentación: %f
-          Calificación promedio: %f
-        }
+          Calificación de la sabor: %.2f
+          Calificación de la presentación: %.2f
+          Calificación promedio: %.2f
         """.formatted(getComment(), tasteRating, presentationRating, getRatingAverage());
   }
 }

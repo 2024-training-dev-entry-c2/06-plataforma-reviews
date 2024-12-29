@@ -4,10 +4,8 @@ import org.example.models.Dish;
 import org.example.models.DishReview;
 import org.example.services.interfaces.ICommand;
 import org.example.services.menu.SelectDish;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 import java.util.Collections;
 
 public class ListDishReview implements ICommand<List<DishReview>> {

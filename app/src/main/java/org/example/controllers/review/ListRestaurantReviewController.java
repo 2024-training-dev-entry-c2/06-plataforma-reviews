@@ -3,7 +3,6 @@ package org.example.controllers.review;
 import org.example.controllers.interfaces.ICommandController;
 import org.example.models.RestaurantReview;
 import org.example.services.review.ListRestaurantReview;
-
 import java.util.List;
 
 public class ListRestaurantReviewController implements ICommandController {

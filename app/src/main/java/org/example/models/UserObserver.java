@@ -11,12 +11,12 @@ public class UserObserver implements IObserver {
 
 	@Override
 	public void update(String message) {
-		System.out.println("""
-        ======================================
-        Notificación para: %s
-        --------------------------------------
-        %s
-        ======================================
-        """.formatted(userName, message));
+		System.out.printf("""
+			======================================
+			Notificación para: %s
+			--------------------------------------
+			%s
+			======================================
+			%n""", userName, message);
 	}
 }

@@ -7,9 +7,7 @@ import org.example.models.ReviewFactory;
 import org.example.services.restaurant.SelectRestaurant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;

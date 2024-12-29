@@ -4,7 +4,6 @@ import org.example.models.Restaurant;
 import org.example.repositories.RestaurantRepository;
 import org.example.services.interfaces.ICommand;
 import org.example.utils.Validator;
-
 import java.util.Map;
 
 public class SelectRestaurant implements ICommand<Restaurant> {

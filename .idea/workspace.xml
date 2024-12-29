@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99af82aa-5236-4d29-b3a1-906daeb2bfc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/menu/AddDishTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/menu/DeleteDishTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/menu/SelectDishTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/menu/UpdateDishTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/CreateDishReviewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/CreateRestaurantReviewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/ListDishReviewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/review/ListRestaurantReviewTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/menu/AddDishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controllers/menu/AddDishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/Restaurant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/models/interfaces/IObservable.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/models/interfaces/IObservable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/AddDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/AddDish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/CreateMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/DeleteDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/DeleteDish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/UpdateDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/menu/UpdateDish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/SelectRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/SelectRestaurant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/UpdateRestaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/restaurant/UpdateRestaurant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateDishReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateDishReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/utils/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/AddRestaurantObserverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/AddRestaurantObserverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/DeleteRestaurantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/DeleteRestaurantTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/SelectRestaurantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/SelectRestaurantTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/UpdateRestaurantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/restaurant/UpdateRestaurantTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateRestaurantReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/review/CreateRestaurantReview.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +73,9 @@
     "Gradle.AddRestaurantObserverTest.execute.executor": "Run",
     "Gradle.AddRestaurantObserverTest.executeWithNullMenu.executor": "Run",
     "Gradle.AddRestaurantObserverTest.executor": "Coverage",
+    "Gradle.CreateDishReviewTest.executeWithNullDish.executor": "Run",
     "Gradle.CreateDishReviewTest.executor": "Coverage",
+    "Gradle.CreateRestaurantReviewTest.executor": "Coverage",
     "Gradle.CreateRestaurantTest.executor": "Coverage",
     "Gradle.CreateRestaurantTest.testExecute.executor": "Run",
     "Gradle.DeleteDishTest.executeWithDish.executor": "Run",
@@ -99,6 +86,9 @@
     "Gradle.DeleteRestaurantTest.testExecuteFalse.executor": "Run",
     "Gradle.DeleteRestaurantTest.testExecuteTrue.executor": "Run",
     "Gradle.DeleteRestaurantTest.testReturnsFalseOnFailure.executor": "Run",
+    "Gradle.ListDishReviewTest.executeWithNullDish.executor": "Run",
+    "Gradle.ListDishReviewTest.executor": "Coverage",
+    "Gradle.ListRestaurantReviewTest.executor": "Coverage",
     "Gradle.ListRestaurantTest.testExecute.executor": "Run",
     "Gradle.SelectDishTest.executeInvalidOption.executor": "Run",
     "Gradle.SelectDishTest.executeWithDishesIsEmpty.executor": "Run",
@@ -161,6 +151,102 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CreateRestaurantReviewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.services.review.CreateRestaurantReviewTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListDishReviewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.services.review.ListDishReviewTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListDishReviewTest.executeWithNullDish" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.services.review.ListDishReviewTest.executeWithNullDish&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListRestaurantReviewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.services.review.ListRestaurantReviewTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="Tests in '06-plataforma-reviews.app.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -183,109 +269,13 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UpdateDishTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":app:test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.services.menu.UpdateDishTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UpdateDishTest.executeDishDetailsWithEmptyFields" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":app:test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.services.menu.UpdateDishTest.executeDishDetailsWithEmptyFields&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UpdateDishTest.executeWithDish" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":app:test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.services.menu.UpdateDishTest.executeWithDish&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UpdateDishTest.executeWithNullDish" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":app:test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.services.menu.UpdateDishTest.executeWithNullDish&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in '06-plataforma-reviews.app.test'" />
-        <item itemvalue="Gradle.UpdateDishTest" />
-        <item itemvalue="Gradle.UpdateDishTest.executeDishDetailsWithEmptyFields" />
-        <item itemvalue="Gradle.UpdateDishTest.executeWithDish" />
-        <item itemvalue="Gradle.UpdateDishTest.executeWithNullDish" />
+        <item itemvalue="Gradle.ListRestaurantReviewTest" />
+        <item itemvalue="Gradle.ListDishReviewTest" />
+        <item itemvalue="Gradle.ListDishReviewTest.executeWithNullDish" />
+        <item itemvalue="Gradle.CreateRestaurantReviewTest" />
       </list>
     </recent_temporary>
   </component>
@@ -310,7 +300,7 @@
       <workItem from="1735406479522" duration="14126000" />
       <workItem from="1735451733960" duration="8510000" />
       <workItem from="1735483883912" duration="6391000" />
-      <workItem from="1735491369926" duration="6258000" />
+      <workItem from="1735491369926" duration="8936000" />
     </task>
     <servers />
   </component>
@@ -318,15 +308,18 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$AddRestaurantObserverTest.ic" NAME="AddRestaurantObserverTest Coverage Results" MODIFIED="1735456603119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$SelectDishTest.ic" NAME="SelectDishTest Coverage Results" MODIFIED="1735495583028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListRestaurantReviewTest.ic" NAME="ListRestaurantReviewTest Coverage Results" MODIFIED="1735500360520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$AddDishTest.ic" NAME="AddDishTest Coverage Results" MODIFIED="1735491312690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$Tests_in__06_plataforma_reviews_app_test_.ic" NAME="Tests in '06-plataforma-reviews.app.test' Coverage Results" MODIFIED="1735500397077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$Tests_in__org_example_services_restaurant_.ic" NAME="Tests in 'org.example.services.restaurant' Coverage Results" MODIFIED="1735488450270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateRestaurantReviewTest.ic" NAME="CreateRestaurantReviewTest Coverage Results" MODIFIED="1735499609729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$ListDishReviewTest.ic" NAME="ListDishReviewTest Coverage Results" MODIFIED="1735500219056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$AddRestaurantObserverTest.ic" NAME="AddRestaurantObserverTest Coverage Results" MODIFIED="1735456603119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$UpdateRestaurantTest.ic" NAME="UpdateRestaurantTest Coverage Results" MODIFIED="1735455827300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateDishReviewTest.ic" NAME="CreateDishReviewTest Coverage Results" MODIFIED="1735460221997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$AddDishTest.ic" NAME="AddDishTest Coverage Results" MODIFIED="1735491312690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$Tests_in__06_plataforma_reviews_app_test_.ic" NAME="Tests in '06-plataforma-reviews.app.test' Coverage Results" MODIFIED="1735497620197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$Tests_in__org_example_services_restaurant_.ic" NAME="Tests in 'org.example.services.restaurant' Coverage Results" MODIFIED="1735488450270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$CreateRestaurantTest.ic" NAME="CreateRestaurantTest Coverage Results" MODIFIED="1735419426197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/06_plataforma_reviews$DeleteDishTest.ic" NAME="DeleteDishTest Coverage Results" MODIFIED="1735492896124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/06_plataforma_reviews$UpdateDishTest.ic" NAME="UpdateDishTest Coverage Results" MODIFIED="1735497489937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/06_plataforma_reviews$DeleteDishTest.ic" NAME="DeleteDishTest Coverage Results" MODIFIED="1735492896124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

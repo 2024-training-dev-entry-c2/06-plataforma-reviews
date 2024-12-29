@@ -29,9 +29,6 @@ public class CreateRestaurantReview implements ICommand<Boolean> {
 		addRestaurantObserver.execute(restaurant);
 
 		Review review = createRestaurantReview();
-		if (review == null) {
-			return false;
-		}
 
 		restaurant.addReview(review);
 		return true;

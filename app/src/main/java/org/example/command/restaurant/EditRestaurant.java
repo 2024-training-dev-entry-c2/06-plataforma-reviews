@@ -1,26 +1,26 @@
 package org.example.command.restaurant;
 
 import org.example.interfaces.ICommand;
+import org.example.interfaces.IHandler;
 import org.example.services.RestaurantService;
-import org.example.utils.ConsoleHandler;
 
 public class EditRestaurant implements ICommand {
   private RestaurantService service;
-  private final ConsoleHandler console;
+  private final IHandler handler;
 
-  public EditRestaurant(RestaurantService service, ConsoleHandler console){
+  public EditRestaurant(RestaurantService service, IHandler handler){
     this.service = service;
-    this.console = console;
+    this.handler = handler;
   }
 
   @Override
   public void execute() {
-    console.writeLine("Indica el nombre del restaurante: ");
-    String name = console.readLine();
-    console.writeLine("Nuevo nombre del restaurante: ");
-    String newName = console.readLine();
-    console.writeLine("Nueva dirección del restaurante: ");
-    String newAddress = console.readLine();
+    handler.writeLine("Indica el nombre del restaurante: ");
+    String name = handler.readLine();
+    handler.writeLine("Nuevo nombre del restaurante: ");
+    String newName = handler.readLine();
+    handler.writeLine("Nueva dirección del restaurante: ");
+    String newAddress = handler.readLine();
     if(service.editRestaurant(service.getRestaurantByName(name), newName, newAddress)){
       System.out.println("El restaurante ha sido editado: ");
       service.getRestaurantByName(name).displayRestaurant();

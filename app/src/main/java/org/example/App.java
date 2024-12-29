@@ -3,39 +3,31 @@
  */
 package org.example;
 
+import org.example.command.CommandInvoker;
 import org.example.controllers.MenuMenuController;
 import org.example.controllers.RestaurantMenuController;
 import org.example.controllers.ReviewMenuController;
-import org.example.interfaces.IController;
+import org.example.interfaces.IHandler;
 import org.example.utils.ConsoleHandler;
+import org.example.utils.ReviewerMenu;
 
-import java.util.Map;
 
 public class App {
 
     public static void main(String[] args) {
 
-        ConsoleHandler console = new ConsoleHandler();
+        IHandler handler = new ConsoleHandler();
 
-        Map<Integer, IController> controllers = Map.of(
-          1, new RestaurantMenuController(console),
-          2, new MenuMenuController(console),
-          3, new ReviewMenuController(console)
-        );
+        CommandInvoker invokerRestaurant = new CommandInvoker();
+        CommandInvoker invokerMenu = new CommandInvoker();
+        CommandInvoker invokerReview = new CommandInvoker();
 
-        console.writeLine("\n¡Bienvenido al reseñador de Restaurantes!");
+        RestaurantMenuController restaurantMenuController = new RestaurantMenuController(handler, invokerRestaurant);
+        MenuMenuController menuMenuController = new MenuMenuController(handler, invokerMenu);
+        ReviewMenuController reviewMenuController = new ReviewMenuController(handler, invokerReview);
 
-        int choice;
-
-        do{
-            console.writeLine("¿Qué deseas hacer?\n1. Ver opciones de restaurante.\n2. Ver opciones de menú.\n3. Ver opciones de reseña.\n0. Salir");
-            choice = Integer.parseInt(console.readLine());
-            if(choice != 0) {
-                controllers.get(choice).start();
-            }else{
-                System.out.println("\n¡Gracias por usar nuestros servicios!");
-            }
-        } while (choice != 0);
+        ReviewerMenu menu = new ReviewerMenu(handler, restaurantMenuController, menuMenuController, reviewMenuController);
+        menu.displayMenu();
 
     }
 }

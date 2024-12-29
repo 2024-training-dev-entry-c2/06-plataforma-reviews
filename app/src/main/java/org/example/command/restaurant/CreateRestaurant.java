@@ -1,26 +1,26 @@
 package org.example.command.restaurant;
 
 import org.example.interfaces.ICommand;
+import org.example.interfaces.IHandler;
 import org.example.models.Restaurant;
 import org.example.services.RestaurantService;
-import org.example.utils.ConsoleHandler;
 
 public class CreateRestaurant implements ICommand {
   private RestaurantService service;
-  private final ConsoleHandler console;
+  private final IHandler handler;
 
-  public CreateRestaurant(RestaurantService service, ConsoleHandler console){
+  public CreateRestaurant(RestaurantService service, IHandler handler){
     this.service = service;
-    this.console = console;
+    this.handler = handler;
   }
 
 
   @Override
   public void execute() {
-    console.writeLine("Indica el nombre del restaurante: ");
-    String name = console.readLine();
-    console.writeLine("Indica la dirección del restaurante: ");
-    String address = console.readLine();
+    handler.writeLine("Indica el nombre del restaurante: ");
+    String name = handler.readLine();
+    handler.writeLine("Indica la dirección del restaurante: ");
+    String address = handler.readLine();
     if(service.createRestaurant(new Restaurant(name, address))){
       System.out.println("¡El restaurante ha sido creado con éxito!");
     }else{

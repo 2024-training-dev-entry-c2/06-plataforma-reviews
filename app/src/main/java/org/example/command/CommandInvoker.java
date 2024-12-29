@@ -14,7 +14,7 @@ public class CommandInvoker {
     commandDescriptions.put(menuNumber, description);
   }
 
-  public void excecuteCommand(int menuNumber){
+  public void executeCommand(int menuNumber){
     ICommand command = commands.get(menuNumber);
     if(command != null){
       command.execute();

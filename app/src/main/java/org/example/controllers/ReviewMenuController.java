@@ -3,19 +3,19 @@ package org.example.controllers;
 import org.example.command.CommandInvoker;
 import org.example.command.review.AddReview;
 import org.example.interfaces.IController;
+import org.example.interfaces.IHandler;
 import org.example.observable.NotificationObserver;
 import org.example.services.ReviewService;
-import org.example.utils.ConsoleHandler;
 
 public class ReviewMenuController implements IController {
   private final ReviewService service;
   private final CommandInvoker invoker;
-  private final ConsoleHandler console;
+  private final IHandler handler;
 
-  public ReviewMenuController(ConsoleHandler console) {
+  public ReviewMenuController(IHandler handler, CommandInvoker invoker) {
     this.service = new ReviewService();
-    this.invoker = new CommandInvoker();
-    this.console = console;
+    this.invoker = invoker;
+    this.handler = handler;
     registryCommands();
   }
 
@@ -28,16 +28,16 @@ public class ReviewMenuController implements IController {
     while (true){
       System.out.println("\n-- Reseñas");
       invoker.printMenu();
-      console.writeLine("Selecciona una opción (o ingresa 0 para regresar): ");
-      int choice = Integer.parseInt(console.readLine());
+      handler.writeLine("Selecciona una opción (o ingresa 0 para regresar): ");
+      int choice = Integer.parseInt(handler.readLine());
       if(choice == 0){
         break;
       }
-      invoker.excecuteCommand(choice);
+      invoker.executeCommand(choice);
     }
   }
 
   private void registryCommands(){
-    invoker.registerCommand(1,"Agregar una reseña", new AddReview(service, console));
+    invoker.registerCommand(1,"Agregar una reseña", new AddReview(service, handler));
   }
 }

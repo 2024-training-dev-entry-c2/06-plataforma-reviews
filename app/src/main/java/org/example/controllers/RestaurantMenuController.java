@@ -39,7 +39,7 @@ public class RestaurantMenuController implements IController {
     invoker.registerCommand(1,"Crear un restaurante", new CreateRestaurant(service, handler));
     invoker.registerCommand(2,"Modificar un restaurante", new EditRestaurant(service, handler));
     invoker.registerCommand(3,"Eliminar un restaurante", new DeleteRestaurant(service, handler));
-    invoker.registerCommand(4,"Mostrar los restaurantes", new ShowRestaurants(service));
+    invoker.registerCommand(4,"Mostrar los restaurantes disponibles", new ShowRestaurants(service));
   }
 
   public CommandInvoker getInvoker() {

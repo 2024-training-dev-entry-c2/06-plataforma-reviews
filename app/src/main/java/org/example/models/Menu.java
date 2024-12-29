@@ -13,12 +13,12 @@ public class Menu {
   }
 
   public void displayMenu(){
-    System.out.println("\n------- Menú -------");
+    System.out.println("\n------------- Menú -------------");
     for(Dish dish : dishes.values()){
       System.out.print("- ");
       dish.displayDish();
     }
-    System.out.println("--------------------");
+    System.out.println("--------------------------------");
   }
 
   public void addDish(Dish dish){

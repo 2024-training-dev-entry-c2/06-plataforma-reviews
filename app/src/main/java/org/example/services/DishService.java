@@ -42,4 +42,8 @@ public class DishService {
     repository.getRestaurantByName(restaurantName).getMenu().getDishes().get(dish.getName()).setPrice(dishPrice);
     return true;
   }
+
+  public Dish getDishByName(String restaurantName,String dishName){
+    return repository.getRestaurantByName(restaurantName).getMenu().searchDish(dishName);
+  }
 }

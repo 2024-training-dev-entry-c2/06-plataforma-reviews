@@ -21,7 +21,9 @@ public class CreateRestaurant implements ICommand {
     String name = handler.readLine();
     handler.writeLine("Indica la dirección del restaurante: ");
     String address = handler.readLine();
-    if(service.createRestaurant(new Restaurant(name, address))){
+    handler.writeLine("¿El restaurante está disponible?(Si/No)");
+    Boolean available = handler.readLine().equalsIgnoreCase("Si");
+    if(service.createRestaurant(new Restaurant(name, address, available))){
       System.out.println("¡El restaurante ha sido creado con éxito!");
     }else{
       System.out.println("No se ha podido crear el restaurante.");

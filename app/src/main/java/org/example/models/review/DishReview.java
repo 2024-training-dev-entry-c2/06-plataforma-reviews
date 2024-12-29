@@ -19,13 +19,13 @@ public class DishReview extends Review {
 
   @Override
   public void displayReview() {
-    System.out.println("\n----------- Reseña -----------");
+    System.out.println("\n-------------- Reseña --------------");
     System.out.println("Plato: " + dish.getName());
     System.out.println("Calificación general: " + getRating());
     System.out.println("Sabor: " + taste);
     System.out.println("Presentación: " + presentation);
     System.out.println("Comentario: " + getComment());
-    System.out.println("------------------------------");
+    System.out.println("------------------------------------");
   }
 
   public Dish getDish() {

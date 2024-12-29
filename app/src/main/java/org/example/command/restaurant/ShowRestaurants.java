@@ -15,7 +15,7 @@ public class ShowRestaurants implements ICommand {
   @Override
   public void execute() {
     System.out.println("\nLista de restaurantes");
-    service.getRestaurants().forEach(restaurant -> {
+    service.getAvailableRestaurants().forEach(restaurant -> {
       System.out.print("- ");
       restaurant.displayRestaurant();
     });

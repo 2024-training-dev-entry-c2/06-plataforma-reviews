@@ -2,6 +2,7 @@ package org.example.controllers;
 
 import org.example.command.CommandInvoker;
 import org.example.command.review.AddReview;
+import org.example.command.review.ShowReviews;
 import org.example.interfaces.IController;
 import org.example.interfaces.IHandler;
 import org.example.observable.NotificationObserver;
@@ -39,5 +40,6 @@ public class ReviewMenuController implements IController {
 
   private void registryCommands(){
     invoker.registerCommand(1,"Agregar una reseña", new AddReview(service, handler));
+    invoker.registerCommand(2,"Ver las reseñas", new ShowReviews(service, handler));
   }
 }

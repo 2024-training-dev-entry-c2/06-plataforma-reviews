@@ -8,12 +8,14 @@ import java.util.List;
 public class Restaurant {
   private String name;
   private String address;
+  private Boolean available;
   private Menu menu;
   private List<Review> reviews;
 
-  public Restaurant(String name, String address) {
+  public Restaurant(String name, String address, Boolean available) {
     this.name = name;
     this.address = address;
+    this.available = available;
     this.reviews = new LinkedList<>();
   }
 
@@ -49,6 +51,14 @@ public class Restaurant {
 
   public String getAddress() {
     return address;
+  }
+
+  public Boolean getAvailable() {
+    return available;
+  }
+
+  public void setAvailable(Boolean available) {
+    this.available = available;
   }
 
   public void setAddress(String address) {

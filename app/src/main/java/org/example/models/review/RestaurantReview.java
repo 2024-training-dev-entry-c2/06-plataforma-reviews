@@ -15,11 +15,11 @@ public class RestaurantReview extends Review{
 
   @Override
   public void displayReview() {
-    System.out.println("\n----------- Reseña -----------");
+    System.out.println("\n-------------- Reseña --------------");
     System.out.println("Restaurante: " + restaurant.getName());
     System.out.println("Calificación: " + getRating());
     System.out.println("Comentario: " + getComment());
-    System.out.println("------------------------------");
+    System.out.println("------------------------------------");
   }
 
   public Restaurant getRestaurant() {

@@ -16,16 +16,16 @@ public class RestaurantService {
     return repository.addRestaurant(restaurant);
   }
 
-  public Boolean editRestaurant(Restaurant restaurant, String restaurantName, String restaurantAddress){
-    return repository.editRestaurant(restaurant, restaurantName, restaurantAddress);
+  public Boolean editRestaurant(Restaurant restaurant, String restaurantName, String restaurantAddress, Boolean restaurantAvailable){
+    return repository.editRestaurant(restaurant, restaurantName, restaurantAddress, restaurantAvailable);
   }
 
   public Boolean deleteRestaurant(Restaurant restaurant){
     return repository.removeRestaurant(restaurant);
   }
 
-  public List<Restaurant> getRestaurants(){
-    return repository.getRestaurants();
+  public List<Restaurant> getAvailableRestaurants(){
+    return repository.getAvailableRestaurants();
   }
 
   public Restaurant getRestaurantByName(String restaurantName){

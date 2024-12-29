@@ -29,8 +29,9 @@ public class RestaurantRepository {
     return  true;
   }
 
-  public Boolean editRestaurant(Restaurant restaurant, String restaurantName, String restaurantAddress){
+  public Boolean editRestaurant(Restaurant restaurant, String restaurantName, String restaurantAddress, Boolean restaurantAvailable){
     if( restaurants.get(restaurant.getName()) != null){
+      restaurants.get(restaurant.getName()).setAvailable(restaurantAvailable);
       restaurants.get(restaurant.getName()).setAddress(restaurantAddress);
       restaurants.get(restaurant.getName()).setName(restaurantName);
       return true;
@@ -50,7 +51,7 @@ public class RestaurantRepository {
     return restaurants.get(restaurantName);
   }
 
-  public List<Restaurant> getRestaurants() {
-    return restaurants.values().stream().toList();
+  public List<Restaurant> getAvailableRestaurants() {
+    return restaurants.values().stream().filter(Restaurant::getAvailable).toList();
   }
 }

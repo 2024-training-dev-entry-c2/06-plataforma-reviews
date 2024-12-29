@@ -15,12 +15,12 @@ public class AddReview implements ICommand {
 
   @Override
   public void execute() {
-    handler.writeLine("¿Deseas reseñar un restaurante o un plato? (restaurante/plato): ");
+    handler.writeLine("¿Deseas reseñar un restaurante o un plato? (Restaurante/Plato): ");
     String type = handler.readLine().toLowerCase();
 
-    if (type.equals("restaurante")) {
+    if (type.equalsIgnoreCase("restaurante")) {
       addRestaurantReview();
-    } else if (type.equals("plato")) {
+    } else if (type.equalsIgnoreCase("plato")) {
       addDishReview();
     } else {
       handler.writeLine("Opción no válida.");

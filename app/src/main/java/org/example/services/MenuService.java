@@ -21,8 +21,8 @@ public class MenuService {
     return true;
   }
 
-  public Menu getMenuByRestaurant(Restaurant restaurant){
-    return restaurant.getMenu();
+  public Menu getMenuByRestaurantName(String restaurantName){
+    return repository.getRestaurantByName(restaurantName).getMenu();
   }
 
 }

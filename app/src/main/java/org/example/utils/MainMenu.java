@@ -26,14 +26,14 @@ public class MainMenu implements IMainMenu {
 
     private Integer showMainMenu() {
         return validator.readInt(
-                "\n=============================" +
+                "\n===============================================" +
                         "\n BIENVENIDO A LA APLICACIÓN DE RESTAURANTES" +
-                        "\n=============================" +
+                        "\n===============================================" +
                         "\n1. Crear restaurante" +
                         "\n2. Listar restaurantes" +
                         "\n3. Actualizar restaurante" +
                         "\n4. Salir" +
-                        "\n=============================" +
+                        "\n===============================================" +
                         "\nSeleccione una opción: "
         );
     }

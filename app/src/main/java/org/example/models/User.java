@@ -14,4 +14,11 @@ public class User implements IObserver {
         System.out.println(name + " recibió una notificación: " + message);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

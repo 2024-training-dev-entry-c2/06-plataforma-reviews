@@ -5,10 +5,7 @@ import org.example.models.Restaurant;
 import org.example.models.User;
 import org.example.repositories.RestaurantRepository;
 import org.example.services.interfaces.ICommand;
-import org.example.services.restaurant.AddRestaurant;
-import org.example.services.restaurant.AddReviewRestaurant;
-import org.example.services.restaurant.RemoveRestaurant;
-import org.example.services.restaurant.UpdateRestaurat;
+import org.example.services.restaurant.*;
 import org.example.services.utils.IValidatorScanner;
 
 public class RestaurantController {
@@ -37,6 +34,10 @@ public class RestaurantController {
 
     public void addReview() {
         ICommand command = new AddReviewRestaurant(validatorScanner);
+        command.execute();
+    }
+    public void showReview() {
+        ICommand command = new ShowReviewRestaurant(validatorScanner);
         command.execute();
     }
 

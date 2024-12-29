@@ -32,5 +32,11 @@ public class ReviewDish implements IReview {
         this.presentationRating = presentationRating;
     }
 
+    public String getComment() {
+        return comment;
+    }
 
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }

@@ -62,6 +62,17 @@ public class RestaurantRepository {
         restaurant.addReview(user, review);
     }
 
+    public void showReview(Restaurant restaurant){
+        restaurant.getReviewMap().forEach((user, reviewRestaurant) -> {
+            System.out.println("Usuario: " + user.getName()+
+                    " - Calificación service : " + reviewRestaurant.getServiceRating() +"\n " +
+                    "Califacion Lugar :" + reviewRestaurant.getPlaceRating() +"\n"+
+                    "Califcacion Menu :"+ reviewRestaurant.getMenuRating()
+            );
+            System.out.println("Comentario: " + reviewRestaurant.getComment());
+            System.out.println("----------------------------");
+        });
+    }
 
 
 

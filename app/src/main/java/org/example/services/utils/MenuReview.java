@@ -1,6 +1,8 @@
 package org.example.services.utils;
 
+import org.example.controllers.dishFood.DishFoodController;
 import org.example.controllers.menu.MenuController;
+import org.example.controllers.restaurant.RestaurantController;
 
 import java.util.Map;
 
@@ -12,13 +14,14 @@ public class MenuReview {
     }
 
     public void showMenu() {
-
-        MenuController menuController = new MenuController(validatorScanner);
+        RestaurantController restaurantController = new RestaurantController(validatorScanner);
+        DishFoodController dishFoodController = new DishFoodController(validatorScanner);
         Map<Integer, Runnable> menuActions = Map.of(
-                1, menuController::addDishFood,
-                2, menuController::removeDishFood,
-                3, menuController::ShowDishFood,
-                4, () -> System.out.println("Volviendo al menú principal...")
+                1, restaurantController::addReview,
+                2, dishFoodController::addReview,
+                3, restaurantController::showReview,
+                4, restaurantController::showReview,
+                5, () -> System.out.println("Volviendo al menú principal...")
         );
         int option;
         do {

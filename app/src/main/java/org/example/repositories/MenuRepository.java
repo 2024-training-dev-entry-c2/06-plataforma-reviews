@@ -60,6 +60,7 @@ public class MenuRepository {
             AtomicInteger counter = new AtomicInteger(1);
             System.out.println(counter.getAndIncrement() + ". " + dishFood.getName());
             System.out.println(dishFood.toString());
+            dishFood.getAverageRating();
         }));
     }
 

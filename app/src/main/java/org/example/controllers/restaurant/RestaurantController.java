@@ -4,7 +4,7 @@ import org.example.repositories.RestaurantRepository;
 import org.example.services.interfaces.ICommand;
 import org.example.services.restaurant.*;
 import org.example.services.utils.IValidatorScanner;
-import org.example.services.utils.ValidatorScanner;
+
 
 public class RestaurantController {
     private final IValidatorScanner validatorScanner;

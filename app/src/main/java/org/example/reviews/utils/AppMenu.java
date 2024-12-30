@@ -11,12 +11,14 @@ public class AppMenu {
     private final RestaurantController restaurantController;
     private final MenuController menuController;
     private final ReviewController reviewController;
+    private final Runnable exitAction;
     private ConsoleUtil console;
 
-    public AppMenu(RestaurantController restaurantController, MenuController menuController, ReviewController reviewController, ConsoleUtil console) {
+    public AppMenu(RestaurantController restaurantController, MenuController menuController, ReviewController reviewController, Runnable exitAction, ConsoleUtil console) {
         this.restaurantController = restaurantController;
         this.menuController = menuController;
         this.reviewController = reviewController;
+        this.exitAction = exitAction;
         this.console = console;
     }
 
@@ -45,14 +47,14 @@ public class AppMenu {
         exit();
     }
 
-    private void executeController(int option, Map<Integer, IController> controllers) {
-        if(option != 4){
+    public void executeController(int option, Map<Integer, IController> controllers) {
+        if(option > 0 && option < 4){
             controllers.get(option).execute();
         }
     }
 
-    public void exit(){
+    public void exit() {
         console.writeLine("Gracias por usar la app");
-        System.exit(0);
+        exitAction.run();
     }
 }

@@ -11,6 +11,8 @@ public class ConsoleUtil implements IConsole {
     public ConsoleUtil() {
         this.scanner = new Scanner(System.in);
     }
+
+
     @Override
     public void writeLine(String message) {
         System.out.printf("%s \n", message);
@@ -31,7 +33,6 @@ public class ConsoleUtil implements IConsole {
             scanner.nextLine();
         } catch (NumberFormatException e) {
             writeLine("-- Introduzca un numero valido");
-            readInt(message);
         }
         return value;
     }

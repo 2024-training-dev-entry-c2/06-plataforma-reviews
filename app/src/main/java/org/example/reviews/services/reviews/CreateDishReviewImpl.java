@@ -38,7 +38,9 @@ public class CreateDishReviewImpl implements ICommand<Review> {
 
         ReviewManager reviewManager = new ReviewManager(new DishReviewFactory());
         Review review = reviewManager.createReview(dish.getId(), id, author, comment, rating, date);
-        dish.addObserver(notificationSystem);
+        if (!dish.hasObserver(notificationSystem)) {
+            dish.addObserver(notificationSystem);
+        }
         dishReviewRepository.addReview((DishReview) review);
         dish.addReview((DishReview) review);
 

@@ -36,7 +36,9 @@ public class CreateRestaurantReviewImpl implements ICommand<Review> {
 
         ReviewManager reviewManager = new ReviewManager(new RestaurantReviewFactory());
         Review review = reviewManager.createReview(restaurant.getId(), id, author, comment, rating, date);
-        restaurant.addObserver(notificationSystem);
+        if (!restaurant.hasObserver(notificationSystem)) {
+            restaurant.addObserver(notificationSystem);
+        }
 
         restaurantReviewRepository.addReview((RestaurantReview) review);
         restaurant.addReview((RestaurantReview) review);

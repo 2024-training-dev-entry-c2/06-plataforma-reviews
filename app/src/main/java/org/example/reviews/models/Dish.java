@@ -8,10 +8,6 @@ import org.example.reviews.repositories.DishReviewRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * @author Manuel Aguilera / @aguileradev
- */
 public class Dish implements Subject, IRating {
     private Integer id;
     private String name;
@@ -44,6 +40,11 @@ public class Dish implements Subject, IRating {
 
     }
 
+    @Override
+    public Boolean hasObserver(Observer observer) {
+        return observers.contains(observer);
+    }
+
     public void addReview(DishReview review) {
         reviews.add(review);
         notifyObservers("Nuevo comentario agregado al plato " + name);
@@ -74,20 +75,12 @@ public class Dish implements Subject, IRating {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Double getPrice() {
-        return price;
     }
 
     public void setPrice(Double price) {
@@ -98,13 +91,10 @@ public class Dish implements Subject, IRating {
         return reviews;
     }
 
-    public void setReviews(List<DishReview> reviews) {
-        this.reviews = reviews;
-    }
 
     @Override
     public String toString() {
-        return "Dish{" +
+        return "Calificacion del plato: " + calculateAverageRating() + "\nDish{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +

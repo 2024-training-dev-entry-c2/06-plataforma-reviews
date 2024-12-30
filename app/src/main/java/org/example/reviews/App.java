@@ -33,7 +33,7 @@ public class App {
         MenuController menuController = new MenuController(menuService, dishController,console);
         ReviewController reviewController = new ReviewController(reviewService, console);
 
-        AppMenu appMenu = new AppMenu(restaurantController, menuController, reviewController, console);
+        AppMenu appMenu = new AppMenu(restaurantController, menuController, reviewController,() -> System.exit(0), console);
 
         appMenu.execute();
     }

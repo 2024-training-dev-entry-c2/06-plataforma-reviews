@@ -10,10 +10,10 @@ import org.example.reviews.utils.ConsoleUtil;
 import java.util.List;
 
 public class ReviewService implements IReview {
-    private CreateRestaurantReviewImpl createRestaurantReview;
-    private CreateDishReviewImpl createDishReview;
-    private FindAllRestaurantReviewsImpl findAllRestaurantReviews;
-    private FindAllDishesReviewsImpl findAllDishesReviews;
+    public CreateRestaurantReviewImpl createRestaurantReview;
+    public CreateDishReviewImpl createDishReview;
+    public FindAllRestaurantReviewsImpl findAllRestaurantReviews;
+    public FindAllDishesReviewsImpl findAllDishesReviews;
 
     public ReviewService(ConsoleUtil console, NotificationSystem notificationSystem) {
         this.createRestaurantReview = new CreateRestaurantReviewImpl(console, notificationSystem);

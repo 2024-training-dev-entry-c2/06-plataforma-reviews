@@ -39,7 +39,7 @@ public class DishController implements IController {
     }
 
     private void executeController(int option, Map<Integer, IController> controllers) {
-        if (option != 9) {
+        if (option < 4 && option > 0) {
             controllers.get(option).execute();
         }
     }

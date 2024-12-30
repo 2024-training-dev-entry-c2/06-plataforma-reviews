@@ -1,11 +1,7 @@
 package org.example.reviews.models;
 
-
 import java.time.LocalDate;
 
-/**
- * @author Manuel Aguilera / @aguileradev
- */
 public class DishReview extends Review {
     private Integer dishId;
 
@@ -20,10 +16,6 @@ public class DishReview extends Review {
     }
     public Integer getDishId() {
         return dishId;
-    }
-
-    public void setDishId(Integer dishId) {
-        this.dishId = dishId;
     }
 
     @Override

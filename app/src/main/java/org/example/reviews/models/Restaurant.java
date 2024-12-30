@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-/**
- * @author Manuel Aguilera / @aguileradev
- */
 public class Restaurant implements Subject, IRating {
     private Integer id;
     private String name;
@@ -52,6 +48,12 @@ public class Restaurant implements Subject, IRating {
         observers.forEach(observer -> observer.update(message));
     }
 
+    @Override
+    public Boolean hasObserver(Observer observer) {
+        return observers.contains(observer);
+    }
+
+
     public void addReview(RestaurantReview review) {
         reviews.add(review);
         notifyObservers("Nuevo comentario agregada al restaurante " + name);
@@ -82,10 +84,6 @@ public class Restaurant implements Subject, IRating {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -110,25 +108,14 @@ public class Restaurant implements Subject, IRating {
         this.schedule = schedule;
     }
 
-    public List<Menu> getMenus() {
-        return menus;
-    }
-
-    public void setMenus(List<Menu> menus) {
-        this.menus = menus;
-    }
 
     public List<RestaurantReview> getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<RestaurantReview> reviews) {
-        this.reviews = reviews;
-    }
-
     @Override
     public String toString() {
-        return "Restaurant{" +
+        return "Calificacion del restaurante: " + calculateAverageRating() + "\nRestaurant{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +

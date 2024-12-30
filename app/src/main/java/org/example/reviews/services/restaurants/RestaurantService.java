@@ -10,10 +10,10 @@ import java.util.Map;
  * @author Manuel Aguilera / @aguileradev
  */
 public class RestaurantService implements IRestaurant {
-    private final CreateRestaurantImpl createRestaurantImpl;
-    private final FindRestaurantsImpl findRestaurantsImpl;
-    private final UpdateRestaurantImpl updateRestaurantImpl;
-    private final RemoveRestaurantImpl removeRestaurantImpl;
+    CreateRestaurantImpl createRestaurantImpl;
+    FindRestaurantsImpl findRestaurantsImpl;
+    UpdateRestaurantImpl updateRestaurantImpl;
+    RemoveRestaurantImpl removeRestaurantImpl;
 
     public RestaurantService(ConsoleUtil console) {
         this.createRestaurantImpl = new CreateRestaurantImpl(console);

@@ -7,12 +7,12 @@ import org.example.reviews.utils.ConsoleUtil;
 import java.util.List;
 
 public class MenuService implements IMenu {
-    private CreateMenuImpl createMenuImpl;
-    private FindMenusImpl findMenusImpl;
+    CreateMenuImpl createMenuImpl;
+    FindMenusImpl findMenusImpl;
 
     public MenuService(ConsoleUtil console) {
         this.createMenuImpl = new CreateMenuImpl(console);
-        this.findMenusImpl = new FindMenusImpl();
+        this.findMenusImpl = new FindMenusImpl(console);
 
     }
 

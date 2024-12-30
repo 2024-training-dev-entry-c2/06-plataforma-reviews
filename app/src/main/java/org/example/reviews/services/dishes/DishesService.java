@@ -7,9 +7,9 @@ import org.example.reviews.utils.ConsoleUtil;
 import java.util.Map;
 
 public class DishesService implements IDish {
-    private CreateDishImpl createDishImpl;
-    private FindDishesImpl findDishesImpl;
-    private UpdateDishImpl updateDishImpl;
+    CreateDishImpl createDishImpl;
+    FindDishesImpl findDishesImpl;
+    UpdateDishImpl updateDishImpl;
 
     public DishesService(ConsoleUtil console) {
         this.createDishImpl = new CreateDishImpl(console);

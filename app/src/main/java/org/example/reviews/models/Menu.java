@@ -3,9 +3,6 @@ package org.example.reviews.models;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Manuel Aguilera / @aguileradev
- */
 public class Menu {
     private Integer id;
     private String name;
@@ -26,28 +23,8 @@ public class Menu {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Restaurant getRestaurant() {
         return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public List<Dish> getDishes() {
-        return dishes;
     }
 
     public void setDishes(List<Dish> dishes) {

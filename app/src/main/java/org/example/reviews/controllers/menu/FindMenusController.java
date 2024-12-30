@@ -12,10 +12,12 @@ public class FindMenusController implements IController {
     public FindMenusController(MenuService menuService) {
         this.menuService = menuService;
     }
+
     @Override
     public void execute() {
         List<Menu> availableMenus = menuService.displayMenus();
-        if(availableMenus.isEmpty()){
+
+        if (availableMenus.isEmpty()) {
             System.out.println("No hay menus disponibles");
             return;
         }

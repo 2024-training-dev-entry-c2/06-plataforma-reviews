@@ -12,10 +12,6 @@ public abstract class Review {
         this.comment = comment;
     }
 
-    public Review() {
-    }
-
-
     @Override
     public String toString() {
         return "Comentario: " + comment +

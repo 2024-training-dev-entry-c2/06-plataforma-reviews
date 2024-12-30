@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Dish extends Observable {
+public class Dish {
     private static Integer idCounter = 0;
     private Integer dishId;
     private String name;
@@ -22,9 +22,6 @@ public class Dish extends Observable {
         this.description = description;
         this.price = price;
         this.reviews = new ArrayList<>();
-    }
-
-    public Dish() {
     }
 
     private Integer generateId() {
@@ -87,13 +84,10 @@ public class Dish extends Observable {
         return reviews;
     }
 
-
-    @Override
     public void addObserver(IObserver observer) {
         observerList.add(observer);
     }
 
-    @Override
     public void notifyObservers(String message) {
         observerList.forEach(observer -> observer.update(message));
     }

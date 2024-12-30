@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Restaurant extends Observable {
+public class Restaurant {
     private static Integer idCounter = 0;
     private Integer restaurantId;
     private String name;
@@ -26,15 +26,10 @@ public class Restaurant extends Observable {
         this.reviews = new ArrayList<>();
     }
 
-    public Restaurant() {
-    }
-
-    @Override
     public void addObserver(IObserver observer) {
         observerSet.add(observer);
     }
 
-    @Override
     public void notifyObservers(String message) {
         observerSet.forEach(observer -> observer.update(message));
     }

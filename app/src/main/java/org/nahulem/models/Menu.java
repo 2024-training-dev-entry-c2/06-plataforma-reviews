@@ -15,9 +15,6 @@ public class Menu {
         this.dishes = dishes != null ? dishes : new ArrayList<>();
     }
 
-    public Menu() {
-    }
-
     private Integer generateId() {
         return ++idCounter;
     }

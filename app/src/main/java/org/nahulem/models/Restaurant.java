@@ -4,7 +4,9 @@ import org.nahulem.models.interfaces.IObservable;
 import org.nahulem.models.interfaces.IObserver;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Restaurant implements IObservable {
     private static Integer idCounter = 0;
@@ -13,7 +15,7 @@ public class Restaurant implements IObservable {
     private String description;
     private String location;
     private Menu menu;
-    private List<Review> reviews;
+    private Set<Review> reviews;
     private static List<IObserver> observers = new ArrayList<>();
 
     public Restaurant(String name, String description, String location, Menu menu) {
@@ -22,7 +24,7 @@ public class Restaurant implements IObservable {
         this.description = description;
         this.location = location;
         this.menu = menu;
-        this.reviews = new ArrayList<>();
+        this.reviews = new HashSet<>();
     }
 
     public Restaurant() {
@@ -96,14 +98,6 @@ public class Restaurant implements IObservable {
         this.description = description;
     }
 
-    public static Integer getIdCounter() {
-        return idCounter;
-    }
-
-    public static void setIdCounter(Integer idCounter) {
-        Restaurant.idCounter = idCounter;
-    }
-
     public String getLocation() {
         return location;
     }
@@ -128,27 +122,12 @@ public class Restaurant implements IObservable {
         this.name = name;
     }
 
-    public static List<IObserver> getObservers() {
-        return observers;
-    }
-
-    public static void setObservers(List<IObserver> observers) {
-        Restaurant.observers = observers;
-    }
-
     public Integer getRestaurantId() {
         return restaurantId;
     }
 
-    public void setRestaurantId(Integer restaurantId) {
-        this.restaurantId = restaurantId;
-    }
-
-    public List<Review> getReviews() {
+    public Set<Review> getReviews() {
         return reviews;
     }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
 }
+

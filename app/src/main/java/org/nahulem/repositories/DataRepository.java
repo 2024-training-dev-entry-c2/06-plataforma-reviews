@@ -35,10 +35,6 @@ public class DataRepository {
         restaurants.put(restaurant.getRestaurantId(), restaurant);
     }
 
-    public Restaurant getRestaurant(Integer id) {
-        return restaurants.get(id);
-    }
-
     public Map<Integer, Restaurant> getAllRestaurants() {
         return restaurants;
     }

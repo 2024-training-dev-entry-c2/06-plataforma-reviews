@@ -120,5 +120,9 @@ public class Restaurant extends Observable {
     public List<Review> getReviews() {
         return reviews;
     }
+
+    public void setRestaurantId(Integer restaurantId) {
+        this.restaurantId = restaurantId;
+    }
 }
 

@@ -1,7 +1,15 @@
 package org.example.models;
 
-public class DishReview {
+public class DishReview extends Review {
   private Long dishId;
-  private Integer score;
-  private String comment;
+
+  public DishReview(Float score, String comment, Long dishId) {
+    super(score, comment);
+    this.dishId = dishId;
+  }
+
+  @Override
+  public Long getReviewedId() {
+    return dishId;
+  }
 }

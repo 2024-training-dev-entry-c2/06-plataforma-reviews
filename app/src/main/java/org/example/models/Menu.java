@@ -1,15 +1,15 @@
 package org.example.models;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Menu {
   private Long id;
-  private List<Long> dishIds;
+  private Set<Long> dishIds;
 
   public Menu(Long id) {
     this.id = id;
-    this.dishIds = new LinkedList<>();
+    this.dishIds = new HashSet<>();
   }
 
   public Long getId() {
@@ -20,11 +20,11 @@ public class Menu {
     this.id = id;
   }
 
-  public List<Long> getDishIds() {
+  public Set<Long> getDishIds() {
     return dishIds;
   }
 
-  public void setDishIds(List<Long> dishIds) {
+  public void setDishIds(Set<Long> dishIds) {
     this.dishIds = dishIds;
   }
 }

@@ -5,41 +5,45 @@ package org.example;
 
 import org.example.services.MenuService;
 import org.example.services.RestaurantService;
+import org.example.services.ReviewService;
 import org.example.utils.ConsoleHandler;
+import org.example.utils.DishReviewMenu;
 import org.example.utils.IHandler;
 import org.example.utils.IMenuCommand;
 import org.example.utils.MenuManagementMenu;
 import org.example.utils.RestaurantMenu;
+import org.example.utils.RestaurantReviewMenu;
 
 import java.util.Map;
 
 public class App {
-    private static Boolean exit = false;
-    private static final IHandler handler = new ConsoleHandler();
-    private static final RestaurantService restaurantService = new RestaurantService();
-    private static final MenuService menuService = new MenuService();
+  private static Boolean exit = false;
+  private static final IHandler handler = new ConsoleHandler();
+  private static final RestaurantService restaurantService = new RestaurantService();
+  private static final MenuService menuService = new MenuService();
+  private static final ReviewService reviewService = new ReviewService();
 
-    private static final Map<Integer, IMenuCommand> menuCommands = Map.of(
-      1, new RestaurantMenu(restaurantService, handler),
-      2, new MenuManagementMenu(menuService, handler),
-      3, ()-> {
-          handler.writeLine("Saliendo del sistema");
-          exit = true;
-      }
-    );
-
-    public static void main(String[] args) {
-
-        String message = "\nBievenido a la reseña de restaurantes \n¿Qué deseas hacer?\n1. Gestionar restaurantes\n2. Gestionar menús\n3. Salir";
-        while (!exit) {
-            handler.writeLine(message);
-            int choice = Integer.parseInt(handler.readLine());
-            if (choice >= 1 && choice <= 3) {
-                menuCommands.get(choice).displayMenu();
-            }
-            else {
-                handler.writeLine("Opción inválida");
-            }
-        }
+  private static final Map<Integer, IMenuCommand> menuCommands = Map.of(
+    1, new RestaurantMenu(restaurantService, handler),
+    2, new MenuManagementMenu(menuService, handler),
+    3, new RestaurantReviewMenu(reviewService, handler),
+    4, new DishReviewMenu(reviewService, handler),
+    5, () -> {
+      handler.writeLine("Saliendo del sistema");
+      exit = true;
     }
+  );
+
+  public static void main(String[] args) {
+    String message = "\nBievenido a la reseña de restaurantes \n¿Qué deseas hacer?\n1. Gestionar restaurantes\n2. Gestionar menús\n3. Reseña de restaurante\n2. Reseña de plato\n5. Salir";
+    while (!exit) {
+      handler.writeLine(message);
+      int choice = Integer.parseInt(handler.readLine());
+      if (choice >= 1 && choice <= 5) {
+        menuCommands.get(choice).displayMenu();
+      } else {
+        handler.writeLine("Opción inválida");
+      }
+    }
+  }
 }

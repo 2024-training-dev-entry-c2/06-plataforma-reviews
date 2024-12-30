@@ -7,6 +7,7 @@ import org.example.models.Restaurant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class MenuRepository {
   private static MenuRepository instance;
@@ -34,7 +35,7 @@ public class MenuRepository {
   public void addDishMenu(Long menuId, String name, String description, Long price) {
     this.currentDishId++;
     this.dishRepository.addDish(this.currentDishId, menuId, name, description, price);
-    List<Long> dishIds = this.menus.get(menuId).getDishIds();
+    Set<Long> dishIds = this.menus.get(menuId).getDishIds();
     dishIds.add(this.currentDishId);
   }
 
@@ -43,19 +44,19 @@ public class MenuRepository {
   }
 
   public Boolean removeDishMenu(Long dishId, Long menuId) {
-    List<Long> dishIds = this.menus.get(menuId).getDishIds();
+    Set<Long> dishIds = this.menus.get(menuId).getDishIds();
     dishIds.remove(dishId);
     return this.dishRepository.removeDish(dishId);
   }
 
   public void removeMenu(Long menuId) {
-    List<Long> dishIds = this.menus.get(menuId).getDishIds();
+    Set<Long> dishIds = this.menus.get(menuId).getDishIds();
     dishIds.forEach(dishId -> this.dishRepository.removeDish(dishId));
     this.menus.remove(menuId);
   }
 
   public List<Dish> getDishesMenu(Long menuId) {
-    List<Long> dishIds = this.menus.get(menuId).getDishIds();
+    Set<Long> dishIds = this.menus.get(menuId).getDishIds();
     return dishIds.stream().map(dishId -> this.dishRepository.getDish(dishId)).toList();
   }
 

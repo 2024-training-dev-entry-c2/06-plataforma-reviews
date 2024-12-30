@@ -51,4 +51,8 @@ public class RestaurantRepository {
   public Map<Long, Restaurant> getRestaurants() {
     return restaurants;
   }
+
+  public Restaurant getRestaurant(Long id) {
+    return this.restaurants.get(id);
+  }
 }

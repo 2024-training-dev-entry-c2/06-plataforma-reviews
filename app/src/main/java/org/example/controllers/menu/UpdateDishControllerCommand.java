@@ -26,7 +26,11 @@ public class UpdateDishControllerCommand implements IControllerCommand {
     handler.writeLine("Ingrese la descripción");
     String description = handler.readLine();
     handler.writeLine("Ingrese el precio");
-    Long price = Long.parseLong(handler.readLine());
+    String priceString = handler.readLine();
+    Long price = null;
+    if(!priceString.isEmpty()) {
+      price = Long.parseLong(priceString);
+    }
     this.menuService.updateDishMenu(dishId, name, description, price);
   }
 }

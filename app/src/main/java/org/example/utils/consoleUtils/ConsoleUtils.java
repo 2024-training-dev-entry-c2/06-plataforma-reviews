@@ -1,5 +1,5 @@
 // src/main/java/com/example/utils/consoleUtils/ConsoleUtils.java
-package main.java.org.example.utils.consoleUtils;
+package org.example.utils.consoleUtils;
 
 import java.util.Scanner;
 

@@ -1,8 +1,8 @@
-package main.java.org.example.controllers;
+package org.example.controllers;
 
-import main.java.org.example.models.Restaurant;
-import main.java.org.example.services.restaurant.AddRestaurantService;
-import main.java.org.example.utils.consoleUtils.ConsoleUtils;
+import org.example.models.Restaurant;
+import org.example.services.restaurant.AddRestaurantService;
+import org.example.utils.consoleUtils.ConsoleUtils;
 
 public class RestaurantController {
     private final AddRestaurantService addRestaurantService;

@@ -1,7 +1,7 @@
-package main.java.org.example.repositories;
+package org.example.repositories;
 
 
-import main.java.org.example.models.Restaurant;
+import org.example.models.Restaurant;
 
 import java.util.LinkedList;
 import java.util.List;

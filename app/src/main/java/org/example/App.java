@@ -1,9 +1,9 @@
 package org.example;
 
-import main.java.org.example.controllers.RestaurantController;
-import main.java.org.example.services.restaurant.AddRestaurantService;
-import main.java.org.example.utils.consoleUtils.ConsoleUtils;
-import main.java.org.example.repositories.RestaurantRepository;
+import org.example.controllers.RestaurantController;
+import org.example.services.restaurant.AddRestaurantService;
+import org.example.utils.consoleUtils.ConsoleUtils;
+import org.example.repositories.RestaurantRepository;
 
 public class App {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package org.example;
 
-import main.java.org.example.utils.consoleUtils.ConsoleUtils;
+import org.example.utils.consoleUtils.ConsoleUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

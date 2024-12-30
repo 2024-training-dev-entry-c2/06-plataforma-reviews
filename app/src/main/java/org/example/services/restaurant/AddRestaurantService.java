@@ -1,8 +1,8 @@
-package main.java.org.example.services.restaurant;
+package org.example.services.restaurant;
 
-import main.java.org.example.models.Restaurant;
-import main.java.org.example.repositories.RestaurantRepository;
-import main.java.org.example.services.interfaces.ICommand;
+import org.example.models.Restaurant;
+import org.example.repositories.RestaurantRepository;
+import org.example.services.interfaces.ICommand;
 
 public class AddRestaurantService implements ICommand<Restaurant> {
 

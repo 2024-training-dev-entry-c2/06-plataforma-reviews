@@ -22,6 +22,12 @@ public class MenuService {
   }
 
   public void createMenuForRestaurant(String restaurantName, String menuName) {
+    if (restaurantName == null) {
+      throw new IllegalArgumentException("El nombre del restaurante no puede ser nulo.");
+    }
+    if (menuName == null) {
+      throw new IllegalArgumentException("El nombre del menú no puede ser nulo.");
+    }
     RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     if (restaurant == null) {
       throw new IllegalArgumentException("Restaurante no encontrado: " + restaurantName);
@@ -35,6 +41,12 @@ public class MenuService {
   }
 
   public void addDishToMenu(String restaurantName, DishModel dish) {
+    if (restaurantName == null) {
+      throw new IllegalArgumentException("El nombre del restaurante no puede ser nulo.");
+    }
+    if (dish == null) {
+      throw new IllegalArgumentException("El plato no puede ser nulo.");
+    }
     RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     DishModel existingDish = repositoryDish.getDish(dish.getName());
     if (restaurant == null || restaurant.getMenu() == null || existingDish == null) {
@@ -45,6 +57,15 @@ public class MenuService {
   }
 
   public void editDishInMenu(String restaurantName, String dishName, DishModel updatedDish) {
+    if (restaurantName == null) {
+      throw new IllegalArgumentException("El nombre del restaurante no puede ser nulo.");
+    }
+    if (dishName == null) {
+      throw new IllegalArgumentException("El nombre del plato no puede ser nulo.");
+    }
+    if (updatedDish == null) {
+      throw new IllegalArgumentException("El plato actualizado no puede ser nulo.");
+    }
     RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     if (restaurant == null || restaurant.getMenu() == null) {
       throw new IllegalArgumentException("Restaurante o menú no encontrado.");
@@ -54,13 +75,20 @@ public class MenuService {
     for (int i = 0; i < dishes.size(); i++) {
       if (dishes.get(i).getName().equalsIgnoreCase(dishName)) {
         dishes.set(i, updatedDish);
-        repositoryDish.editDishInMenu(restaurantName,dishName,updatedDish);
+        repositoryDish.editDishInMenu(restaurantName, dishName, updatedDish);
         return;
       }
     }
+    throw new IllegalArgumentException("Plato no encontrado: " + dishName);
   }
 
   public void removeDishFromMenu(String restaurantName, String dishName) {
+    if (restaurantName == null) {
+      throw new IllegalArgumentException("El nombre del restaurante no puede ser nulo.");
+    }
+    if (dishName == null) {
+      throw new IllegalArgumentException("El nombre del plato no puede ser nulo.");
+    }
     RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     if (restaurant == null || restaurant.getMenu() == null) {
       throw new IllegalArgumentException("Restaurante o menú no encontrado.");
@@ -71,15 +99,21 @@ public class MenuService {
     }
 
     restaurant.getMenu().removeDish(dish);
-    repositoryDish.removeDishFromMenu(restaurantName,dishName);
+    repositoryDish.removeDishFromMenu(restaurantName, dishName);
   }
 
   public MenuModel getMenuOfRestaurant(String restaurantName) {
+    if (restaurantName == null) {
+      throw new IllegalArgumentException("El nombre del restaurante no puede ser nulo.");
+    }
     RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     return restaurant != null ? restaurant.getMenu() : null;
   }
 
   public void getDishesInMenu(String restaurantName) {
+    if (restaurantName == null) {
+      throw new IllegalArgumentException("El nombre del restaurante no puede ser nulo.");
+    }
     MenuModel menu = getMenuOfRestaurant(restaurantName);
     if (menu == null) {
       throw new IllegalArgumentException("Menu no encontrado: " + restaurantName);
@@ -87,8 +121,7 @@ public class MenuService {
 
     List<DishModel> dishes = menu.getDishes();
     for (DishModel dish : dishes) {
-      consoleHandler.writeLine("Plato: " + dish.getName() + ", Descripción: " + dish.getDescription() + ", Precio: " + dish.getPrice());
+      consoleHandler.writeLine("Plato: " + dish.getName() + ", Descripción: " + dish.getDescription() + ", Precio: " + dish.getPrice());
     }
   }
-
 }

@@ -1,11 +1,15 @@
 package org.example;
 
+import org.example.models.Dish;
+import org.example.models.Menu;
 import org.example.models.Restaurant;
+import org.example.repositories.MenuRepository;
 import org.example.utils.consoleUtils.ConsoleUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
+import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -14,10 +18,12 @@ import static org.mockito.Mockito.*;
 class AppTest {
 
     private ConsoleUtils console;
+    private MenuRepository menuRepository;
 
     @BeforeEach
     void setUp() {
         console = mock(ConsoleUtils.class);
+        menuRepository = MenuRepository.getInstance();
     }
 
     @Test
@@ -87,5 +93,50 @@ class AppTest {
         assertNull(restaurant.getMenu());
         assertEquals(0, restaurant.getReviews().size());
         assertEquals(3.5, restaurant.getRaiting());
+    }
+
+    @Test
+    void testMenuModel() {
+        // Test constructor and getters
+        Restaurant restaurant = new Restaurant("La Pizzeria", "123456789", "123 Main Street", 20, null, Collections.emptyList(), 4.5);
+        Menu menu = new Menu(restaurant, new LinkedList<>());
+        assertEquals(restaurant, menu.getRestaurant());
+        assertEquals(0, menu.getDishes().size());
+
+        // Test setters
+        Dish dish = new Dish("Pizza", "Delicious cheese pizza", 9.99, Collections.emptyList());
+        menu.getDishes().add(dish);
+        assertEquals(1, menu.getDishes().size());
+        assertEquals(dish, menu.getDishes().get(0));
+    }
+
+    @Test
+    void testAddDishToMenu() {
+        // Arrange
+        Restaurant restaurant = new Restaurant("La Pizzeria", "123456789", "123 Main Street", 20, null, Collections.emptyList(), 4.5);
+        Dish dish = new Dish("Pizza", "Delicious cheese pizza", 9.99, Collections.emptyList());
+
+        // Act
+        menuRepository.addDishToMenu(restaurant, dish);
+
+        // Assert
+        Menu menu = menuRepository.getMenuByRestaurant(restaurant);
+        assertEquals(1, menu.getDishes().size());
+        assertEquals(dish, menu.getDishes().get(0));
+    }
+
+    @Test
+    void testRemoveDishFromMenu() {
+        // Arrange
+        Restaurant restaurant = new Restaurant("La Pizzeria", "123456789", "123 Main Street", 20, null, Collections.emptyList(), 4.5);
+        Dish dish = new Dish("Pizza", "Delicious cheese pizza", 9.99, Collections.emptyList());
+        menuRepository.addDishToMenu(restaurant, dish);
+
+        // Act
+        menuRepository.removeDishFromMenu(restaurant, dish);
+
+        // Assert
+        Menu menu = menuRepository.getMenuByRestaurant(restaurant);
+        assertEquals(0, menu.getDishes().size());
     }
 }

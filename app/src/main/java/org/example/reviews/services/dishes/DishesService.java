@@ -2,8 +2,8 @@ package org.example.reviews.services.dishes;
 
 import org.example.reviews.models.Dish;
 import org.example.reviews.services.interfaces.IDish;
+import org.example.reviews.utils.ConsoleUtil;
 
-import java.util.List;
 import java.util.Map;
 
 public class DishesService implements IDish {
@@ -11,10 +11,10 @@ public class DishesService implements IDish {
     private FindDishesImpl findDishesImpl;
     private UpdateDishImpl updateDishImpl;
 
-    public DishesService(CreateDishImpl createDishImpl, FindDishesImpl findDishesImpl, UpdateDishImpl updateDishImpl) {
-        this.createDishImpl = createDishImpl;
-        this.findDishesImpl = findDishesImpl;
-        this.updateDishImpl = updateDishImpl;
+    public DishesService(ConsoleUtil console) {
+        this.createDishImpl = new CreateDishImpl(console);
+        this.findDishesImpl = new FindDishesImpl(console);
+        this.updateDishImpl = new UpdateDishImpl(console);
     }
 
     @Override

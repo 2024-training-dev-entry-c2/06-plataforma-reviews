@@ -2,6 +2,7 @@ package org.example.reviews.controllers.menu;
 
 import org.example.reviews.controllers.dish.DishController;
 import org.example.reviews.controllers.interfaces.IController;
+import org.example.reviews.services.menus.MenuService;
 import org.example.reviews.utils.ConsoleUtil;
 
 import java.util.Map;
@@ -12,15 +13,9 @@ public class MenuController implements IController {
     private final DishController dishController;
     private ConsoleUtil console;
 
-
-    public MenuController(
-            CreateMenuController createMenuController,
-            FindMenusController findMenusController,
-            DishController dishController,
-            ConsoleUtil console) {
-
-        this.createMenuController = createMenuController;
-        this.findMenusController = findMenusController;
+    public MenuController(MenuService menuService, DishController dishController, ConsoleUtil console) {
+        this.createMenuController = new CreateMenuController(menuService);
+        this.findMenusController = new FindMenusController(menuService);
         this.dishController = dishController;
         this.console = console;
     }

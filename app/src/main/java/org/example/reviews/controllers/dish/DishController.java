@@ -1,6 +1,7 @@
 package org.example.reviews.controllers.dish;
 
 import org.example.reviews.controllers.interfaces.IController;
+import org.example.reviews.services.dishes.DishesService;
 import org.example.reviews.utils.ConsoleUtil;
 
 import java.util.Map;
@@ -11,10 +12,10 @@ public class DishController implements IController {
     private final UpdateDishController updateDishController;
     private ConsoleUtil console;
 
-    public DishController(CreateDishController createDishController, FindDishesController findDishesController, UpdateDishController updateDishController, ConsoleUtil console) {
-        this.createDishController = createDishController;
-        this.findDishesController = findDishesController;
-        this.updateDishController = updateDishController;
+    public DishController(DishesService dishesService, ConsoleUtil console) {
+        this.createDishController = new CreateDishController(dishesService);
+        this.findDishesController = new FindDishesController(dishesService);
+        this.updateDishController = new UpdateDishController(dishesService);
         this.console = console;
     }
 

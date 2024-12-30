@@ -3,7 +3,9 @@ package org.example.reviews.services.reviews;
 import org.example.reviews.models.DishReview;
 import org.example.reviews.models.RestaurantReview;
 import org.example.reviews.models.Review;
+import org.example.reviews.observer.NotificationSystem;
 import org.example.reviews.services.interfaces.IReview;
+import org.example.reviews.utils.ConsoleUtil;
 
 import java.util.List;
 
@@ -13,15 +15,11 @@ public class ReviewService implements IReview {
     private FindAllRestaurantReviewsImpl findAllRestaurantReviews;
     private FindAllDishesReviewsImpl findAllDishesReviews;
 
-    public ReviewService(
-            CreateRestaurantReviewImpl createRestaurantReview,
-            CreateDishReviewImpl createDishReview,
-            FindAllRestaurantReviewsImpl findAllRestaurantReviews,
-            FindAllDishesReviewsImpl findAllDishesReviews) {
-        this.createRestaurantReview = createRestaurantReview;
-        this.createDishReview = createDishReview;
-        this.findAllRestaurantReviews = findAllRestaurantReviews;
-        this.findAllDishesReviews = findAllDishesReviews;
+    public ReviewService(ConsoleUtil console, NotificationSystem notificationSystem) {
+        this.createRestaurantReview = new CreateRestaurantReviewImpl(console, notificationSystem);
+        this.createDishReview = new CreateDishReviewImpl(console, notificationSystem);
+        this.findAllRestaurantReviews = new FindAllRestaurantReviewsImpl(console);
+        this.findAllDishesReviews = new FindAllDishesReviewsImpl(console);
 
     }
 

@@ -1,6 +1,7 @@
 package org.example.reviews.controllers.restaurant;
 
 import org.example.reviews.controllers.interfaces.IController;
+import org.example.reviews.services.restaurants.RestaurantService;
 import org.example.reviews.utils.ConsoleUtil;
 
 import java.util.Map;
@@ -12,16 +13,12 @@ public class RestaurantController implements IController {
     private RemoveRestaurantController removeRestaurantController;
     private ConsoleUtil console;
 
-    public RestaurantController(CreateRestaurantController createRestaurantController,
-                                FindRestaurantsController findRestaurantsController,
-                                UpdateRestaurantController updateRestaurantController,
-                                RemoveRestaurantController removeRestaurantController,
-                                ConsoleUtil console) {
-        this.createRestaurantController = createRestaurantController;
-        this.findRestaurantsController = findRestaurantsController;
-        this.updateRestaurantController = updateRestaurantController;
-        this.removeRestaurantController = removeRestaurantController;
+    public RestaurantController(RestaurantService restaurantService, ConsoleUtil console){;
         this.console = console;
+        this.createRestaurantController = new CreateRestaurantController(restaurantService);
+        this.findRestaurantsController = new FindRestaurantsController(restaurantService);
+        this.updateRestaurantController = new UpdateRestaurantController(restaurantService);
+        this.removeRestaurantController = new RemoveRestaurantController(restaurantService);
     }
     @Override
     public void execute() {

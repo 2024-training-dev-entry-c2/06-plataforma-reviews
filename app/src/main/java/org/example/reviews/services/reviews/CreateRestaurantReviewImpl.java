@@ -17,11 +17,13 @@ public class CreateRestaurantReviewImpl implements ICommand<Review> {
     private RestaurantRepository restaurantRepository;
     private RestaurantReviewRepository restaurantReviewRepository;
     private ConsoleUtil console;
+    private NotificationSystem notificationSystem;
 
-    public CreateRestaurantReviewImpl(ConsoleUtil console) {
+    public CreateRestaurantReviewImpl(ConsoleUtil console, NotificationSystem notificationSystem) {
         this.restaurantRepository = RestaurantRepository.getInstance();
         this.restaurantReviewRepository = RestaurantReviewRepository.getINSTANCE();
         this.console = console;
+        this.notificationSystem = notificationSystem;
     }
     @Override
     public Review execute() {
@@ -29,13 +31,11 @@ public class CreateRestaurantReviewImpl implements ICommand<Review> {
         Restaurant restaurant = restaurantRepository.findRestaurantByName(console.readLine("Introduzca el nombre del restaurante: "));
         String author = console.readLine("Nombre del autor: ");
         String comment = console.readLine("Comentarios: ");
-        Float rating = console.readFloat("Calificacion: ");
+        Float rating = console.readFloat("Calificacion (1 -5): ");
         LocalDate date = LocalDate.now();
 
         ReviewManager reviewManager = new ReviewManager(new RestaurantReviewFactory());
         Review review = reviewManager.createReview(restaurant.getId(), id, author, comment, rating, date);
-
-        NotificationSystem notificationSystem = new NotificationSystem();
         restaurant.addObserver(notificationSystem);
 
         restaurantReviewRepository.addReview((RestaurantReview) review);

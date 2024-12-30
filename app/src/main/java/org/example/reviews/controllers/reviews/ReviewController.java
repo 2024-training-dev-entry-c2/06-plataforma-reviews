@@ -14,12 +14,12 @@ public class ReviewController implements IController {
     private FindAllDishesReviewsController findAllDishesReviewsController;
     private ConsoleUtil console;
 
-    public ReviewController(ConsoleUtil console, ReviewService reviewService) {
+    public ReviewController(ReviewService reviewService, ConsoleUtil console) {
         this.console = console;
-        createRestaurantReviewController = new CreateRestaurantReviewController(reviewService);
-        createDishReviewController = new CreateDishReviewController(reviewService);
-        findAllRestaurantReviewsController = new FindAllRestaurantReviewsController(reviewService);
-        findAllDishesReviewsController = new FindAllDishesReviewsController(reviewService);
+        this.createRestaurantReviewController = new CreateRestaurantReviewController(reviewService);
+        this.createDishReviewController = new CreateDishReviewController(reviewService);
+        this.findAllRestaurantReviewsController = new FindAllRestaurantReviewsController(reviewService);
+        this.findAllDishesReviewsController = new FindAllDishesReviewsController(reviewService);
     }
     @Override
     public void execute() {

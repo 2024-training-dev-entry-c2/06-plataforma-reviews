@@ -49,7 +49,7 @@ public class AppConfig {
         ShowDishReviewService showDishReview = new ShowDishReviewService(selectDish);
         ShowRestaurantReviewService showRestaurantReview = new ShowRestaurantReviewService(selectRestaurant);
 
-        AddDishController addDishController = new AddDishController(addDishService);
+        AddDishController addDishController = new AddDishController(validator, addDishService);
         CreateRestaurantController createRestaurantController = new CreateRestaurantController(createRestaurant);
         UpdateRestaurantController updateRestaurantController = new UpdateRestaurantController(updateRestaurant);
         DeleteRestaurantController deleteRestaurantController = new DeleteRestaurantController(deleteRestaurant);

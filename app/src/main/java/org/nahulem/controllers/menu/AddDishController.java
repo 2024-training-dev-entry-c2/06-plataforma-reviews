@@ -11,7 +11,7 @@ public class AddDishController implements ICommandController {
     private final Validator validator = new Validator(new Scanner(System.in));
     private final AddDishService addDishService;
 
-    public AddDishController(AddDishService addDishService) {
+    public AddDishController(Validator mockValidator, AddDishService addDishService) {
         this.addDishService = addDishService;
     }
 

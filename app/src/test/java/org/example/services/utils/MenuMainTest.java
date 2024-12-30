@@ -1,24 +1,22 @@
 package org.example.services.utils;
 
-import org.example.factory.ReviewFactory;
-import org.example.models.DishFood;
-import org.example.models.IReview;
-import org.example.models.Restaurant;
-import org.example.models.User;
+
+import org.example.repositories.DishRepository;
 import org.example.repositories.MenuRepository;
 import org.example.repositories.RestaurantRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
+
 import org.mockito.InOrder;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 import static org.mockito.Mockito.*;
 
 class MenuMainTest {
     private IValidatorScanner mockValidatorScanner;
     private RestaurantRepository mockRestaurantRepository;
     private MenuRepository mockMenuRepository;
+    private DishRepository mockDishRepository;
     private MenuMain menuMain;
 
     @BeforeEach
@@ -27,6 +25,7 @@ class MenuMainTest {
         mockValidatorScanner = mock(IValidatorScanner.class);
         mockRestaurantRepository = mock(RestaurantRepository.class);
         mockMenuRepository = mock(MenuRepository.class);
+        mockDishRepository = mock(DishRepository.class);
         menuMain = new MenuMain(mockValidatorScanner);
     }
 
@@ -235,11 +234,14 @@ class MenuMainTest {
         inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
 
     }
+
+    @Test
     void showReviewDishFood() {
         // Configuración de los mocks
         when(mockValidatorScanner.integerScanner("Ingrese un Valor : ")).thenReturn(3, 0);
         when(mockValidatorScanner.integerScanner("Selecciona una opción:")).thenReturn(4, 5);
         when(mockValidatorScanner.stringScanner("Escribe el nombre del Restaurante")).thenReturn("Restaurante Prueba");
+        when(mockValidatorScanner.integerScanner("seleccione un plato para ver el review")).thenReturn(1);
 
         menuMain.showMenu();
 
@@ -247,8 +249,235 @@ class MenuMainTest {
         inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
         inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
         inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).integerScanner("seleccione un plato para ver el review");
 
     }
+
+    //option no valida por menu
+    @Test
+    void mainMenuRestaurantNoValue() {
+        // Simular entradas del usuario
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(1, 0);
+
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(6, 4);
+
+
+        menuMain.showMenu();
+        verify(mockValidatorScanner, times(2)).integerScanner("Ingrese un Valor : ");
+        verify(mockValidatorScanner, times(2)).integerScanner("Selecciona una opción:");
+
+    }
+
+    @Test
+    void mainMenuDishfooodNoValue() {
+        // Simular entradas del usuario
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(2, 0);
+
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(6, 4);
+
+
+        menuMain.showMenu();
+        verify(mockValidatorScanner, times(2)).integerScanner("Ingrese un Valor : ");
+        verify(mockValidatorScanner, times(2)).integerScanner("Selecciona una opción:");
+
+    }
+
+    @Test
+    void mainMenuReviewtNoValue() {
+        // Simular entradas del usuario
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(3, 0);
+
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(6, 5);
+
+
+        menuMain.showMenu();
+        verify(mockValidatorScanner, times(2)).integerScanner("Ingrese un Valor : ");
+        verify(mockValidatorScanner, times(2)).integerScanner("Selecciona una opción:");
+
+    }
+
+    /// casos especiales complejos
+    @Test
+    void createAndRemoveRestaurant() {
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(1, 0);
+
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(1, 2, 4);
+
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del Restaurante"))
+                .thenReturn("Restaurante Nuevo");
+        when(mockValidatorScanner.stringScanner("Escribe el direccion del Restaurante"))
+                .thenReturn("Avenida Principal 456");
+
+        menuMain.showMenu();
+
+        InOrder inOrder = inOrder(mockValidatorScanner);
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el direccion del Restaurante");
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+    }
+
+    @Test
+    void createRestaurantAndAddDish() {
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(1, 2, 0);
+
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(1, 4, 1, 4);
+
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del Restaurante"))
+                .thenReturn("Restaurante Gourmet");
+        when(mockValidatorScanner.stringScanner("Escribe el direccion del Restaurante"))
+                .thenReturn("Calle Gastronómica 789");
+
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del plato:"))
+                .thenReturn("Plato Estrella");
+        when(mockValidatorScanner.stringScanner("Escribe una descripcion:"))
+                .thenReturn("Delicioso plato estrella del restaurante.");
+        when(mockValidatorScanner.doubleScanner("Escribe el precio:"))
+                .thenReturn(50000.0);
+
+        menuMain.showMenu();
+
+        InOrder inOrder = inOrder(mockValidatorScanner);
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el direccion del Restaurante");
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del plato:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe una descripcion:");
+        inOrder.verify(mockValidatorScanner).doubleScanner("Escribe el precio:");
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+    }
+
+    @Test
+    void createRestaurantAddDishAndShowDishes() {
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(1, 2, 2, 0);
+
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(1, 4, 1, 3, 4);
+
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del Restaurante"))
+                .thenReturn("Restaurante Familiar");
+        when(mockValidatorScanner.stringScanner("Escribe el direccion del Restaurante"))
+                .thenReturn("Avenida Familiar 321");
+
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del plato:"))
+                .thenReturn("Plato Infantil");
+        when(mockValidatorScanner.stringScanner("Escribe una descripcion:"))
+                .thenReturn("Plato especial para niños.");
+        when(mockValidatorScanner.doubleScanner("Escribe el precio:"))
+                .thenReturn(20000.0);
+
+        menuMain.showMenu();
+
+        InOrder inOrder = inOrder(mockValidatorScanner);
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el direccion del Restaurante");
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del plato:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe una descripcion:");
+        inOrder.verify(mockValidatorScanner).doubleScanner("Escribe el precio:");
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+    }
+
+    @Test
+    void createRestaurantAddDishAndAddDishReview() {
+
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(1, 2, 3, 0);
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(1, 4, 1, 4, 2, 3, 5);
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del Restaurante"))
+                .thenReturn("Restaurante Elegante");
+        when(mockValidatorScanner.stringScanner("Escribe el direccion del Restaurante"))
+                .thenReturn("Avenida Gourmet 123");
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del plato:"))
+                .thenReturn("Plato Gourmet");
+        when(mockValidatorScanner.stringScanner("Escribe una descripcion:"))
+                .thenReturn("Un plato sofisticado para paladares exigentes.");
+        when(mockValidatorScanner.doubleScanner("Escribe el precio:"))
+                .thenReturn(75000.0);
+        when(mockValidatorScanner.integerScanner("seleccione un plato")).thenReturn(1);
+        when(mockValidatorScanner.stringScanner("Ingrese su comentario"))
+                .thenReturn("Un sabor exquisito, presentación impecable.");
+        when(mockValidatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del sabor"))
+                .thenReturn(4.5f);
+        when(mockValidatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del presentacion"))
+                .thenReturn(5.0f);
+
+        when(mockValidatorScanner.integerScanner("seleccione un plato para ver el review")).thenReturn(1);
+
+        menuMain.showMenu();
+
+        InOrder inOrder = inOrder(mockValidatorScanner);
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el direccion del Restaurante");
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del plato:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe una descripcion:");
+        inOrder.verify(mockValidatorScanner).doubleScanner("Escribe el precio:");
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).integerScanner("seleccione un plato");
+        inOrder.verify(mockValidatorScanner).stringScanner("Ingrese su comentario");
+        inOrder.verify(mockValidatorScanner).floatScanner("ingrese de 0 a 5 la calificacion del sabor");
+        inOrder.verify(mockValidatorScanner).floatScanner("ingrese de 0 a 5 la calificacion del presentacion");
+
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+    }
+
+    @Test
+    void createRestaurantAndListRestaurants() {
+        when(mockValidatorScanner.integerScanner("Ingrese un Valor : "))
+                .thenReturn(1, 0);
+        when(mockValidatorScanner.integerScanner("Selecciona una opción:"))
+                .thenReturn(1, 3,4);
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del Restaurante"))
+                .thenReturn("Restaurante El Buen Sabor");
+        when(mockValidatorScanner.stringScanner("Escribe el direccion del Restaurante"))
+                .thenReturn("Calle Sabor 100");
+
+        menuMain.showMenu();
+
+        InOrder inOrder = inOrder(mockValidatorScanner);
+        inOrder.verify(mockValidatorScanner).integerScanner("Ingrese un Valor : ");
+        inOrder.verify(mockValidatorScanner).integerScanner("Selecciona una opción:");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
+        inOrder.verify(mockValidatorScanner).stringScanner("Escribe el direccion del Restaurante");
+
+
+    }
+
 
 
 }

@@ -23,31 +23,21 @@ public class ReviewRestaurant implements IReview {
         return serviceRating;
     }
 
-    public void setServiceRating(Float serviceRating) {
-        this.serviceRating = serviceRating;
-    }
+
 
     public Float getPlaceRating() {
         return placeRating;
     }
 
-    public void setPlaceRating(Float placeRating) {
-        this.placeRating = placeRating;
-    }
+
 
     public Float getMenuRating() {
         return menuRating;
     }
 
-    public void setMenuRating(Float menuRating) {
-        this.menuRating = menuRating;
-    }
+
 
     public String getComment() {
         return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 }

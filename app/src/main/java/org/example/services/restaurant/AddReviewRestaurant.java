@@ -20,19 +20,17 @@ public class AddReviewRestaurant implements ICommand {
     @Override
     public void execute() {
         String restaurantName = null;
-        try {
-            restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
-            User user = new User(validatorScanner.stringScanner("Ingrese su nombre"));
-            String comment = validatorScanner.stringScanner("Ingrese su comentario");
-            Float placeRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del lugar");
-            Float menuRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del menu");
-            Float serviceRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del serviceRating");
-            IReview review =  ReviewFactory.createReview("restaurante",comment,placeRating,menuRating,serviceRating);
-            repository.addReview(restaurantName, user, review);
-            System.out.println("Review agregado: " + restaurantName);
-        } catch (NullPointerException e) {
-            System.err.println("Error: Restaurant not found - " + restaurantName);
-        }
+
+        restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
+        User user = new User(validatorScanner.stringScanner("Ingrese su nombre"));
+        String comment = validatorScanner.stringScanner("Ingrese su comentario");
+        Float placeRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del lugar");
+        Float menuRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del menu");
+        Float serviceRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del del serviceRating");
+        IReview review = ReviewFactory.createReview("restaurante", comment, placeRating, menuRating, serviceRating);
+        repository.addReview(restaurantName, user, review);
+        System.out.println("Review agregado: " + restaurantName);
+
     }
 
 }

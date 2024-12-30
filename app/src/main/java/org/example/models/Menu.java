@@ -19,15 +19,12 @@ public class Menu {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+
 
     public List<DishFood> getDishFoodList() {
         return dishFoodList;
     }
 
-    public void setDishFoodList(List<DishFood> dishFoodList) {
-        this.dishFoodList = dishFoodList;
-    }
+
+
 }

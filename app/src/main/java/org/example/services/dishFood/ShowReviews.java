@@ -2,6 +2,7 @@ package org.example.services.dishFood;
 
 import org.example.models.DishFood;
 import org.example.models.Restaurant;
+import org.example.models.ReviewDish;
 import org.example.repositories.DishRepository;
 import org.example.repositories.MenuRepository;
 import org.example.repositories.RestaurantRepository;
@@ -22,26 +23,37 @@ public class ShowReviews implements ICommand {
     @Override
     public void execute() {
         String restaurantName = null;
+        DishFood dishFood=new DishFood();
         try {
             restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = repository.getRestaurant(restaurantName);
-            menuRepository.showDishes(restaurant.getMenu());
-            Integer optionDish = validatorScanner.integerScanner("seleccione un plato");
-            DishFood dishFood= restaurant.getMenu().getDishFoodList().get(optionDish);
+            showDishFood(restaurant);
+            Integer optionDish = validatorScanner.integerScanner("seleccione un plato para ver el review");
+            dishFood= validate(restaurant,optionDish);
             dishRepository.showReview(dishFood);
             System.out.println("Review added successfully to: " + restaurantName);
         } catch (NullPointerException e) {
             System.err.println("Error: Restaurant not found - " + restaurantName);
         }
     }
+
+
+    public DishFood validate(Restaurant restaurant, int optionDish){
+
+        if (!restaurant.getMenu().getDishFoodList().isEmpty()) {
+
+           return restaurant.getMenu().getDishFoodList().get(optionDish - 1);
+        }
+        //trampa
+        DishFood dishFood = new DishFood("null", "null", 2000.0);
+        dishFood.getReviewList().add(new ReviewDish("feo", 0.3F, 0.2F));
+        return dishFood;
+    }
+    public void showDishFood(Restaurant restaurant){
+        if (restaurant != null){
+            menuRepository.showDishes(restaurant.getMenu());
+        }
+    }
 }
 
 
-//        repository.displayRestaurants();
-//        int optionRestaurant = validatorScanner.integerScanner("Selecciona el restaurante para reseñar :");
-//        Restaurant restaurant = repository.getRestaurant(optionRestaurant);
-//        String name = validatorScanner.stringScanner("Escribe el nombre del plato ");
-//        String description = validatorScanner.stringScanner("Escribe una descripcion ");
-//        double price = validatorScanner.integerScanner("Escribe el precio: ");
-//        addDish(restaurant.getMenu().getName(), new DishFood(name, description, price, Collections.emptyList()));
-//        return null;

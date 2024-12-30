@@ -34,10 +34,11 @@ public class AddReviewDish implements ICommand {
             }
 
             Integer optionDish = validatorScanner.integerScanner("seleccione un plato");
-            if (restaurant!= null){
-                 dishFood = restaurant.getMenu().getDishFoodList().get(optionDish);
-            }else {
-                 dishFood = new DishFood("null ", "nulll", 2000.0);
+            if (restaurant != null && !restaurant.getMenu().getDishFoodList().isEmpty()) {
+                // Access the selected dish from the list safely
+                dishFood = restaurant.getMenu().getDishFoodList().get(optionDish - 1); // Assuming `optionDish` starts from 1
+            } else {
+                dishFood = new DishFood("null ", "nulll", 2000.0);
             }
             String comment = validatorScanner.stringScanner("Ingrese su comentario");
             Float tasteRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del sabor");

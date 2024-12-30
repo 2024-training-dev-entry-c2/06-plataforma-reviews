@@ -16,12 +16,12 @@ public class DishFood {
         this.reviewList = new ArrayList<>();
     }
 
-    public void getAverageRating(){
+    public String getAverageRating(){
         double suma = 0;
         for (ReviewDish review : reviewList) {
             suma += (review.getTasteRating()+review.getPresentationRating())/2;
         }
-        System.out.println("Review Promedio: " + suma +" :3");
+        return "Review Promedio: " + suma ;
     }
 
     public DishFood() {
@@ -34,33 +34,11 @@ public class DishFood {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 
     public List<ReviewDish> getReviewList() {
         return reviewList;
     }
 
-    public void setReviewList(List<ReviewDish> reviewList) {
-        this.reviewList = reviewList;
-    }
 
     @Override
     public String toString() {
@@ -68,6 +46,7 @@ public class DishFood {
                 "\nname='" + name + '\'' +
                 "\ndescription='" + description + '\'' +
                 "\nprice=" + price +
+                "\nreview rating ="+ getAverageRating()+
                 '}';
     }
 }

@@ -26,7 +26,7 @@ public class RemoveDishFood implements ICommand {
             Restaurant restaurant = repository.getRestaurant(restaurantName);
             int indexDishFood = validatorScanner.integerScanner("Escribe el numero del plato");
             menuRepository.removeDishFood(restaurant,indexDishFood);
-            System.out.println("Review added successfully to: " + restaurantName);
+
         } catch (NullPointerException e) {
             System.err.println("Error: Restaurant not found - " + restaurantName);
         }

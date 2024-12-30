@@ -13,30 +13,22 @@ public class ReviewDish implements IReview {
     }
     @Override
     public void showDetails() {
-
+        System.out.println("Comentario: "+comment);
+        System.out.println("califacion de presentacion de plato :"+comment);
+        System.out.println("califacion de sabor: "+comment);
     }
 
     public Float getTasteRating() {
         return tasteRating;
     }
 
-    public void setTasteRating(Float tasteRating) {
-        this.tasteRating = tasteRating;
-    }
 
     public Float getPresentationRating() {
         return presentationRating;
     }
 
-    public void setPresentationRating(Float presentationRating) {
-        this.presentationRating = presentationRating;
-    }
 
-    public String getComment() {
-        return comment;
-    }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+
+
 }

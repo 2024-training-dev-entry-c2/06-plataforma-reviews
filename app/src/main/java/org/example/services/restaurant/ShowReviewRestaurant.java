@@ -17,15 +17,10 @@ public class ShowReviewRestaurant implements ICommand {
 
     @Override
     public void execute() {
-        String restaurantName = null;
-        try {
-            restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
+        String restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = repository.getRestaurant(restaurantName);
             System.out.println("reviews:");
             repository.showReview(restaurant);
-        } catch (NullPointerException e) {
-            System.err.println("Error: restaurante no encontrado - " + restaurantName);
-        }
     }
 
 }

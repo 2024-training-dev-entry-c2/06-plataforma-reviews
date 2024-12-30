@@ -35,17 +35,6 @@ public class RestaurantRepository {
         return false;
     }
 
-    public Restaurant updateRestaurant(Restaurant updatedRestaurant) {
-        return this.restaurants.merge(
-                updatedRestaurant.getName(),
-                updatedRestaurant,
-                (existing, newRestaurant) -> {
-                    existing.setAddress(newRestaurant.getAddress());
-                    existing.setMenu(newRestaurant.getMenu());
-                    existing.notifyObservers("Restaurante actualizado: " + newRestaurant.getName());
-                    return existing;
-                });
-    }
 
     public Restaurant getRestaurant(String name) {
         return restaurants.get(name);

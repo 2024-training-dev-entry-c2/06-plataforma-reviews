@@ -21,8 +21,8 @@ public class Restaurant extends Observable {
 
     public void addReview(User user ,IReview review) {
         reviewMap.put(user, (ReviewRestaurant) review);
-        System.out.println(((ReviewRestaurant) review).getMenuRating()+"dsasasdasdasd");
-        notifyObservers("mensaje pronto");//mensaje del review
+        System.out.println(((ReviewRestaurant) review).getMenuRating());
+        notifyObservers("se ha agregado un nuevo review sobre "+name+ " de " + user.getName());
     }
 
     public void getAverageRating(){
@@ -37,17 +37,7 @@ public class Restaurant extends Observable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public Menu getMenu() {
         return menu;
@@ -59,10 +49,6 @@ public class Restaurant extends Observable {
 
     public Map<User, ReviewRestaurant> getReviewMap() {
         return reviewMap;
-    }
-
-    public void setReviewMap(Map<User, ReviewRestaurant> reviewMap) {
-        this.reviewMap = reviewMap;
     }
 
     @Override

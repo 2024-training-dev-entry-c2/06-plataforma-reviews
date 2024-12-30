@@ -28,10 +28,7 @@ public class RestaurantController {
     }
 
     public void listRestaurants() {
-        RestaurantRepository.getInstance().getAllRestaurants().values().forEach(restaurant -> {
-            System.out.println(restaurant.toString());
-            restaurant.getAverageRating();
-        });
+        RestaurantRepository.getInstance().getAllRestaurants().values().forEach(restaurant -> { System.out.println(restaurant.toString());restaurant.getAverageRating(); });
     }
 
     public void addReview() {
@@ -43,9 +40,5 @@ public class RestaurantController {
         command.execute();
     }
 
-    public void updateRestaurant() {
-        ICommand command = new UpdateRestaurat(validatorScanner);
-        command.execute();
-    }
 
 }

@@ -31,7 +31,7 @@ public class AddDishFood implements ICommand {
             DishFood dishFood = new DishFood(dishName,description,price);
             System.out.println(dishFood.toString());
             menuRepository.addDishFood(restaurant,dishFood);
-            System.out.println("Review added successfully to: " + restaurantName);
+
         } catch (NullPointerException e) {
             System.err.println("Error: Restaurant not found - " + restaurantName);
         }

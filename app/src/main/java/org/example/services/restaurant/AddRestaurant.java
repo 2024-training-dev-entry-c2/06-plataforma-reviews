@@ -7,6 +7,7 @@ import org.example.repositories.RestaurantRepository;
 import org.example.services.interfaces.ICommand;
 import org.example.services.utils.IValidatorScanner;
 
+
 public class AddRestaurant implements ICommand {
     private final RestaurantRepository repository;
     private final IValidatorScanner validatorScanner;

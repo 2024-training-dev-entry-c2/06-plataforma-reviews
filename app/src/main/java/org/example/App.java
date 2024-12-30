@@ -4,16 +4,21 @@
 package org.example;
 
 
+
 import org.example.services.utils.IValidatorScanner;
 import org.example.services.utils.MenuMain;
 
 import org.example.services.utils.ValidatorScanner;
 
+import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
-        IValidatorScanner scanner = new ValidatorScanner();
-        MenuMain main= new MenuMain(scanner);
+        Scanner scanner = new Scanner(System.in);
+        IValidatorScanner validatorScanner = new ValidatorScanner(scanner);
+        MenuMain main= new MenuMain(validatorScanner);
         main.showMenu();
+
     }
 }

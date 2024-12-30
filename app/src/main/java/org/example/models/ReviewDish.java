@@ -14,8 +14,8 @@ public class ReviewDish implements IReview {
     @Override
     public void showDetails() {
         System.out.println("Comentario: "+comment);
-        System.out.println("califacion de presentacion de plato :"+comment);
-        System.out.println("califacion de sabor: "+comment);
+        System.out.println("califacion de presentacion de plato :"+presentationRating);
+        System.out.println("califacion de sabor: "+tasteRating);
     }
 
     public Float getTasteRating() {
@@ -26,9 +26,5 @@ public class ReviewDish implements IReview {
     public Float getPresentationRating() {
         return presentationRating;
     }
-
-
-
-
 
 }

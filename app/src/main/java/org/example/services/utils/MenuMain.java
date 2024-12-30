@@ -4,13 +4,13 @@ import org.example.repositories.DishRepository;
 import org.example.repositories.MenuRepository;
 import org.example.repositories.RestaurantRepository;
 
-import java.util.Scanner;
 
 public class MenuMain {
     public final IValidatorScanner validatorScanner;
     private final MenuRestaurant menuRestaurant;
     private final MenuDishFood menuDishFood;
     private final MenuReview menuReview;
+
 
     public MenuMain(IValidatorScanner validatorScanner) {
         RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();

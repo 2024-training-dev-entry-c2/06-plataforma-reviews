@@ -1,39 +1,48 @@
 package org.example.services.utils;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ValidatorScanner implements IValidatorScanner {
-    private static Scanner scanner;
+    private final Scanner scanner;
 
-    public ValidatorScanner() {
-        scanner = new Scanner(System.in);
+    public ValidatorScanner(Scanner scanner) {
+        this.scanner = scanner;
     }
 
     @Override
     public  Integer integerScanner(String prompt) {
-        try {
-            System.out.println(prompt);
-            int value = scanner.nextInt();
-            scanner.nextLine();
-            return value < 0 ? this.integerScanner(prompt) : value ;
-        } catch (InputMismatchException e) {
-            System.out.println("Entrada no válida. Por favor, ingrese un número.");
-            return integerScanner(prompt);
+        while (true) {
+            try {
+                System.out.println(prompt);
+                int value = scanner.nextInt();
+                scanner.nextLine(); // Limpia el buffer después de leer un entero
+                if (value >= 0) {
+                    return value; // Devuelve el valor si es válido
+                }
+                System.out.println("Por favor, ingrese un número mayor o igual a 0.");
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada no válida. Por favor, ingrese un número.");
+                scanner.nextLine(); // Limpia el buffer después de una entrada inválida
+            }
         }
 
     }
     @Override
     public Double doubleScanner(String prompt) {
-        try {
-            System.out.println(prompt);
-            Double value = scanner.nextDouble();
-            return value < 0 ? this.doubleScanner(prompt) : value ;
-        } catch (InputMismatchException e) {
-            System.out.println("Entrada no válida. Por favor, ingrese un número.");
-            return doubleScanner(prompt);
+        while (true) {
+            try {
+                System.out.println(prompt);
+                Double value = Double.parseDouble(scanner.nextLine());
+                if (value >= 0) {
+                    return value;
+                }
+                System.out.println("Por favor, ingrese un número mayor o igual a 0.");
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada no válida. Por favor, ingrese un número.");
+                scanner.nextLine(); // Limpia el buffer después de una entrada inválida
+            }
         }
 
     }
@@ -72,23 +81,6 @@ public class ValidatorScanner implements IValidatorScanner {
         }
     }
 
-    @Override
-    public LocalDate dateScanner(String prompt) {
-        while (true) {
-            System.out.println(prompt);
-            try {
-                return LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            } catch (InputMismatchException e) {
-                System.out.println("Entrada no válida. Por favor, ingrese un número.");
-                return dateScanner(prompt);
-            }
-        }
-    }
 
-    @Override
-    public void clearBuffer() {
-        if (scanner.hasNextLine()) {
-            scanner.nextLine();
-        }
-    }
+
 }

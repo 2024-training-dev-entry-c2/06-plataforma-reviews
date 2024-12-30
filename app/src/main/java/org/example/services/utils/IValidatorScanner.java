@@ -1,6 +1,6 @@
 package org.example.services.utils;
 
-import java.time.LocalDate;
+
 
 public interface IValidatorScanner {
     Integer integerScanner(String prompt);
@@ -10,7 +10,6 @@ public interface IValidatorScanner {
 
     Float floatScanner(String prompt);
 
-    LocalDate dateScanner(String prompt);
 
-    void clearBuffer();
+
 }

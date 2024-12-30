@@ -1,12 +1,8 @@
 package org.example.services.restaurant;
 
-import org.example.factory.ReviewFactory;
-import org.example.models.IReview;
 import org.example.models.Restaurant;
-import org.example.models.ReviewRestaurant;
-import org.example.models.User;
 import org.example.repositories.RestaurantRepository;
-import org.example.services.utils.IValidatorScanner;
+import org.example.services.utils.ValidatorScanner;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +14,7 @@ import static org.mockito.Mockito.*;
 
 class RestaurantTest {
     private RestaurantRepository mockRepository;
-    private IValidatorScanner mockValidatorScanner;
+    private ValidatorScanner mockValidatorScanner;
     private AddRestaurant addRestaurant;
     private RemoveRestaurant removeRestaurant;
     private AddReviewRestaurant addReviewRestaurant;
@@ -26,7 +22,7 @@ class RestaurantTest {
     @BeforeEach
     void  setup(){
         mockRepository = mock(RestaurantRepository.class);
-        mockValidatorScanner = mock(IValidatorScanner.class);
+        mockValidatorScanner = mock(ValidatorScanner.class);
         addRestaurant = new AddRestaurant(mockRepository, mockValidatorScanner);
         removeRestaurant = new RemoveRestaurant(mockRepository,mockValidatorScanner);
         addReviewRestaurant= new AddReviewRestaurant(mockRepository,mockValidatorScanner);

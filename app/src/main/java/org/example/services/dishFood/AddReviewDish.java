@@ -10,9 +10,9 @@ import org.example.services.interfaces.ICommand;
 import org.example.services.utils.IValidatorScanner;
 
 public class AddReviewDish implements ICommand {
-    private final DishRepository repository;
+    private final DishRepository repository ;
     private final RestaurantRepository restaurantRepository;
-    private final MenuRepository menuRepository;
+    private final MenuRepository menuRepository ;
     private final IValidatorScanner validatorScanner;
 
     public AddReviewDish(DishRepository repository, RestaurantRepository restaurantRepository, MenuRepository menuRepository, IValidatorScanner validatorScanner) {
@@ -24,28 +24,19 @@ public class AddReviewDish implements ICommand {
 
     @Override
     public void execute() {
-        String restaurantName = null;
-        DishFood dishFood= new DishFood();
         try {
-            restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
+            String restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = restaurantRepository.getRestaurant(restaurantName);
-            if (restaurant != null) {
-                menuRepository.showDishes(restaurant.getMenu());
-            }
-
+//            menuRepository.showDishes(restaurant.getMenu());
             Integer optionDish = validatorScanner.integerScanner("seleccione un plato");
-            if (restaurant != null && !restaurant.getMenu().getDishFoodList().isEmpty()) {
-                // Access the selected dish from the list safely
-                dishFood = restaurant.getMenu().getDishFoodList().get(optionDish - 1); // Assuming `optionDish` starts from 1
-            } else {
-                dishFood = new DishFood("null ", "nulll", 2000.0);
-            }
+            DishFood dishFood = restaurant.getMenu().getDishFoodList().get(optionDish);
             String comment = validatorScanner.stringScanner("Ingrese su comentario");
-            Float tasteRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del sabor");
-            Float presentationRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificacion del presentacion");
+            Float tasteRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificación del sabor");
+            Float presentationRating = validatorScanner.floatScanner("ingrese de 0 a 5 la calificación del presentación");
             repository.addReview(dishFood, comment, tasteRating, presentationRating);
-        } catch (NullPointerException e) {
-            System.err.println("Error: Restaurant not found - " + restaurantName);
+        } catch (Exception e) {
+            System.out.println("Error al ejecutar el comando: " + e.getMessage());
         }
+
     }
 }

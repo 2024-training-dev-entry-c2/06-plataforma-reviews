@@ -23,37 +23,19 @@ public class ShowReviews implements ICommand {
     @Override
     public void execute() {
         String restaurantName = null;
-        DishFood dishFood=new DishFood();
-        try {
+
             restaurantName = validatorScanner.stringScanner("Escribe el nombre del Restaurante");
             Restaurant restaurant = repository.getRestaurant(restaurantName);
-            showDishFood(restaurant);
+//            showDishFood(restaurant);
             Integer optionDish = validatorScanner.integerScanner("seleccione un plato para ver el review");
-            dishFood= validate(restaurant,optionDish);
+             DishFood dishFood = restaurant.getMenu().getDishFoodList().get(optionDish);
             dishRepository.showReview(dishFood);
             System.out.println("Review added successfully to: " + restaurantName);
-        } catch (NullPointerException e) {
-            System.err.println("Error: Restaurant not found - " + restaurantName);
-        }
+
     }
 
 
-    public DishFood validate(Restaurant restaurant, int optionDish){
 
-        if (!restaurant.getMenu().getDishFoodList().isEmpty()) {
-
-           return restaurant.getMenu().getDishFoodList().get(optionDish - 1);
-        }
-        //trampa
-        DishFood dishFood = new DishFood("null", "null", 2000.0);
-        dishFood.getReviewList().add(new ReviewDish("feo", 0.3F, 0.2F));
-        return dishFood;
-    }
-    public void showDishFood(Restaurant restaurant){
-        if (restaurant != null){
-            menuRepository.showDishes(restaurant.getMenu());
-        }
-    }
 }
 
 

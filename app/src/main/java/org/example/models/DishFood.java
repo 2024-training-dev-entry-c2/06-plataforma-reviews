@@ -1,6 +1,5 @@
 package org.example.models;
-
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class DishFood {
@@ -13,15 +12,15 @@ public class DishFood {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.reviewList = new ArrayList<>();
+        this.reviewList = new LinkedList<>();
     }
 
     public String getAverageRating(){
         double suma = 0;
         for (ReviewDish review : reviewList) {
-            suma += (review.getTasteRating()+review.getPresentationRating())/2;
+            suma += ((review.getTasteRating()+review.getPresentationRating())/2);
         }
-        return "Review Promedio: " + suma ;
+        return "Review Promedio: " + suma/reviewList.size() ;
     }
 
     public DishFood() {

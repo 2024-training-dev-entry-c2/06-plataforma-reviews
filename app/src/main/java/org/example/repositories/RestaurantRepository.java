@@ -1,6 +1,6 @@
 package org.example.repositories;
 
-import org.example.factory.ReviewFactory;
+
 import org.example.models.*;
 
 import java.util.*;
@@ -11,6 +11,7 @@ public class RestaurantRepository {
 
     public RestaurantRepository() {
     }
+
     public static synchronized RestaurantRepository getInstance() {
         if (instance == null) {
             instance = new RestaurantRepository();
@@ -52,12 +53,8 @@ public class RestaurantRepository {
 
     public void showReview(Restaurant restaurant){
         restaurant.getReviewMap().forEach((user, reviewRestaurant) -> {
-            System.out.println("Usuario: " + user.getName()+
-                    " - Calificación service : " + reviewRestaurant.getServiceRating() +"\n " +
-                    "Califacion Lugar :" + reviewRestaurant.getPlaceRating() +"\n"+
-                    "Califcacion Menu :"+ reviewRestaurant.getMenuRating()
-            );
-            System.out.println("Comentario: " + reviewRestaurant.getComment());
+            System.out.println("Usuario: " + user.getName());
+            reviewRestaurant.showDetails();
             System.out.println("----------------------------");
         });
     }

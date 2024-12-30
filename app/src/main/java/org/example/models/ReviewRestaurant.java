@@ -16,7 +16,10 @@ public class ReviewRestaurant implements IReview {
 
     @Override
     public void showDetails() {
-
+        System.out.println("Comentario: "+comment);
+        System.out.println("califacion de servicio :"+serviceRating);
+        System.out.println("califacion de lugar: "+placeRating);
+        System.out.println("califacion de menu: "+menuRating);
     }
 
     public Float getServiceRating() {

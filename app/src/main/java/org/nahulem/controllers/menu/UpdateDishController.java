@@ -19,8 +19,7 @@ public class UpdateDishController implements ICommandController {
     public void execute() {
         Restaurant restaurant = updateDishService.execute();
         if (restaurant != null) {
-            validator.printMessage("Plato actualizado exitosamente.");
-            validator.printMessage(restaurant.toString());
+            validator.printMessage("Plato actualizado exitosamente." + "\n" + restaurant.toString());
             return;
         }
         validator.printMessage("No se pudo actualizar el plato.");

@@ -23,22 +23,17 @@ public class AddDishService implements ICommand<Menu> {
 
     @Override
     public Menu execute() {
-        validator.printMessage("\n---Creando menu para el restaurante---\n");
+        validator.printMessage("\n---Creando menú para el restaurante---\n");
         Restaurant restaurant = selectRestaurantService.execute();
-
 
         if (restaurant == null) {
             validator.printMessage("No se ha seleccionado ningún restaurante.");
             return null;
         }
 
-        Menu menu = restaurant.getMenu();
-
-        if (menu == null) {
-            menu = createMenu();
-            restaurant.setMenu(menu);
-            repository.addMenu(menu);
-        }
+        Menu menu = createMenu();
+        restaurant.setMenu(menu);
+        repository.addMenu(menu);
 
         addDishesToMenu(menu);
         return menu;

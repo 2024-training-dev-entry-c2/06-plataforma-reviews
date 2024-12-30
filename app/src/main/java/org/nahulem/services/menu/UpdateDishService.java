@@ -44,9 +44,9 @@ public class UpdateDishService implements ICommand<Restaurant> {
         String description = validator.readString("Ingresa la nueva descripción del plato: ");
         existingDish.setDescription(validateOrKeep(description, existingDish.getDescription()));
 
-        String price = validator.readString("Ingresa el nuevo precio del plato: ");
-        if (!price.isEmpty()) {
-            existingDish.setPrice(Float.parseFloat(price));
+        Float price = validator.readFloat("Ingresa el nuevo precio del plato: ");
+        if (price != 0f) {
+            existingDish.setPrice(price);
         }
     }
 

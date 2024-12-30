@@ -33,8 +33,8 @@ class MenuServiceTest {
   @Test
   @DisplayName("Agregar menú")
   void testAddMenu(){
-    String restaurantName = "Test Restaurant";
-    String menuName = "Test menu";
+    String restaurantName = "Restauante de testeo";
+    String menuName = "Menú de testeo";
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
 
@@ -47,8 +47,8 @@ class MenuServiceTest {
   @Test
   @DisplayName("Agregar menú a restaurante null")
   void testFailAddMenu(){
-    String restaurantName = "Test Restaurant";
-    String menuName = "Test menu";
+    String restaurantName = "Restauante de testeo";
+    String menuName = "Menú de testeo";
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(null);
 
@@ -60,7 +60,7 @@ class MenuServiceTest {
   @Test
   @DisplayName("Obtener menú de restaurante")
   void testGetMenu(){
-    String restaurantName = "Test Restaurant";
+    String restaurantName = "Restauante de testeo";
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
     when(mockRestaurant.getMenu()).thenReturn(mockMenu);

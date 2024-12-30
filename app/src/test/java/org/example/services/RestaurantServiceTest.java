@@ -29,7 +29,7 @@ class RestaurantServiceTest {
   @Test
   @DisplayName("Crear restaurante")
   void testCreateRestaurant(){
-    Restaurant restaurant = new Restaurant("Test Restaurant", "Test Address", true);
+    Restaurant restaurant = new Restaurant("Restaurante de testeo", "Dirección de testeo", true);
     when(mockRepository.addRestaurant(restaurant)).thenReturn(true);
     Boolean result = restaurantService.createRestaurant(restaurant);
 
@@ -40,7 +40,7 @@ class RestaurantServiceTest {
   @Test
   @DisplayName("Editar restaurante")
   void testEditRestaurant(){
-    Restaurant restaurant = new Restaurant("Test Restaurant", "Old Address", true);
+    Restaurant restaurant = new Restaurant("Restaurante de testeo", "Dirección antigua", true);
     String newAddress = "New Address";
     Boolean newAvailability = false;
 
@@ -54,7 +54,7 @@ class RestaurantServiceTest {
   @Test
   @DisplayName("Eliminar restaurante")
   void testDeleteRestaurant(){
-    Restaurant restaurant = new Restaurant("Test Restaurant", "Test Address", true);
+    Restaurant restaurant = new Restaurant("Restaurante de testeo", "Dirección de testeo", true);
 
     when(mockRepository.removeRestaurant(restaurant)).thenReturn(true);
     Boolean result = restaurantService.deleteRestaurant(restaurant);
@@ -67,8 +67,8 @@ class RestaurantServiceTest {
   @DisplayName("Obtener restaurantes disponibles")
   void testDGetRestaurants(){
     List<Restaurant> availableRestaurants = new ArrayList<>();
-    availableRestaurants.add(new Restaurant("Test Restaurant 1", "Address 1", true));
-    availableRestaurants.add(new Restaurant("Test Restaurant 2", "Address 2", true));
+    availableRestaurants.add(new Restaurant("Restaurante de testeo 1", "Dirección 1", true));
+    availableRestaurants.add(new Restaurant("Restaurante de testeo 2", "Dirección 2", true));
 
     when(mockRepository.getAvailableRestaurants()).thenReturn(availableRestaurants);
 
@@ -83,8 +83,8 @@ class RestaurantServiceTest {
   @Test
   @DisplayName("Obtener restaurante por nombre")
   void testGetRestaurantByName() {
-    String restaurantName = "Test Restaurant";
-    Restaurant restaurant = new Restaurant(restaurantName, "Test Address", true);
+    String restaurantName = "Restaurante de testeo";
+    Restaurant restaurant = new Restaurant(restaurantName, "Dirección de testeo", true);
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(restaurant);
 

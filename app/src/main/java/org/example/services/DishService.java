@@ -4,7 +4,7 @@ import org.example.models.Dish;
 import org.example.repositories.RestaurantRepository;
 
 public class DishService {
-  private RestaurantRepository repository;
+  private final RestaurantRepository repository;
 
   public DishService() {
     this.repository = RestaurantRepository.getInstance();

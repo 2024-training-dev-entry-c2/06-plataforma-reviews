@@ -6,7 +6,7 @@ import org.example.models.Dish;
 import org.example.services.DishService;
 
 public class DeleteDish implements ICommand {
-  private DishService service;
+  private final DishService service;
   private final IHandler handler;
 
   public DeleteDish(DishService service, IHandler handler) {

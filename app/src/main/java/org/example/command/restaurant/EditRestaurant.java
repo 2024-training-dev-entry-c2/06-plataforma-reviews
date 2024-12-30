@@ -5,7 +5,7 @@ import org.example.interfaces.IHandler;
 import org.example.services.RestaurantService;
 
 public class EditRestaurant implements ICommand {
-  private RestaurantService service;
+  private final RestaurantService service;
   private final IHandler handler;
 
   public EditRestaurant(RestaurantService service, IHandler handler){

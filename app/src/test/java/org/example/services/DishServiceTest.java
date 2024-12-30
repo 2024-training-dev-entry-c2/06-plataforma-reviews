@@ -41,10 +41,10 @@ class DishServiceTest {
   @Test
   @DisplayName("Agregar plato exitosamente")
   void testAddDish() {
-    when(mockRepository.getRestaurantByName("Test Restaurant")).thenReturn(mockRestaurant);
+    when(mockRepository.getRestaurantByName("Restaurante de testeo")).thenReturn(mockRestaurant);
     when(mockRestaurant.getMenu()).thenReturn(mockMenu);
 
-    Boolean result = dishService.addDish("Test Restaurant", "Pizza", "Delicious pizza", 15000f);
+    Boolean result = dishService.addDish("Restaurante de testeo", "Pizza", "Porción de pizza", 15000f);
 
     assertTrue(result);
     verify(mockMenu).addDish(any(Dish.class));
@@ -53,7 +53,7 @@ class DishServiceTest {
   @Test
   @DisplayName("Agregar plato en restaurante null")
   void testAddDish_RestaurantNotFound() {
-    String restaurantName = "Unknown Restaurant";
+    String restaurantName = "Restaurante desconocido";
     String dishName = "Pasta";
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(null);
@@ -67,7 +67,7 @@ class DishServiceTest {
   @Test
   @DisplayName("Eliminar plato")
   void testRemoveDish() {
-    String restaurantName = "Test Restaurant";
+    String restaurantName = "Restaurante de testeo";
     Dish dish = new Dish("Pizza", "Porción de pizza", 15000f);
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
@@ -82,7 +82,7 @@ class DishServiceTest {
   @Test
   @DisplayName("Eliminar plato en restaurante no encontrado")
   void testRemoveDish_RestaurantNotFound() {
-    String restaurantName = "Unknown Restaurant";
+    String restaurantName = "Restaurante desconocido";
     Dish dish = new Dish("Pizza", "Porción de pizza", 15000f);
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(null);
@@ -96,7 +96,7 @@ class DishServiceTest {
   @Test
   @DisplayName("Editar plato")
   void testEditDish_Success() {
-    String restaurantName ="Test Restaurant";
+    String restaurantName ="Restaurante de testeo";
     Dish existingDish = new Dish("Pizza", "Porción de pizza", 15000f);
     String newDishName = "Nueva Pizza";
     String newDescription = "Otra nueva pizza";
@@ -114,20 +114,20 @@ class DishServiceTest {
 
   @Test
   void testEditDish_DishNotFound() {
-    String restaurantName = "Test Restaurant";
-    Dish nonExistentDish = new Dish("NonExistent", "No descripción", 0.0f);
+    String restaurantName = "Restaurante de testeo";
+    Dish nonExistentDish = new Dish("No existe", "No descripción", 0.0f);
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
     when(mockMenu.getDishes()).thenReturn(Map.of());
 
-    boolean result = dishService.editDish(restaurantName, nonExistentDish, "New Name", "New Desc", 20000f);
+    boolean result = dishService.editDish(restaurantName, nonExistentDish, "Nuevo nombre", "Nueva descripción", 20000f);
 
     assertFalse(result);
   }
 
   @Test
   void testGetDishByName_Success() {
-    String restaurantName = "Test Restaurant";
+    String restaurantName = "Restaurante de testeo";
     String dishName = "Pizza";
     Dish dish = new Dish(dishName, "Porción de pizza", 15000f);
 
@@ -142,8 +142,8 @@ class DishServiceTest {
 
   @Test
   void testGetDishByName_DishNotFound() {
-    String restaurantName = "Test Restaurant";
-    String dishName = "NonExistentDish";
+    String restaurantName = "Restaurante de testeo";
+    String dishName = "Plato no existente";
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
     when(mockMenu.searchDish(dishName)).thenReturn(null);

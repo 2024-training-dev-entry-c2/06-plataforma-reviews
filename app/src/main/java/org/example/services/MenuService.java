@@ -4,7 +4,7 @@ import org.example.models.Menu;
 import org.example.repositories.RestaurantRepository;
 
 public class MenuService {
-  private RestaurantRepository repository;
+  private final RestaurantRepository repository;
 
   public MenuService() {
     this.repository = RestaurantRepository.getInstance();

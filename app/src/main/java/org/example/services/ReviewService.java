@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewService implements IObservable {
-  private RestaurantRepository repository;
+  private final RestaurantRepository repository;
   private final List<IObserver> observers = new ArrayList<>();
   private final ReviewFactory reviewFactory;
 

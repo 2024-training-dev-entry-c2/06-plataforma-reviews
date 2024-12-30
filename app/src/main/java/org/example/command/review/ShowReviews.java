@@ -8,7 +8,7 @@ import org.example.services.ReviewService;
 import java.util.List;
 
 public class ShowReviews implements ICommand {
-  private ReviewService service;
+  private final ReviewService service;
   private final IHandler handler;
 
   public ShowReviews(ReviewService service, IHandler handler) {

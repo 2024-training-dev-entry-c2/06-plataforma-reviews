@@ -54,9 +54,9 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Agregar reseña a un plato")
   void testAddDishReview() {
-    String restaurantName = "Test Restaurant";
-    String dishName = "Test Dish";
-    String comment = "Delicious!";
+    String restaurantName = "Restaurante de testeo";
+    String dishName = "Plato de testeo";
+    String comment = "Delicioso!";
     Float taste = 4.5f;
     Float presentation = 4.0f;
 
@@ -81,8 +81,8 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Agregar reseña null a un plato")
   void testAddNullDishReview() {
-    String restaurantName = "Test Restaurant";
-    String dishName = "Test Dish";
+    String restaurantName = "Restaurante de testeo";
+    String dishName = "Plato de testeo";
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
     when(mockRestaurant.getMenu()).thenReturn(mockMenu);
@@ -101,8 +101,8 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Agregar reseña a un restaurante")
   void testAddRestaurantReview() {
-    String restaurantName = "Test Restaurant";
-    String comment = "Great place!";
+    String restaurantName = "Restaurante de testeo";
+    String comment = "Buen lugar!";
     Float rating = 4.7f;
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
@@ -121,7 +121,7 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Agregar reseña null a un restaurante")
   void testAddNullRestaurantReview() {
-    String restaurantName = "Test Restaurant";
+    String restaurantName = "Restaurante de testeo";
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
 
@@ -138,7 +138,7 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Obtener reseñas de un restaurante")
   void testGetRestaurantReviews() {
-    String restaurantName = "Test Restaurant";
+    String restaurantName = "Restaurante de testeo";
     List<Review> mockReviews = Arrays.asList(mock(Review.class), mock(Review.class));
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
@@ -156,8 +156,8 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Obtener reseñas de un plato")
   void testGetDishReviews() {
-    String restaurantName = "Test Restaurant";
-    String dishName = "Test Dish";
+    String restaurantName = "Restaurante de testeo";
+    String dishName = "Plato de testeo";
     List<Review> mockReviews = Arrays.asList(mock(Review.class), mock(Review.class));
 
     when(mockRepository.getRestaurantByName(restaurantName)).thenReturn(mockRestaurant);
@@ -177,7 +177,7 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Calcular promedio de calificaciones de un restaurante")
   void testCalculateAverageRestaurantRating() {
-    String restaurantName = "Test Restaurant";
+    String restaurantName = "Restaurante de testeo";
     List<Review> mockReviews = Arrays.asList(
       createMockReview(4.0f),
       createMockReview(5.0f),
@@ -203,8 +203,8 @@ class ReviewServiceTest {
   @Test
   @DisplayName("Calcular promedio de calificaciones de un plato")
   void testCalculateAverageDishRating() {
-    String restaurantName = "Test Restaurant";
-    String dishName = "Test Dish";
+    String restaurantName = "Restaurante de testeo";
+    String dishName = "Plato de testeo";
     List<Review> mockReviews = Arrays.asList(
       createMockDishReview(4.0f, 5.0f),
       createMockDishReview(3.5f, 4.5f)

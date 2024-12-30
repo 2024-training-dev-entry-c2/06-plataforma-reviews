@@ -6,7 +6,7 @@ import org.example.models.Restaurant;
 import org.example.services.RestaurantService;
 
 public class CreateRestaurant implements ICommand {
-  private RestaurantService service;
+  private final RestaurantService service;
   private final IHandler handler;
 
   public CreateRestaurant(RestaurantService service, IHandler handler){

@@ -49,12 +49,4 @@ public class Dish {
   public List<Review> getReviews() {
     return reviews;
   }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public Float getPrice() {
-    return price;
-  }
 }

@@ -6,7 +6,7 @@ import org.example.repositories.RestaurantRepository;
 import java.util.List;
 
 public class RestaurantService {
-  private RestaurantRepository repository;
+  private final RestaurantRepository repository;
 
   public RestaurantService() {
     this.repository = RestaurantRepository.getInstance();

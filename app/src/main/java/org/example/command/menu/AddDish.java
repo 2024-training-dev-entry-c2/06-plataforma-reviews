@@ -5,7 +5,7 @@ import org.example.interfaces.IHandler;
 import org.example.services.DishService;
 
 public class AddDish implements ICommand {
-  private DishService service;
+  private final DishService service;
   private final IHandler handler;
 
   public AddDish(DishService service, IHandler handler) {

@@ -5,7 +5,7 @@ import org.example.interfaces.IHandler;
 import org.example.services.RestaurantService;
 
 public class DeleteRestaurant implements ICommand {
-  private RestaurantService service;
+  private final RestaurantService service;
   private final IHandler handler;
 
   public DeleteRestaurant(RestaurantService service, IHandler handler){

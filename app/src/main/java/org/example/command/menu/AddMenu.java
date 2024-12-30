@@ -5,7 +5,7 @@ import org.example.interfaces.IHandler;
 import org.example.services.MenuService;
 
 public class AddMenu implements ICommand {
-  private MenuService service;
+  private final MenuService service;
   private final IHandler handler;
 
   public AddMenu(MenuService service, IHandler handler) {

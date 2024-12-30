@@ -4,7 +4,7 @@ import org.example.interfaces.ICommand;
 import org.example.services.RestaurantService;
 
 public class ShowRestaurants implements ICommand {
-  private RestaurantService service;
+  private final RestaurantService service;
 
   public ShowRestaurants(RestaurantService service){
     this.service = service;

@@ -5,7 +5,7 @@ import org.example.interfaces.IHandler;
 import org.example.services.ReviewService;
 
 public class AddReview implements ICommand {
-  private ReviewService service;
+  private final ReviewService service;
   private final IHandler handler;
 
   public AddReview(ReviewService service, IHandler handler) {

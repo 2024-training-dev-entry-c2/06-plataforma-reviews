@@ -6,7 +6,7 @@ import org.example.models.Menu;
 import org.example.services.MenuService;
 
 public class ShowMenu implements ICommand {
-  private MenuService service;
+  private final MenuService service;
   private final IHandler handler;
 
   public ShowMenu(MenuService service, IHandler handler) {

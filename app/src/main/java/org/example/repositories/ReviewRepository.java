@@ -13,18 +13,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ReviewRepository {
+public class ReviewRepository implements IObservable {
   private static ReviewRepository instance;
   private RestaurantRepository restaurantRepository;
   private MenuRepository menuRepository;
   private ReviewFactory reviewFactory;
   private List<RestaurantReview> restaurantReviews;
   private List<DishReview> dishReviews;
+  private List<IObserver> observers;
 
   private ReviewRepository() {
     this.restaurantReviews = new LinkedList<>();
-    this.dishReviews = new ArrayList<>();
+    this.dishReviews = new LinkedList<>();
     this.reviewFactory = new ReviewFactory();
+    this.observers = new ArrayList<>();
   }
 
   public static synchronized ReviewRepository getInstance() {
@@ -98,4 +100,25 @@ public class ReviewRepository {
     return reviews.stream().map(Review::toString).collect(Collectors.joining("\n"));
   }
 
+  @Override
+  public void addObserver(IObserver observer) {
+    this.observers.add(observer);
+  }
+
+  @Override
+  public void notifyObservers(String typeOfReview, Long reviewedId) {
+    String message = "\nSe han añadido una nueva reseña al ";
+    if(typeOfReview.equalsIgnoreCase("Restaurant")) {
+      message += "restaurante " + this.getRestaurant(reviewedId).getName();
+    }
+    else if(typeOfReview.equalsIgnoreCase("Dish")) {
+      message += "plato " + this.getDish(reviewedId).getName();
+    }
+    List<Review> reviews = this.getReviewsById(typeOfReview, reviewedId);
+    if(!reviews.isEmpty()) {
+      message += "\nLa calificación promedio cambio a " + this.getAverageScore(reviews);
+    }
+    String finalMessage = message;
+    this.observers.forEach(observer -> observer.update(finalMessage));
+  }
 }

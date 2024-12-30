@@ -14,20 +14,12 @@ public abstract class Review {
     return "\nReseña " +"\nCalificación: " + score + "\nComentario: " + comment;
   }
 
-  public Float getScore() {
-    return score;
-  }
-
-  public void setScore(Float score) {
-    this.score = score;
-  }
-
   public String getComment() {
     return comment;
   }
 
-  public void setComment(String comment) {
-    this.comment = comment;
+  public Float getScore() {
+    return score;
   }
 
   public abstract Long getReviewedId();

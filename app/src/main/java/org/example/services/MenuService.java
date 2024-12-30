@@ -6,8 +6,8 @@ import org.example.repositories.MenuRepository;
 public class MenuService {
   private final MenuRepository menuRepository;
 
-  public MenuService() {
-    this.menuRepository = MenuRepository.getInstance();
+  public MenuService(MenuRepository menuRepository) {
+    this.menuRepository = menuRepository;
   }
 
   public void addDishMenu(Long menuId, String name, String description, Long price) {

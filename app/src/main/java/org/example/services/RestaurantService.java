@@ -7,8 +7,8 @@ public class RestaurantService {
   private final RestaurantRepository restaurantRepository;
 
 
-  public RestaurantService() {
-    this.restaurantRepository = RestaurantRepository.getInstance();
+  public RestaurantService(RestaurantRepository restaurantRepository) {
+    this.restaurantRepository = restaurantRepository;
   }
 
   public void addRestaurant(String name, String phone, String description) {
@@ -17,7 +17,7 @@ public class RestaurantService {
   }
 
   public void updateRestaurant(Long id, String name, String phone, String description) {
-    Restaurant restaurant = this.restaurantRepository.getRestaurants().get(id);
+    Restaurant restaurant = this.restaurantRepository.getRestaurant(id);
     if(restaurant != null) {
       this.restaurantRepository.updateRestaurant(restaurant, name, phone, description);
       System.out.println("Se ha actualizado el restaurante " + name);

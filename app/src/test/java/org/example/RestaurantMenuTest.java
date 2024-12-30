@@ -22,6 +22,7 @@ public class RestaurantMenuTest {
   void setUp() {
     mockHandler = mock(IHandler.class);
     mockService = mock(RestaurantService.class);
+
     restaurantMenu = new RestaurantMenu(mockService, mockHandler);
   }
 
@@ -67,7 +68,7 @@ public class RestaurantMenuTest {
 
   @Test
   @DisplayName("Caso 5 del menu")
-  void testExitMenuRestaurant() {
+  void testExitRestaurantMenu() {
     when(mockHandler.readLine()).thenReturn("5");
     restaurantMenu.displayMenu();
     verify(mockHandler).writeLine("Saliendo de opciones de restaurante");

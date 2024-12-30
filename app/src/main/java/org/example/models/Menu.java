@@ -24,7 +24,4 @@ public class Menu {
     return dishIds;
   }
 
-  public void setDishIds(Set<Long> dishIds) {
-    this.dishIds = dishIds;
-  }
 }

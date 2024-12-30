@@ -30,14 +30,6 @@ public class Dish {
     this.id = id;
   }
 
-  public Long getMenuId() {
-    return menuId;
-  }
-
-  public void setMenuId(Long menuId) {
-    this.menuId = menuId;
-  }
-
   public String getName() {
     return name;
   }

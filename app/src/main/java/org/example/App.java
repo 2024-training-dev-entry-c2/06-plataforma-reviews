@@ -3,6 +3,9 @@
  */
 package org.example;
 
+import org.example.repositories.MenuRepository;
+import org.example.repositories.RestaurantRepository;
+import org.example.repositories.ReviewRepository;
 import org.example.services.MenuService;
 import org.example.services.RestaurantService;
 import org.example.services.ReviewService;
@@ -19,9 +22,13 @@ import java.util.Map;
 public class App {
   private static Boolean exit = false;
   private static final IHandler handler = new ConsoleHandler();
-  private static final RestaurantService restaurantService = new RestaurantService();
-  private static final MenuService menuService = new MenuService();
-  private static final ReviewService reviewService = new ReviewService();
+  private static final RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();
+  private static final MenuRepository menuRepository = MenuRepository.getInstance();
+  private static final ReviewRepository reviewRepository = ReviewRepository.getInstance();
+
+  private static final RestaurantService restaurantService = new RestaurantService(restaurantRepository);
+  private static final MenuService menuService = new MenuService(menuRepository);
+  private static final ReviewService reviewService = new ReviewService(reviewRepository);
 
   private static final Map<Integer, IMenuCommand> menuCommands = Map.of(
     1, new RestaurantMenu(restaurantService, handler),
@@ -35,7 +42,7 @@ public class App {
   );
 
   public static void main(String[] args) {
-    String message = "\nBievenido a la reseña de restaurantes \n¿Qué deseas hacer?\n1. Gestionar restaurantes\n2. Gestionar menús\n3. Reseña de restaurante\n2. Reseña de plato\n5. Salir";
+    String message = "\nBievenido a la reseña de restaurantes \n¿Qué deseas hacer?\n1. Gestionar restaurantes\n2. Gestionar menús\n3. Reseña de restaurante\n4. Reseña de plato\n5. Salir";
     while (!exit) {
       handler.writeLine(message);
       int choice = Integer.parseInt(handler.readLine());

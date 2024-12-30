@@ -60,7 +60,7 @@ public class MenuManagementMenuTest {
 
   @Test
   @DisplayName("Caso 4 del menu")
-  void testExitMenuManagement() {
+  void testExitMenuManagementMenu() {
     when(mockHandler.readLine()).thenReturn("4");
     menuManagementMenu.displayMenu();
     verify(mockHandler).writeLine("Saliendo de opciones de menu");

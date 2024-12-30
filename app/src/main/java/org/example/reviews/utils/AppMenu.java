@@ -3,17 +3,20 @@ package org.example.reviews.utils;
 import org.example.reviews.controllers.interfaces.IController;
 import org.example.reviews.controllers.menu.MenuController;
 import org.example.reviews.controllers.restaurant.RestaurantController;
+import org.example.reviews.controllers.reviews.ReviewController;
 
 import java.util.Map;
 
 public class AppMenu {
     private final RestaurantController restaurantController;
     private final MenuController menuController;
+    private final ReviewController reviewController;
     private ConsoleUtil console;
 
-    public AppMenu(RestaurantController restaurantController, MenuController menuController, ConsoleUtil console) {
+    public AppMenu(RestaurantController restaurantController, MenuController menuController, ReviewController reviewController, ConsoleUtil console) {
         this.restaurantController = restaurantController;
         this.menuController = menuController;
+        this.reviewController = reviewController;
         this.console = console;
     }
 
@@ -28,7 +31,8 @@ public class AppMenu {
     public void execute(){
         Map<Integer, IController> controllers = Map.of(
                 1, restaurantController,
-                2, menuController
+                2, menuController,
+                3, reviewController
         );
         int option = 0;
 

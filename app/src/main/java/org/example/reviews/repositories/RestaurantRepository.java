@@ -58,6 +58,10 @@ public class RestaurantRepository {
         return restaurant;
     }
 
+    public Restaurant findRestaurantByName(String name) {
+        return restaurants.values().stream().filter(restaurant -> restaurant.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+    }
+
     public Boolean removeRestaurant(Integer id) {
         return restaurants.remove(id) != null;
     }

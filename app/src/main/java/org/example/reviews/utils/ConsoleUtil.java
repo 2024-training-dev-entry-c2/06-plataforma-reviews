@@ -69,4 +69,18 @@ public class ConsoleUtil implements IConsole {
         return scanner.nextLine().equalsIgnoreCase("si");
 
     }
+
+    @Override
+    public Float readFloat(String message) {
+        writeLine(message);
+        float value = 0.0F;
+        try{
+            value =  scanner.nextFloat();
+            scanner.nextLine();
+        } catch (NumberFormatException e) {
+            writeLine("-- Introduzca un numero valido");
+            readFloat(message);
+        }
+        return value;
+    }
 }

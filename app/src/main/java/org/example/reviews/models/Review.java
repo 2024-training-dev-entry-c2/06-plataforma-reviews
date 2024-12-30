@@ -1,7 +1,6 @@
 package org.example.reviews.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * @author Manuel Aguilera / @aguileradev
@@ -23,7 +22,7 @@ public abstract class Review {
         this.date = date;
     };
 
-    public abstract Float calculateRating();
+    public abstract void reviewType();
 
 
     public Integer getId() {

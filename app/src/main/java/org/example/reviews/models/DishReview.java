@@ -1,7 +1,7 @@
 package org.example.reviews.models;
 
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * @author Manuel Aguilera / @aguileradev
@@ -15,10 +15,9 @@ public class DishReview extends Review {
     }
 
     @Override
-    public Float calculateRating() {
-        return 0f;
+    public void reviewType() {
+        System.out.println("---Reseña de plato---");
     }
-
     public Integer getDishId() {
         return dishId;
     }

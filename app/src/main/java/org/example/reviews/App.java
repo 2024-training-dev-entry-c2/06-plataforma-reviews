@@ -15,6 +15,7 @@ import org.example.reviews.controllers.restaurant.FindRestaurantsController;
 import org.example.reviews.controllers.restaurant.RemoveRestaurantController;
 import org.example.reviews.controllers.restaurant.RestaurantController;
 import org.example.reviews.controllers.restaurant.UpdateRestaurantController;
+import org.example.reviews.controllers.reviews.ReviewController;
 import org.example.reviews.services.dishes.CreateDishImpl;
 import org.example.reviews.services.dishes.DishesService;
 import org.example.reviews.services.dishes.FindDishesImpl;
@@ -27,6 +28,11 @@ import org.example.reviews.services.restaurants.FindRestaurantsImpl;
 import org.example.reviews.services.restaurants.RemoveRestaurantImpl;
 import org.example.reviews.services.restaurants.RestaurantService;
 import org.example.reviews.services.restaurants.UpdateRestaurantImpl;
+import org.example.reviews.services.reviews.CreateDishReviewImpl;
+import org.example.reviews.services.reviews.CreateRestaurantReviewImpl;
+import org.example.reviews.services.reviews.FindAllDishesReviewsImpl;
+import org.example.reviews.services.reviews.FindAllRestaurantReviewsImpl;
+import org.example.reviews.services.reviews.ReviewService;
 import org.example.reviews.utils.AppMenu;
 import org.example.reviews.utils.ConsoleUtil;
 
@@ -48,6 +54,12 @@ public class App {
         );
 
         MenuService menuService = new MenuService(new CreateMenuImpl(console), new FindMenusImpl());
+        ReviewService reviewService = new ReviewService(
+                new CreateRestaurantReviewImpl(console),
+                new CreateDishReviewImpl(console),
+                new FindAllRestaurantReviewsImpl(console),
+                new FindAllDishesReviewsImpl(console));
+
 
         RestaurantController restaurantController =new RestaurantController(
                 new CreateRestaurantController(restaurantService),
@@ -66,7 +78,9 @@ public class App {
                 dishController,
                 console);
 
-        AppMenu appMenu = new AppMenu(restaurantController, menuController, console);
+        ReviewController reviewController = new ReviewController(console, reviewService);
+
+        AppMenu appMenu = new AppMenu(restaurantController, menuController, reviewController, console);
 
 
         appMenu.execute();

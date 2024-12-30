@@ -9,4 +9,5 @@ public interface IConsole {
     LocalDate readDate(String message);
     Double readDouble(String message);
     Boolean readBooleanYesOrNo(String message);
+    Float readFloat(String message);
 }

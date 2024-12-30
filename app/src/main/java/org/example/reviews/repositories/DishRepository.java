@@ -3,8 +3,6 @@ package org.example.reviews.repositories;
 import org.example.reviews.models.Dish;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 public class DishRepository {
@@ -28,6 +26,10 @@ public class DishRepository {
     
     public Dish getDishById(Integer id){
         return dishes.get(id);
+    }
+
+    public Dish findDishByName(String name){
+        return dishes.values().stream().filter(dish -> dish.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
     }
 
     public Map<Integer, Dish> getDishes() {

@@ -1,12 +1,14 @@
 package org.example.reviews.repositories;
 
+import org.example.reviews.models.RestaurantReview;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class RestaurantReviewRepository {
 
     private static RestaurantReviewRepository INSTANCE;
-    private List<RestaurantReviewRepository> reviews;
+    private List<RestaurantReview> reviews;
 
     private RestaurantReviewRepository(){
         this.reviews = new LinkedList<>();
@@ -19,15 +21,15 @@ public class RestaurantReviewRepository {
         return INSTANCE;
     }
 
-    public void addReview(RestaurantReviewRepository review) {
+    public void addReview(RestaurantReview review) {
         this.reviews.add(review);
     }
 
-    public List<RestaurantReviewRepository> getReviews() {
+    public List<RestaurantReview> getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<RestaurantReviewRepository> reviews) {
+    public void setReviews(List<RestaurantReview> reviews) {
         this.reviews = reviews;
     }
 

@@ -1,5 +1,7 @@
 package org.example.reviews.models;
 
+import org.example.reviews.repositories.RestaurantReviewRepository;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,8 +16,8 @@ public class RestaurantReview extends Review{
         this.restaurantId = restaurantId;
     }
     @Override
-    public Float calculateRating() {
-        return 0.0f;
+    public void reviewType() {
+        System.out.println("---Reseña de restaurante---");
     }
 
     public Integer getRestaurantId() {

@@ -16,7 +16,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class AddDishServiceTest {
+class AddDishTest {
     private Validator mockValidator;
     private DataRepository mockRepository;
     private SelectRestaurantService mockSelectRestaurantService;

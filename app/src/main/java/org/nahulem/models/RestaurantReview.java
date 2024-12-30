@@ -3,19 +3,19 @@ package org.nahulem.models;
 public class RestaurantReview extends Review {
     private Float serviceRating;
     private Float menuRating;
-    private Float storeRating;
+    private Float environmentRating;
 
-    public RestaurantReview(String comment, Float menuRating, Float serviceRating, Float storeRating) {
+    public RestaurantReview(String comment, Float menuRating, Float serviceRating, Float environmentRating) {
         super(comment);
         this.menuRating = menuRating;
         this.serviceRating = serviceRating;
-        this.storeRating = storeRating;
+        this.environmentRating = environmentRating;
         calculateRating();
     }
 
     @Override
     public void calculateRating() {
-        setAverageRating((menuRating + serviceRating + storeRating) / 3);
+        setAverageRating((menuRating + serviceRating + environmentRating) / 3);
     }
 
     @Override
@@ -23,6 +23,18 @@ public class RestaurantReview extends Review {
         return super.toString() +
                 "\n      Menú: " + menuRating +
                 "\n      Servicio: " + serviceRating +
-                "\n      Instalaciones: " + storeRating;
+                "\n      Instalaciones: " + environmentRating;
+    }
+
+    public Float getMenuRating() {
+        return menuRating;
+    }
+
+    public Float getServiceRating() {
+        return serviceRating;
+    }
+
+    public Float getEnvironmentRating() {
+        return environmentRating;
     }
 }

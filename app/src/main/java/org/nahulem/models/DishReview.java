@@ -24,4 +24,11 @@ public class DishReview extends Review {
                 "\n      Presentación: " + presentationRating;
     }
 
+    public float getTasteRating() {
+        return tasteRating;
+    }
+
+    public float getPresentationRating() {
+        return presentationRating;
+    }
 }

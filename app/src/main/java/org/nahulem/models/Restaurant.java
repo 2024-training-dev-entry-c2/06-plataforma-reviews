@@ -2,7 +2,9 @@ package org.nahulem.models;
 
 import org.nahulem.models.interfaces.IObserver;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Restaurant extends Observable {
@@ -12,8 +14,8 @@ public class Restaurant extends Observable {
     private String description;
     private String location;
     private Menu menu;
-    private Set<Review> reviews;
-    private final Set<IObserver> observers = new HashSet<>();
+    private List<Review> reviews;
+    private final Set<IObserver> observerSet = new HashSet<>();
 
     public Restaurant(String name, String description, String location, Menu menu) {
         this.restaurantId = generateId();
@@ -21,7 +23,7 @@ public class Restaurant extends Observable {
         this.description = description;
         this.location = location;
         this.menu = menu;
-        this.reviews = new HashSet<>();
+        this.reviews = new ArrayList<>();
     }
 
     public Restaurant() {
@@ -29,12 +31,12 @@ public class Restaurant extends Observable {
 
     @Override
     public void addObserver(IObserver observer) {
-        observers.add(observer);
+        observerSet.add(observer);
     }
 
     @Override
     public void notifyObservers(String message) {
-        observers.forEach(observer -> observer.update(message));
+        observerSet.forEach(observer -> observer.update(message));
     }
 
     private Integer generateId() {
@@ -115,7 +117,7 @@ public class Restaurant extends Observable {
         return restaurantId;
     }
 
-    public Set<Review> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 }

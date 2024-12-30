@@ -18,7 +18,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class DeleteDishServiceTest {
+class DeleteDishTest {
     private DeleteDishService mockDeleteDishService;
     private SelectDishService mockSelectDishService;
     private DataRepository mockDataRepository;

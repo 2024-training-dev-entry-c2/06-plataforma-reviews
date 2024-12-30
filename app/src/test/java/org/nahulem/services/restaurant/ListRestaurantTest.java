@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class ListRestaurantServiceTest {
+class ListRestaurantTest {
     private DataRepository mockDataRepository;
     private ListRestaurantService mockListRestaurantService;
 

@@ -36,4 +36,8 @@ public abstract class Review {
         this.averageRating = averageRating;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
 }

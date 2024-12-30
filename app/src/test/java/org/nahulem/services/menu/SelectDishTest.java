@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.nahulem.models.Dish;
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.MenuRepository;
 import org.nahulem.services.restaurant.SelectRestaurantService;
 import org.nahulem.utils.Validator;
 
@@ -24,13 +24,13 @@ class SelectDishTest {
     private Validator mockValidator;
     private SelectRestaurantService mockSelectRestaurantService;
     private SelectDishService mockSelectDishService;
-    private DataRepository mockRepository;
+    private MenuRepository mockRepository;
 
     @BeforeEach
     void setUp() {
         mockValidator = mock(Validator.class);
         mockSelectRestaurantService = mock(SelectRestaurantService.class);
-        mockRepository = mock(DataRepository.class);
+        mockRepository = mock(MenuRepository.class);
         mockSelectDishService = new SelectDishService(mockValidator, mockSelectRestaurantService);
     }
 

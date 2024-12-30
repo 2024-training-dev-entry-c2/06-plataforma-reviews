@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.nahulem.models.Dish;
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +21,13 @@ import static org.mockito.Mockito.when;
 class DeleteDishTest {
     private DeleteDishService mockDeleteDishService;
     private SelectDishService mockSelectDishService;
-    private DataRepository mockDataRepository;
+    private RestaurantRepository mockRepository;
 
     @BeforeEach
     void setUp() {
         mockSelectDishService = mock(SelectDishService.class);
-        mockDataRepository = mock(DataRepository.class);
-        mockDeleteDishService = new DeleteDishService(mockDataRepository, mockSelectDishService);
+        mockRepository = mock(RestaurantRepository.class);
+        mockDeleteDishService = new DeleteDishService(mockRepository, mockSelectDishService);
     }
 
     @Test
@@ -49,7 +49,7 @@ class DeleteDishTest {
         Restaurant restaurant = new Restaurant("Restaurante Español", "Restaurante de comida española", "Calle España", menu);
 
         when(mockSelectDishService.execute()).thenReturn(dish);
-        when(mockDataRepository.getAllRestaurants()).thenReturn(Map.of( 1, restaurant));
+        when(mockRepository.getAllRestaurants()).thenReturn(Map.of( 1, restaurant));
 
         Boolean result = mockDeleteDishService.execute();
 
@@ -57,7 +57,7 @@ class DeleteDishTest {
         assertEquals(0, restaurant.getMenu().getDishes().size());
 
         verify(mockSelectDishService).execute();
-        verify(mockDataRepository).getAllRestaurants();
+        verify(mockRepository).getAllRestaurants();
 
     }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 import org.nahulem.utils.Validator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 class UpdateRestaurantTest {
     private SelectRestaurantService mockSelectRestaurantService;
-    private DataRepository mockDataRepository;
+    private RestaurantRepository mockRepository;
     private Validator mockValidator;
     private UpdateRestaurantService updateRestaurantService;
 
@@ -26,9 +26,9 @@ class UpdateRestaurantTest {
     @BeforeEach
     void setUp() {
         mockSelectRestaurantService = mock(SelectRestaurantService.class);
-        mockDataRepository = mock(DataRepository.class);
+        mockRepository = mock(RestaurantRepository.class);
         mockValidator = mock(Validator.class);
-        updateRestaurantService = new UpdateRestaurantService(mockDataRepository, mockSelectRestaurantService, mockValidator);
+        updateRestaurantService = new UpdateRestaurantService(mockRepository, mockSelectRestaurantService, mockValidator);
     }
 
     @Test
@@ -38,7 +38,7 @@ class UpdateRestaurantTest {
 
         when(mockSelectRestaurantService.execute()).thenReturn(restaurant);
         when(mockValidator.readString(anyString())).thenReturn("Nuevo Nombre Test", "Nueva Descripcion Test", "Nueva Ubicacion Test");
-        when(mockDataRepository.updateRestaurant(restaurant)).thenReturn(true);
+        when(mockRepository.updateRestaurant(restaurant)).thenReturn(true);
 
         Boolean result = updateRestaurantService.execute();
 
@@ -50,7 +50,7 @@ class UpdateRestaurantTest {
         assertEquals("Nueva Ubicacion Test", restaurant.getLocation());
 
         verify(mockSelectRestaurantService).execute();
-        verify(mockDataRepository).updateRestaurant(restaurant);
+        verify(mockRepository).updateRestaurant(restaurant);
         verify(mockValidator, times(3)).readString(anyString());
     }
 
@@ -64,7 +64,7 @@ class UpdateRestaurantTest {
         assertEquals(false, result);
 
         verify(mockSelectRestaurantService).execute();
-        verify(mockDataRepository, times(0)).updateRestaurant(null);
+        verify(mockRepository, times(0)).updateRestaurant(null);
         verify(mockValidator, times(0)).readString(anyString());
     }
 
@@ -76,7 +76,7 @@ class UpdateRestaurantTest {
 
         when(mockSelectRestaurantService.execute()).thenReturn(restaurant);
         when(mockValidator.readString(anyString())).thenReturn("", "", "");
-        when(mockDataRepository.updateRestaurant(restaurant)).thenReturn(true);
+        when(mockRepository.updateRestaurant(restaurant)).thenReturn(true);
 
         Boolean result = updateRestaurantService.execute();
 
@@ -88,7 +88,7 @@ class UpdateRestaurantTest {
         assertEquals("Rivera", restaurant.getLocation());
 
         verify(mockSelectRestaurantService).execute();
-        verify(mockDataRepository).updateRestaurant(restaurant);
+        verify(mockRepository).updateRestaurant(restaurant);
         verify(mockValidator, times(3)).readString(anyString());
     }
 

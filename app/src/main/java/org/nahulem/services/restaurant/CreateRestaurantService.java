@@ -3,17 +3,17 @@ package org.nahulem.services.restaurant;
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
 import org.nahulem.models.UserObserver;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 import org.nahulem.services.interfaces.ICommand;
 import org.nahulem.services.menu.AddDishService;
 import org.nahulem.utils.Validator;
 
 public class CreateRestaurantService implements ICommand<Restaurant> {
-    private DataRepository repository;
+    private RestaurantRepository repository;
     private Validator validator;
     private AddDishService addDishService;
 
-    public CreateRestaurantService(AddDishService addDishService, DataRepository repository, Validator validator) {
+    public CreateRestaurantService(AddDishService addDishService, RestaurantRepository repository, Validator validator) {
         this.addDishService = addDishService;
         this.repository = repository;
         this.validator = validator;

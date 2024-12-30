@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.nahulem.models.Dish;
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 import org.nahulem.services.menu.AddDishService;
 import org.nahulem.utils.Validator;
 
@@ -21,17 +21,17 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class CreateRestaurantTest {
-    private DataRepository mockDataRepository;
+    private RestaurantRepository mockRepository;
     private Validator mockValidator;
     private AddDishService mockAddDishService;
     private CreateRestaurantService mockCreateRestaurantService;
 
     @BeforeEach
     void setUp() {
-        mockDataRepository = mock(DataRepository.class);
+        mockRepository = mock(RestaurantRepository.class);
         mockValidator = mock(Validator.class);
         mockAddDishService = mock(AddDishService.class);
-        mockCreateRestaurantService = new CreateRestaurantService(mockAddDishService, mockDataRepository, mockValidator);
+        mockCreateRestaurantService = new CreateRestaurantService(mockAddDishService, mockRepository, mockValidator);
     }
 
     @Test
@@ -57,7 +57,7 @@ class CreateRestaurantTest {
         assertEquals(menu.getDishes().size(), result.getMenu().getDishes().size());
 
         verify(mockValidator, times(3)).readString(anyString());
-        verify(mockDataRepository).addRestaurant(result);
+        verify(mockRepository).addRestaurant(result);
         verify(mockAddDishService).execute();
     }
 }

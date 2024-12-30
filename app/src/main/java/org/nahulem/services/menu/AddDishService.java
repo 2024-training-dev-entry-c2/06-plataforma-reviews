@@ -3,7 +3,7 @@ package org.nahulem.services.menu;
 import org.nahulem.models.Dish;
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.MenuRepository;
 import org.nahulem.services.interfaces.ICommand;
 import org.nahulem.services.restaurant.SelectRestaurantService;
 import org.nahulem.utils.Validator;
@@ -12,12 +12,12 @@ import java.util.ArrayList;
 
 public class AddDishService implements ICommand<Menu> {
     private final Validator validator;
-    private final DataRepository repository;
+    private final MenuRepository menuRepository;
     private final SelectRestaurantService selectRestaurantService;
 
-    public AddDishService(Validator validator, DataRepository repository, SelectRestaurantService selectRestaurantService) {
+    public AddDishService(Validator validator, MenuRepository menuRepository, SelectRestaurantService selectRestaurantService) {
         this.validator = validator;
-        this.repository = repository;
+        this.menuRepository = menuRepository;
         this.selectRestaurantService = selectRestaurantService;
     }
 
@@ -31,9 +31,12 @@ public class AddDishService implements ICommand<Menu> {
             return null;
         }
 
-        Menu menu = createMenu();
-        restaurant.setMenu(menu);
-        repository.addMenu(menu);
+        Menu menu = restaurant.getMenu();
+        if (menu == null) {
+            menu = createMenu();
+            restaurant.setMenu(menu);
+            menuRepository.addMenu(menu);
+        }
 
         addDishesToMenu(menu);
         return menu;
@@ -61,7 +64,7 @@ public class AddDishService implements ICommand<Menu> {
         Float price = validator.readFloat("Ingrese el precio del plato: \n");
 
         Dish newDish = new Dish(name, description, price);
-        repository.addDish(newDish);
+        menuRepository.addDish(newDish);
         menu.addDish(newDish);
         validator.printMessage("Plato agregado exitosamente al menú.");
     }

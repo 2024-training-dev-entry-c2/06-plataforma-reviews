@@ -3,7 +3,7 @@ package org.nahulem.services.restaurant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,13 +16,13 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class ListRestaurantTest {
-    private DataRepository mockDataRepository;
+    private RestaurantRepository mockRepository;
     private ListRestaurantService mockListRestaurantService;
 
     @BeforeEach
     void setUp() {
-        mockDataRepository = mock(DataRepository.class);
-        mockListRestaurantService = new ListRestaurantService(mockDataRepository);
+        mockRepository = mock(RestaurantRepository.class);
+        mockListRestaurantService = new ListRestaurantService(mockRepository);
     }
 
     @Test
@@ -32,7 +32,7 @@ class ListRestaurantTest {
         restaurants.put(2, new Restaurant("La Casona", "Restaurante de comida casera", "Rivera", null));
         restaurants.put(3, new Restaurant("La Pasiva", "Restaurante de comida rápida", "Rivera", null));
 
-        when(mockDataRepository.getAllRestaurants()).thenReturn(restaurants);
+        when(mockRepository.getAllRestaurants()).thenReturn(restaurants);
 
         List<Restaurant> result = mockListRestaurantService.execute();
 
@@ -42,7 +42,7 @@ class ListRestaurantTest {
         assertEquals(restaurants.get(2).getName(), result.get(1).getName());
         assertEquals(restaurants.get(3).getName(), result.get(2).getName());
 
-        verify(mockDataRepository).getAllRestaurants();
+        verify(mockRepository).getAllRestaurants();
 
     }
 }

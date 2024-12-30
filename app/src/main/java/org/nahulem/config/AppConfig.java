@@ -11,7 +11,8 @@ import org.nahulem.controllers.review.CreateDishReviewController;
 import org.nahulem.controllers.review.CreateRestaurantReviewController;
 import org.nahulem.controllers.review.ShowDishReviewController;
 import org.nahulem.controllers.review.ShowRestaurantReviewController;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.MenuRepository;
+import org.nahulem.repositories.RestaurantRepository;
 import org.nahulem.services.menu.AddDishService;
 import org.nahulem.services.menu.DeleteDishService;
 import org.nahulem.services.menu.SelectDishService;
@@ -32,18 +33,20 @@ import java.util.Scanner;
 
 public class AppConfig {
     public MainMenu createMainMenu() {
-        DataRepository repository = DataRepository.getInstance();
+        MenuRepository menuRepository = MenuRepository.getInstance();
+        RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();
+
         Validator validator = new Validator(new Scanner(System.in));
 
-        ListRestaurantService listRestaurant = new ListRestaurantService(repository);
-        SelectRestaurantService selectRestaurant = new SelectRestaurantService(repository, validator);
-        AddDishService addDishService = new AddDishService(validator, repository, selectRestaurant);
-        CreateRestaurantService createRestaurant = new CreateRestaurantService(addDishService, repository, validator);
-        UpdateRestaurantService updateRestaurant = new UpdateRestaurantService(repository, selectRestaurant, validator);
-        DeleteRestaurantService deleteRestaurant = new DeleteRestaurantService(repository, selectRestaurant);
+        ListRestaurantService listRestaurant = new ListRestaurantService(restaurantRepository);
+        SelectRestaurantService selectRestaurant = new SelectRestaurantService(restaurantRepository, validator);
+        AddDishService addDishService = new AddDishService(validator, menuRepository, selectRestaurant);
+        CreateRestaurantService createRestaurant = new CreateRestaurantService(addDishService, restaurantRepository, validator);
+        UpdateRestaurantService updateRestaurant = new UpdateRestaurantService(restaurantRepository, selectRestaurant, validator);
+        DeleteRestaurantService deleteRestaurant = new DeleteRestaurantService(restaurantRepository, selectRestaurant);
         SelectDishService selectDish = new SelectDishService(validator, selectRestaurant);
-        UpdateDishService updateDish = new UpdateDishService(repository, selectDish, validator);
-        DeleteDishService deleteDish = new DeleteDishService(repository, selectDish);
+        UpdateDishService updateDish = new UpdateDishService(restaurantRepository, selectDish, validator);
+        DeleteDishService deleteDish = new DeleteDishService(restaurantRepository, selectDish);
         CreateDishReviewService createDishReview = new CreateDishReviewService(selectDish, validator);
         CreateRestaurantReviewService createRestaurantReview = new CreateRestaurantReviewService(selectRestaurant, validator);
         ShowDishReviewService showDishReview = new ShowDishReviewService(selectDish);

@@ -2,7 +2,7 @@ package org.nahulem.services.menu;
 
 import org.nahulem.models.Dish;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 import org.nahulem.services.interfaces.ICommand;
 import org.nahulem.utils.Validator;
 
@@ -10,10 +10,10 @@ import java.util.Optional;
 
 public class UpdateDishService implements ICommand<Restaurant> {
     private final Validator validator;
-    private final DataRepository repository;
+    private final RestaurantRepository repository;
     private final SelectDishService selectDishService;
 
-    public UpdateDishService(DataRepository repository, SelectDishService selectDishService, Validator validator) {
+    public UpdateDishService(RestaurantRepository repository, SelectDishService selectDishService, Validator validator) {
         this.repository = repository;
         this.selectDishService = selectDishService;
         this.validator = validator;

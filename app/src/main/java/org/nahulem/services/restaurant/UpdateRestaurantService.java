@@ -1,16 +1,16 @@
 package org.nahulem.services.restaurant;
 
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 import org.nahulem.services.interfaces.ICommand;
 import org.nahulem.utils.Validator;
 
 public class UpdateRestaurantService implements ICommand<Boolean> {
     private final SelectRestaurantService selectRestaurantService;
-    private final DataRepository repository;
+    private final RestaurantRepository repository;
     private final Validator validator;
 
-    public UpdateRestaurantService(DataRepository repository, SelectRestaurantService selectRestaurantService, Validator validator) {
+    public UpdateRestaurantService(RestaurantRepository repository, SelectRestaurantService selectRestaurantService, Validator validator) {
         this.repository = repository;
         this.selectRestaurantService = selectRestaurantService;
         this.validator = validator;

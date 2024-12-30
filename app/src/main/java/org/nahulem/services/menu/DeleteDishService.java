@@ -2,16 +2,16 @@ package org.nahulem.services.menu;
 
 import org.nahulem.models.Dish;
 import org.nahulem.models.Restaurant;
-import org.nahulem.repositories.DataRepository;
+import org.nahulem.repositories.RestaurantRepository;
 import org.nahulem.services.interfaces.ICommand;
 
 import java.util.Objects;
 
 public class DeleteDishService implements ICommand<Boolean> {
-    private final DataRepository repository;
+    private final RestaurantRepository repository;
     private final SelectDishService selectDishService;
 
-    public DeleteDishService(DataRepository repository, SelectDishService selectDishService) {
+    public DeleteDishService(RestaurantRepository repository, SelectDishService selectDishService) {
         this.repository = repository;
         this.selectDishService = selectDishService;
     }

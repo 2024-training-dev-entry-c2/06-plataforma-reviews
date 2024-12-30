@@ -4,22 +4,25 @@ import org.example.Interface.IConsoleHandler;
 import org.example.models.DishModel;
 import org.example.models.MenuModel;
 import org.example.models.RestaurantModel;
-import org.example.repositories.DataRepository;
+import org.example.repositories.DishRepository;
+import org.example.repositories.RestaurantRepository;
 import org.example.utils.ConsoleHandler;
 
 import java.util.List;
 
 public class MenuService {
-  private final DataRepository repository;
+  private final RestaurantRepository repositoryRestaurant;
+  private final DishRepository repositoryDish;
   private final IConsoleHandler consoleHandler;
 
   public MenuService() {
-    this.repository = DataRepository.getInstance();
+    this.repositoryDish = DishRepository.getInstance();
+    this.repositoryRestaurant = RestaurantRepository.getInstance();
     this.consoleHandler = new ConsoleHandler();
   }
 
   public void createMenuForRestaurant(String restaurantName, String menuName) {
-    RestaurantModel restaurant = repository.getRestaurant(restaurantName);
+    RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     if (restaurant == null) {
       throw new IllegalArgumentException("Restaurante no encontrado: " + restaurantName);
     }
@@ -28,21 +31,21 @@ public class MenuService {
     }
     MenuModel menu = new MenuModel(restaurant, menuName);
     restaurant.setMenu(menu);
-    repository.associateMenuToRestaurant(restaurantName, menu);
+    repositoryRestaurant.associateMenuToRestaurant(restaurantName, menu);
   }
 
   public void addDishToMenu(String restaurantName, DishModel dish) {
-    RestaurantModel restaurant = repository.getRestaurant(restaurantName);
-    DishModel existingDish = repository.getDish(dish.getName());
+    RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
+    DishModel existingDish = repositoryDish.getDish(dish.getName());
     if (restaurant == null || restaurant.getMenu() == null || existingDish == null) {
       throw new IllegalArgumentException("Restaurante, menú o plato no encontrado.");
     }
     restaurant.getMenu().addDish(dish);
-    repository.addDishToMenu(restaurantName, dish);
+    repositoryDish.addDishToMenu(restaurantName, dish);
   }
 
   public void editDishInMenu(String restaurantName, String dishName, DishModel updatedDish) {
-    RestaurantModel restaurant = repository.getRestaurant(restaurantName);
+    RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     if (restaurant == null || restaurant.getMenu() == null) {
       throw new IllegalArgumentException("Restaurante o menú no encontrado.");
     }
@@ -51,28 +54,28 @@ public class MenuService {
     for (int i = 0; i < dishes.size(); i++) {
       if (dishes.get(i).getName().equalsIgnoreCase(dishName)) {
         dishes.set(i, updatedDish);
-        repository.editDishInMenu(restaurantName,dishName,updatedDish);
+        repositoryDish.editDishInMenu(restaurantName,dishName,updatedDish);
         return;
       }
     }
   }
 
   public void removeDishFromMenu(String restaurantName, String dishName) {
-    RestaurantModel restaurant = repository.getRestaurant(restaurantName);
+    RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     if (restaurant == null || restaurant.getMenu() == null) {
       throw new IllegalArgumentException("Restaurante o menú no encontrado.");
     }
-    DishModel dish = repository.getDish(dishName);
+    DishModel dish = repositoryDish.getDish(dishName);
     if (dish == null) {
       throw new IllegalArgumentException("Plato no encontrado: " + dishName);
     }
 
     restaurant.getMenu().removeDish(dish);
-    repository.removeDishFromMenu(restaurantName,dishName);
+    repositoryDish.removeDishFromMenu(restaurantName,dishName);
   }
 
   public MenuModel getMenuOfRestaurant(String restaurantName) {
-    RestaurantModel restaurant = repository.getRestaurant(restaurantName);
+    RestaurantModel restaurant = repositoryRestaurant.getRestaurant(restaurantName);
     return restaurant != null ? restaurant.getMenu() : null;
   }
 

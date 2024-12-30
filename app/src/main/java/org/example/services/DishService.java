@@ -2,13 +2,13 @@ package org.example.services;
 
 import org.example.models.DishModel;
 import org.example.Interface.observable.Observer;
-import org.example.repositories.DataRepository;
+import org.example.repositories.DishRepository;
 
 public class DishService implements Observer {
-  private final DataRepository repository;
+  private final DishRepository repository;
 
   public DishService() {
-    this.repository = DataRepository.getInstance();
+    this.repository = DishRepository.getInstance();
     repository.addObserver(this);
   }
 

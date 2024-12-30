@@ -1,7 +1,7 @@
 package org.example.services;
 
 import org.example.models.DishModel;
-import org.example.repositories.DataRepository;
+import org.example.repositories.DishRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,17 +15,17 @@ import static org.mockito.Mockito.*;
 class DishServiceTest {
 
   private DishService dishService;
-  private DataRepository mockRepository;
+  private DishRepository mockRepository;
 
   @BeforeEach
   void setup() throws Exception {
-    mockRepository = mock(DataRepository.class);
+    mockRepository = mock(DishRepository.class);
     setMockInstance(mockRepository);
     dishService = new DishService();
   }
 
-  private void setMockInstance(DataRepository mockRepository) throws Exception {
-    Field instanceField = DataRepository.class.getDeclaredField("instance");
+  private void setMockInstance(DishRepository mockRepository) throws Exception {
+    Field instanceField = DishRepository.class.getDeclaredField("instance");
     instanceField.setAccessible(true);
     instanceField.set(null, mockRepository);
   }

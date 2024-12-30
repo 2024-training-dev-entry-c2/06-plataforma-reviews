@@ -5,15 +5,27 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.nahulem.controllers.interfaces.ICommandController;
-import org.nahulem.controllers.menu.*;
-import org.nahulem.controllers.restaurant.*;
-import org.nahulem.controllers.review.*;
+import org.nahulem.controllers.menu.AddDishController;
+import org.nahulem.controllers.menu.DeleteDishController;
+import org.nahulem.controllers.menu.UpdateDishController;
+import org.nahulem.controllers.restaurant.CreateRestaurantController;
+import org.nahulem.controllers.restaurant.DeleteRestaurantController;
+import org.nahulem.controllers.restaurant.ListRestaurantController;
+import org.nahulem.controllers.restaurant.UpdateRestaurantController;
+import org.nahulem.controllers.review.CreateDishReviewController;
+import org.nahulem.controllers.review.CreateRestaurantReviewController;
+import org.nahulem.controllers.review.ShowDishReviewController;
+import org.nahulem.controllers.review.ShowRestaurantReviewController;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.when;
 
 class MainMenuTest {
     private Validator mockValidator;
@@ -85,5 +97,4 @@ class MainMenuTest {
         verifyNoInteractions(mockCreateRestaurantController);
         verifyNoInteractions(mockUpdateRestaurantController);
     }
-
 }

@@ -22,17 +22,6 @@ public class Restaurant {
   public Restaurant() {
   }
 
-  public Float getAverageRanking() {
-    if (reviews == null) {
-      return 0.0f;
-    }
-
-    return (float) reviews.stream()
-      .mapToDouble(Review::getRating)
-      .average()
-      .orElse(0.0);
-  }
-
   public void addReview(Review review){
     reviews.add(review);
   }
@@ -43,14 +32,6 @@ public class Restaurant {
 
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getAddress() {
-    return address;
   }
 
   public Boolean getAvailable() {
@@ -77,7 +58,11 @@ public class Restaurant {
     return reviews;
   }
 
-  public void setReviews(List<Review> reviews) {
-    this.reviews = reviews;
+  public String getAddress() {
+    return address;
+  }
+
+  public boolean isAvailable() {
+    return available;
   }
 }

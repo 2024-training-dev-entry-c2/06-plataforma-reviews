@@ -14,6 +14,7 @@ public class Menu {
 
   public void displayMenu(){
     System.out.println("\n------------- Menú -------------");
+    System.out.println(name);
     for(Dish dish : dishes.values()){
       System.out.print("- ");
       dish.displayDish();
@@ -23,6 +24,10 @@ public class Menu {
 
   public void addDish(Dish dish){
     dishes.put(dish.getName(), dish);
+  }
+
+  public void removeDish(Dish dish){
+    dishes.remove(dish.getName());
   }
 
   public Dish searchDish(String name){

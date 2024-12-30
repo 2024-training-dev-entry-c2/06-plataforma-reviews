@@ -42,7 +42,4 @@ public class RestaurantMenuController implements IController {
     invoker.registerCommand(4,"Mostrar los restaurantes disponibles", new ShowRestaurants(service));
   }
 
-  public CommandInvoker getInvoker() {
-    return invoker;
-  }
 }

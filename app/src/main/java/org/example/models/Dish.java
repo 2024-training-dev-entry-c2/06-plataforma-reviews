@@ -21,16 +21,6 @@ public class Dish {
   public Dish() {
   }
 
-  public Float getAverageRanking() {
-    if (reviews == null) {
-      return 0.0f;
-    }
-
-    return (float) reviews.stream()
-      .mapToDouble(Review::getRating)
-      .average()
-      .orElse(0.0);
-  }
 
   public void addReview(Review review){
     reviews.add(review);
@@ -48,16 +38,8 @@ public class Dish {
     this.name = name;
   }
 
-  public String getDescription() {
-    return description;
-  }
-
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public Float getPrice() {
-    return price;
   }
 
   public void setPrice(Float price) {
@@ -68,7 +50,11 @@ public class Dish {
     return reviews;
   }
 
-  public void setReviews(List<Review> reviews) {
-    this.reviews = reviews;
+  public String getDescription() {
+    return description;
+  }
+
+  public Float getPrice() {
+    return price;
   }
 }

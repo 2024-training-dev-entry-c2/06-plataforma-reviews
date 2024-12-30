@@ -1,8 +1,6 @@
 package org.example.services;
 
-import org.example.models.Dish;
 import org.example.models.Menu;
-import org.example.models.Restaurant;
 import org.example.repositories.RestaurantRepository;
 
 public class MenuService {
@@ -10,6 +8,11 @@ public class MenuService {
 
   public MenuService() {
     this.repository = RestaurantRepository.getInstance();
+  }
+
+  //Para pruebas
+  public MenuService(RestaurantRepository repository) {
+    this.repository = repository;
   }
 
   public Boolean addMenu(String restaurantName, String menuName){

@@ -16,9 +16,17 @@ import java.util.List;
 public class ReviewService implements IObservable {
   private RestaurantRepository repository;
   private final List<IObserver> observers = new ArrayList<>();
+  private final ReviewFactory reviewFactory;
 
   public ReviewService() {
     this.repository = RestaurantRepository.getInstance();
+    this.reviewFactory = new ReviewFactory();
+  }
+
+  //Para pruebas
+  public ReviewService(RestaurantRepository repository, ReviewFactory reviewFactory) {
+    this.repository = repository;
+    this.reviewFactory = reviewFactory;
   }
 
   @Override
@@ -41,7 +49,7 @@ public class ReviewService implements IObservable {
   public Boolean addDishReview(String comment, Float taste, Float presentation, String restaurantName, String dishName) {
     Dish dish = repository.getRestaurantByName(restaurantName).getMenu().searchDish(dishName);
 
-    Review review = ReviewFactory.createReview(TypeReview.DISH, comment, null, dish, taste, presentation );
+    Review review = reviewFactory.createReview(TypeReview.DISH, comment, null, dish, taste, presentation );
 
     if (review != null) {
       repository.getRestaurantByName(restaurantName).getMenu().searchDish(dishName).addReview(review);
@@ -55,7 +63,7 @@ public class ReviewService implements IObservable {
   public Boolean addRestaurantReview(String comment, Float rating, String restaurantName) {
     Restaurant restaurant = repository.getRestaurantByName(restaurantName);
 
-    Review review = ReviewFactory.createReview(TypeReview.RESTAURANT, comment, rating, restaurant, null, null);
+    Review review = reviewFactory.createReview(TypeReview.RESTAURANT, comment, rating, restaurant, null, null);
 
     if (review != null) {
       repository.getRestaurantByName(restaurantName).addReview(review);
@@ -90,4 +98,7 @@ public class ReviewService implements IObservable {
       }).average().orElse(0.0);
   }
 
+  public List<IObserver> getObservers() {
+    return observers;
+  }
 }

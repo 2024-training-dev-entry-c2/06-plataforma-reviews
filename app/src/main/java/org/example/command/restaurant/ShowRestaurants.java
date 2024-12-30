@@ -1,7 +1,6 @@
 package org.example.command.restaurant;
 
 import org.example.interfaces.ICommand;
-import org.example.models.Restaurant;
 import org.example.services.RestaurantService;
 
 public class ShowRestaurants implements ICommand {

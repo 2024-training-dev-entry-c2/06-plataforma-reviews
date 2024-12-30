@@ -2,7 +2,6 @@ package org.example.command.review;
 
 import org.example.interfaces.ICommand;
 import org.example.interfaces.IHandler;
-import org.example.models.review.RestaurantReview;
 import org.example.models.review.Review;
 import org.example.services.ReviewService;
 
@@ -46,7 +45,7 @@ public class ShowReviews implements ICommand {
   }
 
   private void displayDishReview(){
-    handler.writeLine("Indica el nombre del restaurante: ");
+    handler.writeLine("Indica el nombre del restaurante donde está el plato: ");
     String restaurantName = handler.readLine();
     handler.writeLine("Indica el nombre del plato: ");
     String dishName = handler.readLine();
@@ -55,7 +54,7 @@ public class ShowReviews implements ICommand {
     if (reviews == null || reviews.isEmpty()){
       System.out.println("No se pueden obtener las reseñas.");
     }else{
-      System.out.println("\n Lista de reseñas de '" + restaurantName + "'");
+      System.out.println("\n Lista de reseñas de '" + dishName + "'");
       reviews.forEach(Review::displayReview);
       float rating = service.calculateAverageDishRating(restaurantName, dishName);
       System.out.println("Calificación promedio: " + rating);

@@ -17,13 +17,11 @@ public class EditRestaurant implements ICommand {
   public void execute() {
     handler.writeLine("Indica el nombre del restaurante: ");
     String name = handler.readLine();
-    handler.writeLine("Nuevo nombre del restaurante: ");
-    String newName = handler.readLine();
     handler.writeLine("Nueva dirección del restaurante: ");
     String newAddress = handler.readLine();
-    handler.writeLine("¿El restaurante está dispodible? (Si/No)");
+    handler.writeLine("¿El restaurante está disponible? (Si/No)");
     Boolean available = handler.readLine().equalsIgnoreCase("Si");
-    if(service.editRestaurant(service.getRestaurantByName(name), newName, newAddress, available)){
+    if(service.editRestaurant(service.getRestaurantByName(name), newAddress, available)){
       System.out.println("El restaurante ha sido editado: ");
       service.getRestaurantByName(name).displayRestaurant();
     }else{

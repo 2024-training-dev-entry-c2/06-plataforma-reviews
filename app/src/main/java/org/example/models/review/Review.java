@@ -18,15 +18,8 @@ public abstract class Review {
     return comment;
   }
 
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
   public Float getRating() {
     return rating;
   }
 
-  public void setRating(Float rating) {
-    this.rating = rating;
-  }
 }

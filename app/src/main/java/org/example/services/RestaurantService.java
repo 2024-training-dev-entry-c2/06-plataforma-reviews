@@ -12,12 +12,17 @@ public class RestaurantService {
     this.repository = RestaurantRepository.getInstance();
   }
 
+  //Para pruebas
+  public RestaurantService(RestaurantRepository repository) {
+    this.repository = repository;
+  }
+
   public Boolean createRestaurant(Restaurant restaurant){
     return repository.addRestaurant(restaurant);
   }
 
-  public Boolean editRestaurant(Restaurant restaurant, String restaurantName, String restaurantAddress, Boolean restaurantAvailable){
-    return repository.editRestaurant(restaurant, restaurantName, restaurantAddress, restaurantAvailable);
+  public Boolean editRestaurant(Restaurant restaurant, String restaurantAddress, Boolean restaurantAvailable){
+    return repository.editRestaurant(restaurant, restaurantAddress, restaurantAvailable);
   }
 
   public Boolean deleteRestaurant(Restaurant restaurant){

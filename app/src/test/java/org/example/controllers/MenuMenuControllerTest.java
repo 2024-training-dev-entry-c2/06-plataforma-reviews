@@ -11,24 +11,24 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class RestaurantMenuControllerTest {
+class MenuMenuControllerTest {
   private IHandler mockHandler;
-  private RestaurantMenuController restaurantMenuController;
+  private MenuMenuController menuMenuController;
   private CommandInvoker mockInvoker;
 
   @BeforeEach
   void setup(){
     mockHandler = mock(IHandler.class);
     mockInvoker = mock(CommandInvoker.class);
-    restaurantMenuController = new RestaurantMenuController(mockHandler, mockInvoker);
+    menuMenuController = new MenuMenuController(mockHandler, mockInvoker);
   }
 
   @Test
-  @DisplayName("Caso 1 del menú de restaurante")
-  void testAddRestaurant(){
+  @DisplayName("Caso 1 del menú de menú de restaurante")
+  void testAddMenu(){
     when(mockHandler.readLine()).thenReturn("1","0");
 
-    restaurantMenuController.start();
+    menuMenuController.start();
 
     verify(mockInvoker, times(2)).printMenu();
     verify(mockHandler, times(2)).writeLine("Selecciona una opción (o ingresa 0 para regresar): ");
@@ -37,11 +37,11 @@ class RestaurantMenuControllerTest {
   }
 
   @Test
-  @DisplayName("Caso 2 del menú de restaurante")
-  void testModifyRestaurant(){
+  @DisplayName("Caso 2 del menú de menú de restaurante")
+  void testAddDish(){
     when(mockHandler.readLine()).thenReturn("2","0");
 
-    restaurantMenuController.start();
+    menuMenuController.start();
 
     verify(mockInvoker, times(2)).printMenu();
     verify(mockHandler, times(2)).writeLine("Selecciona una opción (o ingresa 0 para regresar): ");
@@ -50,11 +50,11 @@ class RestaurantMenuControllerTest {
   }
 
   @Test
-  @DisplayName("Caso 3 del menú de restaurante")
-  void testDeleteRestaurant(){
+  @DisplayName("Caso 3 del menú de menú de restaurante")
+  void testEditDish(){
     when(mockHandler.readLine()).thenReturn("3","0");
 
-    restaurantMenuController.start();
+    menuMenuController.start();
 
     verify(mockInvoker, times(2)).printMenu();
     verify(mockHandler, times(2)).writeLine("Selecciona una opción (o ingresa 0 para regresar): ");
@@ -63,15 +63,28 @@ class RestaurantMenuControllerTest {
   }
 
   @Test
-  @DisplayName("Caso 4 del menú de restaurante")
-  void testDisplayRestaurants(){
+  @DisplayName("Caso 4 del menú de menú de restaurante")
+  void testDeleteDish(){
     when(mockHandler.readLine()).thenReturn("4","0");
 
-    restaurantMenuController.start();
+    menuMenuController.start();
 
     verify(mockInvoker, times(2)).printMenu();
     verify(mockHandler, times(2)).writeLine("Selecciona una opción (o ingresa 0 para regresar): ");
 
     verify(mockInvoker).executeCommand(4);
+  }
+
+  @Test
+  @DisplayName("Caso 5 del menú de menú de restaurante")
+  void testDisplayMenu(){
+    when(mockHandler.readLine()).thenReturn("5","0");
+
+    menuMenuController.start();
+
+    verify(mockInvoker, times(2)).printMenu();
+    verify(mockHandler, times(2)).writeLine("Selecciona una opción (o ingresa 0 para regresar): ");
+
+    verify(mockInvoker).executeCommand(5);
   }
 }

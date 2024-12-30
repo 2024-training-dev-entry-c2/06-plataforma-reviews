@@ -28,27 +28,16 @@ public class DishReview extends Review {
     System.out.println("------------------------------------");
   }
 
-  public Dish getDish() {
-    return dish;
-  }
-
-  public void setDish(Dish dish) {
-    this.dish = dish;
-  }
 
   public Float getTaste() {
     return taste;
-  }
-
-  public void setTaste(Float taste) {
-    this.taste = taste;
   }
 
   public Float getPresentation() {
     return presentation;
   }
 
-  public void setPresentation(Float presentation) {
-    this.presentation = presentation;
+  public Dish getDish() {
+    return dish;
   }
 }

@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -233,4 +235,167 @@ class RestaurantRepositoryTest {
 
     assertEquals("El mensaje no puede ser nulo.", exception.getMessage());
   }
+  @Test
+  @DisplayName("Test Get Instance")
+  void testGetInstance() {
+    RestaurantRepository instance1 = RestaurantRepository.getInstance();
+    RestaurantRepository instance2 = RestaurantRepository.getInstance();
+
+    assertSame(instance1, instance2);
+  }
+
+
+  @Test
+  @DisplayName("Test Get Restaurant Not Found")
+  void testGetRestaurantNotFound() {
+    assertNull(restaurantRepository.getRestaurant("Restaurante Inexistente"));
+  }
+
+
+  @Test
+  @DisplayName("Test Associate Menu To Restaurant")
+  void testAssociateMenuToRestaurant() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    restaurantRepository.addRestaurant(restaurant);
+    MenuModel menu = new MenuModel(restaurant, "Menu 1");
+
+    restaurantRepository.associateMenuToRestaurant("Restaurante 1", menu);
+
+    assertEquals(menu, restaurantRepository.getRestaurant("Restaurante 1").getMenu());
+    verify(mockObserver).update("Menu asociado con éxito al restaurante: Restaurante 1");
+  }
+
+  @Test
+  @DisplayName("Test Associate Menu To Nonexistent Restaurant")
+  void testAssociateMenuToNonexistentRestaurant() {
+    MenuModel menu = new MenuModel(new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true), "Menu 1");
+
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      restaurantRepository.associateMenuToRestaurant("Restaurante Inexistente", menu);
+    });
+
+    assertEquals("Restaurante no encontrado: Restaurante Inexistente", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Calculate Average Rating Restaurant")
+  void testCalculateAverageRatingRestaurant() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    restaurantRepository.addRestaurant(restaurant);
+    RestaurantReviewModel review1 = new RestaurantReviewModel("Cliente 1", 4.0, "Muy bueno", restaurant);
+    RestaurantReviewModel review2 = new RestaurantReviewModel("Cliente 2", 5.0, "Excelente", restaurant);
+    restaurant.addReview(review1);
+    restaurant.addReview(review2);
+
+    Double averageRating = restaurantRepository.calculateAverageRatingRestaurant("Restaurante 1");
+
+    assertEquals(4.5, averageRating);
+  }
+  @Test
+  @DisplayName("Test Add Null Restaurant")
+  void testAddNullRestaurant() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      restaurantRepository.addRestaurant(null);
+    });
+
+    assertEquals("El restaurante no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Update Null Restaurant")
+  void testUpdateNullRestaurant() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      restaurantRepository.updateRestaurant(null);
+    });
+
+    assertEquals("El restaurante no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Add Null Review To Restaurant")
+  void testAddNullReviewToRestaurant() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      restaurantRepository.addReviewToRestaurant(null);
+    });
+
+    assertEquals("La review no puede ser nula.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Associate Null Menu To Restaurant")
+  void testAssociateNullMenuToRestaurant() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      restaurantRepository.associateMenuToRestaurant("Restaurante 1", null);
+    });
+
+    assertEquals("El menú no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Add Dish To Menu with Null Dish")
+  void testAddDishToMenuWithNullDish() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      restaurantRepository.addDishToMenu("Restaurante 1", null);
+    });
+
+    assertEquals("El plato no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Edit Dish In Menu with Null Updated Dish")
+  void testEditDishInMenuWithNullUpdatedDish() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      restaurantRepository.editDishInMenu("Restaurante 1", "Plato 1", null);
+    });
+
+    assertEquals("El plato actualizado no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Remove Dish From Menu with Null Dish Name")
+  void testRemoveDishFromMenuWithNullDishName() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      restaurantRepository.removeDishFromMenu("Restaurante 1", null);
+    });
+
+    assertEquals("El nombre del plato no puede ser nulo.", exception.getMessage());
+  }
+
+
+  @Test
+  @DisplayName("Test Notify Observers")
+  void testNotifyObservers() {
+    restaurantRepository.notifyObservers("Mensaje de prueba");
+    verify(mockObserver).update("Mensaje de prueba");
+  }
+
+  @Test
+  @DisplayName("Test Get All Restaurants")
+  void testGetAllRestaurants() {
+    RestaurantModel restaurant1 = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    RestaurantModel restaurant2 = new RestaurantModel("Restaurante 2", "Avenida Imaginaria 456", false);
+    restaurantRepository.addRestaurant(restaurant1);
+    restaurantRepository.addRestaurant(restaurant2);
+
+    List<RestaurantModel> restaurants = restaurantRepository.getAllRestaurants();
+    assertEquals(2, restaurants.size());
+    assertTrue(restaurants.contains(restaurant1));
+    assertTrue(restaurants.contains(restaurant2));
+  }
+
+  @Test
+  @DisplayName("Test Remove Dish From Menu - Dish Not Found")
+  void testRemoveDishFromMenuDishNotFound() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    MenuModel menu = new MenuModel(restaurant, "Menu 1");
+    restaurant.setMenu(menu);
+    restaurantRepository.addRestaurant(restaurant);
+
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      restaurantRepository.removeDishFromMenu("Restaurante 1", "Plato Inexistente");
+    });
+
+    assertEquals("Plato no encontrado en el menú: Plato Inexistente", exception.getMessage());
+  }
+
 }

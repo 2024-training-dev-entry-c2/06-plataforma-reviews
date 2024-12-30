@@ -14,6 +14,10 @@ public class ReviewFactory {
   }
 
   public void createReview(String reviewType, String reviewerName, Double rating, String comment, Object target) {
+    if (reviewType == null || reviewerName == null || rating == null || comment == null || target == null) {
+      throw new IllegalArgumentException("Error en la creación de la review");
+    }
+
     ICommand command;
     if ("Restaurant".equals(reviewType) && target instanceof RestaurantModel) {
       command = new CreateRestaurantReviewCommand((RestaurantModel) target, reviewerName, rating, comment);

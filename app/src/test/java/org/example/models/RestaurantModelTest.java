@@ -1,8 +1,5 @@
 package org.example.models;
 
-import org.example.models.RestaurantModel;
-import org.example.models.RestaurantReviewModel;
-import org.example.models.MenuModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -74,6 +71,13 @@ class RestaurantModelTest {
   }
 
   @Test
+  @DisplayName("Test Set Menu with Null")
+  void testSetMenuWithNull() {
+    restaurant.setMenu(null);
+    assertNull(restaurant.getMenu());
+  }
+
+  @Test
   @DisplayName("Test Add Review")
   void testAddReview() {
     RestaurantReviewModel review = new RestaurantReviewModel("Cliente 1", 5.0, "Excelente", restaurant);
@@ -94,6 +98,22 @@ class RestaurantModelTest {
   @Test
   @DisplayName("Test Get Average Rating")
   void testGetAverageRating() {
+    RestaurantReviewModel review1 = new RestaurantReviewModel("Cliente 1", 5.0, "Excelente", restaurant);
+    RestaurantReviewModel review2 = new RestaurantReviewModel("Cliente 2", 3.0, "Bueno", restaurant);
+    restaurant.addReview(review1);
+    restaurant.addReview(review2);
+    assertEquals(4.0, restaurant.getAverageRating());
+  }
+
+  @Test
+  @DisplayName("Test Calculate Average Rating with No Reviews")
+  void testCalculateAverageRatingWithNoReviews() {
+    assertEquals(0.0, restaurant.getAverageRating());
+  }
+
+  @Test
+  @DisplayName("Test Calculate Average Rating with Reviews")
+  void testCalculateAverageRatingWithReviews() {
     RestaurantReviewModel review1 = new RestaurantReviewModel("Cliente 1", 5.0, "Excelente", restaurant);
     RestaurantReviewModel review2 = new RestaurantReviewModel("Cliente 2", 3.0, "Bueno", restaurant);
     restaurant.addReview(review1);

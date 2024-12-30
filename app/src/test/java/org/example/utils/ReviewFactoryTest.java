@@ -10,7 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class ReviewFactoryTest {
@@ -59,5 +59,79 @@ class ReviewFactoryTest {
 
     ICommand capturedCommand = commandCaptor.getValue();
     assertTrue(capturedCommand instanceof CreateDishReviewCommand);
+  }
+
+  @Test
+  @DisplayName("Test Create Review with Invalid Type")
+  void testCreateReviewWithInvalidType() {
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      reviewFactory.createReview("InvalidType", "Juan Pérez", 4.5, "Comentario", new Object());
+    });
+
+    assertEquals("Error en la creación de la review", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Create Review with Null Target")
+  void testCreateReviewWithNullTarget() {
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      reviewFactory.createReview("Restaurant", "Juan Pérez", 4.5, "Comentario", null);
+    });
+
+    assertEquals("Error en la creación de la review", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Create Review with Null Review Type")
+  void testCreateReviewWithNullReviewType() {
+    DishModel dish = new DishModel("Plato 1", "Descripción del plato", 10.0);
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      reviewFactory.createReview(null, "Juan Pérez", 4.5, "Comentario", dish);
+    });
+
+    assertEquals("Error en la creación de la review", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Create Review with Null Reviewer Name")
+  void testCreateReviewWithNullReviewerName() {
+    DishModel dish = new DishModel("Plato 1", "Descripción del plato", 10.0);
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      reviewFactory.createReview("Dish", null, 4.5, "Comentario", dish);
+    });
+
+    assertEquals("Error en la creación de la review", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Create Review with Null Rating")
+  void testCreateReviewWithNullRating() {
+    DishModel dish = new DishModel("Plato 1", "Descripción del plato", 10.0);
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      reviewFactory.createReview("Dish", "Juan Pérez", null, "Comentario", dish);
+    });
+
+    assertEquals("Error en la creación de la review", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Create Review with Null Comment")
+  void testCreateReviewWithNullComment() {
+    DishModel dish = new DishModel("Plato 1", "Descripción del plato", 10.0);
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      reviewFactory.createReview("Dish", "Juan Pérez", 4.5, null, dish);
+    });
+
+    assertEquals("Error en la creación de la review", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Create Review with Invalid Target Type")
+  void testCreateReviewWithInvalidTargetType() {
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      reviewFactory.createReview("Restaurant", "Juan Pérez", 4.5, "Comentario", new Object());
+    });
+
+    assertEquals("Error en la creación de la review", exception.getMessage());
   }
 }

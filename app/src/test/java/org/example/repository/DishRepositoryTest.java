@@ -159,4 +159,65 @@ class DishRepositoryTest {
 
     assertEquals("El mensaje no puede ser nulo.", exception.getMessage());
   }
+  @Test
+  @DisplayName("Test Get Dish")
+  void testGetDish() {
+    DishModel dish = new DishModel("Plato 1", "Descripción del plato", 10.0);
+    dishRepository.addDish(dish);
+
+    DishModel retrievedDish = dishRepository.getDish("Plato 1");
+
+    assertEquals(dish, retrievedDish);
+  }
+
+  @Test
+  @DisplayName("Test Add Dish with Null Dish")
+  void testAddDishWithNullDish() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      dishRepository.addDish(null);
+    });
+
+    assertEquals("El plato no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Add Review with Null Review")
+  void testAddReviewWithNullReview() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      dishRepository.addReviewToDish(null);
+    });
+
+    assertEquals("La review no puede ser nula.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Add Dish To Menu with Null Dish")
+  void testAddDishToMenuWithNullDish() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      dishRepository.addDishToMenu("Restaurante 1", null);
+    });
+
+    assertEquals("El plato no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Edit Dish In Menu with Null Updated Dish")
+  void testEditDishInMenuWithNullUpdatedDish() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      dishRepository.editDishInMenu("Restaurante 1", "Plato 1", null);
+    });
+
+    assertEquals("El plato actualizado no puede ser nulo.", exception.getMessage());
+  }
+
+  @Test
+  @DisplayName("Test Remove Dish From Menu with Null Dish Name")
+  void testRemoveDishFromMenuWithNullDishName() {
+    Exception exception = assertThrows(NullPointerException.class, () -> {
+      dishRepository.removeDishFromMenu("Restaurante 1", null);
+    });
+
+    assertEquals("El nombre del plato no puede ser nulo.", exception.getMessage());
+  }
+
 }

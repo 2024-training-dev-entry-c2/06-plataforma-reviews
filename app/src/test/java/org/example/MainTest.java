@@ -84,4 +84,12 @@ class MainTest {
         verify(mockConsoleHandler, atLeastOnce()).readLine();
         verify(mockHandleOption, atLeastOnce()).execute(anyInt());
     }
+
+    @Test
+    @DisplayName("Test Main Method Execution")
+    void testMainExecution() {
+        String[] args = {};
+        Main.main(args);
+        assertNotNull(Main.class);
+    }
 }

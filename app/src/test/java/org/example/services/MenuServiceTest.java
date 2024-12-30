@@ -251,12 +251,6 @@ class MenuServiceTest {
   }
 
   @Test
-  @DisplayName("Test Edit Dish In Menu With Null Updated Dish")
-  void testEditDishInMenuWithNullUpdatedDish() {
-    assertThrows(IllegalArgumentException.class, () -> menuService.editDishInMenu("Restaurante 1", "Plato 1", null));
-  }
-
-  @Test
   @DisplayName("Test Remove Dish From Menu With Null Dish Name")
   void testRemoveDishFromMenuWithNullDishName() {
     assertThrows(IllegalArgumentException.class, () -> menuService.removeDishFromMenu("Restaurante 1", null));
@@ -267,4 +261,141 @@ class MenuServiceTest {
   void testGetDishesInMenuWithNullRestaurantName() {
     assertThrows(IllegalArgumentException.class, () -> menuService.getDishesInMenu(null));
   }
+
+  @Test
+  @DisplayName("Test Get Menu Of Restaurant Without Menu")
+  void testGetMenuOfRestaurantWithoutMenu() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+
+    MenuModel result = menuService.getMenuOfRestaurant("Restaurante 1");
+
+    assertNull(result);
+  }
+
+  @Test
+  @DisplayName("Test Get Dishes In Menu Without Menu")
+  void testGetDishesInMenuWithoutMenu() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+
+    assertThrows(IllegalArgumentException.class, () -> menuService.getDishesInMenu("Restaurante 1"));
+  }
+
+  @Test
+  @DisplayName("Test Add Dish To Menu Without Menu")
+  void testAddDishToMenuWithoutMenu() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    DishModel dish = new DishModel("Plato 1", "Descripción del plato", 10.0);
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+    when(mockDishRepository.getDish("Plato 1")).thenReturn(dish);
+
+    assertThrows(IllegalArgumentException.class, () -> menuService.addDishToMenu("Restaurante 1", dish));
+  }
+
+  @Test
+  @DisplayName("Test Edit Dish In Menu Nonexistent Dish In Menu")
+  void testEditDishInMenuNonexistentDishInMenu() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    MenuModel menu = new MenuModel(restaurant, "Menu 1");
+    restaurant.setMenu(menu);
+    DishModel updatedDish = new DishModel("Plato 1", "Nueva descripción", 12.0);
+
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+
+    assertThrows(IllegalArgumentException.class, () -> menuService.editDishInMenu("Restaurante 1", "Plato 1", updatedDish));
+  }
+
+  @Test
+  @DisplayName("Test Remove Dish From Menu Without Menu")
+  void testRemoveDishFromMenuWithoutMenu() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+
+    assertThrows(IllegalArgumentException.class, () -> menuService.removeDishFromMenu("Restaurante 1", "Plato 1"));
+  }
+
+  @Test
+  @DisplayName("Test Create Menu For Restaurant With Null Restaurant Name")
+  void testCreateMenuForRestaurantWithNullRestaurantName() {
+    assertThrows(IllegalArgumentException.class, () -> menuService.createMenuForRestaurant(null, "Menu 1"));
+  }
+
+  @Test
+  @DisplayName("Test Add Dish To Menu With Null Restaurant Name")
+  void testAddDishToMenuWithNullRestaurantName() {
+    DishModel dish = new DishModel("Plato 1", "Descripción del plato", 10.0);
+    assertThrows(IllegalArgumentException.class, () -> menuService.addDishToMenu(null, dish));
+  }
+
+  @Test
+  @DisplayName("Test Edit Dish In Menu With Null Restaurant Name")
+  void testEditDishInMenuWithNullRestaurantName() {
+    DishModel updatedDish = new DishModel("Plato 1", "Nueva descripción", 12.0);
+    assertThrows(IllegalArgumentException.class, () -> menuService.editDishInMenu(null, "Plato 1", updatedDish));
+  }
+
+  @Test
+  @DisplayName("Test Edit Dish In Menu With Null Dish Name")
+  void testEditDishInMenuWithNullDishName() {
+    DishModel updatedDish = new DishModel("Plato 1", "Nueva descripción", 12.0);
+    assertThrows(IllegalArgumentException.class, () -> menuService.editDishInMenu("Restaurante 1", null, updatedDish));
+  }
+
+  @Test
+  @DisplayName("Test Edit Dish In Menu With Null Updated Dish")
+  void testEditDishInMenuWithNullUpdatedDish() {
+    assertThrows(IllegalArgumentException.class, () -> menuService.editDishInMenu("Restaurante 1", "Plato 1", null));
+  }
+
+  @Test
+  @DisplayName("Test Remove Dish From Menu With Null Restaurant Name")
+  void testRemoveDishFromMenuWithNullRestaurantName() {
+    assertThrows(IllegalArgumentException.class, () -> menuService.removeDishFromMenu(null, "Plato 1"));
+  }
+
+  @Test
+  @DisplayName("Test Get Menu Of Restaurant With Null Restaurant Name")
+  void testGetMenuOfRestaurantWithNullRestaurantName() {
+    assertThrows(IllegalArgumentException.class, () -> menuService.getMenuOfRestaurant(null));
+  }
+
+  @Test
+  @DisplayName("Test Get Dishes In Menu With Empty Menu")
+  void testGetDishesInMenuWithEmptyMenu() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    MenuModel menu = new MenuModel(restaurant, "Menu 1");
+    restaurant.setMenu(menu);
+
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+
+    menuService.getDishesInMenu("Restaurante 1");
+
+    verify(mockRestaurantRepository).getRestaurant("Restaurante 1");
+  }
+  @Test
+  @DisplayName("Test Add Dish To Menu With Null Dish Name")
+  void testAddDishToMenuWithNullDishName() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    MenuModel menu = new MenuModel(restaurant, "Menu 1");
+    restaurant.setMenu(menu);
+    DishModel dish = new DishModel(null, "Descripción del plato", 10.0);
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+
+    assertThrows(IllegalArgumentException.class, () -> menuService.addDishToMenu("Restaurante 1", dish));
+  }
+
+  @Test
+  @DisplayName("Test Get Dishes In Menu With Null Dish Name")
+  void testGetDishesInMenuWithNullDishName() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    MenuModel menu = new MenuModel(restaurant, "Menu 1");
+    restaurant.setMenu(menu);
+    DishModel dish = new DishModel(null, "Descripción del plato", 10.0);
+    menu.addDish(dish);
+    when(mockRestaurantRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+
+    assertThrows(IllegalArgumentException.class, () -> menuService.getDishesInMenu("Restaurante 1"));
+  }
+
 }

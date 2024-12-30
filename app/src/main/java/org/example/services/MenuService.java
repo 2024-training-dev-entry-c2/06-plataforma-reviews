@@ -121,7 +121,10 @@ public class MenuService {
 
     List<DishModel> dishes = menu.getDishes();
     for (DishModel dish : dishes) {
+      if (dish.getName() == null) {
+        throw new IllegalArgumentException("El nombre del plato no puede ser nulo.");
+      }
       consoleHandler.writeLine("Plato: " + dish.getName() + ", Descripción: " + dish.getDescription() + ", Precio: " + dish.getPrice());
     }
   }
-}
+  }

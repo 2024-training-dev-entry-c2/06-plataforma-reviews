@@ -19,7 +19,7 @@ public class ViewAllRestaurantsCommand implements ICommand {
   @Override
   public void execute() {
     List<RestaurantModel> restaurants = restaurantController.getAllRestaurants();
-    if (restaurants.isEmpty()) {
+    if (restaurants == null || restaurants.isEmpty()) {
       consoleHandler.writeLine("No se encontraron restaurantes.");
     } else {
       for (RestaurantModel restaurant : restaurants) {

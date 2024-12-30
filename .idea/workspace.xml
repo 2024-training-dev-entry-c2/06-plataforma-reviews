@@ -1,18 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bae32564-4712-46ee-b342-ac75e37e8776" name="Changes" comment="" />
+    <list default="true" id="bae32564-4712-46ee-b342-ac75e37e8776" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/main/org/example/services/MenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/main/org/example/services/MenuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/main/org/example/utils/ReviewFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/main/org/example/utils/ReviewFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/test/org/example/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/test/org/example/MainTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/test/org/example/models/RestaurantModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/test/org/example/models/RestaurantModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/test/org/example/repository/DishRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/test/org/example/repository/DishRepositoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/test/org/example/repository/RestaurantRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/test/org/example/repository/RestaurantRepositoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/test/org/example/services/MenuServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/test/org/example/services/MenuServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/test/org/example/utils/HandleOptionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/test/org/example/utils/HandleOptionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/test/org/example/utils/ReviewFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/test/org/example/utils/ReviewFactoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/DishRepository.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/DishService.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/MenuService.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/ReviewService.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/commands/Restaurants/ViewAllRestaurantsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/commands/Restaurants/ViewAllRestaurantsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/services/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/services/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/utils/ReviewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/utils/ReviewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/commands/Restaurant/ViewAllRestaurantsCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/commands/Restaurant/ViewAllRestaurantsCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/models/RestaurantModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/models/RestaurantModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/repository/DishRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/repository/DishRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/repository/RestaurantRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/repository/RestaurantRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/services/MenuServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/services/MenuServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/utils/HandleOptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/utils/HandleOptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/org/example/utils/ReviewFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/org/example/utils/ReviewFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="reviewer-restaurant" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2qumvzIAiJCR4DMnwO9j9bBi56h" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,13 +89,157 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.06-plataforma-reviews::Users:sergiofernandez:Documents:Informática:Trabajos:Sofka:SofkaU:Proyectos:06-plataforma-reviews [:app:org.example.Main.main()].executor": "Run",
+    "Gradle.Build 06-plataforma-reviews.executor": "Run",
+    "JUnit.AddDishToMenuCommandTest and 8 more.executor": "Coverage",
+    "JUnit.All in reviewer-restaurant.app.test.executor": "Coverage",
+    "JUnit.AppMenuTest.executor": "Coverage",
+    "JUnit.ConsoleHandlerTest.executor": "Coverage",
+    "JUnit.CreateRestaurantCommandTest and 6 more.executor": "Coverage",
+    "JUnit.CreateReviewCommandTest.executor": "Coverage",
+    "JUnit.DataRepositoryTest.executor": "Run",
+    "JUnit.DishControllerTest and 4 more.executor": "Coverage",
+    "JUnit.DishModelTest and 5 more.executor": "Coverage",
+    "JUnit.DishRepositoryTest and 1 more.executor": "Coverage",
+    "JUnit.DishRepositoryTest.executor": "Coverage",
+    "JUnit.DishServiceTest.executor": "Coverage",
+    "JUnit.HandleOptionTest.executor": "Coverage",
+    "JUnit.HandleOptionTest.testExecuteAddReviewToDishOption.executor": "Coverage",
+    "JUnit.HandleOptionTest.testExecuteAddReviewToRestaurantOption.executor": "Coverage",
+    "JUnit.HandleOptionTest.testExecuteExitOption.executor": "Coverage",
+    "JUnit.HandleOptionTest.testExecuteInvalidOption.executor": "Coverage",
+    "JUnit.HandleOptionTest.testExecuteValidCommandOption.executor": "Coverage",
+    "JUnit.MainTest.executor": "Coverage",
+    "JUnit.MenuOptionTest.executor": "Coverage",
+    "JUnit.MenuServiceTest.executor": "Coverage",
+    "JUnit.MenuServiceTest.testAddDishToMenuWithoutDishList.executor": "Coverage",
+    "JUnit.MenuServiceTest.testCreateMenuForInactiveRestaurant.executor": "Coverage",
+    "JUnit.MenuServiceTest.testGetDishesInMenuWithNullDishName.executor": "Coverage",
+    "JUnit.RestaurantModelTest (1).executor": "Coverage",
+    "JUnit.RestaurantModelTest.executor": "Coverage",
+    "JUnit.RestaurantRepositoryTest.executor": "Coverage",
+    "JUnit.RestaurantServiceTest.executor": "Coverage",
+    "JUnit.ReviewFactoryTest.executor": "Coverage",
+    "JUnit.ReviewInvokerTest.executor": "Coverage",
+    "JUnit.ReviewServiceTest and 3 more.executor": "Coverage",
+    "JUnit.ReviewServiceTest.executor": "Coverage",
+    "JUnit.ViewAllRestaurantsCommandTest.executor": "Coverage",
+    "JUnit.org.example in reviewer-restaurant.app.test.executor": "Coverage",
+    "JUnit.org.example.commands.* and 5 more.executor": "Coverage",
+    "JUnit.org.example.commands.* and 6 more.executor": "Coverage",
+    "JUnit.org.example.repository in reviewer-restaurant.app.test.executor": "Coverage",
+    "JUnit.org.example.utils in reviewer-restaurant.app.test.executor": "Coverage",
+    "Notification.DisplayName-DoNotAsk-GitHub Copilot": "GitHub Copilot",
+    "Notification.DoNotAsk-GitHub Copilot": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.codeium.enabled": "true",
+    "git-widget-placeholder": "development",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/sergiofernandez/Documents/Informática/Trabajos/Sofka/SofkaU/Proyectos/06-plataforma-reviews"
+    "last_opened_file_path": "/Users/sergiofernandez/Documents/Informática/Trabajos/Sofka/SofkaU/Proyectos/06-plataforma-reviews",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RunManager" selected="JUnit.MenuServiceTest">
+    <configuration name="AddDishToMenuCommandTest and 8 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reviewer-restaurant.app.test" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="org.example.commands.Menu.AddDishToMenuCommandTest" />
+        <pattern testClass="org.example.commands.Menu.AssociateMenuToRestaurantCommandTest" />
+        <pattern testClass="org.example.commands.Menu.CreateDishCommandTest" />
+        <pattern testClass="org.example.commands.Menu.CreateDishReviewCommandTest" />
+        <pattern testClass="org.example.commands.Menu.DeleteDishFromMenuCommandTest" />
+        <pattern testClass="org.example.commands.Menu.EditDishInMenuCommandTest" />
+        <pattern testClass="org.example.commands.Menu.GetAverageRatingOfDishCommandTest" />
+        <pattern testClass="org.example.commands.Menu.ListDishReviewsCommandTest" />
+        <pattern testClass="org.example.commands.Menu.ViewDishByRestaurantCommandTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DishModelTest and 5 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reviewer-restaurant.app.test" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="org.example.models.DishModelTest" />
+        <pattern testClass="org.example.models.DishReviewModelTest" />
+        <pattern testClass="org.example.models.MenuModelTest" />
+        <pattern testClass="org.example.models.RestaurantModelTest" />
+        <pattern testClass="org.example.models.RestaurantReviewModelTest" />
+        <pattern testClass="org.example.models.ReviewTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reviewer-restaurant.app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.services" />
+      <option name="MAIN_CLASS_NAME" value="org.example.services.MenuServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestaurantRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reviewer-restaurant.app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.repository.RestaurantRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ViewAllRestaurantsCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reviewer-restaurant.app.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.commands.Restaurant.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.commands.Restaurant" />
+      <option name="MAIN_CLASS_NAME" value="org.example.commands.Restaurant.ViewAllRestaurantsCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="06-plataforma-reviews" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="06-plataforma-reviews" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MenuServiceTest" />
+        <item itemvalue="JUnit.DishModelTest and 5 more" />
+        <item itemvalue="JUnit.RestaurantRepositoryTest" />
+        <item itemvalue="JUnit.ViewAllRestaurantsCommandTest" />
+        <item itemvalue="JUnit.AddDishToMenuCommandTest and 8 more" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -37,5 +250,103 @@
       <updated>1735521069016</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$HandleOptionTest_testExecuteAddReviewToRestaurantOption.ic" NAME="HandleOptionTest.testExecuteAddReviewToRestaurantOption Coverage Results" MODIFIED="1735588191266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$org_example_repository_in_reviewer_restaurant_app_test.ic" NAME="org.example.repository in reviewer-restaurant.app.test Coverage Results" MODIFIED="1735573913832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$CreateRestaurantCommandTest_and_6_more.ic" NAME="CreateRestaurantCommandTest and 6 more Coverage Results" MODIFIED="1735597644711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$AddDishToMenuCommandTest_and_8_more.ic" NAME="AddDishToMenuCommandTest and 8 more Coverage Results" MODIFIED="1735597654981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$org_example_commands___and_5_more.ic" NAME="org.example.commands.* and 5 more Coverage Results" MODIFIED="1735521747823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$DishRepositoryTest.ic" NAME="DishRepositoryTest Coverage Results" MODIFIED="1735597352019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$MenuServiceTest_testGetDishesInMenuWithNullDishName.ic" NAME="MenuServiceTest.testGetDishesInMenuWithNullDishName Coverage Results" MODIFIED="1735595756630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$RestaurantModelTest.ic" NAME="RestaurantModelTest Coverage Results" MODIFIED="1735596158646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$HandleOptionTest_testExecuteInvalidOption.ic" NAME="HandleOptionTest.testExecuteInvalidOption Coverage Results" MODIFIED="1735588175153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$DishControllerTest_and_4_more.ic" NAME="DishControllerTest and 4 more Coverage Results" MODIFIED="1735597608088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$org_example_in_reviewer_restaurant_app_test.ic" NAME="org.example in reviewer-restaurant.app.test Coverage Results" MODIFIED="1735587304540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$ReviewInvokerTest.ic" NAME="ReviewInvokerTest Coverage Results" MODIFIED="1735597519925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$MenuOptionTest.ic" NAME="MenuOptionTest Coverage Results" MODIFIED="1735597618504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.constants.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$MainTest.ic" NAME="MainTest Coverage Results" MODIFIED="1735597508487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$ReviewFactoryTest.ic" NAME="ReviewFactoryTest Coverage Results" MODIFIED="1735597528561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$ViewAllRestaurantsCommandTest.ic" NAME="ViewAllRestaurantsCommandTest Coverage Results" MODIFIED="1735597976068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.commands.Restaurant.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$MenuServiceTest.ic" NAME="MenuServiceTest Coverage Results" MODIFIED="1735598389406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$MenuServiceTest_testCreateMenuForInactiveRestaurant.ic" NAME="MenuServiceTest.testCreateMenuForInactiveRestaurant Coverage Results" MODIFIED="1735595987791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$HandleOptionTest.ic" NAME="HandleOptionTest Coverage Results" MODIFIED="1735597538517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$HandleOptionTest_testExecuteAddReviewToDishOption.ic" NAME="HandleOptionTest.testExecuteAddReviewToDishOption Coverage Results" MODIFIED="1735588211354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$RestaurantServiceTest.ic" NAME="RestaurantServiceTest Coverage Results" MODIFIED="1735566953783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$DishServiceTest.ic" NAME="DishServiceTest Coverage Results" MODIFIED="1735573510140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$All_in_reviewer_restaurant_app_test.ic" NAME="All in reviewer-restaurant.app.test Coverage Results" MODIFIED="1735597302277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$ReviewServiceTest_and_3_more.ic" NAME="ReviewServiceTest and 3 more Coverage Results" MODIFIED="1735597573191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$AppMenuTest.ic" NAME="AppMenuTest Coverage Results" MODIFIED="1735597554696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$HandleOptionTest_testExecuteValidCommandOption.ic" NAME="HandleOptionTest.testExecuteValidCommandOption Coverage Results" MODIFIED="1735588162592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$org_example_utils_in_reviewer_restaurant_app_test.ic" NAME="org.example.utils in reviewer-restaurant.app.test Coverage Results" MODIFIED="1735521795236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$DishModelTest_and_5_more.ic" NAME="DishModelTest and 5 more Coverage Results" MODIFIED="1735598268467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$CreateReviewCommandTest.ic" NAME="CreateReviewCommandTest Coverage Results" MODIFIED="1735597632287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.commands.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$MenuServiceTest_testAddDishToMenuWithoutDishList.ic" NAME="MenuServiceTest.testAddDishToMenuWithoutDishList Coverage Results" MODIFIED="1735595998352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$DataRepositoryTest.ic" NAME="DataRepositoryTest Coverage Results" MODIFIED="1735567873273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$RestaurantModelTest__1_.ic" NAME="RestaurantModelTest (1) Coverage Results" MODIFIED="1735596286254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.commands.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$ConsoleHandlerTest.ic" NAME="ConsoleHandlerTest Coverage Results" MODIFIED="1735597547846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$org_example_commands___and_6_more.ic" NAME="org.example.commands.* and 6 more Coverage Results" MODIFIED="1735563243820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$DishRepositoryTest_and_1_more.ic" NAME="DishRepositoryTest and 1 more Coverage Results" MODIFIED="1735597594395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$RestaurantRepositoryTest.ic" NAME="RestaurantRepositoryTest Coverage Results" MODIFIED="1735598227629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$ReviewServiceTest.ic" NAME="ReviewServiceTest Coverage Results" MODIFIED="1735597562538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/reviewer_restaurant$HandleOptionTest_testExecuteExitOption.ic" NAME="HandleOptionTest.testExecuteExitOption Coverage Results" MODIFIED="1735588199887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.utils.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,19 +1,19 @@
 package org.nahulem.models;
 
-import org.nahulem.models.interfaces.IObservable;
 import org.nahulem.models.interfaces.IObserver;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-public class Dish implements IObservable {
+public class Dish extends Observable {
     private static Integer idCounter = 0;
     private Integer dishId;
     private String name;
     private String description;
     private Float price;
     private List<Review> reviews;
-    private static final List<IObserver> observers = new ArrayList<>();
+    private final LinkedList<IObserver> observers = new LinkedList<>();
 
 
     public Dish(String name, String description, Float price, List<Review> reviews) {
@@ -33,12 +33,6 @@ public class Dish implements IObservable {
 
     public void addReview(Review review) {
         reviews.add(review);
-    }
-
-    public float calculateAverageRating() {
-        float average = (float) reviews.stream().mapToDouble(Review::getAverageRating).average().orElse(0.0);
-        notifyObservers("Calificación promedio actualizada para el plato: " + name + " - Promedio: " + average);
-        return average;
     }
 
     @Override
@@ -73,10 +67,6 @@ public class Dish implements IObservable {
         return dishId;
     }
 
-    public void setDishId(Integer dishId) {
-        this.dishId = dishId;
-    }
-
     public String getName() {
         return name;
     }
@@ -97,18 +87,10 @@ public class Dish implements IObservable {
         return reviews;
     }
 
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
 
     @Override
     public void addObserver(IObserver observer) {
         observers.add(observer);
-    }
-
-    @Override
-    public void removeObserver(IObserver observer) {
-        observers.remove(observer);
     }
 
     @Override

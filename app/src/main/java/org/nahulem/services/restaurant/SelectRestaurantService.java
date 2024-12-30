@@ -28,7 +28,7 @@ public class SelectRestaurantService implements ICommand<Restaurant> {
     }
 
     private int selectRestaurant(int size) {
-        int index = validator.readInt("Ingresa el número del restaurante que deseas seleccionar: ");
+        int index = validator.readInt("Ingresa el número del restaurante que deseas seleccionar: \n");
 
         if (index < 1 || index > size) {
             validator.printMessage("El número ingresado no es válido, intenta de nuevo.");

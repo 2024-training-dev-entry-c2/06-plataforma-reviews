@@ -23,7 +23,9 @@ public class AddDishService implements ICommand<Menu> {
 
     @Override
     public Menu execute() {
+        validator.printMessage("\n---Creando menu para el restaurante---\n");
         Restaurant restaurant = selectRestaurantService.execute();
+
 
         if (restaurant == null) {
             validator.printMessage("No se ha seleccionado ningún restaurante.");
@@ -43,7 +45,8 @@ public class AddDishService implements ICommand<Menu> {
     }
 
     private Menu createMenu() {
-        String name = validator.readString("Ingresa el nombre del menú: ");
+        validator.printMessage("\n---Creando un nuevo menú---\n");
+        String name = validator.readString("Ingresa el nombre del menú: \n");
         return new Menu(name, new ArrayList<>());
     }
 
@@ -51,15 +54,16 @@ public class AddDishService implements ICommand<Menu> {
         boolean continueAdding = true;
         while (continueAdding) {
             addDish(menu);
-            continueAdding = validator.readBoolean("¿Desea agregar otro plato al menú? (S/N): ");
+            continueAdding = validator.readBoolean("¿Desea agregar otro plato al menú? (S/N): \n");
         }
         validator.printMessage("Menú completado con éxito con los platos asociados.");
     }
 
     private void addDish(Menu menu) {
-        String name = validator.readString("Ingrese el nombre del plato: ");
-        String description = validator.readString("Ingrese la descripción del plato: ");
-        Float price = validator.readFloat("Ingrese el precio del plato: ");
+        validator.printMessage("\n---Agregando un nuevo plato---\n");
+        String name = validator.readString("Ingrese el nombre del plato: \n");
+        String description = validator.readString("Ingrese la descripción del plato: \n");
+        Float price = validator.readFloat("Ingrese el precio del plato: \n");
 
         Dish newDish = new Dish(name, description, price, new ArrayList<>());
         repository.addDish(newDish);

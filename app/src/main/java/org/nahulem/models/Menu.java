@@ -16,7 +16,6 @@ public class Menu {
     }
 
     public Menu() {
-        this.dishes = new ArrayList<>();
     }
 
     private Integer generateId() {
@@ -25,20 +24,6 @@ public class Menu {
 
     public void addDish(Dish dish) {
         dishes.add(dish);
-    }
-
-    public void updateDish(Dish updatedDish) {
-        dishes.stream()
-                .filter(dish -> dish.getDishId().equals(updatedDish.getDishId()))
-                .forEach(dish -> {
-                    dish.setName(updatedDish.getName());
-                    dish.setDescription(updatedDish.getDescription());
-                    dish.setPrice(updatedDish.getPrice());
-                });
-    }
-
-    public void deleteDish(String dishId) {
-        dishes.removeIf(dish -> dish.getDishId().equals(dishId));
     }
 
     @Override
@@ -54,23 +39,11 @@ public class Menu {
         return dishes;
     }
 
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
-
     public Integer getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(Integer menuId) {
-        this.menuId = menuId;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

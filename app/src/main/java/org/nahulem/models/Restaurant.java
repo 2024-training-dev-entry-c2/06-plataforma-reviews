@@ -1,14 +1,11 @@
 package org.nahulem.models;
 
-import org.nahulem.models.interfaces.IObservable;
 import org.nahulem.models.interfaces.IObserver;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-public class Restaurant implements IObservable {
+public class Restaurant extends Observable {
     private static Integer idCounter = 0;
     private Integer restaurantId;
     private String name;
@@ -16,7 +13,7 @@ public class Restaurant implements IObservable {
     private String location;
     private Menu menu;
     private Set<Review> reviews;
-    private static List<IObserver> observers = new ArrayList<>();
+    private final Set<IObserver> observers = new HashSet<>();
 
     public Restaurant(String name, String description, String location, Menu menu) {
         this.restaurantId = generateId();
@@ -36,21 +33,12 @@ public class Restaurant implements IObservable {
     }
 
     @Override
-    public void removeObserver(IObserver observer) {
-        observers.remove(observer);
-    }
-
-    @Override
     public void notifyObservers(String message) {
         observers.forEach(observer -> observer.update(message));
     }
 
     private Integer generateId() {
         return ++idCounter;
-    }
-
-    public void addMenu(Menu menu) {
-        this.menu = menu;
     }
 
     public void addReview(Review review) {
@@ -70,6 +58,7 @@ public class Restaurant implements IObservable {
                 "\nNombre: " + name +
                 "\nDescripción: " + description +
                 "\nLocación: " + location +
+                "\nCalificacion: " + calculateAverageRating() +
                 "\nMenú: " + menu.getName() + "\n" +
                 "\nPlatos:\n";
 

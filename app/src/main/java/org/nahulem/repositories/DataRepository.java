@@ -7,7 +7,6 @@ import org.nahulem.models.Restaurant;
 import org.nahulem.models.RestaurantReview;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,18 +60,6 @@ public class DataRepository {
         menus.put(menu.getMenuId(), menu);
     }
 
-    public Menu getMenu(Integer id) {
-        return menus.get(id);
-    }
-
-    public Collection<Menu> getAllMenus() {
-        return menus.values();
-    }
-
-    public void deleteMenu(Integer id) {
-        menus.remove(id);
-    }
-
     public void addDish(Dish dish) {
         dishes.put(dish.getDishId(), dish);
     }
@@ -81,44 +68,7 @@ public class DataRepository {
         return dishes.get(id);
     }
 
-    public Collection<Dish> getAllDishes() {
-        return dishes.values();
-    }
-
-    public Boolean deleteDish(Integer id) {
-        return dishes.remove(id) != null;
-    }
-
-    public Map<Integer, Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(Map<Integer, Dish> dishes) {
-        this.dishes = dishes;
-    }
-
-    public static void setInstance(DataRepository instance) {
-        DataRepository.instance = instance;
-    }
-
-    public Map<Integer, Menu> getMenus() {
-        return menus;
-    }
-
-    public void setMenus(Map<Integer, Menu> menus) {
-        this.menus = menus;
-    }
-
-    public Map<Integer, Restaurant> getRestaurants() {
-        return restaurants;
-    }
-
-    public void setRestaurants(Map<Integer, Restaurant> restaurants) {
-        this.restaurants = restaurants;
-    }
-
     private void initialize() {
-        // Crear platos
         Dish parrillaDish1 = new Dish("Empanadas de carne", "Deliciosas empanadas rellenas de carne cortada a cuchillo.", 3.5f, new ArrayList<>());
         Dish parrillaDish2 = new Dish("Asado de tira", "Corte clásico argentino cocido a la parrilla.", 15.0f, new ArrayList<>());
         Dish parrillaDish3 = new Dish("Flan con dulce de leche", "Flan casero acompañado de dulce de leche artesanal.", 5.0f, new ArrayList<>());
@@ -140,7 +90,6 @@ public class DataRepository {
         addDish(urbanaDish2);
         addDish(urbanaDish3);
 
-        // Crear menús
         Menu parrillaMenu = new Menu("Parrilla", new ArrayList<>(List.of(
                 getDish(parrillaDish1.getDishId()),
                 getDish(parrillaDish2.getDishId()),
@@ -157,12 +106,10 @@ public class DataRepository {
                 getDish(urbanaDish3.getDishId())
         )));
 
-        // Crear restaurantes
         Restaurant parrilla = new Restaurant("La Parrilla Porteña", "Hermosa parrillada en barrio clásico de Buenos Aires", "San Telmo, Buenos Aires", parrillaMenu);
         Restaurant pastas = new Restaurant("Casa de Pastas Don Pepe", "Pastas caseras en Buenos Aires", "Recoleta, Buenos Aires", pastasMenu);
         Restaurant urbana = new Restaurant("Cocina Urbana", "Comida rápida y saludable en Buenos Aires", "Palermo, Buenos Aires", urbanaMenu);
 
-        // Agregar reseñas a los platos
         parrillaDish1.addReview(new DishReview("Sabor increíble, me encantaron.", 4.8f, 4.9f));
         parrillaDish2.addReview(new DishReview("Excelente corte de carne.", 5.0f, 4.8f));
         parrillaDish3.addReview(new DishReview("El flan estaba delicioso.", 4.5f, 4.7f));
@@ -175,7 +122,6 @@ public class DataRepository {
         urbanaDish2.addReview(new DishReview("Fresca y bien servida.", 4.5f, 4.4f));
         urbanaDish3.addReview(new DishReview("Perfecto balance de dulce.", 4.8f, 4.9f));
 
-        // Agregar reseñas a los restaurantes
         parrilla.addReview(new RestaurantReview("Excelente atención y calidad.", 5.0f, 4.8f, 4.9f));
         parrilla.addReview(new RestaurantReview("Muy buena parrilla, pero algo cara.", 4.5f, 4.4f, 4.3f));
 
@@ -185,7 +131,6 @@ public class DataRepository {
         urbana.addReview(new RestaurantReview("Rápido y muy rico.", 4.8f, 4.7f, 4.6f));
         urbana.addReview(new RestaurantReview("Me encantó el ambiente moderno.", 4.6f, 4.5f, 4.7f));
 
-        // Agregar restaurantes al repositorio
         addRestaurant(parrilla);
         addRestaurant(pastas);
         addRestaurant(urbana);

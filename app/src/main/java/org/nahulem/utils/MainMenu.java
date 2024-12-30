@@ -12,7 +12,6 @@ import org.nahulem.controllers.review.CreateDishReviewController;
 import org.nahulem.controllers.review.CreateRestaurantReviewController;
 import org.nahulem.controllers.review.ShowDishReviewController;
 import org.nahulem.controllers.review.ShowRestaurantReviewController;
-import org.nahulem.models.Menu;
 import org.nahulem.repositories.DataRepository;
 import org.nahulem.services.menu.AddDishService;
 import org.nahulem.services.menu.DeleteDishService;
@@ -36,7 +35,6 @@ import java.util.Scanner;
 public class MainMenu implements IMainMenu {
     DataRepository repository = DataRepository.getInstance();
     Validator validator = new Validator(new Scanner(System.in));
-    Menu menu = new Menu();
     ListRestaurantService listRestaurant = new ListRestaurantService(repository);
     SelectRestaurantService selectRestaurant = new SelectRestaurantService(repository, validator);
     AddDishService addDishService = new AddDishService(validator, repository, selectRestaurant);

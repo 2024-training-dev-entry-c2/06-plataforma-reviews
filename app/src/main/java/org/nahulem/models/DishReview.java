@@ -14,6 +14,7 @@ public class DishReview extends Review {
     @Override
     public void calculateRating() {
         setAverageRating((tasteRating + presentationRating) / 2);
+
     }
 
     @Override
@@ -23,8 +24,4 @@ public class DishReview extends Review {
                 "\n      Presentación: " + presentationRating;
     }
 
-
-    public Float getTasteRating() {
-        return tasteRating;
-    }
 }

@@ -33,6 +33,8 @@ public class UpdateRestaurantService implements ICommand<Boolean> {
 
         updateRestaurant(existingRestaurant);
 
+        notifyObservers(existingRestaurant);
+
         return repository.updateRestaurant(existingRestaurant);
     }
 
@@ -48,6 +50,11 @@ public class UpdateRestaurantService implements ICommand<Boolean> {
         existingRestaurant.setLocation(validateOrKeep(location, existingRestaurant.getLocation()));
     }
 
+    private void notifyObservers(Restaurant restaurant) {
+        String message = "El restaurante " + restaurant.getName() + " ha sido actualizado.";
+        restaurant.notifyObservers(message);
+        validator.printMessage("Notificación enviada a los observadores del restaurante.");
+    }
 
     private String validateOrKeep(String newValue, String existingValue) {
         return newValue.isEmpty() ? existingValue : newValue;

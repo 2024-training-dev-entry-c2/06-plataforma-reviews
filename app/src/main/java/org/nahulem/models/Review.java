@@ -22,8 +22,6 @@ public abstract class Review {
                 "\n      Calificación promedio: " + String.format("%.1f", averageRating) + "\n";
     }
 
-
-
     public abstract void calculateRating();
 
     private static Integer generateId() {
@@ -38,27 +36,4 @@ public abstract class Review {
         this.averageRating = averageRating;
     }
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public static Integer getIdCounter() {
-        return idCounter;
-    }
-
-    public static void setIdCounter(Integer idCounter) {
-        Review.idCounter = idCounter;
-    }
-
-    public Integer getReviewId() {
-        return reviewId;
-    }
-
-    public void setReviewId(Integer reviewId) {
-        this.reviewId = reviewId;
-    }
 }

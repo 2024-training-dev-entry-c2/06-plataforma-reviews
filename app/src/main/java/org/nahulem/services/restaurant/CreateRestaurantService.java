@@ -2,6 +2,7 @@ package org.nahulem.services.restaurant;
 
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
+import org.nahulem.models.UserObserver;
 import org.nahulem.repositories.DataRepository;
 import org.nahulem.services.interfaces.ICommand;
 import org.nahulem.services.menu.AddDishService;
@@ -20,23 +21,30 @@ public class CreateRestaurantService implements ICommand<Restaurant> {
 
     @Override
     public Restaurant execute() {
-        String name = validator.readString("Ingresa el nombre del restaurante: ");
-        String location = validator.readString("Ingresa la ubicacion del restaurante: ");
-        String description = validator.readString("Ingresa la descripcion del restaurante: ");
+        validator.printMessage("\n---Creando restaurante---\n");
+        String name = validator.readString("Ingresa el nombre del restaurante: \n");
+        String location = validator.readString("Ingresa la ubicacion del restaurante: \n");
+        String description = validator.readString("Ingresa la descripcion del restaurante: \n");
 
         Restaurant restaurant = new Restaurant(name, location, description, null);
         repository.addRestaurant(restaurant);
 
-        System.out.println(
-                "Restaurante creado exitosamente: " + restaurant.getName() + "\n" +
-                "\nCreando menú para el restaurante..."
-        );
+        validator.printMessage(
+                "Restaurante creado exitosamente: " + restaurant.getName() + "\n");
 
         Menu menu = addDishService.execute();
         restaurant.setMenu(menu);
 
-        System.out.println("Menú creado exitosamente para el restaurante: " + restaurant.getName() + "\n");
+        validator.printMessage("Menú creado exitosamente para el restaurante: " + restaurant.getName() + "\n");
+
+        registerObserver(restaurant);
 
         return restaurant;
+    }
+
+    private void registerObserver(Restaurant restaurant) {
+        UserObserver adminObserver = new UserObserver("Admin");
+        restaurant.addObserver(adminObserver);
+        validator.printMessage("Administrador registrado como observador para el restaurante: " + restaurant.getName());
     }
 }

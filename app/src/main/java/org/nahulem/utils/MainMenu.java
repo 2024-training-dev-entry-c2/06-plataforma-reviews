@@ -12,43 +12,39 @@ import org.nahulem.controllers.review.CreateDishReviewController;
 import org.nahulem.controllers.review.CreateRestaurantReviewController;
 import org.nahulem.controllers.review.ShowDishReviewController;
 import org.nahulem.controllers.review.ShowRestaurantReviewController;
-import org.nahulem.repositories.DataRepository;
-import org.nahulem.services.menu.AddDishService;
-import org.nahulem.services.menu.DeleteDishService;
-import org.nahulem.services.menu.SelectDishService;
-import org.nahulem.services.menu.UpdateDishService;
-import org.nahulem.services.restaurant.CreateRestaurantService;
-import org.nahulem.services.restaurant.DeleteRestaurantService;
-import org.nahulem.services.restaurant.ListRestaurantService;
-import org.nahulem.services.restaurant.SelectRestaurantService;
-import org.nahulem.services.restaurant.UpdateRestaurantService;
-import org.nahulem.services.review.CreateDishReviewService;
-import org.nahulem.services.review.CreateRestaurantReviewService;
-import org.nahulem.services.review.ShowDishReviewService;
-import org.nahulem.services.review.ShowRestaurantReviewService;
 import org.nahulem.utils.interfaces.IMainMenu;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class MainMenu implements IMainMenu {
-    DataRepository repository = DataRepository.getInstance();
-    Validator validator = new Validator(new Scanner(System.in));
-    ListRestaurantService listRestaurant = new ListRestaurantService(repository);
-    SelectRestaurantService selectRestaurant = new SelectRestaurantService(repository, validator);
-    AddDishService addDishService = new AddDishService(validator, repository, selectRestaurant);
-    CreateRestaurantService createRestaurant = new CreateRestaurantService(addDishService, repository, validator);
-    UpdateRestaurantService updateRestaurant = new UpdateRestaurantService(repository, selectRestaurant, validator);
-    DeleteRestaurantService deleteRestaurant = new DeleteRestaurantService(repository, selectRestaurant);
-    SelectDishService selectDish = new SelectDishService(validator, selectRestaurant);
-    UpdateDishService updateDish = new UpdateDishService(repository, selectDish, validator);
-    DeleteDishService deleteDish = new DeleteDishService(repository, selectDish);
-    CreateDishReviewService createDishReview = new CreateDishReviewService(selectDish, validator);
-    CreateRestaurantReviewService createRestaurantReview = new CreateRestaurantReviewService(selectRestaurant, validator);
-    ShowDishReviewService showDishReview = new ShowDishReviewService(selectDish);
-    ShowRestaurantReviewService showRestaurantReview = new ShowRestaurantReviewService(selectRestaurant);
+public class MainMenu implements IMainMenu<Integer> {
+    private final Validator validator;
+    private final CreateRestaurantController createRestaurant;
+    private final UpdateRestaurantController updateRestaurant;
+    private final DeleteRestaurantController deleteRestaurant;
+    private final ListRestaurantController listRestaurant;
+    private final AddDishController addDish;
+    private final UpdateDishController updateDish;
+    private final DeleteDishController deleteDish;
+    private final CreateDishReviewController createDishReview;
+    private final ShowDishReviewController showDishReview;
+    private final CreateRestaurantReviewController createRestaurantReview;
+    private final ShowRestaurantReviewController showRestaurantReview;
 
+    public MainMenu(AddDishController addDish, Validator validator, CreateRestaurantController createRestaurant, UpdateRestaurantController updateRestaurant, DeleteRestaurantController deleteRestaurant, ListRestaurantController listRestaurant, UpdateDishController updateDish, DeleteDishController deleteDish, CreateDishReviewController createDishReview, ShowDishReviewController showDishReview, CreateRestaurantReviewController createRestaurantReview, ShowRestaurantReviewController showRestaurantReview) {
+        this.addDish = addDish;
+        this.validator = validator;
+        this.createRestaurant = createRestaurant;
+        this.updateRestaurant = updateRestaurant;
+        this.deleteRestaurant = deleteRestaurant;
+        this.listRestaurant = listRestaurant;
+        this.updateDish = updateDish;
+        this.deleteDish = deleteDish;
+        this.createDishReview = createDishReview;
+        this.showDishReview = showDishReview;
+        this.createRestaurantReview = createRestaurantReview;
+        this.showRestaurantReview = showRestaurantReview;
+    }
 
     private Integer showMainMenu() {
         return validator.readInt(
@@ -94,17 +90,17 @@ public class MainMenu implements IMainMenu {
     @Override
     public Integer execute() {
         Map<Integer, ICommandController> controllerMap = new HashMap<>();
-        controllerMap.put(1, new CreateRestaurantController(createRestaurant));
-        controllerMap.put(2, new ListRestaurantController(listRestaurant));
-        controllerMap.put(3, new UpdateRestaurantController(updateRestaurant));
-        controllerMap.put(4, new DeleteRestaurantController(deleteRestaurant));
-        controllerMap.put(5, new AddDishController(addDishService));
-        controllerMap.put(6, new UpdateDishController(updateDish));
-        controllerMap.put(7, new DeleteDishController(deleteDish));
-        controllerMap.put(8, new CreateDishReviewController(createDishReview));
-        controllerMap.put(9, new ShowDishReviewController(showDishReview));
-        controllerMap.put(10, new CreateRestaurantReviewController(createRestaurantReview));
-        controllerMap.put(11, new ShowRestaurantReviewController(showRestaurantReview));
+        controllerMap.put(1, createRestaurant);
+        controllerMap.put(2, listRestaurant);
+        controllerMap.put(3, updateRestaurant);
+        controllerMap.put(4, deleteRestaurant);
+        controllerMap.put(5, addDish);
+        controllerMap.put(6, updateDish);
+        controllerMap.put(7, deleteDish);
+        controllerMap.put(8, createDishReview);
+        controllerMap.put(9, showDishReview);
+        controllerMap.put(10, createRestaurantReview);
+        controllerMap.put(11, showRestaurantReview);
 
         Integer option;
 

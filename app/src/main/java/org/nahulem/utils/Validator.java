@@ -46,11 +46,17 @@ public class Validator {
                 "s", true, "si", true, "y", true, "yes", true,
                 "n", false, "no", false
         );
-        System.out.print(prompt);
-        String input = scanner.nextLine().trim().toLowerCase();
-        Boolean result = responses.get(input);
-        return result;
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.nextLine().trim().toLowerCase();
+            if (responses.containsKey(input)) {
+                return responses.get(input);
+            } else {
+                System.err.println("Error: Debe ingresar una respuesta válida (sí/no).");
+            }
+        }
     }
+
 
     public Float readRating(String prompt) {
         Float rating = readFloat(prompt);

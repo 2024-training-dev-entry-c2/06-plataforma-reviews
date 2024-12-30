@@ -1,9 +1,5 @@
 package org.example.services.utils;
 
-
-import org.example.repositories.DishRepository;
-import org.example.repositories.MenuRepository;
-import org.example.repositories.RestaurantRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,18 +10,12 @@ import static org.mockito.Mockito.*;
 
 class MenuMainTest {
     private ValidatorScanner mockValidatorScanner;
-    private RestaurantRepository mockRestaurantRepository;
-    private MenuRepository mockMenuRepository;
-    private DishRepository mockDishRepository;
     private MenuMain menuMain;
 
     @BeforeEach
     void setUp() {
         // Crear mocks
         mockValidatorScanner = mock(ValidatorScanner.class);
-        mockRestaurantRepository = mock(RestaurantRepository.class);
-        mockMenuRepository = mock(MenuRepository.class);
-        mockDishRepository = mock(DishRepository.class);
         menuMain = new MenuMain(mockValidatorScanner);
     }
 

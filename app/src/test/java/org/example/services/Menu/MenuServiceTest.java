@@ -41,19 +41,19 @@ class MenuServiceTest {
                 .thenReturn(restaurantName);
         when(mockRepository.getRestaurant(restaurantName))
                 .thenReturn(restaurant);
-        when(mockValidatorScanner.stringScanner("Escribe el nombre del plato "))
+        when(mockValidatorScanner.stringScanner("Escribe el nombre del plato:"))
                 .thenReturn(dishName);
-        when(mockValidatorScanner.stringScanner("Escribe una descripcion "))
+        when(mockValidatorScanner.stringScanner("Escribe una descripcion:"))
                 .thenReturn(description);
-        when(mockValidatorScanner.doubleScanner("Escribe el precio: "))
+        when(mockValidatorScanner.doubleScanner("Escribe el precio:"))
                 .thenReturn(price);
 
         addDishFood.execute();
         verify(mockValidatorScanner).stringScanner("Escribe el nombre del Restaurante");
         verify(mockRepository).getRestaurant(restaurantName);
-        verify(mockValidatorScanner).stringScanner("Escribe el nombre del plato ");
-        verify(mockValidatorScanner).stringScanner("Escribe una descripcion ");
-        verify(mockValidatorScanner).doubleScanner("Escribe el precio: ");
+        verify(mockValidatorScanner).stringScanner("Escribe el nombre del plato:");
+        verify(mockValidatorScanner).stringScanner("Escribe una descripcion:");
+        verify(mockValidatorScanner).doubleScanner("Escribe el precio:");
 
 
     }

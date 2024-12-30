@@ -224,4 +224,14 @@ class DataRepositoryTest {
     assertNotNull(repository.getRestaurant("Restaurante 1"));
     assertEquals(4.0, repository.calculateAverageRatingRestaurant("Restaurante 1"));
   }
+
+  @Test
+  @DisplayName("Test Clear")
+  void testClear() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    repository.addRestaurant(restaurant);
+    repository.clear();
+    assertTrue(repository.getAllRestaurants().isEmpty());
+    verify(mockObserver, times(1)).update(anyString());
+  }
 }

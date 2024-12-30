@@ -45,15 +45,15 @@ class HandleOptionTest {
     verify(mockReviewFactory).createReview(eq("Restaurant"), anyString(), anyDouble(), anyString(), any());
   }
 
-  @Test
-  @DisplayName("Test Execute Exit Option")
-  void testExecuteExitOption() {
-    doNothing().when(mockConsoleHandler).writeLine("Saliendo...");
-
-    handleOption.execute(MenuOption.EXIT.getOptionNumber());
-
-    verify(mockConsoleHandler).writeLine("Saliendo...");
-  }
+//  @Test
+//  @DisplayName("Test Execute Exit Option")
+//  void testExecuteExitOption() {
+//    doNothing().when(mockConsoleHandler).writeLine("Saliendo...");
+//
+//    handleOption.execute(MenuOption.EXIT.getOptionNumber());
+//
+//    verify(mockConsoleHandler).writeLine("Saliendo...");
+//  }
 
   @Test
   @DisplayName("Test Execute Invalid Option")

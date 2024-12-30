@@ -18,7 +18,7 @@ class AppTest {
     @Test
     void testMain() {
         // Arrange: Set up expected behavior for mocks
-        when(console.getString("Entra el nombre del restaurante: ")).thenReturn("La Pizzeria");
+        when(console.getString("Entra el nombre del restaurante: ")).thenReturn("La Pizzeria", "La Pizzeria");
         when(console.getString("Entra el teléfono del restaurante: ")).thenReturn("123456789");
         when(console.getString("Entra la dirección del restaurante: ")).thenReturn("123 Main Street");
         when(console.getInteger("Entra la disponibilidad del restaurante: ")).thenReturn(20);
@@ -26,10 +26,13 @@ class AppTest {
         // Act: Call the main method
         App.main(new String[]{});
 
-        // Assert: Verify interactions and expected outcomes
+        // Assert: Verify interactions and expected outcomes for adding a restaurant
         verify(console).getString("Entra el nombre del restaurante: ");
         verify(console).getString("Entra el teléfono del restaurante: ");
         verify(console).getString("Entra la dirección del restaurante: ");
         verify(console).getInteger("Entra la disponibilidad del restaurante: ");
+
+        // Assert: Verify interactions and expected outcomes for removing a restaurant
+        verify(console).getString("Entra el nombre del restaurante que deseas eliminar: ");
     }
 }

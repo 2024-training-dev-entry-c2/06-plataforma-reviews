@@ -1,18 +1,22 @@
+// RestaurantController.java
 package org.example.controllers;
 
 import org.example.models.Restaurant;
 import org.example.services.restaurant.AddRestaurantService;
 import org.example.services.restaurant.RemoveRestaurantService;
+import org.example.services.restaurant.DisplayRestaurantsService;
 import org.example.utils.consoleUtils.ConsoleUtils;
 
 public class RestaurantController {
     private final AddRestaurantService addRestaurantService;
     private final RemoveRestaurantService removeRestaurantService;
+    private final DisplayRestaurantsService displayRestaurantsService;
     private final ConsoleUtils console;
 
-    public RestaurantController(AddRestaurantService addRestaurantService, RemoveRestaurantService removeRestaurantService, ConsoleUtils console) {
+    public RestaurantController(AddRestaurantService addRestaurantService, RemoveRestaurantService removeRestaurantService, DisplayRestaurantsService displayRestaurantsService, ConsoleUtils console) {
         this.addRestaurantService = addRestaurantService;
         this.removeRestaurantService = removeRestaurantService;
+        this.displayRestaurantsService = displayRestaurantsService;
         this.console = console;
     }
 
@@ -46,5 +50,9 @@ public class RestaurantController {
         } catch (Exception e) {
             System.out.println("Error al eliminar el restaurante: " + e.getMessage());
         }
+    }
+
+    public void displayRestaurants() {
+        displayRestaurantsService.execute();
     }
 }

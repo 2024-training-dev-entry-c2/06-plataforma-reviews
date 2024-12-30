@@ -53,4 +53,14 @@ public class Dish {
     public void setReviews(List<DishReview> reviews) {
         this.reviews = reviews;
     }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", reviews=" + reviews +
+                '}';
+    }
 }

@@ -7,4 +7,6 @@ public interface IConsole {
     void writeLine(String message);
     Integer readInt(String message);
     LocalDate readDate(String message);
+    Double readDouble(String message);
+    Boolean readBooleanYesOrNo(String message);
 }

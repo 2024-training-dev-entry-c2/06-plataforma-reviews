@@ -14,7 +14,7 @@ public class UpdateRestaurantController implements IController {
     public void execute() {
         System.out.println("---Actualizando restaurante---");
         Restaurant restaurant = restaurantService.updateRestaurant();
-        System.out.println("---Restaurante actualizado con exito---");
         System.out.println(restaurant);
+        System.out.println("---Restaurante actualizado con exito---");
     }
 }

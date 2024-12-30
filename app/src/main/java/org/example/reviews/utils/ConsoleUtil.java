@@ -48,4 +48,25 @@ public class ConsoleUtil implements IConsole {
         }
         return date;
     }
+
+    @Override
+    public Double readDouble(String message) {
+        writeLine(message);
+        double value = 0;
+        try{
+            value =  scanner.nextDouble();
+            scanner.nextLine();
+        } catch (NumberFormatException e) {
+            writeLine("-- Introduzca un numero valido");
+            readDouble(message);
+        }
+        return value;
+    }
+
+    @Override
+    public Boolean readBooleanYesOrNo(String message) {
+        writeLine(message);
+        return scanner.nextLine().equalsIgnoreCase("si");
+
+    }
 }

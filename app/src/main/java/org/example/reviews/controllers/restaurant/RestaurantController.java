@@ -33,28 +33,28 @@ public class RestaurantController implements IController {
         );
         int option = 0;
         do {
-            showSubMenuRestaurant();
+            showRestaurantSubMenu();
             option = console.readInt("Seleccione una opcion: ");
             executeController(option, controllers);
-        }while (option != 5);
+        }while (option != 9);
 
         console.writeLine("Volviendo al menu principal...");
 
     }
 
     private void executeController(int option, Map<Integer, IController> controllers) {
-        if (option != 5) {
+        if (option != 9) {
             controllers.get(option).execute();
         }
     }
 
 
-    public void showSubMenuRestaurant(){
+    public void showRestaurantSubMenu(){
         console.writeLine("1. Crear restaurante");
         console.writeLine("2. Mostrar restaurantes");
         console.writeLine("3. Actualizar restaurante");
         console.writeLine("4. Eliminar restaurante");
-        console.writeLine("5. Volver menu principal");
+        console.writeLine("9. Volver menu principal");
     }
 
 }

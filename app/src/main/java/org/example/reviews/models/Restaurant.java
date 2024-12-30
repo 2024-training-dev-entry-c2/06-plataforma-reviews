@@ -25,6 +25,9 @@ public class Restaurant {
 
     public Restaurant() {}
 
+    public void addMenu(Menu menu) {
+        this.menus.add(menu);
+    }
     public Integer getId() {
         return id;
     }
@@ -80,7 +83,7 @@ public class Restaurant {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", schedule='" + schedule + '\'' +
-                ", menus=" + menus +
+                ", menus=" + menus.size() +
                 ", reviews=" + reviews +
                 '}';
     }

@@ -53,4 +53,14 @@ public class Menu {
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
     }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", restaurant=" + restaurant.getName() +
+                ", dishes=" + dishes.toString() +
+                '}';
+    }
 }

@@ -15,7 +15,7 @@ public class CreateRestaurantController implements IController {
     public void execute() {
         System.out.println("---Creando restaurante---");
         Restaurant restaurant = restaurantService.createRestaurant();
-        System.out.println("---Restaurante creado con exito---");
         System.out.println(restaurant);
+        System.out.println("---Restaurante creado con exito---");
     }
 }

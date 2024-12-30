@@ -38,4 +38,13 @@ class AddDishControllerTest {
 
         verify(mockAddDishService).execute();
     }
+
+    @Test
+    void testNullMenu() {
+        when(mockAddDishService.execute()).thenReturn(null);
+
+        addDishController.execute();
+
+        verify(mockAddDishService).execute();
+    }
 }

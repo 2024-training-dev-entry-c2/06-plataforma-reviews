@@ -1,8 +1,10 @@
 package org.nahulem.repositories;
 
 import org.nahulem.models.Dish;
+import org.nahulem.models.DishReview;
 import org.nahulem.models.Menu;
 import org.nahulem.models.Restaurant;
+import org.nahulem.models.RestaurantReview;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -116,6 +118,7 @@ public class DataRepository {
     }
 
     private void initialize() {
+        // Crear platos
         Dish parrillaDish1 = new Dish("Empanadas de carne", "Deliciosas empanadas rellenas de carne cortada a cuchillo.", 3.5f, new ArrayList<>());
         Dish parrillaDish2 = new Dish("Asado de tira", "Corte clásico argentino cocido a la parrilla.", 15.0f, new ArrayList<>());
         Dish parrillaDish3 = new Dish("Flan con dulce de leche", "Flan casero acompañado de dulce de leche artesanal.", 5.0f, new ArrayList<>());
@@ -137,6 +140,7 @@ public class DataRepository {
         addDish(urbanaDish2);
         addDish(urbanaDish3);
 
+        // Crear menús
         Menu parrillaMenu = new Menu("Parrilla", new ArrayList<>(List.of(
                 getDish(parrillaDish1.getDishId()),
                 getDish(parrillaDish2.getDishId()),
@@ -153,10 +157,35 @@ public class DataRepository {
                 getDish(urbanaDish3.getDishId())
         )));
 
+        // Crear restaurantes
         Restaurant parrilla = new Restaurant("La Parrilla Porteña", "Hermosa parrillada en barrio clásico de Buenos Aires", "San Telmo, Buenos Aires", parrillaMenu);
         Restaurant pastas = new Restaurant("Casa de Pastas Don Pepe", "Pastas caseras en Buenos Aires", "Recoleta, Buenos Aires", pastasMenu);
         Restaurant urbana = new Restaurant("Cocina Urbana", "Comida rápida y saludable en Buenos Aires", "Palermo, Buenos Aires", urbanaMenu);
 
+        // Agregar reseñas a los platos
+        parrillaDish1.addReview(new DishReview("Sabor increíble, me encantaron.", 4.8f, 4.9f));
+        parrillaDish2.addReview(new DishReview("Excelente corte de carne.", 5.0f, 4.8f));
+        parrillaDish3.addReview(new DishReview("El flan estaba delicioso.", 4.5f, 4.7f));
+
+        pastasDish1.addReview(new DishReview("La pasta estaba perfectamente cocida.", 4.7f, 4.8f));
+        pastasDish2.addReview(new DishReview("La bolognesa estaba muy buena.", 4.6f, 4.5f));
+        pastasDish3.addReview(new DishReview("El tiramisú es espectacular.", 4.9f, 5.0f));
+
+        urbanaDish1.addReview(new DishReview("La hamburguesa estaba deliciosa.", 4.7f, 4.8f));
+        urbanaDish2.addReview(new DishReview("Fresca y bien servida.", 4.5f, 4.4f));
+        urbanaDish3.addReview(new DishReview("Perfecto balance de dulce.", 4.8f, 4.9f));
+
+        // Agregar reseñas a los restaurantes
+        parrilla.addReview(new RestaurantReview("Excelente atención y calidad.", 5.0f, 4.8f, 4.9f));
+        parrilla.addReview(new RestaurantReview("Muy buena parrilla, pero algo cara.", 4.5f, 4.4f, 4.3f));
+
+        pastas.addReview(new RestaurantReview("Las pastas estaban excelentes.", 4.9f, 5.0f, 4.8f));
+        pastas.addReview(new RestaurantReview("Ambiente acogedor.", 4.7f, 4.5f, 4.6f));
+
+        urbana.addReview(new RestaurantReview("Rápido y muy rico.", 4.8f, 4.7f, 4.6f));
+        urbana.addReview(new RestaurantReview("Me encantó el ambiente moderno.", 4.6f, 4.5f, 4.7f));
+
+        // Agregar restaurantes al repositorio
         addRestaurant(parrilla);
         addRestaurant(pastas);
         addRestaurant(urbana);

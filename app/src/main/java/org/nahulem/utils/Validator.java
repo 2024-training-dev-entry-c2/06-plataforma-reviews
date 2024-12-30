@@ -47,6 +47,15 @@ public class Validator {
         return result;
     }
 
+    public Float readRating(String prompt) {
+        Float rating = readFloat(prompt);
+        if (rating < 0 || rating > 5) {
+            System.err.println("Error: La calificación debe estar entre 0 y 5.");
+            return readRating(prompt);
+        }
+        return rating;
+    }
+
     public void printMessage(String message) {
         System.out.println(message);
     }

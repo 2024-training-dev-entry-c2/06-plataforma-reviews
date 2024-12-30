@@ -4,19 +4,20 @@ import org.nahulem.models.DishReview;
 import org.nahulem.models.RestaurantReview;
 import org.nahulem.models.Review;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ReviewFactory {
 
-    public static Review createReview(String typeOfReview, String idReview, String comment, Float... ratings) {
-        Map<String, Review> reviews = new HashMap<>();
-        if ("Dish".equals(typeOfReview) && ratings.length >= 2) {
-            reviews.put("Dish", new DishReview(idReview, comment, ratings[0], ratings[1]));
-        } else if ("Restaurant".equals(typeOfReview) && ratings.length >= 3) {
-            reviews.put("Restaurant", new RestaurantReview(idReview, comment, ratings[0], ratings[1], ratings[2]));
+    public static Review createReview(String comment, Float... ratings) {
+        Review review = switch (ratings.length) {
+            case 3 -> new RestaurantReview(comment, ratings[0], ratings[1], ratings[2]);
+            case 2 -> new DishReview(comment, ratings[0], ratings[1]);
+            default -> null;
+        };
+
+        if (review != null) {
+            review.calculateRating();
         }
-        return reviews.get(typeOfReview);
+
+        return review;
     }
 
 }

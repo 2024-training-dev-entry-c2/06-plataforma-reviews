@@ -13,7 +13,7 @@ public class Dish implements IObservable {
     private String description;
     private Float price;
     private List<Review> reviews;
-    private static List<IObserver> observers;
+    private static final List<IObserver> observers = new ArrayList<>();
 
 
     public Dish(String name, String description, Float price, List<Review> reviews) {
@@ -33,7 +33,6 @@ public class Dish implements IObservable {
 
     public void addReview(Review review) {
         reviews.add(review);
-        notifyObservers("Nueva reseña añadida al plato: " + name);
     }
 
     public float calculateAverageRating() {
@@ -44,18 +43,21 @@ public class Dish implements IObservable {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append("Nombre: ").append(name).append("\n")
-                .append("Descripción: ").append(description).append("\n")
-                .append("Precio: $").append(price).append("\n");
+        String result = "Nombre: " + name +
+                "\nDescripción: " + description +
+                "\nPrecio: $" + price +
+                "\nReseñas del plato " + name + " :";
 
-        if (!reviews.isEmpty()) {
-            result.append("Reseñas:\n");
-            reviews.forEach(review -> result.append("  - ").append(review.toString()).append("\n"));
+        if (reviews.isEmpty()) {
+            result += " No hay reseñas.";
         } else {
-            result.append("Sin reseñas.\n");
+            for (Review review : reviews) {
+                result += "\n    - " + review.toString();
+            }
+            result += "\n____________________________________________________";
         }
-        return result.toString();
+
+        return result;
     }
 
 

@@ -26,7 +26,6 @@ public class Restaurant implements IObservable {
     }
 
     public Restaurant() {
-        this.reviews = new ArrayList<>();
     }
 
     @Override
@@ -65,12 +64,29 @@ public class Restaurant implements IObservable {
 
     @Override
     public String toString() {
-        return "\nNombre: " + name +
+        String result = "===============================================" +
+                "\nNombre: " + name +
                 "\nDescripción: " + description +
-                "\nLocación : " + location +
-                "\nMenú: " + menu.toString() +
-                "\nReviews: " + reviews.toString();
+                "\nLocación: " + location +
+                "\nMenú: " + menu.getName() + "\n" +
+                "\nPlatos:\n";
+
+        for (Dish dish : menu.getDishes()) {
+            result += dish.toString() + "\n";
+        }
+
+        result += "\nReseñas del restaurante:\n";
+        if (reviews.isEmpty()) {
+            result += "  No hay reseñas.\n";
+        } else {
+            for (Review review : reviews) {
+                result += "  - " + review.toString() + "\n";
+            }
+        }
+
+        return result;
     }
+
 
     public String getDescription() {
         return description;

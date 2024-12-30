@@ -13,9 +13,11 @@ public class DishReview extends Review {
 
     @Override
     public void calculateRating() {
-        setAverageRating((tasteRating + presentationRating) / 2);
-
+        Float average = (tasteRating + presentationRating) / 2;
+        setAverageRating(Math.round(average * 100) / 100.0f);
     }
+
+
 
     @Override
     public String toString() {

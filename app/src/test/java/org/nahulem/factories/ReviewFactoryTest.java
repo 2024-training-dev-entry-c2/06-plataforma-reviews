@@ -11,15 +11,17 @@ class ReviewFactoryTest {
     void createRestaurantReview() {
         Review review = ReviewFactory.createReview("Excelente restaurante", 4.5f, 4.0f, 4.8f);
         assertNotNull(review);
-        assertEquals(4.4f, review.getAverageRating());
+        assertEquals(4.43f, review.getAverageRating(), 0.01f); // Añadir tolerancia
     }
+
 
     @Test
     void createDishReview() {
         Review review = ReviewFactory.createReview("Delicioso plato", 4.0f, 4.5f);
         assertNotNull(review);
-        assertEquals(4.3f, review.getAverageRating());
+        assertEquals(4.25f, review.getAverageRating(), 0.01f); // Añadir tolerancia
     }
+
 
     @Test
     void createInvalidReview() {

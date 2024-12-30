@@ -1,27 +1,58 @@
 package org.nahulem.models;
 
+import org.nahulem.models.interfaces.IObservable;
 import org.nahulem.models.interfaces.IObserver;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
-public class Dish {
+public class Dish implements IObservable {
     private static Integer idCounter = 0;
     private Integer dishId;
     private String name;
     private String description;
     private Float price;
     private List<Review> reviews;
-    private final LinkedList<IObserver> observerList = new LinkedList<>();
-
+    private final Set<IObserver> observerSet = new HashSet<>();
 
     public Dish(String name, String description, Float price) {
         this.dishId = generateId();
         this.name = name;
         this.description = description;
         this.price = price;
-        this.reviews = new ArrayList<>();
+        this.reviews = new LinkedList<>();
+    }
+
+    @Override
+    public void addObserver(IObserver observer) {
+        observerSet.add(observer);
+    }
+
+    @Override
+    public void notifyObservers(String message) {
+        observerSet.forEach(observer -> observer.update(message));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder("Nombre: ");
+        result.append(name).append("\n")
+                .append("Descripción: ").append(description).append("\n")
+                .append("Precio: $").append(price).append("\n")
+                .append("Reseñas del plato ").append(name).append(" :\n");
+
+        if (reviews.isEmpty()) {
+            result.append(" No hay reseñas.");
+        } else {
+            for (Review review : reviews) {
+                result.append("    - ").append(review.toString()).append("\n");
+            }
+            result.append("\n____________________________________________________");
+        }
+
+        return result.toString();
     }
 
     private Integer generateId() {
@@ -31,26 +62,6 @@ public class Dish {
     public void addReview(Review review) {
         reviews.add(review);
     }
-
-    @Override
-    public String toString() {
-        String result = "Nombre: " + name +
-                "\nDescripción: " + description +
-                "\nPrecio: $" + price +
-                "\nReseñas del plato " + name + " :";
-
-        if (reviews.isEmpty()) {
-            result += " No hay reseñas.";
-        } else {
-            for (Review review : reviews) {
-                result += "\n    - " + review.toString();
-            }
-            result += "\n____________________________________________________";
-        }
-
-        return result;
-    }
-
 
     public String getDescription() {
         return description;
@@ -84,11 +95,4 @@ public class Dish {
         return reviews;
     }
 
-    public void addObserver(IObserver observer) {
-        observerList.add(observer);
-    }
-
-    public void notifyObservers(String message) {
-        observerList.forEach(observer -> observer.update(message));
-    }
 }

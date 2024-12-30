@@ -1,13 +1,14 @@
 package org.nahulem.models;
 
+import org.nahulem.models.interfaces.IObservable;
 import org.nahulem.models.interfaces.IObserver;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.HashSet;
 
-public class Restaurant {
+public class Restaurant implements IObservable {
     private static Integer idCounter = 0;
     private Integer restaurantId;
     private String name;
@@ -23,13 +24,15 @@ public class Restaurant {
         this.description = description;
         this.location = location;
         this.menu = menu;
-        this.reviews = new ArrayList<>();
+        this.reviews = new LinkedList<>();
     }
 
+    @Override
     public void addObserver(IObserver observer) {
         observerSet.add(observer);
     }
 
+    @Override
     public void notifyObservers(String message) {
         observerSet.forEach(observer -> observer.update(message));
     }
@@ -51,30 +54,29 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        String result = "===============================================" +
-                "\nNombre: " + name +
-                "\nDescripción: " + description +
-                "\nLocación: " + location +
-                "\nCalificacion: " + calculateAverageRating() +
-                "\nMenú: " + menu.getName() + "\n" +
-                "\nPlatos:\n";
+        StringBuilder result = new StringBuilder("===============================================\n");
+        result.append("Nombre: ").append(name).append("\n")
+                .append("Descripción: ").append(description).append("\n")
+                .append("Locación: ").append(location).append("\n")
+                .append("Calificacion: ").append(calculateAverageRating()).append("\n")
+                .append("Menú: ").append(menu.getName()).append("\n\n")
+                .append("Platos:\n");
 
         for (Dish dish : menu.getDishes()) {
-            result += dish.toString() + "\n";
+            result.append(dish.toString()).append("\n");
         }
 
-        result += "\nReseñas del restaurante:\n";
+        result.append("\nReseñas del restaurante:\n");
         if (reviews.isEmpty()) {
-            result += "  No hay reseñas.\n";
+            result.append("  No hay reseñas.\n");
         } else {
             for (Review review : reviews) {
-                result += "  - " + review.toString() + "\n";
+                result.append("  - ").append(review.toString()).append("\n");
             }
         }
 
-        return result;
+        return result.toString();
     }
-
 
     public String getDescription() {
         return description;
@@ -120,4 +122,3 @@ public class Restaurant {
         this.restaurantId = restaurantId;
     }
 }
-

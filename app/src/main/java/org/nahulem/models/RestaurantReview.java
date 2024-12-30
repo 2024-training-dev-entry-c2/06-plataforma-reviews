@@ -15,7 +15,8 @@ public class RestaurantReview extends Review {
 
     @Override
     public void calculateRating() {
-        setAverageRating((menuRating + serviceRating + environmentRating) / 3);
+        Float average = (menuRating + serviceRating + environmentRating) / 3;
+        setAverageRating(Math.round(average * 100) / 100.0f);
     }
 
     @Override

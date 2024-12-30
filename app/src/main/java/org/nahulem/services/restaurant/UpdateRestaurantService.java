@@ -21,42 +21,36 @@ public class UpdateRestaurantService implements ICommand<Boolean> {
         Restaurant restaurant = selectRestaurantService.execute();
 
         if (restaurant == null) {
-            return null;
+            return false;
         }
 
-        Restaurant existingRestaurant = repository.getRestaurant(restaurant.getRestaurantId());
+        updateRestaurant(restaurant);
 
-        if (existingRestaurant == null) {
-            validator.printMessage("El restaurante no existe.");
-            return null;
-        }
+        notifyObservers(restaurant);
 
-        updateRestaurant(existingRestaurant);
-
-        notifyObservers(existingRestaurant);
-
-        return repository.updateRestaurant(existingRestaurant);
+        return repository.updateRestaurant(restaurant);
     }
 
-    private void updateRestaurant(Restaurant existingRestaurant) {
-        validator.printMessage("Actualización de Restaurante (deje vacío para no modificar): ");
-        String name = validator.readString("Ingresa el nuevo nombre del restaurante: ");
-        existingRestaurant.setName(validateOrKeep(name, existingRestaurant.getName()));
+private void updateRestaurant(Restaurant existingRestaurant) {
+    validator.printMessage("Actualización de Restaurante (deje vacío para no modificar): ");
 
-        String description = validator.readString("Ingresa la nueva descripción del restaurante: ");
-        existingRestaurant.setDescription(validateOrKeep(description, existingRestaurant.getDescription()));
+    String name = validator.readString("Ingresa el nuevo nombre del restaurante: ");
+    existingRestaurant.setName(validateOrKeep(name, existingRestaurant.getName()));
 
-        String location = validator.readString("Ingresa la nueva ubicación del restaurante: ");
-        existingRestaurant.setLocation(validateOrKeep(location, existingRestaurant.getLocation()));
-    }
+    String description = validator.readString("Ingresa la nueva descripción del restaurante: ");
+    existingRestaurant.setDescription(validateOrKeep(description, existingRestaurant.getDescription()));
 
-    private void notifyObservers(Restaurant restaurant) {
-        String message = "El restaurante " + restaurant.getName() + " ha sido actualizado.";
-        restaurant.notifyObservers(message);
-        validator.printMessage("Notificación enviada a los observadores del restaurante.");
-    }
+    String location = validator.readString("Ingresa la nueva ubicación del restaurante: ");
+    existingRestaurant.setLocation(validateOrKeep(location, existingRestaurant.getLocation()));
+}
 
-    private String validateOrKeep(String newValue, String existingValue) {
-        return newValue.isEmpty() ? existingValue : newValue;
-    }
+private void notifyObservers(Restaurant restaurant) {
+    String message = "El restaurante " + restaurant.getName() + " ha sido actualizado.";
+    restaurant.notifyObservers(message);
+    validator.printMessage("Notificación enviada a los observadores del restaurante.");
+}
+
+private String validateOrKeep(String newValue, String existingValue) {
+    return newValue.isEmpty() ? existingValue : newValue;
+}
 }

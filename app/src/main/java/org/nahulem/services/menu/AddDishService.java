@@ -65,7 +65,7 @@ public class AddDishService implements ICommand<Menu> {
         String description = validator.readString("Ingrese la descripción del plato: \n");
         Float price = validator.readFloat("Ingrese el precio del plato: \n");
 
-        Dish newDish = new Dish(name, description, price, new ArrayList<>());
+        Dish newDish = new Dish(name, description, price);
         repository.addDish(newDish);
         menu.addDish(newDish);
         validator.printMessage("Plato agregado exitosamente al menú.");

@@ -13,10 +13,10 @@ public class Dish extends Observable {
     private String description;
     private Float price;
     private List<Review> reviews;
-    private final LinkedList<IObserver> observers = new LinkedList<>();
+    private final LinkedList<IObserver> observerList = new LinkedList<>();
 
 
-    public Dish(String name, String description, Float price, List<Review> reviews) {
+    public Dish(String name, String description, Float price) {
         this.dishId = generateId();
         this.name = name;
         this.description = description;
@@ -90,11 +90,11 @@ public class Dish extends Observable {
 
     @Override
     public void addObserver(IObserver observer) {
-        observers.add(observer);
+        observerList.add(observer);
     }
 
     @Override
     public void notifyObservers(String message) {
-        observers.forEach(observer -> observer.update(message));
+        observerList.forEach(observer -> observer.update(message));
     }
 }

@@ -20,6 +20,10 @@ public class SelectRestaurantService implements ICommand<Restaurant> {
     public Restaurant execute() {
         Map<Integer, Restaurant> restaurants = repository.getAllRestaurants();
 
+        if (restaurants.isEmpty()) {
+            return null;
+        }
+
         showRestaurants(restaurants);
 
         int index = selectRestaurant(restaurants.size());
@@ -28,15 +32,16 @@ public class SelectRestaurantService implements ICommand<Restaurant> {
     }
 
     private int selectRestaurant(int size) {
-        int index = validator.readInt("Ingresa el número del restaurante que deseas seleccionar: \n");
-
-        if (index < 1 || index > size) {
+        while (true) {
+            int index = validator.readInt("Ingresa el número del restaurante que deseas seleccionar: \n");
+            if (index >= 1 && index <= size) {
+                return index;
+            }
             validator.printMessage("El número ingresado no es válido, intenta de nuevo.");
-            return selectRestaurant(size);
         }
-
-        return index;
     }
+
+
 
     private void showRestaurants(Map<Integer, Restaurant> restaurants) {
         validator.printMessage("Lista de Restaurantes: \n-------------------");

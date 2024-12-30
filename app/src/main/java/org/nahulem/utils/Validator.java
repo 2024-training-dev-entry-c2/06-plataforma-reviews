@@ -18,10 +18,15 @@ public class Validator {
     }
 
     public Integer readInt(String prompt) {
-        System.out.print(prompt);
-        String input = scanner.nextLine().trim();
-        return Integer.parseInt(input);
-
+        int input;
+        try {
+            System.out.print(prompt);
+            input = Integer.parseInt(scanner.nextLine());
+            return input;
+        } catch (NumberFormatException e) {
+            System.err.println("Error: Debe ingresar un número entero.");
+            return readInt(prompt);
+        }
     }
 
     public Float readFloat(String prompt) {

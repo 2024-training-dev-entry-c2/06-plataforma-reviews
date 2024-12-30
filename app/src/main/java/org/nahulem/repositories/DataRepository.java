@@ -69,23 +69,23 @@ public class DataRepository {
     }
 
     private void initialize() {
-        Dish parrillaDish1 = new Dish("Empanadas de carne", "Deliciosas empanadas rellenas de carne cortada a cuchillo.", 3.5f, new ArrayList<>());
-        Dish parrillaDish2 = new Dish("Asado de tira", "Corte clásico argentino cocido a la parrilla.", 15.0f, new ArrayList<>());
-        Dish parrillaDish3 = new Dish("Flan con dulce de leche", "Flan casero acompañado de dulce de leche artesanal.", 5.0f, new ArrayList<>());
+        Dish parrillaDish1 = new Dish("Empanadas de carne", "Deliciosas empanadas rellenas de carne cortada a cuchillo.", 3.5f);
+        Dish parrillaDish2 = new Dish("Asado de tira", "Corte clásico argentino cocido a la parrilla.", 15.0f);
+        Dish parrillaDish3 = new Dish("Flan con dulce de leche", "Flan casero acompañado de dulce de leche artesanal.", 5.0f);
         addDish(parrillaDish1);
         addDish(parrillaDish2);
         addDish(parrillaDish3);
 
-        Dish pastasDish1 = new Dish("Ravioles de ricota y espinaca", "Ravioles rellenos de ricota y espinaca con salsa de tomate.", 10.0f, new ArrayList<>());
-        Dish pastasDish2 = new Dish("Fideos a la bolognesa", "Fideos caseros con salsa bolognesa y queso rallado.", 9.0f, new ArrayList<>());
-        Dish pastasDish3 = new Dish("Tiramisú", "Tiramisú casero con café y licor.", 6.0f, new ArrayList<>());
+        Dish pastasDish1 = new Dish("Ravioles de ricota y espinaca", "Ravioles rellenos de ricota y espinaca con salsa de tomate.", 10.0f);
+        Dish pastasDish2 = new Dish("Fideos a la bolognesa", "Fideos caseros con salsa bolognesa y queso rallado.", 9.0f);
+        Dish pastasDish3 = new Dish("Tiramisú", "Tiramisú casero con café y licor.", 6.0f);
         addDish(pastasDish1);
         addDish(pastasDish2);
         addDish(pastasDish3);
 
-        Dish urbanaDish1 = new Dish("Hamburguesa con cheddar", "Hamburguesa de carne con queso cheddar y panceta.", 12.0f, new ArrayList<>());
-        Dish urbanaDish2 = new Dish("Ensalada de pollo", "Ensalada de pollo con vegetales frescos y aderezo de mostaza.", 8.0f, new ArrayList<>());
-        Dish urbanaDish3 = new Dish("Brownie con helado", "Brownie de chocolate con helado de vainilla.", 7.0f, new ArrayList<>());
+        Dish urbanaDish1 = new Dish("Hamburguesa con cheddar", "Hamburguesa de carne con queso cheddar y panceta.", 12.0f);
+        Dish urbanaDish2 = new Dish("Ensalada de pollo", "Ensalada de pollo con vegetales frescos y aderezo de mostaza.", 8.0f);
+        Dish urbanaDish3 = new Dish("Brownie con helado", "Brownie de chocolate con helado de vainilla.", 7.0f);
         addDish(urbanaDish1);
         addDish(urbanaDish2);
         addDish(urbanaDish3);

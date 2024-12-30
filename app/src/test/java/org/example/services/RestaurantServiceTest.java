@@ -103,4 +103,40 @@ class RestaurantServiceTest {
   void testObserverUpdate() {
     restaurantService.update("Nuevo restaurante agregado: Restaurante 1");
   }
+
+  @Test
+  @DisplayName("Test Create Existing Restaurant")
+  void testCreateExistingRestaurant() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    when(mockRepository.getRestaurant("Restaurante 1")).thenReturn(restaurant);
+    assertThrows(IllegalArgumentException.class, () -> restaurantService.createRestaurant("Restaurante 1", "Calle Ficticia 123", true));
+  }
+
+  @Test
+  @DisplayName("Test Update Nonexistent Restaurant")
+  void testUpdateNonexistentRestaurant() {
+    when(mockRepository.getRestaurant("Nonexistent Restaurant")).thenReturn(null);
+    assertThrows(IllegalArgumentException.class, () -> restaurantService.updateRestaurant("Nonexistent Restaurant", "Calle Nueva 789", false));
+  }
+
+  @Test
+  @DisplayName("Test Delete Nonexistent Restaurant")
+  void testDeleteNonexistentRestaurant() {
+    when(mockRepository.getRestaurant("Nonexistent Restaurant")).thenReturn(null);
+    assertThrows(IllegalArgumentException.class, () -> restaurantService.deleteRestaurant("Nonexistent Restaurant"));
+  }
+
+  @Test
+  @DisplayName("Test Get Average Rating Of Nonexistent Restaurant")
+  void testGetAverageRatingOfNonexistentRestaurant() {
+    when(mockRepository.getRestaurant("Nonexistent Restaurant")).thenReturn(null);
+    assertThrows(IllegalArgumentException.class, () -> restaurantService.getAverageRatingOfRestaurant("Nonexistent Restaurant"));
+  }
+
+  @Test
+  @DisplayName("Test Observer Update With Non-Restaurant Message")
+  void testObserverUpdateWithNonRestaurantMessage() {
+    restaurantService.update("Some other message");
+
+  }
 }

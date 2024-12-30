@@ -72,6 +72,28 @@ class DishServiceTest {
   @DisplayName("Test Update Method")
   void testUpdate() {
     dishService.update("Nuevo plato añadido");
+  }
+  @Test
+  @DisplayName("Test Create Dish With Null Name")
+  void testCreateDishWithNullName() {
+    assertThrows(IllegalArgumentException.class, () -> dishService.createDish(null, "Descripción del plato", 10.0));
+  }
 
+  @Test
+  @DisplayName("Test Create Dish With Null Description")
+  void testCreateDishWithNullDescription() {
+    assertThrows(IllegalArgumentException.class, () -> dishService.createDish("Plato 1", null, 10.0));
+  }
+
+  @Test
+  @DisplayName("Test Create Dish With Negative Price")
+  void testCreateDishWithNegativePrice() {
+    assertThrows(IllegalArgumentException.class, () -> dishService.createDish("Plato 1", "Descripción del plato", -10.0));
+  }
+
+  @Test
+  @DisplayName("Test Update Method With Non-Dish Message")
+  void testUpdateWithNonDishMessage() {
+    dishService.update("Some other message");
   }
 }

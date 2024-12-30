@@ -234,4 +234,143 @@ class DataRepositoryTest {
     assertTrue(repository.getAllRestaurants().isEmpty());
     verify(mockObserver, times(1)).update(anyString());
   }
+
+  @Test
+  @DisplayName("Test Get Restaurant Not Found")
+  void testGetRestaurantNotFound() {
+    assertNull(repository.getRestaurant("Nonexistent Restaurant"));
+  }
+
+  @Test
+  @DisplayName("Test Get Dish Not Found")
+  void testGetDishNotFound() {
+    assertNull(repository.getDish("Nonexistent Dish"));
+  }
+
+  @Test
+  @DisplayName("Test Add Existing Restaurant")
+  void testAddExistingRestaurant() {
+    RestaurantModel restaurant = new RestaurantModel("Restaurante 1", "Calle Ficticia 123", true);
+    repository.addRestaurant(restaurant);
+    assertThrows(IllegalArgumentException.class, () -> repository.addRestaurant(restaurant));
+  }
+
+  @Test
+  @DisplayName("Test Add Existing Dish")
+  void testAddExistingDish() {
+    DishModel dish = new DishModel("Plato 1", "Descripción", 10.0);
+    repository.addDish(dish);
+    assertThrows(IllegalArgumentException.class, () -> repository.addDish(dish));
+  }
+
+  @Test
+  @DisplayName("Test Update Nonexistent Restaurant")
+  void testUpdateNonexistentRestaurant() {
+    RestaurantModel restaurant = new RestaurantModel("Nonexistent Restaurant", "Calle Ficticia 123", true);
+    assertThrows(IllegalArgumentException.class, () -> repository.updateRestaurant(restaurant));
+  }
+
+  @Test
+  @DisplayName("Test Remove Nonexistent Restaurant")
+  void testRemoveNonexistentRestaurant() {
+    assertThrows(IllegalArgumentException.class, () -> repository.removeRestaurant("Nonexistent Restaurant"));
+  }
+
+  @Test
+  @DisplayName("Test Add Review To Nonexistent Dish")
+  void testAddReviewToNonexistentDish() {
+    DishModel dish = new DishModel("Nonexistent Dish", "Descripción", 10.0);
+    DishReviewModel review = new DishReviewModel("Cliente 1", 5.0, "Excelente plato", dish);
+    assertThrows(IllegalArgumentException.class, () -> repository.addReviewToDish(review));
+  }
+
+  @Test
+  @DisplayName("Test Add Review To Nonexistent Restaurant")
+  void testAddReviewToNonexistentRestaurant() {
+    RestaurantModel restaurant = new RestaurantModel("Nonexistent Restaurant", "Calle Ficticia 123", true);
+    RestaurantReviewModel review = new RestaurantReviewModel("Cliente 1", 5.0, "Excelente", restaurant);
+    assertThrows(IllegalArgumentException.class, () -> repository.addReviewToRestaurant(review));
+  }
+
+  @Test
+  @DisplayName("Test Associate Menu To Nonexistent Restaurant")
+  void testAssociateMenuToNonexistentRestaurant() {
+    MenuModel menu = new MenuModel(new RestaurantModel("Nonexistent Restaurant", "Calle Ficticia 123", true), "Menú Principal");
+    assertThrows(IllegalArgumentException.class, () -> repository.associateMenuToRestaurant("Nonexistent Restaurant", menu));
+  }
+
+  @Test
+  @DisplayName("Test Add Dish To Menu Nonexistent Restaurant")
+  void testAddDishToMenuNonexistentRestaurant() {
+    DishModel dish = new DishModel("Plato 1", "Descripción", 10.0);
+    assertThrows(IllegalArgumentException.class, () -> repository.addDishToMenu("Nonexistent Restaurant", dish));
+  }
+
+  @Test
+  @DisplayName("Test Edit Dish In Menu Nonexistent Restaurant")
+  void testEditDishInMenuNonexistentRestaurant() {
+    DishModel updatedDish = new DishModel("Plato 1", "Nueva Descripción", 15.0);
+    assertThrows(IllegalArgumentException.class, () -> repository.editDishInMenu("Nonexistent Restaurant", "Plato 1", updatedDish));
+  }
+
+  @Test
+  @DisplayName("Test Remove Dish From Menu Nonexistent Restaurant")
+  void testRemoveDishFromMenuNonexistentRestaurant() {
+    assertThrows(IllegalArgumentException.class, () -> repository.removeDishFromMenu("Nonexistent Restaurant", "Plato 1"));
+  }
+
+  @Test
+  @DisplayName("Test Add Null Restaurant")
+  void testAddNullRestaurant() {
+    assertThrows(NullPointerException.class, () -> repository.addRestaurant(null));
+  }
+
+  @Test
+  @DisplayName("Test Add Null Dish")
+  void testAddNullDish() {
+    assertThrows(NullPointerException.class, () -> repository.addDish(null));
+  }
+
+  @Test
+  @DisplayName("Test Update Null Restaurant")
+  void testUpdateNullRestaurant() {
+    assertThrows(NullPointerException.class, () -> repository.updateRestaurant(null));
+  }
+
+  @Test
+  @DisplayName("Test Add Null Review To Dish")
+  void testAddNullReviewToDish() {
+    assertThrows(NullPointerException.class, () -> repository.addReviewToDish(null));
+  }
+
+  @Test
+  @DisplayName("Test Add Null Review To Restaurant")
+  void testAddNullReviewToRestaurant() {
+    assertThrows(NullPointerException.class, () -> repository.addReviewToRestaurant(null));
+  }
+
+  @Test
+  @DisplayName("Test Associate Null Menu To Restaurant")
+  void testAssociateNullMenuToRestaurant() {
+    assertThrows(NullPointerException.class, () -> repository.associateMenuToRestaurant("Restaurante 1", null));
+  }
+
+  @Test
+  @DisplayName("Test Add Null Dish To Menu")
+  void testAddNullDishToMenu() {
+    assertThrows(NullPointerException.class, () -> repository.addDishToMenu("Restaurante 1", null));
+  }
+
+  @Test
+  @DisplayName("Test Edit Null Dish In Menu")
+  void testEditNullDishInMenu() {
+    assertThrows(NullPointerException.class, () -> repository.editDishInMenu("Restaurante 1", "Plato 1", null));
+  }
+
+
+  @Test
+  @DisplayName("Test Notify Observers With Null Message")
+  void testNotifyObserversWithNullMessage() {
+    assertThrows(NullPointerException.class, () -> repository.notifyObservers(null));
+  }
 }

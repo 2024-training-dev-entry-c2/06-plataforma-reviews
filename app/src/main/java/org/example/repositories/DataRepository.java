@@ -1,12 +1,8 @@
 package org.example.repositories;
 
-import org.example.models.DishModel;
-import org.example.models.DishReviewModel;
-import org.example.models.MenuModel;
-import org.example.models.RestaurantModel;
+import org.example.models.*;
 import org.example.Interface.observable.Observable;
 import org.example.Interface.observable.Observer;
-import org.example.models.RestaurantReviewModel;
 
 import java.util.*;
 
@@ -45,16 +41,19 @@ public class DataRepository implements Observable {
 
   @Override
   public void addObserver(Observer observer) {
+    Objects.requireNonNull(observer, "El observador no puede ser nulo.");
     observers.add(observer);
   }
 
   @Override
   public void removeObserver(Observer observer) {
+    Objects.requireNonNull(observer, "El observador no puede ser nulo.");
     observers.remove(observer);
   }
 
   @Override
   public void notifyObservers(String message) {
+    Objects.requireNonNull(message, "El mensaje no puede ser nulo.");
     for (Observer observer : observers) {
       observer.update(message);
     }
@@ -108,6 +107,7 @@ public class DataRepository implements Observable {
   }
 
   public void addReviewToDish(DishReviewModel review) {
+    Objects.requireNonNull(review, "La review no puede ser nula.");
     DishModel dish = dishes.get(review.getDish().getName());
     if (dish == null) {
       throw new IllegalArgumentException("El plato no existe: " + review.getDish().getName());
@@ -118,6 +118,7 @@ public class DataRepository implements Observable {
   }
 
   public void addReviewToRestaurant(RestaurantReviewModel review) {
+    Objects.requireNonNull(review, "La review no puede ser nula.");
     RestaurantModel restaurant = restaurants.get(review.getRestaurant().getName());
     if (restaurant == null) {
       throw new IllegalArgumentException("Restaurante no encontrado: " + review.getRestaurant().getName());
@@ -128,6 +129,7 @@ public class DataRepository implements Observable {
   }
 
   public void associateMenuToRestaurant(String restaurantName, MenuModel menu) {
+    Objects.requireNonNull(menu, "El menú no puede ser nulo.");
     RestaurantModel restaurant = restaurants.get(restaurantName);
     if (restaurant == null) {
       throw new IllegalArgumentException("Restaurante no encontrado: " + restaurantName);
@@ -137,6 +139,7 @@ public class DataRepository implements Observable {
   }
 
   public void addDishToMenu(String restaurantName, DishModel dish) {
+    Objects.requireNonNull(dish, "El plato no puede ser nulo.");
     RestaurantModel restaurant = restaurants.get(restaurantName);
     if (restaurant == null || restaurant.getMenu() == null || dishes.get(dish.getName()) == null) {
       throw new IllegalArgumentException("Restaurante, menú o plato no encontrado: " + restaurantName);
@@ -146,6 +149,7 @@ public class DataRepository implements Observable {
   }
 
   public void editDishInMenu(String restaurantName, String dishName, DishModel updatedDish) {
+    Objects.requireNonNull(updatedDish, "El plato actualizado no puede ser nulo.");
     RestaurantModel restaurant = getRestaurantWithMenu(restaurantName);
     DishModel dish = findDishInMenu(restaurant.getMenu(), dishName);
     updateDishInMenu(restaurant.getMenu(), dish, updatedDish);
@@ -164,7 +168,7 @@ public class DataRepository implements Observable {
     return menu.getDishes().stream()
       .filter(dish -> dish.getName().equals(dishName))
       .findFirst()
-      .orElseThrow(() -> new IllegalArgumentException("Tarea terminada"));
+      .orElseThrow(() -> new IllegalArgumentException("Plato no encontrado en el menú: " + dishName));
   }
 
   private void updateDishInMenu(MenuModel menu, DishModel dish, DishModel updatedDish) {

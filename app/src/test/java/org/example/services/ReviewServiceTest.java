@@ -95,4 +95,38 @@ class ReviewServiceTest {
   void testObserverUpdate() {
     reviewService.update("Nueva review agregada");
   }
+  @Test
+  @DisplayName("Test Add Review To Nonexistent Restaurant")
+  void testAddReviewToNonexistentRestaurant() {
+    when(mockRepository.getRestaurant("Nonexistent Restaurant")).thenReturn(null);
+    assertThrows(IllegalArgumentException.class, () -> reviewService.addReviewToRestaurant("Nonexistent Restaurant", "Cliente 1", 5.0, "Excelente"));
+  }
+
+  @Test
+  @DisplayName("Test Add Review To Nonexistent Dish")
+  void testAddReviewToNonexistentDish() {
+    when(mockRepository.getDish("Nonexistent Dish")).thenReturn(null);
+    assertThrows(IllegalArgumentException.class, () -> reviewService.addReviewToDish("Nonexistent Dish", "Cliente 1", 5.0, "Excelente plato"));
+  }
+
+  @Test
+  @DisplayName("Test Get Reviews For Nonexistent Restaurant")
+  void testGetReviewsForNonexistentRestaurant() {
+    when(mockRepository.getRestaurant("Nonexistent Restaurant")).thenReturn(null);
+    assertThrows(IllegalArgumentException.class, () -> reviewService.getReviewsForRestaurant("Nonexistent Restaurant"));
+  }
+
+  @Test
+  @DisplayName("Test Get Reviews For Nonexistent Dish")
+  void testGetReviewsForNonexistentDish() {
+    when(mockRepository.getDish("Nonexistent Dish")).thenReturn(null);
+    assertThrows(IllegalArgumentException.class, () -> reviewService.getReviewsForDish("Nonexistent Dish"));
+  }
+
+  @Test
+  @DisplayName("Test Observer Update With Non-Review Message")
+  void testObserverUpdateWithNonReviewMessage() {
+    reviewService.update("Some other message");
+
+  }
 }

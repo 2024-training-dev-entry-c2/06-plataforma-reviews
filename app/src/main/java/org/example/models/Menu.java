@@ -7,7 +7,6 @@ public class Menu {
     private LinkedList<Dish> dishes;
 
     public Menu() {
-        this.dishes = new LinkedList<>();
     }
 
     public Menu(Restaurant restaurant, LinkedList<Dish> dishes) {
@@ -35,7 +34,4 @@ public class Menu {
         return dishes;
     }
 
-    public void setDishes(LinkedList<Dish> dishes) {
-        this.dishes = dishes;
-    }
 }

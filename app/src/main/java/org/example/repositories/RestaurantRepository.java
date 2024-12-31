@@ -33,15 +33,6 @@ public class RestaurantRepository {
         restaurants.remove(restaurant);
     }
 
-    public void updateRestaurant(Restaurant restaurant) {
-        for (int i = 0; i < restaurants.size(); i++) {
-            if (restaurants.get(i).getName().equals(restaurant.getName())) {
-                restaurants.set(i, restaurant);
-                break;
-            }
-        }
-    }
-
     public Restaurant findByName(String name) {
         for (Restaurant restaurant : restaurants) {
             if (restaurant.getName().equals(name)) {

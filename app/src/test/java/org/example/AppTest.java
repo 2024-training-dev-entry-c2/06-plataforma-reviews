@@ -4,15 +4,18 @@ import org.example.models.Dish;
 import org.example.models.Menu;
 import org.example.models.Restaurant;
 import org.example.models.Review;
+import org.example.repositories.DishRepository;
 import org.example.repositories.MenuRepository;
 import org.example.repositories.RestaurantRepository;
 import org.example.repositories.ReviewRepository;
-import org.example.utils.consoleUtils.ConsoleUtils;
-import org.example.factories.DishReviewFactory;
-import org.example.factories.RestaurantReviewFactory;
+import org.example.services.dish.AddDishService;
 import org.example.services.review.AddReviewService;
 import org.example.services.review.RemoveReviewService;
+import org.example.controllers.DishController;
 import org.example.controllers.ReviewController;
+import org.example.factories.DishReviewFactory;
+import org.example.factories.RestaurantReviewFactory;
+import org.example.utils.consoleUtils.ConsoleUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +32,9 @@ class AppTest {
     private MenuRepository menuRepository;
     private RestaurantRepository restaurantRepository;
     private ReviewRepository reviewRepository;
+    private DishRepository dishRepository;
     private ReviewController reviewController;
+    private DishController dishController;
 
     @BeforeEach
     void setUp() {
@@ -37,9 +42,12 @@ class AppTest {
         menuRepository = MenuRepository.getInstance();
         restaurantRepository = RestaurantRepository.getInstance();
         reviewRepository = ReviewRepository.getInstance();
+        dishRepository = DishRepository.getInstance();
         AddReviewService addReviewService = new AddReviewService(reviewRepository);
         RemoveReviewService removeReviewService = new RemoveReviewService(reviewRepository);
+        AddDishService addDishService = new AddDishService(dishRepository);
         reviewController = new ReviewController(addReviewService, removeReviewService, console);
+        dishController = new DishController(addDishService, console);
     }
 
     @Test
@@ -234,5 +242,44 @@ class AppTest {
         // Assert
         verify(console).getString("Enter the comment of the review to remove: ");
         assertEquals(0, reviewRepository.getReviews().size());
+    }
+
+    @Test
+    void testDishModel() {
+        // Test constructor and getters
+        Dish dish = new Dish("Pizza", "Delicious cheese pizza", 9.99, Collections.emptyList());
+        assertEquals("Pizza", dish.getName());
+        assertEquals("Delicious cheese pizza", dish.getDescription());
+        assertEquals(9.99, dish.getPrice());
+        assertEquals(0, dish.getReviews().size());
+
+        // Test setters
+        dish.setName("Burger");
+        dish.setDescription("Juicy beef burger");
+        dish.setPrice(12.99);
+        dish.setReviews(Collections.emptyList());
+
+        assertEquals("Burger", dish.getName());
+        assertEquals("Juicy beef burger", dish.getDescription());
+        assertEquals(12.99, dish.getPrice());
+        assertEquals(0, dish.getReviews().size());
+    }
+
+    @Test
+    void testAddDish() {
+        // Arrange
+        when(console.getString("Enter the name of the dish: ")).thenReturn("Pizza");
+        when(console.getString("Enter the description of the dish: ")).thenReturn("Delicious cheese pizza");
+        when(console.getDouble("Enter the price of the dish: ")).thenReturn(9.99);
+
+        // Act
+        dishController.addDish();
+
+        // Assert
+        verify(console).getString("Enter the name of the dish: ");
+        verify(console).getString("Enter the description of the dish: ");
+        verify(console).getDouble("Enter the price of the dish: ");
+        assertEquals(1, dishRepository.getDishes().size());
+        assertEquals("Pizza", dishRepository.getDishes().get(0).getName());
     }
 }

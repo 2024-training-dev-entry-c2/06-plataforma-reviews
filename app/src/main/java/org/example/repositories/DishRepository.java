@@ -24,10 +24,6 @@ public class DishRepository {
         dishes.add(dish);
     }
 
-    public void removeDish(Dish dish) {
-        dishes.remove(dish);
-    }
-
     public Dish findByName(String name) {
         for (Dish dish : dishes) {
             if (dish.getName().equals(name)) {

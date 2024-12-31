@@ -35,11 +35,6 @@ public class MenuRepository implements Subject {
     }
 
     @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    @Override
     public void notifyObservers(String message) {
         for (Observer observer : observers) {
             observer.update(message);
@@ -66,10 +61,4 @@ public class MenuRepository implements Subject {
         }
     }
 
-    public void clearMenu(Restaurant restaurant) {
-        Menu menu = menus.get(restaurant);
-        if (menu != null) {
-            menu.getDishes().clear();
-        }
-    }
 }

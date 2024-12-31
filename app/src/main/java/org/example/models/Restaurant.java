@@ -32,28 +32,12 @@ public class Restaurant  {
         this.phone = phone;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDirection() {
-        return adress;
-    }
-
-    public void setDirection(String direction) {
-        this.adress = direction;
     }
 
     public Integer getAvailable() {

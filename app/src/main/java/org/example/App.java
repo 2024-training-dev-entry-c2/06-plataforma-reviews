@@ -1,11 +1,14 @@
 package org.example;
 
+import org.example.controllers.DishController;
 import org.example.controllers.MenuController;
 import org.example.controllers.RestaurantController;
 import org.example.controllers.ReviewController;
+import org.example.repositories.DishRepository;
 import org.example.repositories.MenuRepository;
 import org.example.repositories.RestaurantRepository;
 import org.example.repositories.ReviewRepository;
+import org.example.services.dish.AddDishService;
 import org.example.services.menu.AddDishToMenuService;
 import org.example.services.menu.RemoveFromMenuService;
 import org.example.services.restaurant.AddRestaurantService;
@@ -22,6 +25,7 @@ public class App {
         RestaurantRepository restaurantRepository = RestaurantRepository.getInstance();
         MenuRepository menuRepository = MenuRepository.getInstance();
         ReviewRepository reviewRepository = ReviewRepository.getInstance();
+        DishRepository dishRepository = DishRepository.getInstance();
 
         // Restaurant Services
         AddRestaurantService addRestaurantService = new AddRestaurantService(restaurantRepository);
@@ -36,6 +40,9 @@ public class App {
         AddReviewService addReviewService = new AddReviewService(reviewRepository);
         RemoveReviewService removeReviewService = new RemoveReviewService(reviewRepository);
 
+        // Dish Services
+        AddDishService addDishService = new AddDishService(dishRepository);
+
         // Utils
         ConsoleUtils console = new ConsoleUtils();
 
@@ -43,6 +50,7 @@ public class App {
         RestaurantController restaurantController = new RestaurantController(addRestaurantService, removeRestaurantService, displayRestaurantsService, console);
         MenuController menuController = new MenuController(addDishToMenuService, removeFromMenuService, console, restaurantRepository);
         ReviewController reviewController = new ReviewController(addReviewService, removeReviewService, console);
+        DishController dishController = new DishController(addDishService, console);
 
         // Restaurant operations
         restaurantController.addRestaurant();
@@ -57,5 +65,8 @@ public class App {
         // Review operations
         reviewController.addReview();
         reviewController.removeReview();
+
+        // Dish operations
+        dishController.addDish();
     }
 }

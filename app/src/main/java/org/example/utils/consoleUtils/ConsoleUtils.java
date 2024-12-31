@@ -1,6 +1,9 @@
 // src/main/java/com/example/utils/consoleUtils/ConsoleUtils.java
 package org.example.utils.consoleUtils;
 
+import org.example.repositories.DishRepository;
+import org.example.repositories.RestaurantRepository;
+
 import java.util.Scanner;
 
 public class ConsoleUtils {
@@ -34,6 +37,20 @@ public class ConsoleUtils {
             } catch (NumberFormatException e) {
                 System.out.println("Entrada no válida. Por favor, ingrese un número decimal.");
             }
+        }
+    }
+
+    public Object getObject(String prompt) {
+        System.out.print(prompt);
+        String type = scanner.nextLine();
+        if (type.equalsIgnoreCase("Dish")) {
+            String dishName = getString("Enter the name of the dish: ");
+            return DishRepository.getInstance().findByName(dishName);
+        } else if (type.equalsIgnoreCase("Restaurant")) {
+            String restaurantName = getString("Enter the name of the restaurant: ");
+            return RestaurantRepository.getInstance().findByName(restaurantName);
+        } else {
+            throw new IllegalArgumentException("Invalid type entered");
         }
     }
 
